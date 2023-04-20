@@ -1,0 +1,50 @@
+.wrapper{
+    height: calc(var(--vh, 1vh) * 100);
+    padding: 20vh 5vw;
+}
+
+.box{
+    height: 50vh;
+    width: 100%;
+    box-shadow: 1px 1px 10px 0px #595763;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+}
+
+.tit{
+    color: #292b51;
+}
+
+.input{
+    display: block;
+    width: 70vw;
+    height: 5vh;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    border: 1px solid  #595763;
+    text-align: center;;
+}
+
+.btn{
+    border-radius: 15px;
+    text-align: center;
+    width: 50vw;
+    height: 5vh;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    background-color: #292b51;
+    color: #fbefe1;
+    font-weight: 600;
+    box-shadow: 1px 1px 2px 1px #595763;
+}

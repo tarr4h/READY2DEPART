@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+<!--    &lt;!&ndash;    해당 설정파일에서 사용하는 프로퍼티&ndash;&gt;-->
+<!--    <Properties>-->
+<!--        <Property name="logNm">Spring Boot Sample</Property>-->
+<!--        <Property name="layoutPattern">%style{%d{yyyy/MM/dd HH:mm:ss,SSS}}{cyan} %highlight{[%-5p]}{FATAL=bg_red, ERROR=red,-->
+<!--            INFO=green, DEBUG=blue}  [%C] %style{[%t]}{yellow}- %m%n -</Property>-->
+<!--    </Properties>-->
+<!--    &lt;!&ndash;    LogEvent를 전달해주는 Appender&ndash;&gt;-->
+<!--    <Appenders>-->
+<!--        <Console name="Console_Appender" target="SYSTEM_OUT">-->
+<!--            <PatternLayout pattern="${layoutPattern}"/>-->
+<!--        </Console>-->
+<!--        <RollingFile name="File_Appender" fileName="logs/${logNm}.log" filePattern="logs/${logNm}_%d{yyyy-MM-dd}_%i.log.gz">-->
+<!--            <PatternLayout pattern="${layoutPattern}"/>-->
+<!--            <Policies>-->
+<!--                <SizeBasedTriggeringPolicy size="200KB"/>-->
+<!--                <TimeBasedTriggeringPolicy interval="1"/>-->
+<!--            </Policies>-->
+<!--            <DefaultRolloverStrategy max="10" fileIndex="min"/>-->
+<!--        </RollingFile>-->
+<!--    </Appenders>-->
+<!--    &lt;!&ndash;    실제 Logger&ndash;&gt;-->
+<!--    <Loggers>-->
+<!--        <Logger name="org.springframework" level="OFF"-->
+<!--                additivity="false">-->
+<!--            <AppenderRef ref="Console_Appender" />-->
+<!--            <AppenderRef ref="File_Appender"/>-->
+<!--        </Logger>-->
+<!--        <Logger name="com" level="INFO" additivity="false">-->
+<!--            <AppenderRef ref="Console_Appender" />-->
+<!--            <AppenderRef ref="File_Appender"/>-->
+<!--        </Logger>-->
+<!--        <Root level="INFO" additivity="false">-->
+<!--            <AppenderRef ref="Console_Appender"/>-->
+<!--            <AppenderRef ref="File_Appender"/>-->
+<!--        </Root>-->
+
+
+<!--            	    <logger name="jdbc.sqlonly" level="info" additivity="false" >-->
+<!--            	      <AppenderRef ref="Console_Appender" />-->
+<!--            	    </logger>-->
+<!--    </Loggers>-->
+        <Appenders>
+            <Console name="console" target="SYSTEM_OUT">
+                <PatternLayout pattern="%d{yyyy-MM-dd hh:mm:ss} %5p [%c] %m%n"/>
+            </Console>
+            <Console name="console-log" target="SYSTEM_OUT">
+                <PatternLayout pattern="%d{yyyy-MM-dd hh:mm:ss} %5p [%c] %n%msg%n"/>
+            </Console>
+        </Appenders>
+
+        <loggers>
+    	    <logger name="com.web" level="debug" additivity="true"/>
+
+            <Logger name="java.sql" level="info" additivity="false">
+                <AppenderRef ref="console" />
+            </Logger>
+
+            <Logger name="jdbc" level="OFF"/>
+
+            <Logger name="jdbc.sqltiming" level="off" additivity="false">
+                <AppenderRef ref="console" />
+            </Logger>
+
+            <Logger name="jdbc.resultsettable" level="off" additivity="false">
+                <appender-ref ref="console" />
+            </Logger>
+
+            <!-- 추가된 부분-->
+            <!-- Query Loggers -->
+            <Logger name="jdbc.sqlonly" level="info" additivity="false">
+                <appender-ref ref="console-log"/>
+            </Logger>
+            <!-- -->
+
+            <Root level="ERROR">
+                <AppenderRef ref="console" />
+            </Root>
+
+        </loggers>
+</Configuration>

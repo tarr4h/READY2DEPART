@@ -1,0 +1,49 @@
+package com.web.trv.auth.service;
+
+import com.web.trv.auth.dao.AuthDao;
+import com.web.trv.auth.model.UserVo;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Map;
+
+/**
+ * <pre>
+ * com.web.trv.auth.service.AuthService
+ *  - AuthService.java
+ * </pre>
+ *
+ * @author : tarr4h
+ * @ClassName : AuthService
+ * @description :
+ * @date : 2023-04-19
+ */
+
+@Service
+@Slf4j
+public class AuthService {
+
+    @Autowired
+    AuthDao dao;
+
+    public UserVo selectUser(Map<String, Object> param) {
+        return dao.selectUser(param);
+    }
+
+    public void changeLoginUserStatus(Map<String, Object> param) {
+        Map<String, Object> loginUser = dao.selectLoginUser(param);
+        log.debug("loginUser = {}", loginUser);
+        if(loginUser != null){
+            if(loginUser.get("loginYn").equals("Y")){
+                param.put("loginYn", "N");
+            } else {
+                param.put("loginYn", "Y");
+            }
+            log.debug("param = {}", param);
+            dao.updateLoginUser(param);
+        } else {
+            dao.insertLoginUser(param);
+        }
+    }
+}

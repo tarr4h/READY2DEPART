@@ -1,0 +1,1151 @@
+2023/04/21 00:14:50,279 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 14100 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:14:50,284 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:14:50,995 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:14:50,995 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting service [Tomcat]
+ -2023/04/21 00:14:50,996 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting Servlet engine: [Apache Tomcat/9.0.74]
+ -2023/04/21 00:14:51,040 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing Spring embedded WebApplicationContext
+ -2023/04/21 00:14:51,083 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Stopping service [Tomcat]
+ -2023/04/21 00:17:01,200 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 15180 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:17:01,204 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:17:01,644 [WARN ]  [org.mybatis.logging.Logger] [restartedMain]- No MyBatis mapper was found in '[com.web.trv]' package. Please check your configuration.
+ -2023/04/21 00:17:01,906 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:17:01,907 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting service [Tomcat]
+ -2023/04/21 00:17:01,907 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting Servlet engine: [Apache Tomcat/9.0.74]
+ -2023/04/21 00:17:01,953 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing Spring embedded WebApplicationContext
+ -2023/04/21 00:17:01,984 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Stopping service [Tomcat]
+ -2023/04/21 00:18:32,440 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 15448 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:18:32,444 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:18:32,868 [WARN ]  [org.mybatis.logging.Logger] [restartedMain]- No MyBatis mapper was found in '[com.web.trv]' package. Please check your configuration.
+ -2023/04/21 00:18:33,141 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:18:33,141 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting service [Tomcat]
+ -2023/04/21 00:18:33,141 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting Servlet engine: [Apache Tomcat/9.0.74]
+ -2023/04/21 00:18:33,192 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing Spring embedded WebApplicationContext
+ -2023/04/21 00:18:33,225 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Stopping service [Tomcat]
+ -2023/04/21 00:19:08,895 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 14760 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:19:08,899 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:19:09,604 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:19:09,605 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting service [Tomcat]
+ -2023/04/21 00:19:09,605 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting Servlet engine: [Apache Tomcat/9.0.74]
+ -2023/04/21 00:19:09,652 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing Spring embedded WebApplicationContext
+ -2023/04/21 00:19:10,108 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:19:10,126 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Started TrvWebApplication in 1.478 seconds (JVM running for 2.145)
+ -2023/04/21 00:19:19,352 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-1]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+ -2023/04/21 00:25:54,664 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 16020 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:25:54,668 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:25:55,374 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:25:55,374 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting service [Tomcat]
+ -2023/04/21 00:25:55,375 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting Servlet engine: [Apache Tomcat/9.0.74]
+ -2023/04/21 00:25:55,420 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing Spring embedded WebApplicationContext
+ -2023/04/21 00:25:55,911 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:25:55,930 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Started TrvWebApplication in 1.507 seconds (JVM running for 2.205)
+ -2023/04/21 00:26:07,332 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-1]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+ -2023/04/21 00:26:10,274 [ERROR]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-6]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+### The error may exist in file [C:\WORKSPACE\test\TRV_WEB\target\classes\mapper\auth-mapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: UPDATE  LOGIN_USER         SET                               IP_ADDR = ?             ,   LOGIN_DT = SYSDATE()             ,                               LOGIN_YN = ?             ,   MOD_DT = SYSDATE()         WHERE   ID = ?
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+; Column 'IP_ADDR' cannot be null; nested exception is java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null] with root cause
+ - java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194) ~[mybatis-3.5.9.jar:3.5.9]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at com.sun.proxy.$Proxy82.update(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:67) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy83.updateLoginUser(Unknown Source) ~[?:?]
+	at com.web.trv.auth.service.AuthService.changeLoginUserStatus(AuthService.java:43) ~[classes/:?]
+	at com.web.trv.auth.controller.AuthController.logout(AuthController.java:56) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.74.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.74.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at java.lang.Thread.run(Thread.java:834) ~[?:?]
+2023/04/21 00:27:29,658 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 14944 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:27:29,663 [DEBUG]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Running with Spring Boot v2.7.11, Spring v5.3.27
+ -2023/04/21 00:27:29,663 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:27:30,370 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:27:30,370 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting service [Tomcat]
+ -2023/04/21 00:27:30,370 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting Servlet engine: [Apache Tomcat/9.0.74]
+ -2023/04/21 00:27:30,418 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing Spring embedded WebApplicationContext
+ -2023/04/21 00:27:30,674 [DEBUG]  [com.web.trv.comn.config.WebMvcConfig] [restartedMain]- addInterCeptor*****
+ -2023/04/21 00:27:30,928 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:27:30,947 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Started TrvWebApplication in 1.548 seconds (JVM running for 2.237)
+ -2023/04/21 00:27:33,909 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-1]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+ -2023/04/21 00:27:33,919 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:27:33,932 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:27:33,937 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:27:33,937 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:27:34,066 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-3]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:27:34,067 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-3]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:27:39,594 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-4]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/logout
+ -- requestURL : http://localhost:8081/auth/logout
+ -- method     : POST
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:27:39,608 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-4]- ==>  Preparing: SELECT * FROM LOGIN_USER WHERE ID = ?
+ -2023/04/21 00:27:39,620 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-4]- ==> Parameters: admin(String)
+ -2023/04/21 00:27:39,634 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-4]- <==      Total: 1
+ -2023/04/21 00:27:39,634 [DEBUG]  [com.web.trv.auth.service.AuthService] [http-nio-8081-exec-4]- loginUser = {modDt=2023-04-21T00:19:43, loginYn=N, id=admin, ipAddr=0:0:0:0:0:0:0:1, loginDt=2023-04-20T23:27:20}
+ -2023/04/21 00:27:39,646 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-4]- ==>  Preparing: UPDATE LOGIN_USER SET IP_ADDR = ? , LOGIN_DT = SYSDATE() , LOGIN_YN = ? , MOD_DT = SYSDATE() WHERE ID = ?
+ -2023/04/21 00:27:39,646 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-4]- ==> Parameters: null, Y(String), admin(String)
+ -2023/04/21 00:27:39,683 [ERROR]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-4]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+### The error may exist in file [C:\WORKSPACE\test\TRV_WEB\target\classes\mapper\auth-mapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: UPDATE  LOGIN_USER         SET                               IP_ADDR = ?             ,   LOGIN_DT = SYSDATE()             ,                               LOGIN_YN = ?             ,   MOD_DT = SYSDATE()         WHERE   ID = ?
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+; Column 'IP_ADDR' cannot be null; nested exception is java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null] with root cause
+ - java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy96.execute(Unknown Source) ~[?:?]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194) ~[mybatis-3.5.9.jar:3.5.9]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at com.sun.proxy.$Proxy82.update(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:67) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy83.updateLoginUser(Unknown Source) ~[?:?]
+	at com.web.trv.auth.service.AuthService.changeLoginUserStatus(AuthService.java:43) ~[classes/:?]
+	at com.web.trv.auth.controller.AuthController.logout(AuthController.java:56) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.74.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.74.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at java.lang.Thread.run(Thread.java:834) ~[?:?]
+2023/04/21 00:27:39,692 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-4]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /error
+ -- requestURL : http://localhost:8081/error
+ -- method     : POST
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:27:39,719 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-4]- 
+ -------- /error ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:27:39,849 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-5]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:27:39,850 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-5]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:27:40,041 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-7]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:27:40,041 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-7]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:27:40,166 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:27:40,167 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:27:40,353 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-8]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:27:40,354 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-8]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:27:40,479 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-9]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:27:40,480 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-9]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:29:33,332 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 13512 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:29:33,336 [DEBUG]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Running with Spring Boot v2.7.11, Spring v5.3.27
+ -2023/04/21 00:29:33,336 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:29:34,024 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:29:34,025 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting service [Tomcat]
+ -2023/04/21 00:29:34,025 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting Servlet engine: [Apache Tomcat/9.0.74]
+ -2023/04/21 00:29:34,070 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing Spring embedded WebApplicationContext
+ -2023/04/21 00:29:34,308 [DEBUG]  [com.web.trv.comn.config.WebMvcConfig] [restartedMain]- addInterCeptor*****
+ -2023/04/21 00:29:34,555 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:29:34,573 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Started TrvWebApplication in 1.495 seconds (JVM running for 2.177)
+ -2023/04/21 00:29:43,801 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-1]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+ -2023/04/21 00:29:43,811 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:29:43,825 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:29:43,830 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:29:43,830 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:29:43,983 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-3]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:29:43,984 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-3]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:29:46,360 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-5]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/logout
+ -- requestURL : http://localhost:8081/auth/logout
+ -- method     : POST
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:29:46,373 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-5]- ==>  Preparing: SELECT * FROM LOGIN_USER WHERE ID = ?
+ -2023/04/21 00:29:46,384 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-5]- ==> Parameters: admin(String)
+ -2023/04/21 00:29:46,398 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-5]- <==      Total: 1
+ -2023/04/21 00:29:46,399 [DEBUG]  [com.web.trv.auth.service.AuthService] [http-nio-8081-exec-5]- loginUser = {modDt=2023-04-21T00:19:43, loginYn=N, id=admin, ipAddr=0:0:0:0:0:0:0:1, loginDt=2023-04-20T23:27:20}
+ -2023/04/21 00:29:46,411 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-5]- ==>  Preparing: UPDATE LOGIN_USER SET IP_ADDR = ? , LOGIN_DT = SYSDATE() , LOGIN_YN = ? , MOD_DT = SYSDATE() WHERE ID = ?
+ -2023/04/21 00:29:46,411 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-5]- ==> Parameters: null, Y(String), admin(String)
+ -2023/04/21 00:29:46,449 [ERROR]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-5]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+### The error may exist in file [C:\WORKSPACE\test\TRV_WEB\target\classes\mapper\auth-mapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: UPDATE  LOGIN_USER         SET                               IP_ADDR = ?             ,   LOGIN_DT = SYSDATE()             ,                               LOGIN_YN = ?             ,   MOD_DT = SYSDATE()         WHERE   ID = ?
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+; Column 'IP_ADDR' cannot be null; nested exception is java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null] with root cause
+ - java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy96.execute(Unknown Source) ~[?:?]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194) ~[mybatis-3.5.9.jar:3.5.9]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at com.sun.proxy.$Proxy82.update(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:67) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy83.updateLoginUser(Unknown Source) ~[?:?]
+	at com.web.trv.auth.service.AuthService.changeLoginUserStatus(AuthService.java:43) ~[classes/:?]
+	at com.web.trv.auth.controller.AuthController.logout(AuthController.java:56) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.74.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.74.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at java.lang.Thread.run(Thread.java:834) ~[?:?]
+2023/04/21 00:29:46,458 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-5]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /error
+ -- requestURL : http://localhost:8081/error
+ -- method     : POST
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:29:46,484 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-5]- 
+ -------- /error ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:29:46,628 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:29:46,628 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:29:46,802 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-4]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:29:46,803 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-4]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:29:46,944 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-7]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:29:46,945 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-7]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:29:47,118 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-8]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:29:47,119 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-8]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:29:47,261 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-9]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:29:47,262 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-9]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:31:17,687 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 9544 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:31:17,692 [DEBUG]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Running with Spring Boot v2.7.11, Spring v5.3.27
+ -2023/04/21 00:31:17,693 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:31:39,471 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 9072 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:31:39,475 [DEBUG]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Running with Spring Boot v2.7.11, Spring v5.3.27
+ -2023/04/21 00:31:39,475 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:31:40,195 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:31:40,196 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting service [Tomcat]
+ -2023/04/21 00:31:40,196 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting Servlet engine: [Apache Tomcat/9.0.74]
+ -2023/04/21 00:31:40,242 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing Spring embedded WebApplicationContext
+ -2023/04/21 00:31:40,489 [DEBUG]  [com.web.trv.comn.config.WebMvcConfig] [restartedMain]- addInterCeptor*****
+ -2023/04/21 00:31:40,745 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:31:40,766 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Started TrvWebApplication in 1.555 seconds (JVM running for 2.268)
+ -2023/04/21 00:32:08,114 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-1]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+ -2023/04/21 00:32:08,124 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:08,138 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:08,142 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:08,143 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:08,462 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-3]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:08,463 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-3]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:11,395 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/logout
+ -- requestURL : http://localhost:8081/auth/logout
+ -- method     : POST
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:11,408 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-6]- ==>  Preparing: SELECT * FROM LOGIN_USER WHERE ID = ?
+ -2023/04/21 00:32:11,420 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-6]- ==> Parameters: admin(String)
+ -2023/04/21 00:32:11,433 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-6]- <==      Total: 1
+ -2023/04/21 00:32:11,434 [DEBUG]  [com.web.trv.auth.service.AuthService] [http-nio-8081-exec-6]- loginUser = {modDt=2023-04-21T00:19:43, loginYn=N, id=admin, ipAddr=0:0:0:0:0:0:0:1, loginDt=2023-04-20T23:27:20}
+ -2023/04/21 00:32:11,434 [DEBUG]  [com.web.trv.auth.service.AuthService] [http-nio-8081-exec-6]- param = {loginYn=Y, id=admin}
+ -2023/04/21 00:32:11,445 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-6]- ==>  Preparing: UPDATE LOGIN_USER SET IP_ADDR = ? , LOGIN_DT = SYSDATE() , LOGIN_YN = ? , MOD_DT = SYSDATE() WHERE ID = ?
+ -2023/04/21 00:32:11,446 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-6]- ==> Parameters: null, Y(String), admin(String)
+ -2023/04/21 00:32:11,483 [ERROR]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-6]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+### The error may exist in file [C:\WORKSPACE\test\TRV_WEB\target\classes\mapper\auth-mapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: UPDATE  LOGIN_USER         SET                               IP_ADDR = ?             ,   LOGIN_DT = SYSDATE()             ,                               LOGIN_YN = ?             ,   MOD_DT = SYSDATE()         WHERE   ID = ?
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+; Column 'IP_ADDR' cannot be null; nested exception is java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null] with root cause
+ - java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy96.execute(Unknown Source) ~[?:?]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194) ~[mybatis-3.5.9.jar:3.5.9]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at com.sun.proxy.$Proxy82.update(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:67) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy83.updateLoginUser(Unknown Source) ~[?:?]
+	at com.web.trv.auth.service.AuthService.changeLoginUserStatus(AuthService.java:44) ~[classes/:?]
+	at com.web.trv.auth.controller.AuthController.logout(AuthController.java:56) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.74.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.74.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at java.lang.Thread.run(Thread.java:834) ~[?:?]
+2023/04/21 00:32:11,492 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /error
+ -- requestURL : http://localhost:8081/error
+ -- method     : POST
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:11,518 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+ -------- /error ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:11,833 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-5]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:11,834 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-5]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:12,100 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-4]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:12,101 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-4]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:12,149 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-7]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:12,149 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-7]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:12,420 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-8]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:12,421 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-8]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:12,466 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-9]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:12,466 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-9]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:39,114 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 16160 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:32:39,118 [DEBUG]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Running with Spring Boot v2.7.11, Spring v5.3.27
+ -2023/04/21 00:32:39,118 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:32:39,823 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:32:39,824 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting service [Tomcat]
+ -2023/04/21 00:32:39,824 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting Servlet engine: [Apache Tomcat/9.0.74]
+ -2023/04/21 00:32:39,873 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing Spring embedded WebApplicationContext
+ -2023/04/21 00:32:40,122 [DEBUG]  [com.web.trv.comn.config.WebMvcConfig] [restartedMain]- addInterCeptor*****
+ -2023/04/21 00:32:40,356 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:32:40,375 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Started TrvWebApplication in 1.512 seconds (JVM running for 2.221)
+ -2023/04/21 00:32:46,387 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-1]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+ -2023/04/21 00:32:46,396 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:46,410 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:46,606 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:46,607 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:46,922 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-5]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:46,923 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-5]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:49,084 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/logout
+ -- requestURL : http://localhost:8081/auth/logout
+ -- method     : POST
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:49,097 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-6]- ==>  Preparing: SELECT * FROM LOGIN_USER WHERE ID = ?
+ -2023/04/21 00:32:49,109 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-6]- ==> Parameters: admin(String)
+ -2023/04/21 00:32:49,122 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-6]- <==      Total: 1
+ -2023/04/21 00:32:49,123 [DEBUG]  [com.web.trv.auth.service.AuthService] [http-nio-8081-exec-6]- loginUser = {modDt=2023-04-21T00:19:43, loginYn=N, id=admin, ipAddr=0:0:0:0:0:0:0:1, loginDt=2023-04-20T23:27:20}
+ -2023/04/21 00:32:49,124 [DEBUG]  [com.web.trv.auth.service.AuthService] [http-nio-8081-exec-6]- param = {loginYn=Y, id=admin}
+ -2023/04/21 00:32:49,135 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-6]- ==>  Preparing: UPDATE LOGIN_USER SET IP_ADDR = ? , LOGIN_DT = SYSDATE() , LOGIN_YN = ? , MOD_DT = SYSDATE() WHERE ID = ?
+ -2023/04/21 00:32:49,136 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-6]- ==> Parameters: null, Y(String), admin(String)
+ -2023/04/21 00:32:49,170 [ERROR]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-6]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+### The error may exist in file [C:\WORKSPACE\test\TRV_WEB\target\classes\mapper\auth-mapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: UPDATE  LOGIN_USER         SET                               IP_ADDR = ?             ,   LOGIN_DT = SYSDATE()             ,                               LOGIN_YN = ?             ,   MOD_DT = SYSDATE()         WHERE   ID = ?
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+; Column 'IP_ADDR' cannot be null; nested exception is java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null] with root cause
+ - java.sql.SQLIntegrityConstraintViolationException: Column 'IP_ADDR' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy96.execute(Unknown Source) ~[?:?]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194) ~[mybatis-3.5.9.jar:3.5.9]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at com.sun.proxy.$Proxy82.update(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288) ~[mybatis-spring-2.0.7.jar:2.0.7]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:67) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy83.updateLoginUser(Unknown Source) ~[?:?]
+	at com.web.trv.auth.service.AuthService.changeLoginUserStatus(AuthService.java:44) ~[classes/:?]
+	at com.web.trv.auth.controller.AuthController.logout(AuthController.java:56) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.74.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.27.jar:5.3.27]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.74.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.27.jar:5.3.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.74.jar:9.0.74]
+	at java.lang.Thread.run(Thread.java:834) ~[?:?]
+2023/04/21 00:32:49,178 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /error
+ -- requestURL : http://localhost:8081/error
+ -- method     : POST
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:49,206 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+ -------- /error ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:49,515 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-3]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:49,516 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-3]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:49,780 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-4]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:49,780 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-4]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:49,827 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-7]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:49,828 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-7]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:50,095 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-8]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:50,096 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-8]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:32:50,141 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-9]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:32:50,142 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-9]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:33:35,798 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [Thread-5]- Pausing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:33:35,798 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [Thread-5]- Stopping service [Tomcat]
+ -2023/04/21 00:33:35,799 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [Thread-5]- Destroying Spring FrameworkServlet 'dispatcherServlet'
+ -2023/04/21 00:33:35,804 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [Thread-5]- Stopping ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:33:35,806 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [Thread-5]- Destroying ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:33:35,890 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 16160 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:33:35,891 [DEBUG]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Running with Spring Boot v2.7.11, Spring v5.3.27
+ -2023/04/21 00:33:35,891 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:33:36,072 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:33:36,072 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting service [Tomcat]
+ -2023/04/21 00:33:36,073 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting Servlet engine: [Apache Tomcat/9.0.74]
+ -2023/04/21 00:33:36,087 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing Spring embedded WebApplicationContext
+ -2023/04/21 00:33:36,149 [DEBUG]  [com.web.trv.comn.config.WebMvcConfig] [restartedMain]- addInterCeptor*****
+ -2023/04/21 00:33:36,192 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:33:36,197 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Started TrvWebApplication in 0.35 seconds (JVM running for 58.043)
+ -2023/04/21 00:33:37,638 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [Thread-7]- Pausing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:33:37,638 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [Thread-7]- Stopping service [Tomcat]
+ -2023/04/21 00:33:37,642 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [Thread-7]- Stopping ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:33:37,643 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [Thread-7]- Destroying ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:33:37,706 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Starting TrvWebApplication using Java 11 on DESKTOP-L2M7VTV with PID 16160 (C:\WORKSPACE\test\TRV_WEB\target\classes started by 한태우 in C:\WORKSPACE\test\TRV_WEB)
+ -2023/04/21 00:33:37,707 [DEBUG]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Running with Spring Boot v2.7.11, Spring v5.3.27
+ -2023/04/21 00:33:37,707 [INFO ]  [org.springframework.boot.SpringApplication] [restartedMain]- No active profile set, falling back to 1 default profile: "default"
+ -2023/04/21 00:33:37,853 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:33:37,853 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting service [Tomcat]
+ -2023/04/21 00:33:37,853 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting Servlet engine: [Apache Tomcat/9.0.74]
+ -2023/04/21 00:33:37,865 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Initializing Spring embedded WebApplicationContext
+ -2023/04/21 00:33:37,916 [DEBUG]  [com.web.trv.comn.config.WebMvcConfig] [restartedMain]- addInterCeptor*****
+ -2023/04/21 00:33:37,954 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [restartedMain]- Starting ProtocolHandler ["http-nio-8081"]
+ -2023/04/21 00:33:37,958 [INFO ]  [org.springframework.boot.StartupInfoLogger] [restartedMain]- Started TrvWebApplication in 0.286 seconds (JVM running for 59.804)
+ -2023/04/21 00:34:18,741 [INFO ]  [org.apache.juli.logging.DirectJDKLog] [http-nio-8081-exec-1]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+ -2023/04/21 00:34:18,742 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:18,742 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:18,744 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:34:18,744 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:34:18,817 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-3]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:18,818 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-3]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:34:19,740 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-4]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:19,741 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-4]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:34:20,009 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-5]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:20,009 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-5]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:34:20,321 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:20,321 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-6]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:34:45,165 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-7]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:45,166 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-7]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:34:45,319 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-8]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:45,319 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-8]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:34:45,477 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-9]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:45,478 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-9]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:34:46,781 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-10]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/logout
+ -- requestURL : http://localhost:8081/auth/logout
+ -- method     : POST
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:46,783 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-10]- ==>  Preparing: SELECT * FROM LOGIN_USER WHERE ID = ?
+ -2023/04/21 00:34:46,784 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-10]- ==> Parameters: admin(String)
+ -2023/04/21 00:34:46,785 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-10]- <==      Total: 1
+ -2023/04/21 00:34:46,785 [DEBUG]  [com.web.trv.auth.service.AuthService] [http-nio-8081-exec-10]- loginUser = {modDt=2023-04-21T00:19:43, loginYn=Y, id=admin, ipAddr=0:0:0:0:0:0:0:1, loginDt=2023-04-20T23:27:20}
+ -2023/04/21 00:34:46,785 [DEBUG]  [com.web.trv.auth.service.AuthService] [http-nio-8081-exec-10]- param = {loginYn=N, id=admin}
+ -2023/04/21 00:34:46,788 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-10]- ==>  Preparing: UPDATE LOGIN_USER SET LOGIN_YN = ? , MOD_DT = SYSDATE() WHERE ID = ?
+ -2023/04/21 00:34:46,788 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-10]- ==> Parameters: N(String), admin(String)
+ -2023/04/21 00:34:46,796 [DEBUG]  [org.apache.ibatis.logging.jdbc.BaseJdbcLogger] [http-nio-8081-exec-10]- <==    Updates: 1
+ -2023/04/21 00:34:46,797 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-10]- 
+ -------- /auth/logout ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:34:47,114 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:47,114 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-1]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -2023/04/21 00:34:47,383 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+[log-interceptor]
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -- requestURI : /auth/isLogin
+ -- requestURL : http://localhost:8081/auth/isLogin
+ -- method     : GET
+ -- remote ip  : 0:0:0:0:0:0:0:1
+ -- userAgent  : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+ ---------------------------------------------------------------------------------------
+ -2023/04/21 00:34:47,384 [DEBUG]  [com.web.trv.log.interceptor.LogInterceptor] [http-nio-8081-exec-2]- 
+ -------- /auth/isLogin ----------------------------------------------------------------------------------------------------------------------------------------------------------
+ -
