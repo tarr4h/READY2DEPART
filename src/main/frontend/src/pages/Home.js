@@ -9,12 +9,8 @@ function Home(){
     useEffect(() => {
         fetch('/auth/isLogin')
         .then(res => {
-            if(res.status === 200){
-                setIsLogin(true);
-            } else {
-                setIsLogin(false);
-                navigate('/login');
-            }
+            setIsLogin(res.ok);
+            if(!res.ok) navigate('/login');
         });
     }, [isLogin]);
 

@@ -3,6 +3,7 @@ package com.web.trv.auth.controller;
 import com.web.trv.auth.model.UserVo;
 import com.web.trv.auth.service.AuthService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,16 +37,16 @@ public class AuthController {
     @PostMapping("login")
     public ResponseEntity<?> login(@RequestBody Map<String, Object> param, HttpServletRequest req){
         UserVo user = service.selectUser(param);
-        HttpStatus status = HttpStatus.NOT_ACCEPTABLE;
+        boolean bool = false;
         if(user != null){
             HttpSession session = req.getSession();
             session.setAttribute("loginUser", user.getId());
             param.put("ipAddr", req.getRemoteAddr());
             service.changeLoginUserStatus(param);
 
-            status = HttpStatus.OK;
+            bool = true;
         }
-        return ResponseEntity.status(status).build();
+        return ResponseEntity.ok(bool);
     }
 
     @PostMapping("logout")
@@ -64,12 +65,12 @@ public class AuthController {
         HttpSession session = req.getSession();
         Object id = session.getAttribute("loginUser");
 
-        HttpStatus status = HttpStatus.OK;
+        boolean bool = true;
         if(id == null){
-            status = HttpStatus.NOT_ACCEPTABLE;
+            bool = false;
         }
 
-        return ResponseEntity.status(status).build();
+        return ResponseEntity.ok(bool);
     }
 
 }

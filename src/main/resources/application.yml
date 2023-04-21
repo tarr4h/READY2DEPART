@@ -9,6 +9,9 @@ spring:
     jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/trv_web
     username: root
     password: root
+  output:
+    ansi:
+      enabled: always
 
 
 logging:

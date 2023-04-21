@@ -11,7 +11,7 @@ function Login(){
     useEffect(() => {
         fetch('/auth/isLogin')
         .then(res => {
-            if(res.status === 200){
+            if(!res.ok){
                 navigate('/');
             }
         });
@@ -46,7 +46,8 @@ function Login(){
             body: JSON.stringify(param)
         });
         return loginRslt.then(res => {
-            return res.status === 200;
+            console.log(res.ok);
+            return res.ok;
         });
     }
 
