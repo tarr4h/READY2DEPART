@@ -1,31 +1,36 @@
-import {useNavigate} from "react-router-dom";
-import {useEffect, useState} from "react";
-import Login from "./Login";
+import {Routes, useNavigate, useParams} from "react-router-dom";
+import {lazy, useEffect, useState} from "react";
+import Header from "./layouts/Header";
+import Footer from "./layouts/Footer";
+import View from "./View";
+import PropTypes from "prop-types";
 
 function Home(){
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(false);
+    const {pg, extra} = useParams();
+
+    function defilePage(){
+        let page = pg;
+        if(extra != null) page = extra;
+        if(pg == null) page = 'home';
+        return page;
+    }
 
     useEffect(() => {
         fetch('/auth/isLogin')
-        .then(res => {
-            setIsLogin(res.ok);
-            if(!res.ok) navigate('/login');
+        .then(res => res.json())
+        .then(json => {
+            setIsLogin(json);
+            if(!json) navigate('/login');
         });
     }, [isLogin]);
 
-    function logout(){
-        fetch('/auth/logout', {
-            method: 'POST'
-        }).then(res => {
-            navigate('/login');
-        });
-    }
-
     return (
         <div>
-            <h1>HOME</h1>
-            <button onClick={logout}>logout</button>
+            <Header/>
+            <View page={defilePage()}/>
+            <Footer/>
         </div>
     )
 }

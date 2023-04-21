@@ -10,8 +10,9 @@ function Login(){
 
     useEffect(() => {
         fetch('/auth/isLogin')
-        .then(res => {
-            if(!res.ok){
+        .then(res => res.json())
+        .then(json => {
+            if(json){
                 navigate('/');
             }
         });
@@ -45,10 +46,10 @@ function Login(){
             },
             body: JSON.stringify(param)
         });
-        return loginRslt.then(res => {
-            console.log(res.ok);
-            return res.ok;
-        });
+        return loginRslt.then(res => res.json())
+            .then(json => {
+                return json;
+            });
     }
 
     return(

@@ -46,7 +46,7 @@ public class AuthController {
 
             bool = true;
         }
-        return ResponseEntity.ok(bool);
+        return ResponseEntity.ok().body(bool);
     }
 
     @PostMapping("logout")
@@ -70,7 +70,7 @@ public class AuthController {
             bool = false;
         }
 
-        return ResponseEntity.ok(bool);
+        return ResponseEntity.ok().body(bool);
     }
 
 }

@@ -1,0 +1,116 @@
+form{
+    padding: 8px;
+}
+.register_wrapper{
+    background-color: #FFF;
+    padding: 5px 5px 5px 8px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 0px #595763;
+}
+
+.line_case{
+    width: 88vw;
+    margin-bottom: 1vh;
+    padding: 5px;
+}
+
+.line_tit{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+}
+.line_tit span{
+    padding-left: 1vw;
+    color: #292b51;
+    font-weight: 600;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+.tit_btn{
+    display: flex;
+    float: right;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    height: 100%;
+}
+.tit_btn a, label{
+    display: flex;
+    border: 1px solid;
+    border-radius: 8px;
+    width: 17vw;
+    height: 3vh;
+    font-size: 14px;
+    padding: 2px;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+.tit_btn a:not(:last-child){
+    margin-right: 1vw;
+}
+
+.line_body{
+    width: 100%;
+}
+.line_body input{
+    width: 100%;
+    height: 5vh;
+    border: 1px solid #292b51;
+    border-radius: 7px;
+    padding-left: 2vw;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+.line_body textarea{
+    width: 100%;
+    height: 30vh;
+    resize: none;
+    border: 1px solid #292b51;
+    border-radius: 7px;
+    padding-left: 2vw;
+    padding-top: 1vh;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.line_foot{
+    width: 100%;
+}
+
+
+
+.search_loc{
+    width: 100%;
+    height: 30vh;
+    border: 1px solid gray;
+}
+
+.registerBtn{
+    display: flex;
+    width: 88vw;
+    height: 6vh;
+    border: 1px solid gray;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    border-radius: 7px;
+    background-color: #292b51;
+    color: white;
+    font-weight: 500;
+    font-size: 17px;
+    padding-left: 2vw;
+}
+

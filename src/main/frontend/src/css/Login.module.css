@@ -24,19 +24,21 @@
 .input{
     display: block;
     width: 70vw;
-    height: 5vh;
+    height: 6vh;
     margin-top: 1%;
     margin-bottom: 1%;
     border-radius: 10px;
     border: 1px solid  #595763;
-    text-align: center;;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 15px;
 }
 
 .btn{
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: center;
-    width: 50vw;
-    height: 5vh;
+    width: 70vw;
+    height: 6vh;
     margin-top: 3vh;
     display: flex;
     flex-direction: column;
