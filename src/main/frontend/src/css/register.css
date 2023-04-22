@@ -43,9 +43,9 @@ form{
     justify-content: space-around;
     height: 100%;
 }
-.tit_btn a, label{
+.tit_btn > a, label{
     display: flex;
-    border: 1px solid;
+    border: 2px solid #485373;
     border-radius: 8px;
     width: 17vw;
     height: 3vh;
@@ -56,6 +56,8 @@ form{
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
+    background-color: #485373;
+    color: #F6F7F1;
 }
 .tit_btn a:not(:last-child){
     margin-right: 1vw;
@@ -94,7 +96,18 @@ form{
 .search_loc{
     width: 100%;
     height: 30vh;
-    border: 1px solid gray;
+    margin-top: 1vh;
+}
+
+.previewWrapper{
+    display: flex;
+    overflow: scroll;
+}
+.previewImg{
+    height: 30vh;
+    border: 1px solid #292b51;
+    border-radius: 7px;
+    margin-right: 1vw;
 }
 
 .registerBtn{
@@ -113,4 +126,46 @@ form{
     font-size: 17px;
     padding-left: 2vw;
 }
+
+.addInfo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    padding-left: 5vw;
+    height: 6vh;
+}
+.addInfoRadio{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+.addInfoRadio > input[type=radio]{
+    display: none;
+}
+.addInfoRadio > label{
+    margin-left: 3vw;
+}
+.addInfoRadio > input[type=radio][class=green]+label{
+    background-color: #FFF;
+    color: #03631E;
+    border-color: #03631E;
+}
+.addInfoRadio > input[type=radio][class=red]+label{
+    background-color: #FFF;
+    color: #B02928;
+    border-color: #B02928;
+}
+.addInfoRadio > input[type=radio][class=green]:checked+label{
+    color: #FFF;
+    border-color: #03631E;
+    background-color: #03631E;
+}
+.addInfoRadio > input[type=radio][class=red]:checked+label{
+    color: #FFF;
+    border-color: #B02928;
+    background-color: #B02928;
+}
+
 

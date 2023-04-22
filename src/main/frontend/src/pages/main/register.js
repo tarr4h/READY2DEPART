@@ -1,18 +1,157 @@
 import '../../css/register.css';
 import '../../css/Comn.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
+const {kakao} = window;
+const {daum} = window;
 
 function Register(){
 
     const [searchLoc, setSearchLoc] = useState(false);
+    const [additionalInfo, setAdditionalInfo] = useState(false);
+    const [addr, setAddr] = useState('');
+    const [fileList, setFileList] = useState([]);
+    const [previewList, setPreviewList] = useState([]);
+
     const {register, handleSubmit} = useForm();
 
-    function showSearchLoc(){
-        setSearchLoc((current) => !current);
+    useEffect(() => {
+        void findLocByGeoLoc();
+    }, []);
+
+    function showAdditionalInfo(){
+        setAdditionalInfo((current) => !current);
     }
 
+    function showSearchLoc(){
+        void findLocByGeoLoc();
+        setSearchLoc(true);
+    }
+
+    ///// geoLocation
+    function getGeoLocation() {
+        return new Promise(function (resolve) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    let latitude = position.coords.latitude;
+                    let longitude = position.coords.longitude;
+
+                    let loc = {
+                        latitude,
+                        longitude
+                    };
+
+                    resolve(loc);
+                });
+            } else {
+                alert('geolocation 사용불가');
+            }
+        })
+    }
+
+    function getLocationByPostCode(){
+        new daum.Postcode({
+            oncomplete: function(data) {
+                findLocByAddr(data.address);
+            }
+        }).open();
+    }
+
+    function findLocByAddr(addr){
+        let geocoder = new kakao.maps.services.Geocoder();
+
+        geocoder.addressSearch(addr, function(result, status){
+            let geoLoc = {
+                latitude : result[0].road_address.y,
+                longitude : result[0].road_address.x
+            }
+
+            setAddress(geoLoc);
+            setSearchLoc(true);
+        });
+    }
+
+    async function findLocByGeoLoc() {
+        let geoLoc = await getGeoLocation();
+        setAddress(geoLoc);
+    }
+
+    function setAddress(geoLoc){
+        let geocoder = new kakao.maps.services.Geocoder();
+        let coord = new kakao.maps.LatLng(geoLoc.latitude, geoLoc.longitude);
+        let callback = function (res, status, jqXHR) {
+            if(res[0].road_address != null){
+                setAddr(res[0].road_address.address_name);
+            } else {
+                setAddr(res[0].address.address_name);
+            }
+        };
+
+        geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+
+        setMap(geoLoc);
+    }
+
+    function setMap(geoLoc){
+        let mapContainer = document.getElementById('map'),
+            mapOption = {
+                center: new kakao.maps.LatLng(geoLoc.latitude, geoLoc.longitude),
+                level: 3
+            };
+
+        let map = new kakao.maps.Map(mapContainer, mapOption);
+
+        let markerPosition = new kakao.maps.LatLng(geoLoc.latitude, geoLoc.longitude);
+        let marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        marker.setMap(map);
+
+        // 지도 클릭하여 주소, 마커 재지정
+        kakao.maps.event.addListener(map, 'click', function(mouseEvent){
+            let latlng = mouseEvent.latLng;
+
+            marker.setPosition(latlng);
+
+            let param = {
+                latitude : latlng.getLat(),
+                longitude : latlng.getLng()
+            }
+
+            setAddress(param);
+        })
+    }
+
+    function uploadFile(e){
+        let newFileList = fileList;
+        let appendFiles = e.target.files;
+        Array.from(appendFiles).forEach(item => {
+            newFileList.push(item);
+        });
+        setFileList([...newFileList]);
+        appendPreview();
+    }
+
+    function appendPreview(appendFileList){
+        let appendPreviewList = [];
+        fileList.forEach(file => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+
+            return new Promise((resolve) => {
+                reader.onload = () => {
+                    appendPreviewList.push(reader.result);
+                    setPreviewList([...appendPreviewList]);
+                    resolve();
+                }
+            })
+        })
+    }
+
+
     const onSubmit = (data) => {
+        data.fileList = fileList;
         console.log(data);
     }
 
@@ -32,19 +171,32 @@ function Register(){
                         <div className="line_tit">
                             <span>장소</span>
                             <div className="tit_btn">
-                                <a>현재위치</a>
-                                <a onClick={showSearchLoc}>위치검색</a>
+                                <a onClick={showSearchLoc}>현재위치</a>
+                                <a onClick={getLocationByPostCode}>위치검색</a>
                             </div>
                         </div>
                         <div className="line_body">
-                            <input type="text" name="location" {...register("location")}/>
+                            <input
+                                type="text"
+                                name="location"
+                                value={addr}
+                                {...register("location")}
+                                readOnly={true}
+                            />
                         </div>
                         <div className="line_foot">
                             <div className="search_loc"
                                  style={
-                                    searchLoc ? {} : {display:'none'}
+                                    searchLoc ? {visibility:'visible', height:'inherit'} : {visibility:'hidden', height: 0}
                                  }
-                            ></div>
+                            >
+                                <div id="map"
+                                     style={{
+                                         width: '100%',
+                                         height: '30vh'
+                                     }}
+                                ></div>
+                            </div>
                         </div>
                     </div>
                     <div className="line_case">
@@ -53,6 +205,14 @@ function Register(){
                         </div>
                         <div className="line_body">
                             <input type="text" name="locNm" {...register("locNm")}/>
+                        </div>
+                    </div>
+                    <div className="line_case">
+                        <div className="line_tit">
+                            <span>한줄요약</span>
+                        </div>
+                        <div className="line_body">
+                            <input type="text" name="summary" {...register("summary")}/>
                         </div>
                     </div>
                     <div className="line_case">
@@ -74,21 +234,48 @@ function Register(){
                                     id="fileInput"
                                     type="file"
                                     name="file"
-                                    {...register("file")}
+                                    onChange={uploadFile}
                                     multiple={true}
                                     hidden={true}
                                 />
                             </div>
                         </div>
                         <div className="line_body">
-
+                            <div className="previewWrapper">
+                                {previewList.map((preview, index) => (
+                                    <img className="previewImg" key={index} src={preview} alt=""/>
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <div className="line_case">
                         <div className="line_tit">
                             <span>추가정보</span>
                             <div className="tit_btn">
-                                <a>입력하기</a>
+                                <a onClick={showAdditionalInfo}
+                                   style={
+                                        additionalInfo ? {backgroundColor: '#FFF', color:'#485373'} : {}
+                                   }
+                                >
+                                    {additionalInfo ? '닫기' : '입력하기'}
+                                </a>
+                            </div>
+                        </div>
+                        <div className="line_body">
+                            <div className="addInfoWrapper"
+                                style={
+                                    additionalInfo ? {} : {display:'none'}
+                                }
+                            >
+                                <div className="addInfo">
+                                    <span>주차</span>
+                                    <div className="addInfoRadio">
+                                        <input type="radio" id="parkingY" className="green" name="parking" value="Y" {...register("parking")}/>
+                                        <label htmlFor="parkingY">가능</label>
+                                        <input type="radio" id="parkingN" className="red" name="parking" value="N" {...register("parking")} defaultChecked={true}/>
+                                        <label htmlFor="parkingN">불가능</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
