@@ -46,7 +46,7 @@ public class RegisterController {
 
     @PostMapping(value = "insertFile")
     public ResponseEntity<?> insertFile(@RequestParam(value="file", required = false) MultipartFile[] fileList) throws IOException {
-        log.debug("fileList length = {}", fileList.length);
+        log.debug("request files = {}", fileList.length);
         int result = service.insertFile(fileList);
         log.debug("result = {}", result);
         return ResponseEntity.ok().body(false);
