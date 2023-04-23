@@ -12,6 +12,12 @@ spring:
   output:
     ansi:
       enabled: always
+  servlet:
+    multipart:
+      enabled: true
+      location: C:\WORKSPACE\ATTACH
+      max-file-size: 100MB
+      max-request-size: 500MB
 
 
 logging:

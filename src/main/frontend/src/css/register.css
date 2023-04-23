@@ -101,7 +101,7 @@ form{
 
 .previewWrapper{
     display: flex;
-    overflow: scroll;
+    overflow: auto;
 }
 .previewImg{
     height: 30vh;
@@ -127,6 +127,9 @@ form{
     padding-left: 2vw;
 }
 
+.addInfoWrapper{
+    margin-top: 1vh;
+}
 .addInfo{
     display: flex;
     flex-direction: row;

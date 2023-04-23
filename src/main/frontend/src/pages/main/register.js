@@ -2,13 +2,15 @@ import '../../css/register.css';
 import '../../css/Comn.css';
 import {useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
+import AddInfo from "./addInfo";
 const {kakao} = window;
 const {daum} = window;
 
 function Register(){
 
     const [searchLoc, setSearchLoc] = useState(false);
-    const [additionalInfo, setAdditionalInfo] = useState(false);
+    const [additionalInfoView, setAdditionalInfoView] = useState(false);
+    const [additionalInfo, setAdditionalInfo] = useState([]);
     const [addr, setAddr] = useState('');
     const [fileList, setFileList] = useState([]);
     const [previewList, setPreviewList] = useState([]);
@@ -20,7 +22,7 @@ function Register(){
     }, []);
 
     function showAdditionalInfo(){
-        setAdditionalInfo((current) => !current);
+        setAdditionalInfoView((current) => !current);
     }
 
     function showSearchLoc(){
@@ -149,15 +151,53 @@ function Register(){
         })
     }
 
-
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         data.fileList = fileList;
+        data.addInfoList = additionalInfo;
         console.log(data);
+
+        let result = await(await insertContent(data)).json();
+        console.log(result);
+        let fileResult = await(await insertFile(fileList)).json();
+        console.log(fileResult);
+    }
+
+    function insertContent(param){
+        return new Promise((resolve, reject) => {
+            let res = fetch('/register/insertContent', {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json',
+                },
+                body: JSON.stringify(param)
+            });
+            resolve(res);
+        })
+    }
+
+    function insertFile(files){
+        return new Promise((resolve, reject) => {
+            let formData = new FormData();
+            files.forEach(file => {
+                formData.append('file', file);
+            });
+
+            let res = fetch('/register/insertFile', {
+                method : 'POST',
+                headers : {
+                    enctype : 'multipart/form-data'
+                },
+                body : formData
+            });
+            resolve(res);
+        })
+
+
     }
 
     return (
         <div>
-            <form id="regFrm" onSubmit={handleSubmit(onSubmit)}>
+            <form id="regFrm" onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                 <div className="register_wrapper">
                     <div className="line_case">
                         <div className="line_tit">
@@ -254,28 +294,16 @@ function Register(){
                             <div className="tit_btn">
                                 <a onClick={showAdditionalInfo}
                                    style={
-                                        additionalInfo ? {backgroundColor: '#FFF', color:'#485373'} : {}
+                                       additionalInfoView ? {backgroundColor: '#FFF', color:'#485373'} : {}
                                    }
                                 >
-                                    {additionalInfo ? '닫기' : '입력하기'}
+                                    {additionalInfoView ? '닫기' : '입력하기'}
                                 </a>
                             </div>
                         </div>
                         <div className="line_body">
-                            <div className="addInfoWrapper"
-                                style={
-                                    additionalInfo ? {} : {display:'none'}
-                                }
-                            >
-                                <div className="addInfo">
-                                    <span>주차</span>
-                                    <div className="addInfoRadio">
-                                        <input type="radio" id="parkingY" className="green" name="parking" value="Y" {...register("parking")}/>
-                                        <label htmlFor="parkingY">가능</label>
-                                        <input type="radio" id="parkingN" className="red" name="parking" value="N" {...register("parking")} defaultChecked={true}/>
-                                        <label htmlFor="parkingN">불가능</label>
-                                    </div>
-                                </div>
+                            <div className="addInfoWrapper">
+                                {additionalInfoView ? <AddInfo additionalInfo={additionalInfo} setAdditionalInfo={setAdditionalInfo}/> : null}
                             </div>
                         </div>
                     </div>
