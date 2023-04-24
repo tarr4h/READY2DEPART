@@ -1,6 +1,6 @@
 import '../../css/register.css';
 import '../../css/Comn.css';
-import {useEffect, useState} from "react";
+import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {useForm} from "react-hook-form";
 import AddInfo from "./addInfo";
 const {kakao} = window;
@@ -8,14 +8,20 @@ const {daum} = window;
 
 function Register(){
 
+    const [httpPlaceholder, setHttpPlaceholder] = useState(false);
     const [searchLoc, setSearchLoc] = useState(false);
     const [additionalInfoView, setAdditionalInfoView] = useState(false);
     const [additionalInfo, setAdditionalInfo] = useState([]);
-    const [addr, setAddr] = useState('');
     const [fileList, setFileList] = useState([]);
     const [previewList, setPreviewList] = useState([]);
 
-    const {register, handleSubmit} = useForm();
+    const [latitude, setLatitude] = useState(0);
+    const [longitude, setLongitude] = useState(0);
+
+    const [validateLoc, setValidateLoc] = useState(true);
+    const [validateLocNm, setValidateLocNm] = useState(true);
+
+    const {register, setValue, handleSubmit} = useForm();
 
     useEffect(() => {
         void findLocByGeoLoc();
@@ -43,12 +49,14 @@ function Register(){
                         longitude
                     };
 
+                    if(loc !== {}){
+                        setHttpPlaceholder(true);
+                    }
+
                     resolve(loc);
                 });
-            } else {
-                alert('geolocation 사용불가');
             }
-        })
+        });
     }
 
     function getLocationByPostCode(){
@@ -83,14 +91,15 @@ function Register(){
         let coord = new kakao.maps.LatLng(geoLoc.latitude, geoLoc.longitude);
         let callback = function (res, status, jqXHR) {
             if(res[0].road_address != null){
-                setAddr(res[0].road_address.address_name);
+                setValue('location', res[0].road_address.address_name);
             } else {
-                setAddr(res[0].address.address_name);
+                setValue('location', res[0].address.address_name);
             }
         };
 
         geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
-
+        setLatitude(geoLoc.latitude);
+        setLongitude(geoLoc.longitude);
         setMap(geoLoc);
     }
 
@@ -125,11 +134,17 @@ function Register(){
         })
     }
 
+    function uploadFileOnClick(event){
+        event.target.value = null;
+    }
+
     function uploadFile(e){
         let newFileList = fileList;
         let appendFiles = e.target.files;
         Array.from(appendFiles).forEach(item => {
-            newFileList.push(item);
+            if(item.type.includes('image')){
+                newFileList.push(item);
+            }
         });
         setFileList([...newFileList]);
         appendPreview();
@@ -154,12 +169,14 @@ function Register(){
     const onSubmit = async (data) => {
         data.fileList = fileList;
         data.addInfoList = additionalInfo;
+        data.latitude = latitude;
+        data.longitude = longitude;
         console.log(data);
 
-        let result = await(await insertContent(data)).json();
-        console.log(result);
-        let fileResult = await(await insertFile(fileList)).json();
-        console.log(fileResult);
+        // let result = await(await insertContent(data)).json();
+        // console.log(result);
+        // let fileResult = await(await insertFile(fileList)).json();
+        // console.log(fileResult);
     }
 
     function insertContent(param){
@@ -190,9 +207,17 @@ function Register(){
                 body : formData
             });
             resolve(res);
-        })
+        });
+    }
 
-
+    const removeImg = (evt) => {
+        let index = Number(evt.target.dataset.index);
+        setPreviewList(current => current.filter((val, ind) => {
+            return ind !== index;
+        }));
+        setFileList(current => current.filter((val, ind) => {
+            return ind !== index;
+        }));
     }
 
     return (
@@ -201,17 +226,9 @@ function Register(){
                 <div className="register_wrapper">
                     <div className="line_case">
                         <div className="line_tit">
-                            <span>제목</span>
-                        </div>
-                        <div className="line_body">
-                            <input type="text" name="title" {...register("title")}/>
-                        </div>
-                    </div>
-                    <div className="line_case">
-                        <div className="line_tit">
                             <span>장소</span>
                             <div className="tit_btn">
-                                <a onClick={showSearchLoc}>현재위치</a>
+                                {httpPlaceholder ? <a onClick={showSearchLoc}>현재위치</a> : ''}
                                 <a onClick={getLocationByPostCode}>위치검색</a>
                             </div>
                         </div>
@@ -219,8 +236,8 @@ function Register(){
                             <input
                                 type="text"
                                 name="location"
-                                value={addr}
                                 {...register("location")}
+                                placeholder={httpPlaceholder ? '' : '위치검색을 통해 입력해주세요.'}
                                 readOnly={true}
                             />
                         </div>
@@ -244,7 +261,8 @@ function Register(){
                             <span>장소명</span>
                         </div>
                         <div className="line_body">
-                            <input type="text" name="locNm" {...register("locNm")}/>
+                            <input type="text" name="locationNm" {...register("locationNm")}/>
+                            {validateLocNm ? '' : <span>장소명을 입력해주세요!</span>}
                         </div>
                     </div>
                     <div className="line_case">
@@ -275,6 +293,7 @@ function Register(){
                                     type="file"
                                     name="file"
                                     onChange={uploadFile}
+                                    onClick={uploadFileOnClick}
                                     multiple={true}
                                     hidden={true}
                                 />
@@ -283,8 +302,30 @@ function Register(){
                         <div className="line_body">
                             <div className="previewWrapper">
                                 {previewList.map((preview, index) => (
-                                    <img className="previewImg" key={index} src={preview} alt=""/>
+                                    <div key={index}>
+                                        <img className="previewImg" src={preview} alt=""/>
+                                        <div className="previewImgClose" data-index={index} onClick={removeImg}>X</div>
+                                    </div>
                                 ))}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="line_case">
+                        <div className="line_tit">
+                            <span>어땠나요?</span>
+                            <div className="tit_btn">
+                                <div className="rating">
+                                    <input type="radio" name="rating" value="5" {...register("rating")} id="rating-5"/>
+                                    <label htmlFor="rating-5"></label>
+                                    <input type="radio" name="rating" value="4" {...register("rating")} id="rating-4"/>
+                                    <label htmlFor="rating-4"></label>
+                                    <input type="radio" name="rating" value="3" {...register("rating")} id="rating-3" defaultChecked={true}/>
+                                    <label htmlFor="rating-3"></label>
+                                    <input type="radio" name="rating" value="2" {...register("rating")} id="rating-2"/>
+                                    <label htmlFor="rating-2"></label>
+                                    <input type="radio" name="rating" value="1" {...register("rating")} id="rating-1"/>
+                                    <label htmlFor="rating-1"></label>
+                                </div>
                             </div>
                         </div>
                     </div>
