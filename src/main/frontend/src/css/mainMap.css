@@ -1,0 +1,14 @@
+.mainMapWrapper{
+    border: 1px solid gray;
+    padding: 1vh 1vw;
+}
+
+.mapHeader{
+    border: 1px solid gray;
+}
+
+.mapBody{
+    border: 1px solid gray;
+    margin-top: 1vh;
+    min-height: 30vh;
+}

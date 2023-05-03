@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.trv.program.board.dao.BoardDao">
+
+    <resultMap id="boardList" type="com.web.trv.program.board.model.BoardVo">
+        <collection column="boardId = id" property="addInfoList" javaType="List" ofType="com.web.trv.program.board.model.AddInfoVo"
+                    select="selectAddInfoList"/>
+        <collection column="refId = id" property="fileList" javaType="List" ofType="com.web.trv.comn.model.FileVo"
+                    select="selectFileList"/>
+        <collection column="boardId = id" property="district" javaType="com.web.trv.program.board.model.BoardDistrictVo"
+                    select="selectBoardDistrict"/>
+    </resultMap>
+
+    <select id="selectBoardList" resultMap="boardList">
+        SELECT  *
+        FROM    BOARD
+    </select>
+
+    <select id="selectAddInfoList" resultType="com.web.trv.program.board.model.AddInfoVo">
+        SELECT  A.*
+            ,   (SELECT NM
+                 FROM   SYS_CODE
+                 WHERE  ID = A.SYS_CODE) sysCodeNm
+        FROM    BOARD_ADD_INFO A
+        WHERE   BOARD_ID = #{boardId}
+            AND VAL = 'Y'
+    </select>
+
+    <select id="selectFileList" resultType="com.web.trv.comn.model.FileVo">
+        SELECT  *
+        FROM    FILE
+        WHERE   REF_ID = #{refId}
+    </select>
+
+    <select id="selectBoardDistrict" resultType="com.web.trv.program.board.model.BoardDistrictVo">
+        SELECT  *
+        FROM    BOARD_DISTRICT
+        WHERE   BOARD_ID = #{boardId}
+    </select>
+
+</mapper>

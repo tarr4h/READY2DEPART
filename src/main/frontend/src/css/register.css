@@ -58,6 +58,7 @@ form{
     justify-content: center;
     background-color: #485373;
     color: #F6F7F1;
+    user-select : none;
 }
 .tit_btn a:not(:last-child){
     margin-right: 1vw;
@@ -105,16 +106,16 @@ form{
 }
 .previewWrapper > div{
     position: relative;
+    margin-right: 1vw;
 }
 .previewImg{
     height: 30vh;
     border-radius: 7px;
-    margin-right: 1vw;
 }
 .previewImgClose{
     position: absolute;
     display: inline;
-    right: 0;
+    right: 1vw;
     z-index: 1;
     cursor: pointer;
     font-weight: 600;
@@ -135,6 +136,22 @@ form{
     font-weight: 500;
     font-size: 17px;
     padding-left: 2vw;
+}
+
+.categoryWrapper{
+    display: flex;
+    justify-content: space-around;
+}
+.categoryRadio > input[type=radio]{
+    display: none;
+}
+.categoryRadio > label{
+    background-color:#FFF;
+    color: #485373;
+}
+.categoryRadio > input[type=radio]:checked+label{
+    background-color:#485373;
+    color: #FFF;
 }
 
 .addInfoWrapper{

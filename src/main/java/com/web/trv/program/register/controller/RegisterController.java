@@ -38,17 +38,20 @@ public class RegisterController {
         return ResponseEntity.ok().body(list);
     }
 
-    @PostMapping("insertContent")
-    public ResponseEntity<?> insertContent(@RequestParam Map<String, Object> param){
-        log.debug("param = {}", param);
-        return ResponseEntity.ok().body(99);
+    @GetMapping("selectBoardCategory")
+    public ResponseEntity<?> selectBoardCategory(){
+        List<SysCodeVo> list = service.selectBoardCategory();
+        return ResponseEntity.ok().body(list);
+    }
+
+    @PostMapping("insertBoard")
+    public ResponseEntity<?> insertBoard(@RequestBody Map<String, Object> param){
+        return ResponseEntity.ok().body(service.insertBoard(param));
     }
 
     @PostMapping(value = "insertFile")
-    public ResponseEntity<?> insertFile(@RequestParam(value="file", required = false) MultipartFile[] fileList) throws IOException {
-        log.debug("request files = {}", fileList.length);
-        int result = service.insertFile(fileList);
-        log.debug("result = {}", result);
+    public ResponseEntity<?> insertFile(@RequestParam(value="file", required = false) MultipartFile[] fileList, String boardId) throws IOException {
+        int result = service.insertFile(fileList, boardId);
         return ResponseEntity.ok().body(false);
     }
 }

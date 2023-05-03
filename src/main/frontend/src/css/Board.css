@@ -1,0 +1,111 @@
+.boardWrapper{
+    padding: 1vh 1vw;
+}
+
+.boardWrapper > div:nth-child(1){
+    height: 4vh;
+    padding: 1vh 1vw;
+    text-align: right;
+}
+
+.board{
+    display: flex;
+    height: 15vh;
+    border: 1px solid gray;
+    margin-bottom: 1vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.flex-left{
+    width: 60%;
+    height: inherit;
+}
+.flex-right{
+    width: 40%;
+    height: inherit;
+}
+.top{
+    box-sizing: border-box;
+    padding: 1vh 2vw;
+    height: 40%;
+}
+.bottom{
+    box-sizing: border-box;
+    padding: 0.5vh 2vw 1vh 2vw;
+    height: 60%;
+}
+
+
+.flex-left > .top{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+}
+.flex-left > .bottom{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-end;
+}
+.flex-left > .bottom > div:nth-child(1){
+    height: 60%;
+    box-sizing: border-box;
+    overflow-x: scroll;
+    width: 100%;
+}
+.flex-left > .bottom > div:nth-child(1) > div{
+    display: inline;
+    margin-right: 1vw;
+    border: 1px solid gray;
+    padding: 0.1vh 1vw;
+    font-size: 0.8rem;
+    border-radius: 5px;
+}
+.flex-left > .bottom > div:nth-child(2){
+    height: 40%;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    font-size: 0.7rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.flex-right > .top{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.flex-right > .bottom{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: flex-end;
+    font-size: 0.8rem;
+}
+
+.title{
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: block;
+}
+
+.regionWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.regionWrapper > div{
+    border: 1px solid gray;
+    padding: 0.1vh 2vw;
+    margin-left: 1vw;
+}

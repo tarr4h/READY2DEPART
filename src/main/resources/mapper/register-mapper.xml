@@ -9,4 +9,66 @@
         FROM    SYS_CODE
         WHERE   UP_ID = 'SYS0000001' <!-- ADD_INFO -->
     </select>
+
+    <select id="selectBoardCategory" resultType="com.web.trv.comn.model.SysCodeVo">
+        SELECT  *
+        FROM    SYS_CODE
+        WHERE   UP_ID = 'SYS0000011' <!-- ADD_INFO -->
+    </select>
+
+    <insert id="insertBoard">
+        INSERT INTO BOARD
+        (ID, TITLE, SUMMARY, CONTENT, CATEGORY, RATING)
+        VALUES(
+                CONCAT('BRD', LPAD(NEXTVAL(seq_board_id), 7, 0))
+            ,   #{title}
+            ,   #{summary}
+            ,   #{content}
+            ,   #{category}
+            ,   #{rating}
+        )
+        <selectKey resultType="String" keyProperty="boardId">
+            SELECT CONCAT('BRD', LPAD(LASTVAL(seq_board_id), 7, 0))
+        </selectKey>
+    </insert>
+
+    <insert id="insertDistrictInfo">
+        INSERT INTO BOARD_DISTRICT
+        (BOARD_ID, LATITUDE, LONGITUDE, REGION_1, REGION_2, ADDR)
+        VALUES (
+                #{boardId}
+            ,   #{district.latitude}
+            ,   #{district.longitude}
+            ,   #{district.region1}
+            ,   #{district.region2}
+            ,   #{district.addr}
+        )
+    </insert>
+
+    <insert id="insertAddInfo">
+        INSERT INTO BOARD_ADD_INFO
+        (BOARD_ID, SYS_CODE, VAL)
+        VALUES
+        <foreach collection="addInfoList" item="addInfo" separator=",">
+            (
+                    #{boardId}
+                ,   #{addInfo.sysCd}
+                ,   #{addInfo.val}
+            )
+        </foreach>
+    </insert>
+
+    <insert id="insertFile">
+        INSERT INTO FILE
+        (ID, REF_ID, OFN, RFN, TYPE, SIZE, DIR)
+        VALUES(
+                CONCAT('FLE', LPAD(NEXTVAL(SEQ_FILE_ID), 7, 0))
+           ,    #{refId}
+           ,    #{ofn}
+           ,    #{rfn}
+           ,    #{type}
+           ,    #{size}
+           ,    #{dir}
+        )
+    </insert>
 </mapper>

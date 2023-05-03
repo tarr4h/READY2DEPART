@@ -3,29 +3,44 @@ import '../../css/Comn.css';
 import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {useForm} from "react-hook-form";
 import AddInfo from "./addInfo";
+import {useNavigate} from "react-router-dom";
+import axios from "axios";
+import BoardCategory from "./boardCategory";
 const {kakao} = window;
 const {daum} = window;
 
 function Register(){
 
+    const navigate = useNavigate();
+
     const [httpPlaceholder, setHttpPlaceholder] = useState(false);
     const [searchLoc, setSearchLoc] = useState(false);
     const [additionalInfoView, setAdditionalInfoView] = useState(false);
     const [additionalInfo, setAdditionalInfo] = useState([]);
+    const [category, setCategory] = useState([]);
     const [fileList, setFileList] = useState([]);
     const [previewList, setPreviewList] = useState([]);
 
-    const [latitude, setLatitude] = useState(0);
-    const [longitude, setLongitude] = useState(0);
-
-    const [validateLoc, setValidateLoc] = useState(true);
+    const [districtInfo, setDistrictInfo] = useState({});
     const [validateLocNm, setValidateLocNm] = useState(true);
 
     const {register, setValue, handleSubmit} = useForm();
 
     useEffect(() => {
         void findLocByGeoLoc();
+        void selectBoardCategory();
     }, []);
+
+    async function selectBoardCategory(){
+        try{
+            const result = await axios.get('/register/selectBoardCategory', {
+                method : 'GET'
+            });
+            setCategory(result.data);
+        } catch (err){
+
+        }
+    }
 
     function showAdditionalInfo(){
         setAdditionalInfoView((current) => !current);
@@ -91,15 +106,31 @@ function Register(){
         let coord = new kakao.maps.LatLng(geoLoc.latitude, geoLoc.longitude);
         let callback = function (res, status, jqXHR) {
             if(res[0].road_address != null){
+                setDistrictInfo((current) => (
+                    {...current,
+                        addr : res[0].road_address.address_name,
+                        region1 : res[0].road_address.region_1depth_name,
+                        region2 : res[0].road_address.region_2depth_name,
+                    }
+                ));
                 setValue('location', res[0].road_address.address_name);
             } else {
+                setDistrictInfo((current) => (
+                    {...current,
+                        addr : res[0].address.address_name,
+                        region1 : res[0].address.region_1depth_name,
+                        region2 : res[0].address.region_2depth_name,
+                    }
+                ));
                 setValue('location', res[0].address.address_name);
             }
         };
 
+
         geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
-        setLatitude(geoLoc.latitude);
-        setLongitude(geoLoc.longitude);
+        setDistrictInfo((current) => (
+            {...current, latitude : geoLoc.latitude, longitude : geoLoc.longitude}
+        ));
         setMap(geoLoc);
     }
 
@@ -169,19 +200,19 @@ function Register(){
     const onSubmit = async (data) => {
         data.fileList = fileList;
         data.addInfoList = additionalInfo;
-        data.latitude = latitude;
-        data.longitude = longitude;
-        console.log(data);
+        data.district = districtInfo;
 
-        // let result = await(await insertContent(data)).json();
-        // console.log(result);
-        // let fileResult = await(await insertFile(fileList)).json();
-        // console.log(fileResult);
+        let boardId = await(await insertBoard(data)).text();
+        if(fileList.length > 0){
+            let fileResult = await(await insertFile(fileList, boardId)).json();
+        }
+        alert('등록되었습니다.');
+        navigate('/home', {replace : true});
     }
 
-    function insertContent(param){
+    function insertBoard(param){
         return new Promise((resolve, reject) => {
-            let res = fetch('/register/insertContent', {
+            let res = fetch('/register/insertBoard', {
                 method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json',
@@ -192,9 +223,10 @@ function Register(){
         })
     }
 
-    function insertFile(files){
+    function insertFile(files, boardId){
         return new Promise((resolve, reject) => {
             let formData = new FormData();
+            formData.append('boardId', boardId);
             files.forEach(file => {
                 formData.append('file', file);
             });
@@ -261,8 +293,20 @@ function Register(){
                             <span>장소명</span>
                         </div>
                         <div className="line_body">
-                            <input type="text" name="locationNm" {...register("locationNm")}/>
+                            <input type="text" name="title" {...register("title")}/>
                             {validateLocNm ? '' : <span>장소명을 입력해주세요!</span>}
+                        </div>
+                    </div>
+                    <div className="line_case">
+                        <div className="line_tit">
+                            <span>유형</span>
+                        </div>
+                        <div className="line_body">
+                            {category.length > 0 ?
+                                <BoardCategory
+                                    categoryList={category}
+                                    register={register}
+                                /> : ''}
                         </div>
                     </div>
                     <div className="line_case">

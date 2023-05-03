@@ -1,15 +1,16 @@
 import {useNavigate} from "react-router-dom";
+import MainMap from "./mainMap";
+import BoardList from "../board/boardList";
 
 function Main(){
-    const navigate = useNavigate();
-    function goRegister(){
-        navigate('/my/register');
-    }
+
+
+
 
     return (
         <div>
-            <h3>MAIN</h3>
-            <a className="btn" onClick={goRegister}>등록하기</a>
+            {/*<MainMap/>*/}
+            <BoardList/>
         </div>
     )
 }

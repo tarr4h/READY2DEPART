@@ -11,16 +11,20 @@ function AddInfo(props){
         let sysCd = event.target.dataset.sysCd;
         let param = {
             sysCd : sysCd,
-            value : event.target.value
+            val : event.target.value
         }
 
         let list = props.additionalInfo;
         if(list.length !== 0){
+            let chk = 0;
             list.forEach((item, index) => {
                if(item.sysCd === sysCd){
                    list[index] = param;
+                   chk++;
                }
             });
+
+            if(chk === 0) list.push(param);
         } else {
             list.push(param);
         }
