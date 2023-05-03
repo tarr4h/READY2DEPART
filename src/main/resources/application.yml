@@ -9,7 +9,8 @@ spring:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
 #    jdbc-url: jdbc:mysql://localhost:3306/trv_web
-    jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/trv_web
+#    jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/trv_web #local
+    jdbc-url: jdbc:log4jdbc:mysql://121.138.193.142:3306/trv_web #ip
     username: root
     password: root
   output:
