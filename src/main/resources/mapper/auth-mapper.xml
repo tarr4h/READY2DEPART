@@ -5,7 +5,7 @@
 <mapper namespace="com.web.trv.auth.dao.AuthDao">
     <select id="selectUser" resultType="com.web.trv.auth.model.UserVo">
         SELECT  *
-        FROM    USER
+        FROM    TRV_USER
         WHERE   ID = #{id}
                 AND
                 PWD = #{pwd}
@@ -13,12 +13,12 @@
 
     <select id="selectLoginUser" resultType="Tmap">
         SELECT  *
-        FROM    LOGIN_USER
+        FROM    TRV_LOGIN_USER
         WHERE   ID = #{id}
     </select>
 
     <update id="updateLoginUser">
-        UPDATE  LOGIN_USER
+        UPDATE  TRV_LOGIN_USER
         SET
             <if test='loginYn == "Y".toString()'>
                 IP_ADDR = #{ipAddr}
@@ -31,14 +31,14 @@
     </update>
 
     <insert id="insertLoginUser">
-        INSERT INTO LOGIN_USER
+        INSERT INTO TRV_LOGIN_USER
         (ID, IP_ADDR, LOGIN_DT, LOGIN_YN, MOD_DT)
         VALUES(
                 #{id}
             ,   #{ipAddr}
-            ,   SYSDATE()
+            ,   NOW()
             ,   'Y'
-            ,   SYSDATE()
+            ,   NOW()
         )
     </insert>
 </mapper>

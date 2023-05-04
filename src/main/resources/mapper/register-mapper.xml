@@ -6,34 +6,34 @@
 
     <select id="selectAddInfoList" resultType="com.web.trv.comn.model.SysCodeVo">
         SELECT  *
-        FROM    SYS_CODE
-        WHERE   UP_ID = 'SYS0000001' <!-- ADD_INFO -->
+        FROM    TRV_SYS_CODE
+        WHERE   UP_SYS_CD = 'SYS0000009' <!-- ADD_INFO -->
     </select>
 
     <select id="selectBoardCategory" resultType="com.web.trv.comn.model.SysCodeVo">
         SELECT  *
-        FROM    SYS_CODE
-        WHERE   UP_ID = 'SYS0000011' <!-- ADD_INFO -->
+        FROM    TRV_SYS_CODE
+        WHERE   UP_SYS_CD = 'SYS0000004' <!-- CATEGORY -->
     </select>
 
     <insert id="insertBoard">
-        INSERT INTO BOARD
+        <selectKey resultType="String" keyProperty="boardId" order="BEFORE">
+            SELECT CONCAT('BRD', LPAD(GET_SEQ('BRD'), 7, 0))
+        </selectKey>
+        INSERT INTO TRV_BOARD
         (ID, TITLE, SUMMARY, CONTENT, CATEGORY, RATING)
         VALUES(
-                CONCAT('BRD', LPAD(NEXTVAL(seq_board_id), 7, 0))
+                #{boardId}
             ,   #{title}
             ,   #{summary}
             ,   #{content}
             ,   #{category}
             ,   #{rating}
         )
-        <selectKey resultType="String" keyProperty="boardId">
-            SELECT CONCAT('BRD', LPAD(LASTVAL(seq_board_id), 7, 0))
-        </selectKey>
     </insert>
 
     <insert id="insertDistrictInfo">
-        INSERT INTO BOARD_DISTRICT
+        INSERT INTO TRV_BOARD_DISTRICT
         (BOARD_ID, LATITUDE, LONGITUDE, REGION_1, REGION_2, ADDR)
         VALUES (
                 #{boardId}
@@ -46,8 +46,8 @@
     </insert>
 
     <insert id="insertAddInfo">
-        INSERT INTO BOARD_ADD_INFO
-        (BOARD_ID, SYS_CODE, VAL)
+        INSERT INTO TRV_BOARD_ADD_INFO
+        (BOARD_ID, SYS_CD, VAL)
         VALUES
         <foreach collection="addInfoList" item="addInfo" separator=",">
             (
@@ -59,10 +59,13 @@
     </insert>
 
     <insert id="insertFile">
-        INSERT INTO FILE
+        <selectKey resultType="String" keyProperty="id" order="BEFORE">
+            SELECT CONCAT('BRD', LPAD(GET_SEQ('FLE'), 7, 0))
+        </selectKey>
+        INSERT INTO TRV_FILE
         (ID, REF_ID, OFN, RFN, TYPE, SIZE, DIR)
         VALUES(
-                CONCAT('FLE', LPAD(NEXTVAL(SEQ_FILE_ID), 7, 0))
+                #{id}
            ,    #{refId}
            ,    #{ofn}
            ,    #{rfn}

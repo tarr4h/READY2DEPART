@@ -18,9 +18,9 @@ import lombok.Setter;
 @Setter
 public class SysCodeVo {
 
-    private String id;
-    private String upId;
-    private String topId;
+    private String sysCd;
+    private String upSysCd;
+    private String topSysCd;
     private String val;
     private String nm;
     private String modDt;

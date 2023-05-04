@@ -11,33 +11,41 @@
                     select="selectFileList"/>
         <collection column="boardId = id" property="district" javaType="com.web.trv.program.board.model.BoardDistrictVo"
                     select="selectBoardDistrict"/>
+        <collection column="sysCd = category" property="categorySysCd" javaType="com.web.trv.comn.model.SysCodeVo"
+                    select="selectSysCd"/>
     </resultMap>
 
     <select id="selectBoardList" resultMap="boardList">
         SELECT  *
-        FROM    BOARD
+        FROM    TRV_BOARD
     </select>
 
     <select id="selectAddInfoList" resultType="com.web.trv.program.board.model.AddInfoVo">
         SELECT  A.*
             ,   (SELECT NM
-                 FROM   SYS_CODE
-                 WHERE  ID = A.SYS_CODE) sysCodeNm
-        FROM    BOARD_ADD_INFO A
+                 FROM   TRV_SYS_CODE
+                 WHERE  SYS_CD = A.SYS_CD) sysCdNm
+        FROM    TRV_BOARD_ADD_INFO A
         WHERE   BOARD_ID = #{boardId}
             AND VAL = 'Y'
     </select>
 
     <select id="selectFileList" resultType="com.web.trv.comn.model.FileVo">
         SELECT  *
-        FROM    FILE
+        FROM    TRV_FILE
         WHERE   REF_ID = #{refId}
     </select>
 
     <select id="selectBoardDistrict" resultType="com.web.trv.program.board.model.BoardDistrictVo">
         SELECT  *
-        FROM    BOARD_DISTRICT
+        FROM    TRV_BOARD_DISTRICT
         WHERE   BOARD_ID = #{boardId}
+    </select>
+
+    <select id="selectSysCd" resultType="com.web.trv.comn.model.SysCodeVo">
+        SELECT  *
+        FROM    TRV_SYS_CODE
+        WHERE   SYS_CD = #{sysCd}
     </select>
 
 </mapper>

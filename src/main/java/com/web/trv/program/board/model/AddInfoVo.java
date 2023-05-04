@@ -18,8 +18,8 @@ import lombok.Setter;
 @Setter
 public class AddInfoVo {
     private String boardId;
-    private String sysCode;
-    private String sysCodeNm;
+    private String sysCd;
+    private String sysCdNm;
     private String val;
     private String modDt;
 }
