@@ -18,6 +18,7 @@
     <select id="selectBoardList" resultMap="boardList">
         SELECT  *
         FROM    TRV_BOARD
+        ORDER BY 1 DESC
     </select>
 
     <select id="selectAddInfoList" resultType="com.web.trv.program.board.model.AddInfoVo">

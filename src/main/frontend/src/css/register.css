@@ -147,10 +147,11 @@ form{
 }
 .categoryRadio > label{
     background-color:#FFF;
-    color: #485373;
+    color: #5b74ba;
+    border-color: #5b74ba;
 }
 .categoryRadio > input[type=radio]:checked+label{
-    background-color:#485373;
+    background-color:#5b74ba;
     color: #FFF;
 }
 

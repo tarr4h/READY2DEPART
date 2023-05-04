@@ -62,7 +62,10 @@ public class RegisterService {
     }
 
     public int insertFile(MultipartFile[] fileList, String boardId) throws IOException {
-        Path dir = Paths.get(fileLocation + "\\" + boardId);
+        // 개발용 파일 경로 설정
+//        String pathDivider = "\\"; // window
+        String pathDivider = "/"; // mac
+        Path dir = Paths.get(fileLocation + pathDivider + boardId);
         Files.createDirectories(dir);
 
         int cnt = 1;

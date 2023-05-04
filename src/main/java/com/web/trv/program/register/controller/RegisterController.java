@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -52,6 +53,6 @@ public class RegisterController {
     @PostMapping(value = "insertFile")
     public ResponseEntity<?> insertFile(@RequestParam(value="file", required = false) MultipartFile[] fileList, String boardId) throws IOException {
         int result = service.insertFile(fileList, boardId);
-        return ResponseEntity.ok().body(false);
+        return ResponseEntity.ok().body(result);
     }
 }
