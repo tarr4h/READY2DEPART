@@ -117,6 +117,11 @@
     border-radius: 5px;
     padding: 0.1vh 2vw;
     margin-left: 1vw;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .boardCtgrThumbnail{

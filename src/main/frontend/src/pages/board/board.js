@@ -32,14 +32,14 @@ function Board({board}){
                         {board.addInfoList.map((addInfo, index) => (
                             (index < 2 ? <div key={index}>{addInfo.sysCdNm}</div>
                                 : (index === 2 ?
-                                    <div>
+                                    <div key={index}>
                                         <div
                                              onClick={appendAll}
                                              style={extraInfo ? {display : 'none'} : {display:'inherit'}}
                                         >
                                             + {board.addInfoList.length - 2}
                                         </div>
-                                        <div key={index}
+                                        <div
                                              style={extraInfo ? {display:'inherit'} : {display:'none'}}
                                         >
                                             {addInfo.sysCdNm}

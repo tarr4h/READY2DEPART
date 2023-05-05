@@ -98,6 +98,7 @@ function Register(){
 
     async function findLocByGeoLoc() {
         let geoLoc = await getGeoLocation();
+        if(geoLoc != null) setSearchLoc(true);
         setAddress(geoLoc);
     }
 

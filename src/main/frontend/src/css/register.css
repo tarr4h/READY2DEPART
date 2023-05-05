@@ -9,7 +9,8 @@ form{
 }
 
 .line_case{
-    width: 88vw;
+    width: 100%;
+    box-sizing: border-box;
     margin-bottom: 1vh;
     padding: 5px;
 }
@@ -123,7 +124,8 @@ form{
 
 .registerBtn{
     display: flex;
-    width: 88vw;
+    width: 100%;
+    box-sizing: border-box;
     height: 6vh;
     border: 1px solid gray;
     flex-direction: row;
