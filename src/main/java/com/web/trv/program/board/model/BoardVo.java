@@ -1,6 +1,7 @@
 package com.web.trv.program.board.model;
 
 import com.web.trv.comn.model.FileVo;
+import com.web.trv.comn.model.SysCodeVo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,5 +33,6 @@ public class BoardVo {
     private BoardDistrictVo district;
     private List<AddInfoVo> addInfoList;
     private List<FileVo> fileList;
+    private SysCodeVo categorySysCd;
 
 }

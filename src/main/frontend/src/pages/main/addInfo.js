@@ -28,6 +28,7 @@ function AddInfo(props){
         } else {
             list.push(param);
         }
+
         props.setAdditionalInfo(list);
     }
 
@@ -51,7 +52,7 @@ function AddInfo(props){
                             className="green"
                             name={item.val}
                             value="Y"
-                            data-sys-cd={item.id}
+                            data-sys-cd={item.sysCd}
                             onChange={addInfoOnchange}
                         />
                         <label htmlFor={item.val + 'Y'}>가능</label>
@@ -61,7 +62,7 @@ function AddInfo(props){
                             className="red"
                             name={item.val}
                             value="N"
-                            data-sys-cd={item.id}
+                            data-sys-cd={item.sysCd}
                             onChange={addInfoOnchange}/>
                         <label htmlFor={item.val + 'N'}>불가능</label>
                     </div>

@@ -25,7 +25,6 @@ function BoardList(props){
                     test : '1234'
                 }
             });
-            console.log('boardList : ', result.data);
             setBoardList(result.data);
         } catch(err){
 

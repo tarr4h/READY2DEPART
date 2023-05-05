@@ -10,16 +10,20 @@ spring:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
 #    jdbc-url: jdbc:mysql://localhost:3306/trv_web
 #    jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/trv_web #local
-    jdbc-url: jdbc:log4jdbc:mysql://121.138.193.142:3306/trv_web #ip
-    username: root
-    password: root
+#    jdbc-url: jdbc:log4jdbc:mysql://121.138.193.142:3306/trv_web #ip
+#    username: root
+#    password: root
+    jdbc-url: jdbc:log4jdbc:mysql://203.245.44.103:3306/tarr4h0305 #serverDB
+    username : tarr4h0305
+    password : Gksxodn0305@
   output:
     ansi:
       enabled: always
   servlet:
     multipart:
       enabled: true
-      location: C:\WORKSPACE\ATTACH
+#      location: C:\DEV\WORKSPACE\ATTACH  # WINDOW
+      location : /Users/taewoohan/WorkFolder/WORKSPACE/ATTACH # MAC
       max-file-size: 100MB
       max-request-size: 500MB
 

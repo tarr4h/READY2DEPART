@@ -7,12 +7,12 @@ function BoardCategory({categoryList, register}){
                     <input
                         type="radio"
                         name="category"
-                        id={category.id}
-                        value={category.id}
+                        id={category.sysCd}
+                        value={category.sysCd}
                         {...register('category')}
                         defaultChecked={index === 0}
                     />
-                    <label htmlFor={category.id}>{category.nm}</label>
+                    <label htmlFor={category.sysCd}>{category.nm}</label>
                 </div>
             ))}
         </div>

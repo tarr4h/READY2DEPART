@@ -1,9 +1,14 @@
-import {useNavigate} from "react-router-dom";
-import MainMap from "./mainMap";
 import BoardList from "../board/boardList";
+import {useEffect, useState} from "react";
 
 function Main(){
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, [])
 
 
 
