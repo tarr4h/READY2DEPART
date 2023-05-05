@@ -49,4 +49,11 @@
         WHERE   SYS_CD = #{sysCd}
     </select>
 
+    <select id="getFile" resultType="com.web.trv.comn.model.FileVo">
+        SELECT  *
+        FROM    TRV_FILE
+        WHERE   ID = #{id}
+            AND REF_ID = #{refId}
+    </select>
+
 </mapper>

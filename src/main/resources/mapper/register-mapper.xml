@@ -60,7 +60,7 @@
 
     <insert id="insertFile">
         <selectKey resultType="String" keyProperty="id" order="BEFORE">
-            SELECT CONCAT('BRD', LPAD(GET_SEQ('FLE'), 7, 0))
+            SELECT CONCAT('FLE', LPAD(GET_SEQ('FLE'), 7, 0))
         </selectKey>
         INSERT INTO TRV_FILE
         (ID, REF_ID, OFN, RFN, TYPE, SIZE, DIR)

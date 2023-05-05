@@ -1,5 +1,6 @@
 package com.web.trv.program.board.dao;
 
+import com.web.trv.comn.model.FileVo;
 import com.web.trv.program.board.model.BoardVo;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -21,4 +22,6 @@ import java.util.Map;
 public interface BoardDao {
 
     List<BoardVo> selectBoardList(Map<String, Object> param);
+
+    FileVo getFile(String refId, String id);
 }

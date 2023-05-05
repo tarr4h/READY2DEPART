@@ -3,12 +3,11 @@ package com.web.trv.program.board.controller;
 import com.web.trv.program.board.service.BoardService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -34,5 +33,10 @@ public class BoardController {
     @GetMapping("selectBoardList")
     public ResponseEntity<?> selectBoardList(@RequestParam Map<String, Object> param){
         return ResponseEntity.ok().body(service.selectBoardList(param));
+    }
+
+    @GetMapping(value = "imgView/{refId}/{id}")
+    public ResponseEntity<Resource> imgView(@PathVariable String refId, @PathVariable String id) throws IOException {
+        return service.imgView(refId, id);
     }
 }

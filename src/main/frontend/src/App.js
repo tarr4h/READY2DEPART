@@ -8,8 +8,6 @@ import './css/Comn.css';
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import './css/Comn.css';
-import Header from "./pages/layouts/Header";
-import Footer from "./pages/layouts/Footer";
 import ErrPage from "./pages/ErrPage";
 
 

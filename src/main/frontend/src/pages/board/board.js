@@ -1,7 +1,9 @@
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 function Board({board}){
 
+    const navigate = useNavigate();
     const [extraInfo, setExtraInfo] = useState(false);
 
     function imgGend(sysCd){
@@ -20,12 +22,22 @@ function Board({board}){
         setExtraInfo(true);
     }
 
+    const showDetail = () => {
+        navigate('/main/boardDetail', {
+            state : {
+                board : board
+            }
+        });
+    }
+
     return (
         <div className="board">
             <div className="flex-left">
                 <div className="top">
                     <img className="boardCtgrThumbnail" src={imgGend(board.categorySysCd)} alt="food"/>
-                    <span className="title">   {board.title}</span>
+                    <span className="title"
+                          onClick={showDetail}
+                    >{board.title}</span>
                 </div>
                 <div className="bottom">
                     <div>

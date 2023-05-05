@@ -3,6 +3,8 @@ import Main from "./main/main";
 import {useEffect} from "react";
 import ErrPage from "./ErrPage";
 import Register from "./main/register";
+import BoardDetail from "./board/boardDetail";
+
 
 function View({page}){
     switch(page) {
@@ -12,6 +14,8 @@ function View({page}){
             return <Main/>;
         case 'register':
             return <Register/>;
+        case 'boardDetail':
+            return <BoardDetail/>;
         default :
             return <ErrPage/>;
     }

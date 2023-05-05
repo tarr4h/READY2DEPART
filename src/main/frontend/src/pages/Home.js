@@ -1,14 +1,14 @@
-import {Routes, useNavigate, useParams} from "react-router-dom";
+import {Routes, useLocation, useNavigate, useParams} from "react-router-dom";
 import {lazy, useEffect, useState} from "react";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import View from "./View";
-import PropTypes from "prop-types";
 
 function Home(){
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(false);
     const {pg, extra} = useParams();
+
 
     function defilePage(){
         let page = pg;
@@ -24,6 +24,7 @@ function Home(){
             setIsLogin(json);
             if(!json) navigate('/login');
         });
+
     }, [isLogin]);
 
     return (
