@@ -1,45 +1,38 @@
-import {Link, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import '../../css/BoardDetail.css';
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import * as comn from "../../comn/comnFunction";
 const {kakao} = window;
-const {daum} = window;
 
 function BoardDetail(){
 
     const location = useLocation();
     const board = location.state.board;
-    console.log(board);
+    const textAreaRef = useRef(null);
 
     const [extraInfo, setExtraInfo] = useState(false);
 
     useEffect(() => {
-        showMap();
+        showMap(board.district.latitude, board.district.longitude);
+        textAreaResize();
     })
+
+    const textAreaResize = () => {
+        textAreaRef.current.style.height = 'auto';
+        textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
+    }
 
     const appendAll = () => {
         setExtraInfo(true);
     }
 
-    function showMap(){
-        let mapContainer = document.getElementById('map'),
-            mapOption = {
-                center: new kakao.maps.LatLng(board.district.latitude, board.district.longitude), // 지도의 중심좌표
-                level: 3 // 지도의 확대 레벨
-            };
-
-        let map = new kakao.maps.Map(mapContainer, mapOption);
-
-        let markerPosition = new kakao.maps.LatLng(board.district.latitude, board.district.longitude);
-        let marker = new kakao.maps.Marker({
-            position: markerPosition
-        })
-
-        marker.setMap(map);
+    function showMap(latitude, longitude){
+        let {map, marker} = comn.setMap(latitude, longitude);
 
         let addr = board.title;
 
         let iwContent = `<div class="iwContent"><span>${addr}</span></div>`;
-        let iwPosition = new kakao.maps.LatLng(board.district.latitude, board.district.longitude);
+        let iwPosition = new kakao.maps.LatLng(latitude, longitude);
 
         let customOverlay = new kakao.maps.CustomOverlay({
             position: iwPosition,
@@ -74,15 +67,15 @@ function BoardDetail(){
                 </div>
                 <div>
                     <div className="rating">
-                        <input type="radio" name="rating" value="5" id="rating-5" defaultChecked={board.rating === 5}/>
+                        <input type="radio" name="rating" value="5" id="rating-5" defaultChecked={board.rating === 5} disabled={true}/>
                         <label htmlFor="rating-5"></label>
-                        <input type="radio" name="rating" value="4" id="rating-4" defaultChecked={board.rating === 4}/>
+                        <input type="radio" name="rating" value="4" id="rating-4" defaultChecked={board.rating === 4} disabled={true}/>
                         <label htmlFor="rating-4"></label>
-                        <input type="radio" name="rating" value="3" id="rating-3" defaultChecked={board.rating === 3}/>
+                        <input type="radio" name="rating" value="3" id="rating-3" defaultChecked={board.rating === 3} disabled={true}/>
                         <label htmlFor="rating-3"></label>
-                        <input type="radio" name="rating" value="2" id="rating-2" defaultChecked={board.rating === 2}/>
+                        <input type="radio" name="rating" value="2" id="rating-2" defaultChecked={board.rating === 2} disabled={true}/>
                         <label htmlFor="rating-2"></label>
-                        <input type="radio" name="rating" value="1" id="rating-1" defaultChecked={board.rating === 1}/>
+                        <input type="radio" name="rating" value="1" id="rating-1" defaultChecked={board.rating === 1} disabled={true}/>
                         <label htmlFor="rating-1"></label>
                     </div>
                 </div>
@@ -111,9 +104,11 @@ function BoardDetail(){
                     ))}
                 </div>
                 <div>
-                    <textarea
+                    <textarea id="myTextarea"
                         defaultValue={board.content}
                         disabled={true}
+                        ref={textAreaRef}
+                        rows={1}
                     ></textarea>
                 </div>
                 <div className="imgWrapper">

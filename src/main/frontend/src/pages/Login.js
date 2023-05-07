@@ -2,6 +2,7 @@ import {useInput} from "../hks/useInput";
 import styles from "../css/Login.module.css";
 import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
+import * as comn from "../comn/comnFunction";
 
 function Login(){
     const userId = useInput("admin");
@@ -9,6 +10,7 @@ function Login(){
     const navigate = useNavigate();
 
     useEffect(() => {
+        comn.scrollToTop();
         fetch('/auth/isLogin')
         .then(res => res.json())
         .then(json => {

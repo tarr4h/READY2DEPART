@@ -18,6 +18,13 @@
     <select id="selectBoardList" resultMap="boardList">
         SELECT  *
         FROM    TRV_BOARD
+        <where>
+            <if test="districtList != null">
+                <foreach collection="districtList" open="ID IN (" close=")" separator="," item="district">
+                    #{district.boardId}
+                </foreach>
+            </if>
+        </where>
         ORDER BY 1 DESC
     </select>
 
@@ -54,6 +61,15 @@
         FROM    TRV_FILE
         WHERE   ID = #{id}
             AND REF_ID = #{refId}
+    </select>
+
+    <select id="selectNearby" resultType="com.web.trv.program.board.model.BoardDistrictVo">
+        SELECT  *
+        FROM    TRV_BOARD_DISTRICT
+        WHERE   LATITUDE <![CDATA[<]]> #{maxLatitude}
+            AND LATITUDE > #{minLatitude}
+            AND LONGITUDE <![CDATA[<]]> #{maxLongitude}
+            AND LONGITUDE > #{minLongitude}
     </select>
 
 </mapper>

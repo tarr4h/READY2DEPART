@@ -1,20 +1,18 @@
 import BoardList from "../board/boardList";
 import {useEffect, useState} from "react";
+import * as comn from "../../comn/comnFunction";
+import MainMap from "./mainMap";
 
 function Main(){
 
     useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        comn.scrollToTop();
+
     }, [])
-
-
 
     return (
         <div>
-            {/*<MainMap/>*/}
+            <MainMap/>
             <BoardList/>
         </div>
     )

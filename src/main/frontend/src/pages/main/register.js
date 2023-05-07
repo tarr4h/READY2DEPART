@@ -6,6 +6,7 @@ import AddInfo from "./addInfo";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import BoardCategory from "./boardCategory";
+import * as comn from "../../comn/comnFunction";
 const {kakao} = window;
 const {daum} = window;
 
@@ -29,6 +30,7 @@ function Register(){
     useEffect(() => {
         void findLocByGeoLoc();
         void selectBoardCategory();
+        comn.scrollToTop();
     }, []);
 
     async function selectBoardCategory(){
@@ -49,29 +51,6 @@ function Register(){
     function showSearchLoc(){
         void findLocByGeoLoc();
         setSearchLoc(true);
-    }
-
-    ///// geoLocation
-    function getGeoLocation() {
-        return new Promise(function (resolve) {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    let latitude = position.coords.latitude;
-                    let longitude = position.coords.longitude;
-
-                    let loc = {
-                        latitude,
-                        longitude
-                    };
-
-                    if(loc !== {}){
-                        setHttpPlaceholder(true);
-                    }
-
-                    resolve(loc);
-                });
-            }
-        });
     }
 
     function getLocationByPostCode(){
@@ -97,7 +76,10 @@ function Register(){
     }
 
     async function findLocByGeoLoc() {
-        let geoLoc = await getGeoLocation();
+        let geoLoc = await comn.getGeoLocation();
+        if(geoLoc !== {}){
+            setHttpPlaceholder(true);
+        }
         if(geoLoc != null) setSearchLoc(true);
         setAddress(geoLoc);
     }
@@ -132,24 +114,11 @@ function Register(){
         setDistrictInfo((current) => (
             {...current, latitude : geoLoc.latitude, longitude : geoLoc.longitude}
         ));
-        setMap(geoLoc);
+        showMap(geoLoc.latitude, geoLoc.longitude);
     }
 
-    function setMap(geoLoc){
-        let mapContainer = document.getElementById('map'),
-            mapOption = {
-                center: new kakao.maps.LatLng(geoLoc.latitude, geoLoc.longitude),
-                level: 3
-            };
-
-        let map = new kakao.maps.Map(mapContainer, mapOption);
-
-        let markerPosition = new kakao.maps.LatLng(geoLoc.latitude, geoLoc.longitude);
-        let marker = new kakao.maps.Marker({
-            position: markerPosition
-        });
-
-        marker.setMap(map);
+    function showMap(latitude, longitude){
+        let {map, marker} = comn.setMap(latitude, longitude);
 
         // 지도 클릭하여 주소, 마커 재지정
         kakao.maps.event.addListener(map, 'click', function(mouseEvent){
@@ -280,12 +249,7 @@ function Register(){
                                     searchLoc ? {visibility:'visible', height:'inherit'} : {visibility:'hidden', height: 0}
                                  }
                             >
-                                <div id="map"
-                                     style={{
-                                         width: '100%',
-                                         height: '30vh'
-                                     }}
-                                ></div>
+                                <div id="map"></div>
                             </div>
                         </div>
                     </div>

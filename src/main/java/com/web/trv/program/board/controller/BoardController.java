@@ -35,8 +35,13 @@ public class BoardController {
         return ResponseEntity.ok().body(service.selectBoardList(param));
     }
 
-    @GetMapping(value = "imgView/{refId}/{id}")
+    @GetMapping("imgView/{refId}/{id}")
     public ResponseEntity<Resource> imgView(@PathVariable String refId, @PathVariable String id) throws IOException {
         return service.imgView(refId, id);
+    }
+
+    @GetMapping("selectNearby")
+    public ResponseEntity<?> selectNearby(@RequestParam Map<String, Object> param){
+        return ResponseEntity.ok().body(service.selectNearby(param));
     }
 }

@@ -1,7 +1,9 @@
 package com.web.trv.program.board.service;
 
 import com.web.trv.comn.model.FileVo;
+import com.web.trv.comn.util.CalcDistance;
 import com.web.trv.program.board.dao.BoardDao;
+import com.web.trv.program.board.model.BoardDistrictVo;
 import com.web.trv.program.board.model.BoardVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -54,5 +57,25 @@ public class BoardService {
         Resource resource = new InputStreamResource(Files.newInputStream(path));
 
         return new ResponseEntity<>(resource, headers, HttpStatus.OK);
+    }
+
+    public List<BoardVo> selectNearby(Map<String, Object> param) {
+        String latitude = (String) param.get("latitude");
+        String longitude = (String) param.get("longitude");
+        int maxDistance = Integer.parseInt((String) param.get("maxDistance"));
+
+        param = CalcDistance.getMaxDistance(latitude, longitude);
+
+        List<BoardDistrictVo> availList = new ArrayList<>();
+        List<BoardDistrictVo> districtList = dao.selectNearby(param);
+        for(BoardDistrictVo districtVo : districtList){
+            boolean bool = CalcDistance.calculateArea(latitude, longitude, districtVo.getLatitude(), districtVo.getLongitude(), maxDistance);
+            if(bool){
+                availList.add(districtVo);
+            }
+        }
+
+        param.put("districtList", availList);
+        return dao.selectBoardList(param);
     }
 }

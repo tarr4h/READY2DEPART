@@ -1,22 +1,11 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import * as comn from "../../comn/comnFunction";
 
 function Board({board}){
 
     const navigate = useNavigate();
     const [extraInfo, setExtraInfo] = useState(false);
-
-    function imgGend(sysCd){
-        let img = '';
-        switch(sysCd.val){
-            case 'FOOD' : img = 'sushi.png';break;
-            case 'ACCOMMODATION' : img = 'accomodation.png';break;
-            case 'CAFE' : img = 'cafe.png';break;
-            default : img = 'question.png';break;
-        }
-
-        return require(`../../img/${img}`);
-    }
 
     const appendAll = () => {
         setExtraInfo(true);
@@ -34,7 +23,7 @@ function Board({board}){
         <div className="board">
             <div className="flex-left">
                 <div className="top">
-                    <img className="boardCtgrThumbnail" src={imgGend(board.categorySysCd)} alt="food"/>
+                    <img className="boardCtgrThumbnail" src={comn.imgGend(board.categorySysCd)} alt="food"/>
                     <span className="title"
                           onClick={showDetail}
                     >{board.title}</span>

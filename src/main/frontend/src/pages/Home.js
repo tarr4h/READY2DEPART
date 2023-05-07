@@ -3,12 +3,16 @@ import {lazy, useEffect, useState} from "react";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import View from "./View";
+import * as comn from "../comn/comnFunction";
 
 function Home(){
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(false);
     const {pg, extra} = useParams();
 
+    useEffect(() => {
+        comn.scrollToTop();
+    })
 
     function defilePage(){
         let page = pg;

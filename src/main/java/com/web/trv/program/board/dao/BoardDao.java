@@ -1,6 +1,7 @@
 package com.web.trv.program.board.dao;
 
 import com.web.trv.comn.model.FileVo;
+import com.web.trv.program.board.model.BoardDistrictVo;
 import com.web.trv.program.board.model.BoardVo;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -24,4 +25,6 @@ public interface BoardDao {
     List<BoardVo> selectBoardList(Map<String, Object> param);
 
     FileVo getFile(String refId, String id);
+
+    List<BoardDistrictVo> selectNearby(Map<String, Object> param);
 }
