@@ -32,7 +32,6 @@ function MainMap(){
 
         let list = await selectNearby(geoLoc, 2);
         setMapList(list);
-        console.log('list : ', list);
 
         list.forEach((board, index) => {
             let imgSize = new kakao.maps.Size(20, 20);
