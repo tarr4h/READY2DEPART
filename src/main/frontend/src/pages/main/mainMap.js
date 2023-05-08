@@ -1,5 +1,5 @@
 import '../../css/mainMap.css';
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import * as comn from "../../comn/comnFunction";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
@@ -11,9 +11,10 @@ function MainMap(){
     const navigate = useNavigate();
     const [mapList, setMapList] = useState([]);
     const [showOverlay, setShowOverlay] = useState([]);
+    const [mapLevel, setMapLevel] = useState(7);
 
     useEffect(() => {
-        void setMap();
+        void setCurrentMap();
     }, []);
 
     const showBoardDetail = (board) => {
@@ -24,14 +25,33 @@ function MainMap(){
         });
     }
 
-    const setMap = async () => {
-        let geoLoc = await comn.getGeoLocation();
-        let {map, marker} = comn.setMap(geoLoc.latitude, geoLoc.longitude, 7);
-
-        createCircle(map, geoLoc.latitude, geoLoc.longitude, 2*1000);
-
+    const setMap = async (geoLoc) => {
         let list = await selectNearby(geoLoc, 2);
         setMapList(list);
+        await showMap(geoLoc.latitude, geoLoc.longitude, list);
+    }
+
+    const setCurrentMap = async () => {
+        let geoLoc = await comn.getGeoLocation();
+        void setMap(geoLoc);
+    }
+
+    const test = () => {
+        console.log('mapLevel : ', mapLevel);
+        setMapLevel(19);
+    }
+
+    const showMap = async (latitude, longitude, list) => {
+        console.log('mapLevel showMap : ', mapLevel);
+        let {map, marker} = comn.setMap(latitude, longitude, 7);
+
+        // zoom event
+        kakao.maps.event.addListener(map, 'zoom_changed', function(){
+            // let level = map.getLevel();
+            // test(level);
+        });
+
+        createCircle(map, latitude, longitude, 2*1000);
 
         list.forEach((board, index) => {
             let imgSize = new kakao.maps.Size(20, 20);
@@ -46,7 +66,6 @@ function MainMap(){
                 image : markerImg
             });
 
-            // let iwContent = `<div class="iwContent"><span>${board.title}</span></div>`;
             let iwContent = document.createElement('div');
             iwContent.className = 'iwContent';
             let iwSpan = document.createElement('span');
@@ -58,6 +77,17 @@ function MainMap(){
                 content : iwContent,
                 xAnchor: 0.51,
                 yAnchor: 1.7
+            });
+
+            kakao.maps.event.addListener(map, 'click', function(mouseEvent){
+                let latlng = mouseEvent.latLng;
+
+                marker.setPosition(latlng);
+                let geoLoc = {
+                    latitude : latlng.getLat(),
+                    longitude : latlng.getLng()
+                }
+                setMap(geoLoc);
             });
 
             iwContent.addEventListener('click', function(){
@@ -77,7 +107,7 @@ function MainMap(){
                     });
                 }
                 if(!existOverlay){
-                   newOvly.push(overlay);
+                    newOvly.push(overlay);
                     overlay.setMap(map);
                 } else {
                     overlay.setMap(null);
@@ -112,13 +142,15 @@ function MainMap(){
 
     return (
         <div className="mainMapWrapper">
+            <button onClick={test}
+            >test</button>
             <div className="mapHeader">
                 <a>필터</a>
                 <br/>
                 <span>onMyNear : {mapList.length}</span>
             </div>
             <div className="mapBody">
-                <div id="map"></div>
+                <div id="map" style={{height:'40vh'}}></div>
             </div>
         </div>
     )
