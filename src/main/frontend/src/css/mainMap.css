@@ -1,15 +1,20 @@
 .mainMapWrapper{
-    border: 1px solid gray;
-    padding: 1vh 1vw;
-    background-color: #FFF;
+    padding: 0.5vh 1vw;
 }
 
 .mapHeader{
     border: 1px solid gray;
+    background-color: #FFF;
 }
 
 .mapBody{
-    border: 1px solid gray;
-    margin-top: 1vh;
     min-height: 30vh;
+}
+.mapBody > a{
+    float: right;
+    margin-bottom: 0.5vh;
+    font-size: 0.8rem;
+    border: 2px solid;
+    font-weight: 500;
+    color: #FFF;
 }

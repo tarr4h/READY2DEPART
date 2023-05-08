@@ -27,7 +27,7 @@ function BoardDetail(){
     }
 
     function showMap(latitude, longitude){
-        let {map, marker} = comn.setMap(latitude, longitude);
+        let {map, marker} = comn.setMap('boardDetailMap', latitude, longitude);
 
         let addr = board.title;
 
@@ -54,7 +54,7 @@ function BoardDetail(){
                     <span>{board.modDt}</span>
                 </div>
                 <div>
-                    <div id="map"></div>
+                    <div id="boardDetailMap" className="map"></div>
                 </div>
                 <div>
                     <span>{board.district.addr}</span>

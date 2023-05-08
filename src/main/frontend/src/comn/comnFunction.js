@@ -26,7 +26,7 @@ export function getGeoLocation(){
     });
 }
 
-export function setMap(latitude, longitude, level){
+export function setMap(mapId, latitude, longitude, level){
     let imgSize = {x : 0, y: 0};
 
     if(level == null) level = 3;
@@ -41,7 +41,7 @@ export function setMap(latitude, longitude, level){
     }
 
 
-    let mapContainer = document.getElementById('map'),
+    let mapContainer = document.getElementById(mapId),
         mapOption = {
             center: new kakao.maps.LatLng(latitude, longitude),
             level: level

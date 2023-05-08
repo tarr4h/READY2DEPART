@@ -34,7 +34,7 @@ function BoardList(props){
     return(
         <div className="boardWrapper">
             <div>
-                <a className="btn" onClick={goRegister}>등록하기</a>
+                <a className="btn goRegister" onClick={goRegister}>등록하기</a>
             </div>
             {boardList.map((board, index) => (
                 <Board key={board.id} board={board}/>

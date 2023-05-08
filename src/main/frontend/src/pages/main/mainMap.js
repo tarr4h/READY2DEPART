@@ -1,5 +1,5 @@
 import '../../css/mainMap.css';
-import {useEffect, useRef, useState} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 import * as comn from "../../comn/comnFunction";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
@@ -12,9 +12,33 @@ function MainMap(){
     const [mapList, setMapList] = useState([]);
     const [showOverlay, setShowOverlay] = useState([]);
     const [mapLevel, setMapLevel] = useState([]);
+    const trackingIntervalRef = useRef(null);
+    const [isTrackingMode, setIsTrackingMode] = useState(false);
 
     useEffect(() => {
         void setCurrentMap();
+    }, []);
+
+    const trackingMode = () => {
+        if(!isTrackingMode){
+            onTrackingMode();
+        } else {
+            offTrackingMode();
+        }
+    }
+
+    const onTrackingMode = useCallback(() => {
+        setIsTrackingMode(true);
+        trackingIntervalRef.current = setInterval(() => {
+            console.log('traking...');
+            void setCurrentMap();
+        }, 5000);
+    }, []);
+
+    const offTrackingMode = useCallback(() => {
+        clearInterval(trackingIntervalRef.current);
+        setIsTrackingMode(false);
+        trackingIntervalRef.current = null;
     }, []);
 
     const showBoardDetail = (board) => {
@@ -39,8 +63,9 @@ function MainMap(){
     const showMap = async (latitude, longitude, list) => {
         let level = mapLevel[0];
         if(level == null) level = 7;
-        let {map, marker} = comn.setMap(latitude, longitude, level);
+        let {map, marker} = comn.setMap('mainMap', latitude, longitude, level);
 
+        kakao.maps.event.removeListener(map, 'click');
         kakao.maps.event.addListener(map, 'click', function(mouseEvent){
             let newMapLevel = mapLevel;
             newMapLevel.splice(0, 1);
@@ -54,6 +79,7 @@ function MainMap(){
                 latitude : latlng.getLat(),
                 longitude : latlng.getLng()
             }
+            offTrackingMode();
             setMap(geoLoc);
         });
 
@@ -104,6 +130,10 @@ function MainMap(){
                 if(!existOverlay){
                     newOvly.push(overlay);
                     overlay.setMap(map);
+
+                    setTimeout(() => {
+                        overlay.setMap(null);
+                    }, 3000);
                 } else {
                     overlay.setMap(null);
                 }
@@ -131,19 +161,25 @@ function MainMap(){
             fillColor: '#F6F7F1',
             fillOpacity: 0.3
         });
-
+        circle.setMap(null);
         circle.setMap(map);
     }
 
     return (
         <div className="mainMapWrapper">
-            <div className="mapHeader">
-                <a>필터</a>
-                <br/>
-                <span>onMyNear : {mapList.length}</span>
-            </div>
+            {/*<div className="mapHeader">*/}
+            {/*    <a>필터</a>*/}
+            {/*</div>*/}
             <div className="mapBody">
-                <div id="map" style={{height:'40vh'}}></div>
+                <a className="btn"
+                   onClick={trackingMode}
+                   style={isTrackingMode ?
+                            {borderColor:'green', backgroundColor:'green'} : {borderColor : '#801806', backgroundColor: '#801806'}}
+                >TRACKING : {isTrackingMode ? 'ON' : 'OFF'}</a>
+                <div id="mainMap" className="map" style={{height:'40vh'}}></div>
+            </div>
+            <div className="mapFooter">
+                <span>onMyNear : {mapList.length}</span>
             </div>
         </div>
     )

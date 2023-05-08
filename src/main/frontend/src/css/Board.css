@@ -3,9 +3,17 @@
 }
 
 .boardWrapper > div:nth-child(1){
-    height: 4vh;
-    padding: 1vh 1vw;
+    height: 5vh;
+    padding: 1vh 0;
     text-align: right;
+}
+
+.goRegister{
+    background-color: #292b51;
+    color: #FFF;
+    font-weight: 500;
+    font-size: 1rem;
+    height: 4vh;
 }
 
 .board{

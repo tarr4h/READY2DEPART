@@ -44,4 +44,5 @@ public class BoardController {
     public ResponseEntity<?> selectNearby(@RequestParam Map<String, Object> param){
         return ResponseEntity.ok().body(service.selectNearby(param));
     }
+
 }

@@ -118,7 +118,7 @@ function Register(){
     }
 
     function showMap(latitude, longitude){
-        let {map, marker} = comn.setMap(latitude, longitude);
+        let {map, marker} = comn.setMap('registerMap', latitude, longitude);
 
         // 지도 클릭하여 주소, 마커 재지정
         kakao.maps.event.addListener(map, 'click', function(mouseEvent){
@@ -249,7 +249,7 @@ function Register(){
                                     searchLoc ? {visibility:'visible', height:'inherit'} : {visibility:'hidden', height: 0}
                                  }
                             >
-                                <div id="map"></div>
+                                <div id="registerMap" className="map"></div>
                             </div>
                         </div>
                     </div>
