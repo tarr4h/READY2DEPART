@@ -11,7 +11,7 @@ function MainMap(){
     const navigate = useNavigate();
     const [mapList, setMapList] = useState([]);
     const [showOverlay, setShowOverlay] = useState([]);
-    const [mapLevel, setMapLevel] = useState(7);
+    const [mapLevel, setMapLevel] = useState([]);
 
     useEffect(() => {
         void setCurrentMap();
@@ -36,19 +36,25 @@ function MainMap(){
         void setMap(geoLoc);
     }
 
-    const test = () => {
-        console.log('mapLevel : ', mapLevel);
-        setMapLevel(19);
-    }
-
     const showMap = async (latitude, longitude, list) => {
-        console.log('mapLevel showMap : ', mapLevel);
-        let {map, marker} = comn.setMap(latitude, longitude, 7);
+        let level = mapLevel[0];
+        if(level == null) level = 7;
+        let {map, marker} = comn.setMap(latitude, longitude, level);
 
-        // zoom event
-        kakao.maps.event.addListener(map, 'zoom_changed', function(){
-            // let level = map.getLevel();
-            // test(level);
+        kakao.maps.event.addListener(map, 'click', function(mouseEvent){
+            let newMapLevel = mapLevel;
+            newMapLevel.splice(0, 1);
+            newMapLevel.push(map.getLevel());
+            setMapLevel(newMapLevel);
+
+            let latlng = mouseEvent.latLng;
+
+            marker.setPosition(latlng);
+            let geoLoc = {
+                latitude : latlng.getLat(),
+                longitude : latlng.getLng()
+            }
+            setMap(geoLoc);
         });
 
         createCircle(map, latitude, longitude, 2*1000);
@@ -77,17 +83,6 @@ function MainMap(){
                 content : iwContent,
                 xAnchor: 0.51,
                 yAnchor: 1.7
-            });
-
-            kakao.maps.event.addListener(map, 'click', function(mouseEvent){
-                let latlng = mouseEvent.latLng;
-
-                marker.setPosition(latlng);
-                let geoLoc = {
-                    latitude : latlng.getLat(),
-                    longitude : latlng.getLng()
-                }
-                setMap(geoLoc);
             });
 
             iwContent.addEventListener('click', function(){
@@ -126,7 +121,7 @@ function MainMap(){
     }
 
     const createCircle = (map, latitude, longitude, radiusValue) => {
-        var circle = new kakao.maps.Circle({
+        let circle = new kakao.maps.Circle({
             center : new kakao.maps.LatLng(latitude, longitude),
             radius: radiusValue,
             strokeWeight: 3,
@@ -142,8 +137,6 @@ function MainMap(){
 
     return (
         <div className="mainMapWrapper">
-            <button onClick={test}
-            >test</button>
             <div className="mapHeader">
                 <a>필터</a>
                 <br/>

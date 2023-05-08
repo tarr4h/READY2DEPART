@@ -21,53 +21,27 @@ import java.util.Map;
 @Slf4j
 public class CalcDistance {
 
+    private static final double EARTH_RADIUS = 6371;
+
     // X, Y : 기준 locationX, locationY - A, B : 비교할 locationX, locationY
-    public static boolean calculateArea(String X, String Y, String A, String B, int limit) {
+    public static boolean calculateArea(String X, String Y, String A, String B, double limit) {
         if(X.equals(A) && Y.equals(B)) {
             return true;
         }
+        double calc = getSqrtDistance(Double.parseDouble(X), Double.parseDouble(Y), Double.parseDouble(A), Double.parseDouble(B));
 
-        BigDecimal aX1 = BigDecimal.valueOf(Double.parseDouble(X));
-        BigDecimal aY1 = BigDecimal.valueOf(Double.parseDouble(Y));
-        BigDecimal bX1 = BigDecimal.valueOf(Double.parseDouble(A));
-        BigDecimal bY1 = BigDecimal.valueOf(Double.parseDouble(B));
-
-        String locationX = aX1.subtract(bX1).toString();
-        String locationY = aY1.subtract(bY1).toString();
-
-        log.debug("locationX = {}", locationX);
-        log.debug("locationY = {}", locationY);
-
-        double result1 = getSqrtDistance(locationX, "X");
-        double result2 = getSqrtDistance(locationY, "Y");
-        double finalResult = Math.sqrt((result1 * result1) + (result2 * result2));
-
-        log.debug("finalResult = {}", finalResult);
-
-        // int : 반경(km)
-        boolean bool = finalResult < limit;
-
-        return bool;
+        return calc < limit;
     }
 
-    public static double getSqrtDistance(String location, String XY){
-        double xa = Double.parseDouble(location.substring(0, location.indexOf(".")));
-        double xbCal = Double.parseDouble(location.substring(location.lastIndexOf("."))) * 60;
-        String xbCal2 = Double.toString(xbCal);
-        double xb = Double.parseDouble(xbCal2.substring(0, xbCal2.indexOf(".")));
+    public static double getSqrtDistance(double X, double Y, double A, double B){
+        double latDistance = Math.toRadians(A - X);
+        double lonDistance = Math.toRadians(B - Y);
+        double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
+                + Math.cos(Math.toRadians(X)) * Math.cos(Math.toRadians(A))
+                * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-        double xcCal = (xbCal - xb) * 60;
-        String xcCal2 = Double.toString(xcCal);
-        double xc = Double.parseDouble(xcCal2);
-
-        double result;
-        if(XY.equals("X")){
-            result = (xa * 88.9) + (xb * 1.48) + (xc * 0.025);
-        } else {
-            result = (xa * 111.3) + (xb * 1.86) + (xc * 0.031);
-        }
-
-        return result;
+        return EARTH_RADIUS * c;
     }
 
     public static Map<String, Object> getMaxDistance(String latitude, String longitude){

@@ -75,7 +75,13 @@ public class BoardService {
             }
         }
 
-        param.put("districtList", availList);
-        return dao.selectBoardList(param);
+        log.debug("availList size = {}", availList.size());
+
+        if(availList.size() != 0){
+            param.put("districtList", availList);
+            return dao.selectBoardList(param);
+        } else {
+            return new ArrayList<>();
+        }
     }
 }
