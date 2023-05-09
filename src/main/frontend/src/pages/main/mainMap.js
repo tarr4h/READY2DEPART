@@ -49,16 +49,17 @@ function MainMap(){
         });
     }
 
+    const setCurrentMap = async () => {
+        let geoLoc = await comn.getGeoLocation();
+        void setMap(geoLoc);
+    }
+
     const setMap = async (geoLoc) => {
         let list = await selectNearby(geoLoc, 2);
         setMapList(list);
         await showMap(geoLoc.latitude, geoLoc.longitude, list);
     }
 
-    const setCurrentMap = async () => {
-        let geoLoc = await comn.getGeoLocation();
-        void setMap(geoLoc);
-    }
 
     const showMap = async (latitude, longitude, list) => {
         let level = mapLevel[0];
