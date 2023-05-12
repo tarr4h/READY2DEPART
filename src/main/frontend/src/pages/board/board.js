@@ -19,6 +19,23 @@ function Board({board}){
         });
     }
 
+    const regionColor = (region) => {
+        let regionClass;
+        switch(region){
+            case '서울' :
+                regionClass = 'region_col_seoul';
+                break;
+            case '경기' :
+                regionClass = 'region_col_gynggi';
+                break;
+            case '제주' :
+                regionClass = 'region_col_jeju';
+                break;
+        }
+
+        return regionClass;
+    }
+
     return (
         <div className="board">
             <div className="flex-left">
@@ -61,8 +78,8 @@ function Board({board}){
             <div className="flex-right">
                 <div className="top">
                     <div className="regionWrapper">
-                        <div>{board.district.region1}</div>
-                        <div>{board.district.region2}</div>
+                        <div className={regionColor(board.district.region1)}>{board.district.region1}</div>
+                        <div className={regionColor(board.district.region1)}>{board.district.region2}</div>
                     </div>
                 </div>
                 <div className="bottom">

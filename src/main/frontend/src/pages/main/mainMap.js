@@ -3,6 +3,7 @@ import {useCallback, useEffect, useRef, useState} from "react";
 import * as comn from "../../comn/comnFunction";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import UpdownNum from "./updownNum";
 const {kakao} = window;
 
 
@@ -12,6 +13,12 @@ function MainMap(){
     const [mapList, setMapList] = useState([]);
     const [showOverlay, setShowOverlay] = useState([]);
     const [mapLevel, setMapLevel] = useState([]);
+
+    const [circleObj, setCircleObj] = useState(null);
+    const [mapRadius, setMapRadius] = useState(2);
+
+    const [currentGeoLoc, setCurrentGeoLoc] = useState(null);
+
     const trackingIntervalRef = useRef(null);
     const [isTrackingMode, setIsTrackingMode] = useState(false);
 
@@ -52,6 +59,7 @@ function MainMap(){
     const setCurrentMap = async () => {
 
         let geoLoc = await comn.getGeoLocation();
+        setCurrentGeoLoc(geoLoc);
         void setMap(geoLoc);
     }
 
@@ -82,10 +90,11 @@ function MainMap(){
                 longitude : latlng.getLng()
             }
             offTrackingMode();
+            setCurrentGeoLoc(geoLoc);
             setMap(geoLoc);
         });
 
-        createCircle(map, latitude, longitude, 2*1000);
+        createCircle(map, latitude, longitude);
 
         list.forEach((board, index) => {
             let imgSize = new kakao.maps.Size(20, 20);
@@ -152,10 +161,10 @@ function MainMap(){
         })).data;
     }
 
-    const createCircle = (map, latitude, longitude, radiusValue) => {
+    const createCircle = (map, latitude, longitude) => {
         let circle = new kakao.maps.Circle({
             center : new kakao.maps.LatLng(latitude, longitude),
-            radius: radiusValue,
+            radius: mapRadius*1000,
             strokeWeight: 3,
             strokeColor: '#292b51',
             strokeOpacity: 1,
@@ -163,8 +172,14 @@ function MainMap(){
             fillColor: '#F6F7F1',
             fillOpacity: 0.3
         });
-        circle.setMap(null);
         circle.setMap(map);
+        setCircleObj(circle);
+    }
+
+    const chngMapRadius = async () => {
+        console.log('currentGeoLoc :', currentGeoLoc);
+        void setMap(currentGeoLoc);
+        // circleObj.setRadius(mapRadius*1000);
     }
 
     return (
@@ -181,6 +196,9 @@ function MainMap(){
                 <div id="mainMap" className="map" style={{height:'40vh'}}></div>
             </div>
             <div className="mapFooter">
+                <span>RAD</span>
+                <UpdownNum num={mapRadius} setNum={setMapRadius} onChange={chngMapRadius}/>
+                <br/>
                 <span>onMyNear : {mapList.length}</span>
             </div>
         </div>
