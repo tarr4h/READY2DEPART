@@ -50,6 +50,7 @@ function MainMap(){
     }
 
     const setCurrentMap = async () => {
+
         let geoLoc = await comn.getGeoLocation();
         void setMap(geoLoc);
     }
