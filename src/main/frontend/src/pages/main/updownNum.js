@@ -1,23 +1,22 @@
-function UpdownNum({num, setNum, onChange}){
-    const upProcess = async() => {
-        console.log('num + ', num);
-        setNum(current => current + 1);
-        onChange();
+function UpdownNum({num, onChange}){
+    async function upProcess(){
+        num.current = num.current + 1;
+        await onChange();
     }
 
-    const downProcess = () => {
-        console.log('num - ', num);
-        setNum(current => current !== 1 ? current - 1 : current);
-        onChange();
+    async function downProcess(){
+        num.current = num.current === 1 ? 1 : num.current - 1;
+        await onChange();
     }
 
     return (
-        <div>
-            <button onClick={upProcess}
-            >up</button>
-            <span>{num}</span>
-            <button onClick={downProcess}
-            >down</button>
+        <div className="plusminusWrapper">
+            <a onClick={upProcess}
+                    className="plus_btn"
+            ></a>
+            <a onClick={downProcess}
+                    className="minus_btn"
+            ></a>
         </div>
     )
 

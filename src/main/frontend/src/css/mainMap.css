@@ -18,3 +18,9 @@
     font-weight: 500;
     color: #FFF;
 }
+
+.mapOpt{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5vh 0;
+}
