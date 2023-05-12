@@ -39,7 +39,7 @@
                 #{boardId}
             ,   #{district.latitude}
             ,   #{district.longitude}
-            ,   #{district.region1}
+            ,   LEFT(#{district.region1}, 2)
             ,   #{district.region2}
             ,   #{district.addr}
         )

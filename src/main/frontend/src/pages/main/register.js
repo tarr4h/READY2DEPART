@@ -65,6 +65,10 @@ function Register(){
         let geocoder = new kakao.maps.services.Geocoder();
 
         geocoder.addressSearch(addr, function(result, status){
+            if(result.length === 0) {
+                alert('유효하지 않은 주소입니다.');
+                return false;
+            }
             let geoLoc = {
                 latitude : result[0].road_address.y,
                 longitude : result[0].road_address.x
@@ -114,6 +118,7 @@ function Register(){
         setDistrictInfo((current) => (
             {...current, latitude : geoLoc.latitude, longitude : geoLoc.longitude}
         ));
+
         showMap(geoLoc.latitude, geoLoc.longitude);
     }
 

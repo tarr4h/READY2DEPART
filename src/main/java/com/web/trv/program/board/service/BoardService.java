@@ -47,8 +47,6 @@ public class BoardService {
 
     public ResponseEntity<Resource> imgView(String refId, String id) throws IOException {
         FileVo img = dao.getFile(refId, id);
-        log.debug("img = {}", img);
-
         Path path = Paths.get(img.getDir());
 
         HttpHeaders headers = new HttpHeaders();
@@ -74,8 +72,6 @@ public class BoardService {
                 availList.add(districtVo);
             }
         }
-
-        log.debug("availList size = {}", availList.size());
 
         if(availList.size() != 0){
             param.put("districtList", availList);

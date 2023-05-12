@@ -22,8 +22,8 @@ spring:
   servlet:
     multipart:
       enabled: true
-      location: C:\WORKSPACE\ATTACH  # WINDOW
-#      location : /Users/taewoohan/WorkFolder/WORKSPACE/ATTACH # MAC
+#      location: C:\WORKSPACE\ATTACH  # WINDOW
+      location : /Users/taewoohan/WorkFolder/WORKSPACE/ATTACH # MAC
       max-file-size: 100MB
       max-request-size: 500MB
 

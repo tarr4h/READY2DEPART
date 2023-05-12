@@ -122,7 +122,8 @@
     justify-content: space-evenly;
 }
 .regionWrapper > div{
-    border: 1px solid gray;
+    border-width: 1px;
+    border-style:  solid;
     border-radius: 5px;
     padding: 0.1vh 2vw;
     margin-left: 1vw;
@@ -131,9 +132,31 @@
     align-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    font-size: 0.8rem;
 }
 
 .boardCtgrThumbnail{
     height: 4vh;
     margin-right: 2vw;
+}
+
+.regeion_col_default{
+    background-color: #FFF;
+    border-color: #292b51;
+    color: #292b51;
+}
+.region_col_seoul{
+    background-color: #455F54;
+    border-color: #455F54;
+    color: #FFF;
+}
+.region_col_gynggi{
+    background-color: #164194;
+    border-color: #164194;
+    color: #FFF;
+}
+.region_col_jeju{
+    background-color: #EBA438;
+    border-color: #EBA438;
+    color: #FFF;
 }
