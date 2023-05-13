@@ -24,7 +24,11 @@ function MainMap(){
 
     useEffect(() => {
         void setCurrentMap();
-    }, []);
+
+        return () => {
+            clearInterval(trackingIntervalRef.current);
+        }
+    }, [navigate]);
 
     const trackingMode = () => {
         if(!isTrackingMode){
@@ -200,9 +204,9 @@ function MainMap(){
                     </div>
                 </div>
                 <div id="mainMap" className="map" style={{height:'40vh'}}></div>
-                <UpdownNum num={mapRadius} onChange={chngMapRadius}/>
             </div>
             <div className="mapFooter">
+                <UpdownNum num={mapRadius} onChange={chngMapRadius}/>
                 <span>onMyNear : {mapList.length}</span>
             </div>
         </div>
