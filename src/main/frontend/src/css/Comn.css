@@ -92,26 +92,21 @@ body{
     font-size: 11px;
 }
 
-.plusminusWrapper {
-    display: flex;
-    align-content: center;
-    justify-content: flex-end;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 3vh;
-}
-.plusminusWrapper > a{
-    display: block;
-    border: none;
-    width: 3vh;
-    height: 3vh;
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-.plus_btn{
-    background-image: url('../img/plus.png');
-}
-.minus_btn{
-    background-image: url('../img/minus.png');
+
+.roundImgIco{
+    height: 2vh;
+    border-radius: 7px;
+    padding: 5px;
+    box-shadow: 0 0 2px 0 #292b51;
 }
 
+.updownNumInput{
+    height: 2vh;
+    width: 7vw;
+    text-align: center;
+    border: none;
+    border-radius: 7px;
+    padding: 5px;
+    box-shadow: 0 0 2px 0 #292b51;
+    margin-left: 1vw;
+}

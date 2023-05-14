@@ -1,40 +1,55 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
 import '../../css/Board.css';
 import Board from "./board";
 import {useNavigate} from "react-router-dom";
+import {findAllByDisplayValue} from "@testing-library/react";
 
-function BoardList(props){
+function BoardList({boardList}){
 
     const navigate = useNavigate();
-    const [boardList, setBoardList] = useState([]);
+    const [boardSummary, setBoardSummary] = useState([]);
 
     useEffect(() => {
-        void appendBoardList();
-    }, []);
+        setSummary();
+    }, [boardList]);
 
     function goRegister(){
         navigate('/my/register');
     }
 
-    const appendBoardList = async () => {
-        try{
-            const result = await axios.get('/board/selectBoardList', {
-                method : 'GET',
-                params : {
-                    test : '1234'
+    function setSummary(){
+        const ctgrArr = [];
+
+        boardList.forEach((board) => {
+            let result = false;
+            ctgrArr.forEach((ctgr) => {
+                if(board.category === ctgr.category) {
+                    ctgr.cnt += 1;
+                    result = true;
                 }
             });
-            setBoardList(result.data);
-        } catch(err){
+            if(!result) ctgrArr.push({
+                category : board.category,
+                nm : board.categorySysCd.nm,
+                cnt : 1
+            });
+        });
 
-        }
+        setBoardSummary(ctgrArr);
     }
 
     return(
         <div className="boardWrapper">
-            <div>
-                <a className="btn goRegister" onClick={goRegister}>등록하기</a>
+            <a className="btn goRegister" onClick={goRegister}>등록하기</a>
+            <div className="boardResultSummary">
+                <div>
+                    검색결과 : {boardList.length}건
+                </div>
+                <div>
+                    {boardSummary.map((item, index) => (
+                        <div key={index}>{item.nm} : {item.cnt}</div>
+                    ))}
+                </div>
             </div>
             {boardList.map((board, index) => (
                 <Board key={board.id} board={board}/>

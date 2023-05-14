@@ -1,0 +1,24 @@
+package com.web.trv.program.district.dao;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * <pre>
+ * com.web.trv.program.district.dao.DistrictDao
+ *  - DistrictDao.java
+ * </pre>
+ *
+ * @author : tarr4h
+ * @ClassName : DistrictDao
+ * @description :
+ * @date : 2023-05-14
+ */
+@Mapper
+public interface DistrictDao {
+    List<String> selectRegion1(Map<String, Object> param);
+
+    List<String> selectRegion2(Map<String, Object> param);
+}

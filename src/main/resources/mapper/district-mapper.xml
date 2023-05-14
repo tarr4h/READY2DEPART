@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.trv.program.district.dao.DistrictDao">
+
+    <select id="selectRegion1" resultType="String">
+        SELECT DISTINCT REGION_1
+        FROM    TRV_BOARD_DISTRICT
+    </select>
+
+    <select id="selectRegion2" resultType="String">
+        SELECT DISTINCT REGION_2
+        FROM    TRV_BOARD_DISTRICT
+        WHERE   REGION_1 = #{region1}
+    </select>
+</mapper>

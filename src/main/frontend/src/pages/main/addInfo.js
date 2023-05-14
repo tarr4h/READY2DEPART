@@ -63,6 +63,7 @@ function AddInfo(props){
                             name={item.val}
                             value="N"
                             data-sys-cd={item.sysCd}
+                            defaultChecked={true}
                             onChange={addInfoOnchange}/>
                         <label htmlFor={item.val + 'N'}>불가능</label>
                     </div>
