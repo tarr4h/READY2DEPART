@@ -16,6 +16,16 @@ body{
     padding-bottom: 6vh;
 }
 
+input, textarea, button{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+}
+
+
 .titColor{
     color: #292b51!important;
     font-size: 15px;
