@@ -44,7 +44,16 @@ public class CalcDistance {
         return EARTH_RADIUS * c;
     }
 
-    public static Map<String, Object> getMaxDistance(String latitude, String longitude){
+    public static double getHorizontalSqrtDistance(double X, int radius){
+        double a = radius / EARTH_RADIUS;
+        double c = Math.sin(a / 2) * Math.sin(a / 2);
+        double distance = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        double X2 = X - Math.toDegrees(distance);
+        return X2;
+    }
+
+        public static Map<String, Object> getMaxDistance(String latitude, String longitude){
         Map<String, Object> distance = new HashMap<>();
 
         double maxLatitude = Double.parseDouble(latitude) + 0.0927;

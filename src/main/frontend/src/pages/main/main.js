@@ -205,8 +205,14 @@ function Main(){
         setOnFilter((current) => !current);
     }
 
-    const applyFilter = (region) => {
+    const applyFilter = async (region) => {
         console.log('region1,2 : ', region);
+        const result = await (await (axios.get('/district/selectRegionGeoLoc', {
+            method: 'GET',
+            params : region
+        }))).data;
+
+        console.log('applyFilter result = ', result);
     }
 
     return (

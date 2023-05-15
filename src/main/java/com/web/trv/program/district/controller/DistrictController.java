@@ -37,4 +37,9 @@ public class DistrictController {
     public ResponseEntity<?> selectRegion2(@RequestParam Map<String, Object> param){
         return ResponseEntity.ok().body(service.selectRegion2(param));
     }
+
+    @GetMapping("selectRegionGeoLoc")
+    public ResponseEntity<?> selectRegionGeoLoc(@RequestParam Map<String, Object> param){
+        return ResponseEntity.ok().body(service.selectRegionGeoLoc(param));
+    }
 }
