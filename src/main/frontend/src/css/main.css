@@ -26,19 +26,42 @@
 
 .mainScFilter{
     width: 100%;
-    min-height: 20vh;
+    min-height: 10vh;
     border: 1px solid gray;
     background-color: #FFF;
     margin-bottom: 1vh;
+    padding: 0.5vh 1vw;
+    box-sizing: border-box;
 }
 .mainScFilter > div {
     display: flex;
+    margin-bottom: 1vh;
+}
+.mainScFilter > div:nth-child(1){
+    margin-top: 1vh;
 }
 .mainScFilter > div > div:nth-child(1){
-    width: 30%;
+    width: 15%;
+    text-align: center;
 }
 .mainScFilter > div > div:nth-child(2){
-    width: 70%;
+    width: 85%;
     display: flex;
 }
 
+
+.select_sm{
+    height: 3vh;
+    min-width: 20vw;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 0 2px 0 #292b51;
+    margin-left: 1vw;
+    color: black;
+    -moz-appearance: none;
+
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+}

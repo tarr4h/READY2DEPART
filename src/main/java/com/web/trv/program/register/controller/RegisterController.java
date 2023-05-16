@@ -40,9 +40,8 @@ public class RegisterController {
     }
 
     @GetMapping("selectBoardCategory")
-    public ResponseEntity<?> selectBoardCategory(){
-        List<SysCodeVo> list = service.selectBoardCategory();
-        return ResponseEntity.ok().body(list);
+    public ResponseEntity<?> selectBoardCategory(@RequestParam Map<String, Object> param){
+        return ResponseEntity.ok().body(service.selectBoardCategory(param));
     }
 
     @PostMapping("insertBoard")

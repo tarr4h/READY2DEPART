@@ -9,7 +9,11 @@ function RegionSelect({onChange, region}){
     }, [region]);
 
     return (
-        <select onChange={onChange} defaultValue="def" ref={selectedOpt}>
+        <select onChange={onChange}
+                defaultValue="def"
+                ref={selectedOpt}
+                className="select_sm"
+        >
             <option value="">전체</option>
             {region.map((item, index) => (
                 <option key={index}

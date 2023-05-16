@@ -45,7 +45,14 @@
     </select>
 
     <select id="selectBoardDistrict" resultType="com.web.trv.program.board.model.BoardDistrictVo">
-        SELECT  *
+        SELECT  BOARD_ID
+             ,  LATITUDE
+             ,  LONGITUDE
+             ,  REGION_1
+             ,  REGION_2
+             ,  REGION_3
+             ,  ADDR
+             ,  MOD_DT
         FROM    TRV_BOARD_DISTRICT
         WHERE   BOARD_ID = #{boardId}
     </select>

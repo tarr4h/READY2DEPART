@@ -58,11 +58,11 @@ public class BoardService {
     }
 
     public List<BoardVo> selectNearby(Map<String, Object> param) {
-        String latitude = (String) param.get("latitude");
-        String longitude = (String) param.get("longitude");
+        double latitude = Double.parseDouble((String) param.get("latitude"));
+        double longitude = Double.parseDouble((String) param.get("longitude"));
         int maxDistance = Integer.parseInt((String) param.get("maxDistance"));
 
-        param = CalcDistance.getMaxDistance(latitude, longitude);
+//        param = CalcDistance.getMaxDistance(latitude, longitude);
 
         List<BoardDistrictVo> availList = new ArrayList<>();
         List<BoardDistrictVo> districtList = dao.selectNearby(param);

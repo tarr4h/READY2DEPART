@@ -140,6 +140,8 @@ form{
     padding-left: 2vw;
 }
 
+
+
 .categoryWrapper{
     display: flex;
     justify-content: space-around;
@@ -156,6 +158,32 @@ form{
     background-color:#5b74ba;
     color: #FFF;
 }
+
+.categoryDetailWrapper{
+    display: flex;
+    justify-content: space-around;
+    min-height: 7vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.categoryDetail > input[type=radio]{
+    display: none;
+}
+.categoryDetail > label{
+    width: 5vh;
+    height: 5vh;
+    background-color:red;
+    /*color: #5b74ba;*/
+}
+.categoryDetail > input[type=radio]:checked+label{
+    width: 5vh;
+    height: 5vh;
+    background-color:#5b74ba;
+    /*color: #FFF;*/
+}
+
+
 
 .addInfoWrapper{
     margin-top: 1vh;

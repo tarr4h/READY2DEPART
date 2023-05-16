@@ -13,7 +13,7 @@
     <select id="selectBoardCategory" resultType="com.web.trv.comn.model.SysCodeVo">
         SELECT  *
         FROM    TRV_SYS_CODE
-        WHERE   UP_SYS_CD = 'SYS0000004' <!-- CATEGORY -->
+        WHERE   UP_SYS_CD = #{sysCd} <!-- CATEGORY -->
     </select>
 
     <insert id="insertBoard">
@@ -40,7 +40,7 @@
             ,   #{district.latitude}
             ,   #{district.longitude}
             ,   LEFT(#{district.region1}, 2)
-            ,   #{district.region2}
+            ,   SUBSTRING_INDEX(#{district.region2}, ' ', 1)
             ,   #{district.addr}
         )
     </insert>

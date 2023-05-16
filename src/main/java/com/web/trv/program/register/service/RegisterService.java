@@ -45,11 +45,14 @@ public class RegisterService {
         return dao.selectAddInfoList();
     }
 
-    public List<SysCodeVo> selectBoardCategory() {
-        return dao.selectBoardCategory();
+    public List<SysCodeVo> selectBoardCategory(Map<String, Object> param) {
+        return dao.selectBoardCategory(param);
     }
 
     public String insertBoard(Map<String, Object> param) {
+        if(param.get("rating") == null || param.get("rating").equals("")){
+            param.put("rating", 0);
+        }
         dao.insertBoard(param);
         String boardId = (String) param.get("boardId");
 

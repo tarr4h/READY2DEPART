@@ -5,8 +5,9 @@ import {useForm} from "react-hook-form";
 import AddInfo from "./addInfo";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
-import BoardCategory from "./boardCategory";
+import BoardCategory from "../board/boardCategory";
 import * as comn from "../../comn/comnFunction";
+import BoardCategoryDetail from "../board/boardCategoryDetail";
 const {kakao} = window;
 const {daum} = window;
 
@@ -22,6 +23,9 @@ function Register(){
     const [fileList, setFileList] = useState([]);
     const [previewList, setPreviewList] = useState([]);
 
+    const [isRating, setIsRating] = useState(false);
+    const [selectedCtgr, setSelectedCtgr] = useState('');
+
     const [districtInfo, setDistrictInfo] = useState({});
     const [validateLocNm, setValidateLocNm] = useState(true);
 
@@ -34,9 +38,13 @@ function Register(){
     }, []);
 
     async function selectBoardCategory(){
+        const param = {
+            sysCd : 'SYS0000004'
+        }
         try{
             const result = await axios.get('/register/selectBoardCategory', {
-                method : 'GET'
+                method : 'GET',
+                params : param
             });
             setCategory(result.data);
         } catch (err){
@@ -177,12 +185,14 @@ function Register(){
         data.addInfoList = additionalInfo;
         data.district = districtInfo;
 
-        let boardId = await(await insertBoard(data)).text();
-        if(fileList.length > 0){
-            let fileResult = await(await insertFile(fileList, boardId)).json();
-        }
-        alert('등록되었습니다.');
-        navigate('/home', {replace : true});
+        console.log('submit data : ', data);
+
+        // let boardId = await(await insertBoard(data)).text();
+        // if(fileList.length > 0){
+        //     let fileResult = await(await insertFile(fileList, boardId)).json();
+        // }
+        // alert('등록되었습니다.');
+        // navigate('/home', {replace : true});
     }
 
     function insertBoard(param){
@@ -225,6 +235,14 @@ function Register(){
         setFileList(current => current.filter((val, ind) => {
             return ind !== index;
         }));
+    }
+
+    const selectRating = () => {
+        setIsRating((current) => !current);
+    }
+
+    const selectCtgr = (event) => {
+        setSelectedCtgr(event.target.value);
     }
 
     return (
@@ -272,11 +290,17 @@ function Register(){
                             <span>유형</span>
                         </div>
                         <div className="line_body">
-                            {category.length > 0 ?
-                                <BoardCategory
-                                    categoryList={category}
-                                    register={register}
-                                /> : ''}
+                            <div className="categoryWrapper">
+                                {category.map((ctgr, index) => (
+                                    <BoardCategory
+                                        key={index}
+                                        category={ctgr}
+                                        register={register}
+                                        onClick={selectCtgr}
+                                    />
+                                ))}
+                            </div>
+                            {selectedCtgr !== '' ? <BoardCategoryDetail sysCd={selectedCtgr} register={register}/> : ''}
                         </div>
                     </div>
                     <div className="line_case">
@@ -328,18 +352,24 @@ function Register(){
                         <div className="line_tit">
                             <span>어땠나요?</span>
                             <div className="tit_btn">
-                                <div className="rating">
-                                    <input type="radio" name="rating" value="5" {...register("rating")} id="rating-5"/>
-                                    <label htmlFor="rating-5"></label>
-                                    <input type="radio" name="rating" value="4" {...register("rating")} id="rating-4"/>
-                                    <label htmlFor="rating-4"></label>
-                                    <input type="radio" name="rating" value="3" {...register("rating")} id="rating-3" defaultChecked={true}/>
-                                    <label htmlFor="rating-3"></label>
-                                    <input type="radio" name="rating" value="2" {...register("rating")} id="rating-2"/>
-                                    <label htmlFor="rating-2"></label>
-                                    <input type="radio" name="rating" value="1" {...register("rating")} id="rating-1"/>
-                                    <label htmlFor="rating-1"></label>
-                                </div>
+                                {isRating ? (
+                                    <div className="rating">
+                                        <input type="radio" name="rating" value="5" {...register("rating")} id="rating-5"/>
+                                        <label htmlFor="rating-5"></label>
+                                        <input type="radio" name="rating" value="4" {...register("rating")} id="rating-4"/>
+                                        <label htmlFor="rating-4"></label>
+                                        <input type="radio" name="rating" value="3" {...register("rating")} id="rating-3" defaultChecked={true}/>
+                                        <label htmlFor="rating-3"></label>
+                                        <input type="radio" name="rating" value="2" {...register("rating")} id="rating-2"/>
+                                        <label htmlFor="rating-2"></label>
+                                        <input type="radio" name="rating" value="1" {...register("rating")} id="rating-1"/>
+                                        <label htmlFor="rating-1"></label>
+                                    </div>
+                                ) : (
+                                    <a onClick={selectRating}>
+                                        평가하기
+                                    </a>
+                                )}
                             </div>
                         </div>
                     </div>

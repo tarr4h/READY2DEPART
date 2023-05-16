@@ -19,8 +19,8 @@ import lombok.Setter;
 public class BoardDistrictVo {
 
     private String boardId;
-    private String latitude;
-    private String longitude;
+    private double latitude;
+    private double longitude;
     private String region1;
     private String region2;
     private String addr;

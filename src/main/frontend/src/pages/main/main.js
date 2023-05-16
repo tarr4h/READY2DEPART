@@ -193,12 +193,34 @@ function Main(){
     }
 
     const chngMapRadius = async () => {
+        mapLevelRadiusMatcher();
+        void setMap(currentGeoLoc);
+    }
+
+    const mapLevelRadiusMatcher = () => {
         let newMapLevel = mapLevel;
         newMapLevel.splice(0, 1);
-        newMapLevel.push(mapObj.getLevel());
-        setMapLevel(newMapLevel);
 
-        void setMap(currentGeoLoc);
+        let level = mapObj.getLevel();
+        let radius = mapRadius.current;
+        if(radius < 4){
+            level = 7;
+        } else if(radius < 6){
+            level = 8;
+        } else if(radius < 11){
+            level = 9;
+        } else if(radius < 23){
+            level = 10;
+        } else if(radius < 46){
+            level = 11;
+        } else if(radius < 200){
+            level = 13;
+        } else {
+            level = 14;
+        }
+
+        newMapLevel.push(level);
+        setMapLevel(newMapLevel);
     }
 
     const filterOnchange = () => {
@@ -206,13 +228,15 @@ function Main(){
     }
 
     const applyFilter = async (region) => {
-        console.log('region1,2 : ', region);
         const result = await (await (axios.get('/district/selectRegionGeoLoc', {
             method: 'GET',
             params : region
         }))).data;
 
-        console.log('applyFilter result = ', result);
+        mapRadius.current = result.radius === 0 ? 2 : result.radius;
+        mapLevelRadiusMatcher();
+        setCurrentGeoLoc(result.geoLoc);
+        void setMap(result.geoLoc);
     }
 
     return (

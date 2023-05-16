@@ -1,12 +1,16 @@
 import RoundImgIco from "./roundImgIco";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function UpdownNum({num, onChange}){
 
     const [inputNum, setInputNum] = useState(Number(num.current));
 
+    useEffect(() => {
+        setInputNum(num.current);
+    }, [num.current])
+
     async function upProcess(){
-        num.current = num.current + 1;
+        num.current = Number(inputNum) + 1;
         setInputNum(num.current);
         await onChange();
     }

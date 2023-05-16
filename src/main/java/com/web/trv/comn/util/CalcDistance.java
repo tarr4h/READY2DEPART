@@ -24,11 +24,11 @@ public class CalcDistance {
     private static final double EARTH_RADIUS = 6371;
 
     // X, Y : 기준 locationX, locationY - A, B : 비교할 locationX, locationY
-    public static boolean calculateArea(String X, String Y, String A, String B, double limit) {
-        if(X.equals(A) && Y.equals(B)) {
+    public static boolean calculateArea(double X, double Y, double A, double B, double limit) {
+        if(X == A && Y == B) {
             return true;
         }
-        double calc = getSqrtDistance(Double.parseDouble(X), Double.parseDouble(Y), Double.parseDouble(A), Double.parseDouble(B));
+        double calc = getSqrtDistance(X, Y, A, B);
 
         return calc < limit;
     }

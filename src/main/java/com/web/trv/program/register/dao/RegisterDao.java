@@ -22,7 +22,7 @@ import java.util.Map;
 public interface RegisterDao {
     List<SysCodeVo> selectAddInfoList();
 
-    List<SysCodeVo> selectBoardCategory();
+    List<SysCodeVo> selectBoardCategory(Map<String, Object> param);
 
     int insertBoard(Map<String, Object> param);
 
