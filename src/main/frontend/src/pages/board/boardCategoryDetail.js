@@ -1,11 +1,13 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-function BoardCategoryDetail({sysCd, register}){
+function BoardCategoryDetail({sysCd, register, setRegisterVal}){
 
     const [categoryList, setCategoryList] = useState([]);
 
     useEffect(() => {
+        setRegisterVal('categoryDetail', null);
+        setCategoryList([]);
         void ctgrDetailList();
     }, [sysCd]);
 
@@ -34,7 +36,7 @@ function BoardCategoryDetail({sysCd, register}){
                 </div>
             ))}
         </div>
-    );
+    )
 }
 
 export default BoardCategoryDetail;

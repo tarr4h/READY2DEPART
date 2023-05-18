@@ -300,7 +300,7 @@ function Register(){
                                     />
                                 ))}
                             </div>
-                            {selectedCtgr !== '' ? <BoardCategoryDetail sysCd={selectedCtgr} register={register}/> : ''}
+                            {selectedCtgr !== '' ? <BoardCategoryDetail sysCd={selectedCtgr} register={register} setRegisterVal={setValue}/> : ''}
                         </div>
                     </div>
                     <div className="line_case">
