@@ -185,14 +185,12 @@ function Register(){
         data.addInfoList = additionalInfo;
         data.district = districtInfo;
 
-        console.log('submit data : ', data);
-
-        // let boardId = await(await insertBoard(data)).text();
-        // if(fileList.length > 0){
-        //     let fileResult = await(await insertFile(fileList, boardId)).json();
-        // }
-        // alert('등록되었습니다.');
-        // navigate('/home', {replace : true});
+        let boardId = await(await insertBoard(data)).text();
+        if(fileList.length > 0){
+            let fileResult = await(await insertFile(fileList, boardId)).json();
+        }
+        alert('등록되었습니다.');
+        navigate('/home', {replace : true});
     }
 
     function insertBoard(param){
