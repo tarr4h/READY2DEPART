@@ -62,8 +62,6 @@ public class BoardService {
         double longitude = Double.parseDouble((String) param.get("longitude"));
         int maxDistance = Integer.parseInt((String) param.get("maxDistance"));
 
-//        param = CalcDistance.getMaxDistance(latitude, longitude);
-
         List<BoardDistrictVo> availList = new ArrayList<>();
         List<BoardDistrictVo> districtList = dao.selectNearby(param);
         for(BoardDistrictVo districtVo : districtList){

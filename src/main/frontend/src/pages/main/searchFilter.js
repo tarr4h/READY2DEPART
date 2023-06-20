@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import RegionSelect from "./regionSelect";
 
-function SearchFilter({submit}){
+function SearchFilter({submit, reset}){
 
     const [region1, setRegion1] = useState([]);
     const [region2, setRegion2] = useState([]);
@@ -12,6 +12,16 @@ function SearchFilter({submit}){
 
     useEffect(() => {
         void selectRegion1List();
+
+        let filterRegion = JSON.parse(window.localStorage.getItem('filterRegion'));
+        if(filterRegion != null){
+            if(filterRegion.region1 !== ''){
+                setSelectedRegion1(filterRegion.region1);
+            }
+            if(filterRegion.region2 !== ''){
+                setSelectedRegion2(filterRegion.region2);
+            }
+        }
     }, []);
 
     const selectRegion1List = async () => {
@@ -37,6 +47,11 @@ function SearchFilter({submit}){
         await selectRegion2List(val);
     }
 
+    const region1SetValue = async (val) => {
+        setSelectedRegion1(val);
+        await selectRegion2List(val);
+    }
+
     const region2Onchange = async (event) => {
         let val = event.target.value;
         setSelectedRegion2(val);
@@ -49,6 +64,14 @@ function SearchFilter({submit}){
         }
         submit(region);
     }
+
+    const resetFilter = () => {
+        setSelectedRegion1('');
+        setSelectedRegion2('');
+        void selectRegion1List();
+        void selectRegion2List();
+        reset();
+    }
     
     return (
         <div className="mainScFilter">
@@ -57,9 +80,12 @@ function SearchFilter({submit}){
                 <div>
                     <RegionSelect region={region1}
                                   onChange={region1Onchange}
+                                  setValue={region1SetValue}
+                                  selectedRegion={selectedRegion1}
                     />
                     <RegionSelect region={region2}
                                   onChange={region2Onchange}
+                                  selectedRegion={selectedRegion2}
                     />
                 </div>
             </div>
@@ -67,6 +93,7 @@ function SearchFilter({submit}){
                 <div>유형</div>
             </div>
             <a className="btn" onClick={responseFilter}>적용</a>
+            <a className="btn" onClick={resetFilter}>초기화</a>
         </div>
     )
 }

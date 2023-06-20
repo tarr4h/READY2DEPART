@@ -1,11 +1,16 @@
 import {useEffect, useRef, useState} from "react";
 
-function RegionSelect({onChange, region}){
+function RegionSelect({onChange, setValue, region, selectedRegion}){
 
     const selectedOpt = useRef(null);
 
     useEffect(() => {
-        selectedOpt.current.value = '';
+        if(selectedRegion != null && selectedRegion !== ''){
+            selectedOpt.current.value = selectedRegion;
+            setValue(selectedRegion);
+        } else {
+            selectedOpt.current.value = '';
+        }
     }, [region]);
 
     return (
