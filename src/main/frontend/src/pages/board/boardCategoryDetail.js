@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-function BoardCategoryDetail({sysCd, register, setRegisterVal}){
+function BoardCategoryDetail({sysCd, setSysCd, register, setRegisterVal}){
 
     const [categoryList, setCategoryList] = useState([]);
 
@@ -17,6 +17,9 @@ function BoardCategoryDetail({sysCd, register, setRegisterVal}){
                 sysCd
             }
         })).data;
+        if(result.length === 0){
+            setSysCd('');
+        }
         setCategoryList(result);
     }
 

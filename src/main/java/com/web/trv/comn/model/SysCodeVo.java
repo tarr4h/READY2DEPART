@@ -21,6 +21,7 @@ public class SysCodeVo {
     private String sysCd;
     private String upSysCd;
     private String topSysCd;
+    private int lvl;
     private String val;
     private String nm;
     private String modDt;

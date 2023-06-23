@@ -83,7 +83,7 @@ function Board({board}){
                     </div>
                 </div>
                 <div className="bottom">
-                    <span>2023-05-01</span>
+                    <span>{board.modDt}</span>
                 </div>
             </div>
         </div>

@@ -171,16 +171,15 @@ form{
     display: none;
 }
 .categoryDetail > label{
-    width: 5vh;
-    height: 5vh;
-    background-color:red;
-    /*color: #5b74ba;*/
+    width: 17vw;
+    height: 3vh;
+    background-color:#FFF;
+    color: #52A5BA;
+    border-color: #52A5BA;
 }
 .categoryDetail > input[type=radio]:checked+label{
-    width: 5vh;
-    height: 5vh;
-    background-color:#5b74ba;
-    /*color: #FFF;*/
+    background-color:#52A5BA;
+    color: #FFF;
 }
 
 

@@ -53,6 +53,9 @@ public class RegisterService {
         if(param.get("rating") == null || param.get("rating").equals("")){
             param.put("rating", 0);
         }
+        if(param.get("categoryDetail") != null && !param.get("categoryDetail").equals("")){
+            param.put("category", param.get("categoryDetail"));
+        }
         dao.insertBoard(param);
         String boardId = (String) param.get("boardId");
 

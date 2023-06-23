@@ -68,10 +68,17 @@ export function setMap(mapId, latitude, longitude, level){
 
 export function imgGend(sysCd){
     let img = '';
-    switch(sysCd.val){
-        case 'FOOD' : img = 'sushi.png';break;
-        case 'ACCOMMODATION' : img = 'accomodation.png';break;
-        case 'CAFE' : img = 'cafe.png';break;
+    let code = sysCd.lvl === 2 ? sysCd.sysCd : sysCd.upSysCd;
+    switch(code){
+        case 'SYS0000005' : // = FOOD
+            img = 'sushi.png';
+            break;
+        case 'SYS0000006' : // = ACCOMODATION
+            img = 'accomodation.png';
+            break;
+        case 'SYS0000007' : // = CAFE
+            img = 'cafe.png';
+            break;
         default : img = 'question.png';break;
     }
 
