@@ -62,7 +62,8 @@ function SearchFilter({submit, reset}){
             region1 : selectedRegion1,
             region2 : selectedRegion2
         }
-        submit(region);
+        const category = 'ctgr12341234';
+        submit(region, category);
     }
 
     const resetFilter = () => {

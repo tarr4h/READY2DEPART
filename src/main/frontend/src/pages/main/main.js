@@ -26,6 +26,7 @@ function Main(){
     const [isTrackingMode, setIsTrackingMode] = useState(false);
 
     const [onFilter, setOnFilter] = useState(false);
+    const [filterCtgr, setFilterCtgr] = useState('');
 
     useEffect(() => {
         comn.scrollToTop();
@@ -48,6 +49,7 @@ function Main(){
     const onTrackingMode = useCallback(() => {
         setIsTrackingMode(true);
         trackingIntervalRef.current = setInterval(() => {
+            deleteLocalLocInfo();
             console.log('traking...');
             void setCurrentMap();
         }, 5000);
@@ -69,6 +71,11 @@ function Main(){
 
     const selectNearby = async (geoLoc, maxDistance) => {
         geoLoc.maxDistance = maxDistance;
+
+        let category = window.localStorage.getItem('filterCtgr');
+        console.log('category : ', category);
+        console.log('filterCtgr : ', filterCtgr);
+
         return await(await axios.get('/board/selectNearby', {
             method : 'GET',
             params : geoLoc
@@ -241,11 +248,14 @@ function Main(){
         setOnFilter((current) => !current);
     }
 
-    const applyFilter = async (region) => {
+    const applyFilter = async (region, category) => {
         const result = await (await (axios.get('/district/selectRegionGeoLoc', {
             method: 'GET',
             params : region
         }))).data;
+
+        // 필터에 적용된 category set
+        setFilterCtgr(category);
 
         mapRadius.current = result.radius === 0 ? 2 : result.radius;
         mapLevelRadiusMatcher();
@@ -258,15 +268,25 @@ function Main(){
         fGeoLoc.mapLevel = mapLevel[0];
         window.localStorage.setItem('filterGeoLoc', JSON.stringify(fGeoLoc));
         window.localStorage.setItem('filterRegion', JSON.stringify(region));
+        window.localStorage.setItem('filterCtgr', JSON.stringify(category));
     }
 
     const resetFilter = async () => {
-        window.localStorage.removeItem('filterRegion');
-        window.localStorage.removeItem('filterGeoLoc');
+        deleteLocalLocInfo();
         mapRadius.current = 2;
         mapLevel.splice(0, 1);
         setMapLevel(mapLevel);
         void setCurrentMap();
+    }
+
+    const deleteLocalLocInfo = () => {
+        window.localStorage.removeItem('filterGeoLoc');
+        window.localStorage.removeItem('filterRegion');
+        window.localStorage.removeItem('filterCtgr');
+        mapRadius.current = 2;
+        mapLevel[0] = 7;
+        setMapLevel(mapLevel);
+        setOnFilter(false);
     }
 
     return (
