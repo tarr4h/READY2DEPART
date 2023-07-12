@@ -58,6 +58,7 @@ public class BoardService {
     }
 
     public List<BoardVo> selectNearby(Map<String, Object> param) {
+        log.debug(" param = {}", param);
         double latitude = Double.parseDouble((String) param.get("latitude"));
         double longitude = Double.parseDouble((String) param.get("longitude"));
         int maxDistance = Integer.parseInt((String) param.get("maxDistance"));
@@ -71,7 +72,8 @@ public class BoardService {
             }
         }
 
-        if(availList.size() != 0){
+        String category = (String) param.get("category");
+        if(availList.size() != 0 || (category != null && !category.equals(""))){
             param.put("districtList", availList);
             return dao.selectBoardList(param);
         } else {

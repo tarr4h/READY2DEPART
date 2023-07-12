@@ -5,7 +5,8 @@
 }
 
 .goRegister{
-    background-color: #292b51;
+    background-color: inherit;
+    border: 1px solid #F2A74B;
     color: #FFF;
     font-weight: 500;
     font-size: 1rem;
@@ -13,9 +14,7 @@
 }
 
 .boardResultSummary{
-    background-color: #FFF;
     height: 8vh;
-    border: 1px solid gray;
     border-radius: 7px;
     margin-top: 1vh;
     margin-bottom: 1vh;
@@ -25,11 +24,13 @@
     font-size: 1.2em;
     font-weight: 500;
     height: 50%;
+    color: #c5c5c5;
 }
 .boardResultSummary > div:nth-child(2){
     margin-top: 0.5vh;
     display: flex;
     height: 50%;
+    color: gray;
 }
 .boardResultSummary > div:nth-child(2) > div{
     margin-right: 1vw;
@@ -37,15 +38,17 @@
 
 .board{
     display: flex;
-    background-color: #FFF;
+    background-color: #F2F2F2;
+    color: #24232B;
     height: 15vh;
-    border: 1px solid gray;
+    border: 1px solid #F2F2F2;
     border-radius: 7px;
-    margin-bottom: 1vh;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: space-between;
     justify-content: space-between;
+    width: 95%;
+    margin: 1vh auto;
 }
 
 .flex-left{
@@ -71,7 +74,7 @@
 .flex-left > .top{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-content: center;
     justify-content: flex-start;
 }
@@ -133,6 +136,10 @@
     font-weight: 500;
     display: block;
     margin-left: 2vw;
+    color: #24232B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .regionWrapper{

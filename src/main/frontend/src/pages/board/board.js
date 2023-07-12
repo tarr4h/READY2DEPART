@@ -40,7 +40,7 @@ function Board({board}){
         <div className="board">
             <div className="flex-left">
                 <div className="top">
-                    <img className="boardCtgrThumbnail" src={comn.imgGend(board.categorySysCd)} alt="food"/>
+                    <img className="boardCtgrThumbnail" src={comn.imgGend(board.categoryVo)} alt="food"/>
                     <span className="title"
                           onClick={showDetail}
                     >{board.title}</span>

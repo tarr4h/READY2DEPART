@@ -5,7 +5,7 @@
 
 html, body, #app, #app>div{
     height: calc(var(--vh, 1vh) * 100);
-    background-color: #F6F7F1;
+    background-color : #24232B;
     margin-bottom: 6vh;
 }
 
@@ -27,7 +27,7 @@ input, textarea, button{
 
 
 .titColor{
-    color: #292b51!important;
+    color: #F2F2F2!important;
     font-size: 15px;
 }
 
@@ -105,16 +105,47 @@ input, textarea, button{
     height: 2vh;
     border-radius: 7px;
     padding: 5px;
-    box-shadow: 0 0 2px 0 #292b51;
+    filter: invert(98%) sepia(47%) saturate(7221%) hue-rotate(189deg) brightness(129%) contrast(89%);
 }
 
 .updownNumInput{
     height: 2vh;
     width: 7vw;
     text-align: center;
-    border: none;
     border-radius: 7px;
     padding: 5px;
-    box-shadow: 0 0 2px 0 #292b51;
     margin-left: 1vw;
+    background-color: inherit;
+    border: 1px solid #F2F2F2;
+    color: #F2F2F2;
+}
+
+.select_half_wrapper{
+    width: 100%;
+    margin-top: 0.5vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+}
+.select_half_wrapper > .select_sm {
+    width: 48%;
+    background-color: #3e3d4a;
+    color: #F2F2F2;
+}
+
+.select_sm{
+    height: 3.9vh;
+    min-width: 3vw;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 0 2px 0 #292b51;
+    color: black;
+    -moz-appearance: none;
+
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
 }

@@ -15,6 +15,13 @@
         WHERE   REGION_1 = #{region1}
     </select>
 
+    <select id="selectType" resultType="com.web.trv.comn.model.SysCodeVo">
+        SELECT  *
+        FROM    TRV_SYS_CODE
+        WHERE   UP_SYS_CD = #{upSysCd}
+    </select>
+
+
     <select id="selectBoardDistrict" resultType="com.web.trv.program.board.model.BoardDistrictVo">
         SELECT  *
         FROM    TRV_BOARD_DISTRICT

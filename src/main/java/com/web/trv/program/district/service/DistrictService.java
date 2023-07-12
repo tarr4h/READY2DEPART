@@ -38,6 +38,10 @@ public class DistrictService {
         return dao.selectRegion2(param);
     }
 
+    public Object selectType(Map<String, Object> param) {
+        return dao.selectType(param);
+    }
+
     public Object selectRegionGeoLoc(Map<String, Object> param) {
         List<BoardDistrictVo> districtList = dao.selectBoardDistrict(param);
 
@@ -74,4 +78,6 @@ public class DistrictService {
 
         return returnMap;
     }
+
+
 }

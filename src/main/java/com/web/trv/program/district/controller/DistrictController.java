@@ -38,6 +38,17 @@ public class DistrictController {
         return ResponseEntity.ok().body(service.selectRegion2(param));
     }
 
+    @GetMapping("selectType1")
+    public ResponseEntity<?> selectType1(@RequestParam Map<String, Object> param){
+        param.put("upSysCd", "SYS0000004");
+        return ResponseEntity.ok().body(service.selectType(param));
+    }
+
+    @GetMapping("selectType2")
+    public ResponseEntity<?> selectType2(@RequestParam Map<String, Object> param){
+        return ResponseEntity.ok().body(service.selectType(param));
+    }
+
     @GetMapping("selectRegionGeoLoc")
     public ResponseEntity<?> selectRegionGeoLoc(@RequestParam Map<String, Object> param){
         return ResponseEntity.ok().body(service.selectRegionGeoLoc(param));

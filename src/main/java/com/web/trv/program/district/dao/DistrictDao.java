@@ -1,5 +1,6 @@
 package com.web.trv.program.district.dao;
 
+import com.web.trv.comn.model.SysCodeVo;
 import com.web.trv.program.board.model.BoardDistrictVo;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -23,5 +24,8 @@ public interface DistrictDao {
 
     List<String> selectRegion2(Map<String, Object> param);
 
+    List<SysCodeVo> selectType(Map<String, Object> param);
+
     List<BoardDistrictVo> selectBoardDistrict(Map<String, Object> param);
+
 }

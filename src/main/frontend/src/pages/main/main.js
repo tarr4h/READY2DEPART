@@ -72,13 +72,17 @@ function Main(){
     const selectNearby = async (geoLoc, maxDistance) => {
         geoLoc.maxDistance = maxDistance;
 
-        let category = window.localStorage.getItem('filterCtgr');
-        console.log('category : ', category);
-        console.log('filterCtgr : ', filterCtgr);
+        let param = geoLoc;
+        let categoryStr = window.localStorage.getItem('filterCtgr');
+        if(categoryStr != null){
+            let category = JSON.parse(categoryStr);
+
+            param.category = category.ctgr2 !== '' ? category.ctgr2 : category.ctgr1
+        }
 
         return await(await axios.get('/board/selectNearby', {
             method : 'GET',
-            params : geoLoc
+            params : param
         })).data;
     }
 
@@ -144,7 +148,7 @@ function Main(){
 
         list.forEach((board, index) => {
             let imgSize = new kakao.maps.Size(20, 20);
-            let imgSrc = comn.imgGend(board.categorySysCd);
+            let imgSrc = comn.imgGend(board.categoryVo);
 
             let markerImg = new kakao.maps.MarkerImage(imgSrc, imgSize);
 
@@ -257,11 +261,6 @@ function Main(){
         // 필터에 적용된 category set
         setFilterCtgr(category);
 
-        mapRadius.current = result.radius === 0 ? 2 : result.radius;
-        mapLevelRadiusMatcher();
-        setCurrentGeoLoc(result.geoLoc);
-        void setMap(result.geoLoc);
-
         // 초기화면에서 저장된 filter값을 유지하기 위해 저장
         let fGeoLoc = result.geoLoc;
         fGeoLoc.radius = result.radius;
@@ -269,6 +268,11 @@ function Main(){
         window.localStorage.setItem('filterGeoLoc', JSON.stringify(fGeoLoc));
         window.localStorage.setItem('filterRegion', JSON.stringify(region));
         window.localStorage.setItem('filterCtgr', JSON.stringify(category));
+
+        mapRadius.current = result.radius === 0 ? 2 : result.radius;
+        mapLevelRadiusMatcher();
+        setCurrentGeoLoc(result.geoLoc);
+        void setMap(result.geoLoc);
     }
 
     const resetFilter = async () => {

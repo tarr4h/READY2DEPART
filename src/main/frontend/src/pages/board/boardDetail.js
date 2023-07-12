@@ -60,7 +60,14 @@ function BoardDetail(){
                     <span>{board.district.addr}</span>
                 </div>
                 <div>
-                    <div>{board.categorySysCd.nm}</div>
+                    <div>
+                        {
+                            board.upCategoryVo.nm + ' > '
+                         }
+                        {
+                            board.categoryVo.nm
+                        }
+                    </div>
                 </div>
                 <div>
                     <span>{board.summary}</span>

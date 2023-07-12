@@ -1,19 +1,19 @@
 import {useEffect, useRef, useState} from "react";
 
-function RegionSelect({onChange, setValue, region, selectedRegion}){
+function CategorySelect({onChange, setValue, category, selectedCategory}){
 
     const selectedOpt = useRef(null);
 
     useEffect(() => {
-        if(selectedRegion != null && selectedRegion !== ''){
-            selectedOpt.current.value = selectedRegion;
+        if(selectedCategory != null && selectedCategory !== ''){
+            selectedOpt.current.value = selectedCategory;
             if(setValue){
-                setValue(selectedRegion);
+                setValue(selectedCategory);
             }
         } else {
             selectedOpt.current.value = '';
         }
-    }, [region]);
+    }, [category]);
 
     return (
         <select onChange={onChange}
@@ -22,14 +22,14 @@ function RegionSelect({onChange, setValue, region, selectedRegion}){
                 className="select_sm"
         >
             <option value="">전체</option>
-            {region.map((item, index) => (
+            {category.map((item, index) => (
                 <option key={index}
-                        value={item}>
-                    {item}
+                        value={item.sysCd}>
+                    {item.nm}
                 </option>
             ))}
         </select>
     )
 }
 
-export default RegionSelect;
+export default CategorySelect;

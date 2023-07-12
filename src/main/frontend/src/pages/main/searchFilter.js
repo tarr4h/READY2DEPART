@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import RegionSelect from "./regionSelect";
+import CategorySelect from "./categorySelect";
 
 function SearchFilter({submit, reset}){
 
@@ -10,8 +11,14 @@ function SearchFilter({submit, reset}){
     const [selectedRegion1, setSelectedRegion1] = useState('');
     const [selectedRegion2, setSelectedRegion2] = useState('');
 
+    const [type1, setType1] = useState([]);
+    const [type2, setType2] = useState([]);
+    const [selectedType1, setSelectedType1] = useState('');
+    const [selectedType2, setSelectedType2] = useState('');
+
     useEffect(() => {
         void selectRegion1List();
+        void selectType1List();
 
         let filterRegion = JSON.parse(window.localStorage.getItem('filterRegion'));
         if(filterRegion != null){
@@ -41,10 +48,33 @@ function SearchFilter({submit, reset}){
         setRegion2(list);
     }
 
+    const selectType1List = async () => {
+        const list = await(await axios.get('/district/selectType1', {
+            method : 'GET'
+        })).data;
+        setType1(list);
+    }
+
+    const selectType2List = async (type1) => {
+        const list = await(await axios.get('/district/selectType2', {
+            method : 'GET',
+            params : {
+                upSysCd : type1
+            }
+        })).data;
+        setType2(list);
+    }
+
     const region1Onchange = async (event) => {
         let val = event.target.value;
         setSelectedRegion1(val);
         await selectRegion2List(val);
+    }
+
+    const type1Onchange = async (event) => {
+        let val = event.target.value;
+        setSelectedType1(val);
+        await selectType2List(val);
     }
 
     const region1SetValue = async (val) => {
@@ -52,9 +82,25 @@ function SearchFilter({submit, reset}){
         await selectRegion2List(val);
     }
 
+    const type1SetValue = async (val) => {
+        setSelectedType1(val);
+        await selectType1List(val);
+    }
+
+
+    const type2SetValue = async (val) => {
+        setSelectedType1(val);
+        await selectType2List(val);
+    }
+
     const region2Onchange = async (event) => {
         let val = event.target.value;
         setSelectedRegion2(val);
+    }
+
+    const type2Onchange = async (event) => {
+        let val = event.target.value;
+        setSelectedType2(val);
     }
 
     const responseFilter = () => {
@@ -62,15 +108,22 @@ function SearchFilter({submit, reset}){
             region1 : selectedRegion1,
             region2 : selectedRegion2
         }
-        const category = 'ctgr12341234';
+        const category = {
+            ctgr1 : selectedType1,
+            ctgr2 : selectedType2
+        };
         submit(region, category);
     }
 
     const resetFilter = () => {
         setSelectedRegion1('');
         setSelectedRegion2('');
+        setSelectedType1('');
+        setSelectedType2('');
         void selectRegion1List();
         void selectRegion2List();
+        void selectType1List();
+        void selectType2List();
         reset();
     }
     
@@ -78,7 +131,7 @@ function SearchFilter({submit, reset}){
         <div className="mainScFilter">
             <div>
                 <div>장소</div>
-                <div>
+                <div className="select_half_wrapper">
                     <RegionSelect region={region1}
                                   onChange={region1Onchange}
                                   setValue={region1SetValue}
@@ -92,9 +145,23 @@ function SearchFilter({submit, reset}){
             </div>
             <div>
                 <div>유형</div>
+                <div className="select_half_wrapper">
+                    <CategorySelect category={type1}
+                                  onChange={type1Onchange}
+                                  setValue={type1SetValue}
+                                  selectedCategory={selectedType1}
+                    />
+                    <CategorySelect category={type2}
+                                  onChange={type2Onchange}
+                                  setValue={type2SetValue}
+                                  selectedCategory={selectedType2}
+                    />
+                </div>
             </div>
-            <a className="btn" onClick={responseFilter}>적용</a>
-            <a className="btn" onClick={resetFilter}>초기화</a>
+            <div>
+                <a className="btn" onClick={resetFilter}>초기화</a>
+                <a className="btn" onClick={responseFilter}>적용</a>
+            </div>
         </div>
     )
 }

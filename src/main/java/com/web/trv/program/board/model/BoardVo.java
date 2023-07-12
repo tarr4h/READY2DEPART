@@ -33,6 +33,7 @@ public class BoardVo {
     private BoardDistrictVo district;
     private List<AddInfoVo> addInfoList;
     private List<FileVo> fileList;
-    private SysCodeVo categorySysCd;
+    private SysCodeVo categoryVo;
+    private SysCodeVo upCategoryVo;
 
 }

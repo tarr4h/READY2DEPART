@@ -23,16 +23,22 @@ function BoardList({boardList}){
         boardList.forEach((board) => {
             let result = false;
             ctgrArr.forEach((ctgr) => {
-                if(board.category === ctgr.category) {
-                    ctgr.cnt += 1;
-                    result = true;
+                if(board.upCategoryVo.lvl === 1){
+                    if(board.categoryVo.sysCd === ctgr.category) {
+                        ctgr.cnt += 1;
+                        result = true;
+                    }
+                } else if(board.upCategoryVo.lvl === 2){
+
                 }
             });
-            if(!result) ctgrArr.push({
-                category : board.category,
-                nm : board.categorySysCd.nm,
-                cnt : 1
-            });
+            if(!result){
+                ctgrArr.push({
+                    category : board.category,
+                    nm : board.categoryVo.nm,
+                    cnt : 1
+                });
+            }
         });
 
         setBoardSummary(ctgrArr);

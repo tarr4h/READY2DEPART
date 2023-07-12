@@ -11,8 +11,10 @@
                     select="selectFileList"/>
         <collection column="boardId = id" property="district" javaType="com.web.trv.program.board.model.BoardDistrictVo"
                     select="selectBoardDistrict"/>
-        <collection column="sysCd = category" property="categorySysCd" javaType="com.web.trv.comn.model.SysCodeVo"
+        <collection column="sysCd = category" property="categoryVo" javaType="com.web.trv.comn.model.SysCodeVo"
                     select="selectSysCd"/>
+        <collection column="sysCd = category" property="upCategoryVo" javaType="com.web.trv.comn.model.SysCodeVo"
+                    select="selectUpSysCd"/>
     </resultMap>
 
     <select id="selectBoardList" resultMap="boardList">
@@ -23,6 +25,9 @@
                 <foreach collection="districtList" open="ID IN (" close=")" separator="," item="district">
                     #{district.boardId}
                 </foreach>
+            </if>
+            <if test="category != null and category != ''">
+                AND CATEGORY = #{category}
             </if>
         </where>
         ORDER BY 1 DESC
@@ -61,6 +66,14 @@
         SELECT  *
         FROM    TRV_SYS_CODE
         WHERE   SYS_CD = #{sysCd}
+    </select>
+
+    <select id="selectUpSysCd" resultType="com.web.trv.comn.model.SysCodeVo">
+        SELECT  *
+        FROM    TRV_SYS_CODE
+        WHERE   SYS_CD =    (   SELECT  UP_SYS_CD
+                                FROM    TRV_SYS_CODE
+                                WHERE   SYS_CD = #{sysCd} )
     </select>
 
     <select id="getFile" resultType="com.web.trv.comn.model.FileVo">

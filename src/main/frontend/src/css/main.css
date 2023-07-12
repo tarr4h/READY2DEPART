@@ -1,5 +1,6 @@
 .mainWrapper{
     padding: 0.5vh 1vw;
+    position: relative;
 }
 
 #mainMap{
@@ -12,10 +13,11 @@
     display: flex;
 }
 .mainIco > .left{
-    width: 60%;
+    width: 50%;
 }
+
 .mainIco > .right{
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: flex-end;
 }
@@ -25,43 +27,50 @@
 
 
 .mainScFilter{
+    position: relative;
     width: 100%;
     min-height: 10vh;
-    border: 1px solid gray;
-    background-color: #FFF;
+    background-color: inherit;
     margin-bottom: 1vh;
     padding: 0.5vh 1vw;
     box-sizing: border-box;
+    color: #F2F2F2;
 }
 .mainScFilter > div {
-    display: flex;
     margin-bottom: 1vh;
 }
 .mainScFilter > div:nth-child(1){
-    margin-top: 1vh;
+    padding: 1vw 0;
 }
 .mainScFilter > div > div:nth-child(1){
-    width: 15%;
-    text-align: center;
+    width: 100%;
+    margin-left: 2vw;
 }
 .mainScFilter > div > div:nth-child(2){
-    width: 85%;
+    width: 100%;
+    margin-top: 0.5vh;
+}
+
+.mainScFilter > div:nth-child(3){
+    width: 100%;
     display: flex;
+    margin-bottom: 1vh;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    margin-top: 3vh;
 }
-
-
-.select_sm{
-    height: 3vh;
-    min-width: 20vw;
+.mainScFilter > div:nth-child(3) > .btn:nth-child(1){
+    border-color: #F2A74B;
+    color: gray;
+    width: 20%;
+}
+.mainScFilter > div:nth-child(3) > .btn:nth-child(2){
     border: none;
-    border-radius: 7px;
-    box-shadow: 0 0 2px 0 #292b51;
-    margin-left: 1vw;
-    color: black;
-    -moz-appearance: none;
-
-    text-align-last: center;
-    text-align: center;
-    -ms-text-align-last: center;
-    -moz-text-align-last: center;
+    background-color: #F2A74B;
+    color: #24232B;
+    width: 71%;
 }
+
+

@@ -20,8 +20,8 @@
     height: 100%;
     text-align: center;
     text-decoration: none;
-    background-color: rgb(41, 43, 81);
-    color: rgb(255, 255, 255);
+    background-color: #24232B;
+    color: #F2A74B;
 }
 .wrapper > a.active{
     text-decoration: underline #FFF;
