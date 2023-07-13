@@ -325,7 +325,7 @@ function Register(){
                     <div className="line_case">
                         <div className="line_tit">
                             <span>사진</span>
-                            <div className="tit_btn">
+                            <div className="tit_btn fileUpd">
                                 <label
                                     htmlFor="fileInput"
                                 >파일 등록</label>

@@ -44,7 +44,12 @@ form{
     justify-content: space-around;
     height: 100%;
 }
-.tit_btn > a, label{
+
+.tit_btn > a,
+.fileUpd label,
+.addInfoWrapper label,
+.categoryWrapper label,
+.categoryDetailWrapper label{
     display: flex;
     border: 2px solid #485373;
     border-radius: 8px;
@@ -61,6 +66,7 @@ form{
     color: #F6F7F1;
     user-select : none;
 }
+
 .tit_btn a:not(:last-child){
     margin-right: 1vw;
 }
@@ -175,7 +181,7 @@ form{
     height: 3vh;
     background-color:#FFF;
     color: #52A5BA;
-    border-color: #52A5BA;
+    border: 1px solid #52A5BA;
 }
 .categoryDetail > input[type=radio]:checked+label{
     background-color:#52A5BA;

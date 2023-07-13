@@ -29,13 +29,19 @@ function BoardList({boardList}){
                         result = true;
                     }
                 } else if(board.upCategoryVo.lvl === 2){
-
+                    if(board.upCategoryVo.sysCd === ctgr.category){
+                        ctgr.cnt += 1;
+                        result = true;
+                    }
                 }
             });
             if(!result){
+                let nm = board.upCategoryVo.lvl === 1 ? board.categoryVo.nm : board.upCategoryVo.nm;
+                let category = board.upCategoryVo.lvl === 1 ? board.category : board.upCategoryVo.sysCd;
+
                 ctgrArr.push({
-                    category : board.category,
-                    nm : board.categoryVo.nm,
+                    category : category,
+                    nm : nm,
                     cnt : 1
                 });
             }
@@ -49,11 +55,18 @@ function BoardList({boardList}){
             <a className="btn goRegister" onClick={goRegister}>등록하기</a>
             <div className="boardResultSummary">
                 <div>
-                    검색결과 : {boardList.length}건
+                    검색결과
                 </div>
                 <div>
+                    <div className="chkbox_multi">
+                        <input type="checkbox" id="tot"/>
+                        <label htmlFor="tot">전체({boardList.length})</label>
+                    </div>
                     {boardSummary.map((item, index) => (
-                        <div key={index}>{item.nm} : {item.cnt}</div>
+                        <div className="chkbox_multi" key={index}>
+                            <input type="checkbox" id={item.category}/>
+                            <label htmlFor={item.category}>{item.nm}({item.cnt})</label>
+                        </div>
                     ))}
                 </div>
             </div>
