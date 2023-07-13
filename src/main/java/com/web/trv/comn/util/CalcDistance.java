@@ -24,13 +24,13 @@ public class CalcDistance {
     private static final double EARTH_RADIUS = 6371;
 
     // X, Y : 기준 locationX, locationY - A, B : 비교할 locationX, locationY
-    public static boolean calculateArea(double X, double Y, double A, double B, double limit) {
+    public static double calculateArea(double X, double Y, double A, double B) {
         if(X == A && Y == B) {
-            return true;
+            return 0;
         }
         double calc = getSqrtDistance(X, Y, A, B);
 
-        return calc < limit;
+        return calc;
     }
 
     public static double getSqrtDistance(double X, double Y, double A, double B){

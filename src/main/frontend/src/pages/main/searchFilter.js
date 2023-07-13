@@ -29,6 +29,16 @@ function SearchFilter({submit, reset}){
                 setSelectedRegion2(filterRegion.region2);
             }
         }
+
+        let filterCtgr = JSON.parse(window.localStorage.getItem('filterCtgr'));
+        if(filterCtgr != null){
+            if(filterCtgr.ctgr1 !== ''){
+                setSelectedType1(filterCtgr.ctgr1);
+            }
+            if(filterCtgr.ctgr2 !== ''){
+                setSelectedType2(filterCtgr.ctgr2);
+            }
+        }
     }, []);
 
     const selectRegion1List = async () => {

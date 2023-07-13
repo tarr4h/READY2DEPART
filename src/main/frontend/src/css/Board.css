@@ -27,10 +27,10 @@
     color: #c5c5c5;
 }
 .boardResultSummary > div:nth-child(2){
-    margin-top: 0.5vh;
     display: flex;
-    height: 50%;
+    height: 65%;
     color: gray;
+    overflow-x: scroll;
 }
 
 .chkbox_multi > input[type="checkbox"]{

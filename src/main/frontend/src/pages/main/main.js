@@ -76,7 +76,6 @@ function Main(){
         let categoryStr = window.localStorage.getItem('filterCtgr');
         if(categoryStr != null){
             let category = JSON.parse(categoryStr);
-
             param.category = category.ctgr2 !== '' ? category.ctgr2 : category.ctgr1
         }
 
@@ -120,6 +119,8 @@ function Main(){
 
         kakao.maps.event.removeListener(map, 'click');
         kakao.maps.event.addListener(map, 'click', function(mouseEvent){
+            deleteLocalLocInfo();
+
             let newMapLevel = mapLevel;
             newMapLevel.splice(0, 1);
             newMapLevel.push(map.getLevel());
@@ -253,26 +254,30 @@ function Main(){
     }
 
     const applyFilter = async (region, category) => {
-        const result = await (await (axios.get('/district/selectRegionGeoLoc', {
-            method: 'GET',
-            params : region
-        }))).data;
-
         // 필터에 적용된 category set
         setFilterCtgr(category);
-
-        // 초기화면에서 저장된 filter값을 유지하기 위해 저장
-        let fGeoLoc = result.geoLoc;
-        fGeoLoc.radius = result.radius;
-        fGeoLoc.mapLevel = mapLevel[0];
-        window.localStorage.setItem('filterGeoLoc', JSON.stringify(fGeoLoc));
-        window.localStorage.setItem('filterRegion', JSON.stringify(region));
         window.localStorage.setItem('filterCtgr', JSON.stringify(category));
 
-        mapRadius.current = result.radius === 0 ? 2 : result.radius;
-        mapLevelRadiusMatcher();
-        setCurrentGeoLoc(result.geoLoc);
-        void setMap(result.geoLoc);
+        if(region.region1 !== ''){
+            const result = await (await (axios.get('/district/selectRegionGeoLoc', {
+                method: 'GET',
+                params : region
+            }))).data;
+
+            mapRadius.current = result.radius === 0 ? 2 : result.radius;
+            mapLevelRadiusMatcher();
+            setCurrentGeoLoc(result.geoLoc);
+            void setMap(result.geoLoc);
+
+            // 초기화면에서 저장된 filter값을 유지하기 위해 저장
+            let fGeoLoc = result.geoLoc;
+            fGeoLoc.radius = result.radius;
+            fGeoLoc.mapLevel = mapLevel[0];
+            window.localStorage.setItem('filterGeoLoc', JSON.stringify(fGeoLoc));
+            window.localStorage.setItem('filterRegion', JSON.stringify(region));
+        } else {
+            void setMap(currentGeoLoc);
+        }
     }
 
     const resetFilter = async () => {
@@ -310,7 +315,7 @@ function Main(){
             </div>
             {onFilter ? <SearchFilter submit={applyFilter} reset={resetFilter}/> : ''}
             <div id="mainMap" className="map"></div>
-            <BoardList boardList={boardList}/>
+            <BoardList boardList={boardList} isTracking={isTrackingMode}/>
         </div>
     )
     

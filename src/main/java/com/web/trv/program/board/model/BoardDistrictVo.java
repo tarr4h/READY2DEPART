@@ -25,4 +25,6 @@ public class BoardDistrictVo {
     private String region2;
     private String addr;
     private String modDt;
+
+    private double toDistance;
 }

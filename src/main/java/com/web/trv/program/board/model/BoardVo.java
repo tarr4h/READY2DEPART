@@ -5,6 +5,7 @@ import com.web.trv.comn.model.SysCodeVo;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ import java.util.List;
  */
 @Getter
 @Setter
-public class BoardVo {
+public class BoardVo implements Comparable<BoardVo> {
 
     private String id;
     private String title;
@@ -36,4 +37,14 @@ public class BoardVo {
     private SysCodeVo categoryVo;
     private SysCodeVo upCategoryVo;
 
+    @Override
+    public int compareTo(BoardVo board) {
+        if(this.district.getToDistance() < board.district.getToDistance()){
+            return -1;
+        } else if(this.district.getToDistance() == board.district.getToDistance()){
+            return 0;
+        } else {
+            return 1;
+        }
+    }
 }

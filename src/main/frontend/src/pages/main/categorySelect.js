@@ -5,7 +5,11 @@ function CategorySelect({onChange, setValue, category, selectedCategory}){
     const selectedOpt = useRef(null);
 
     useEffect(() => {
+        // console.log('category : ', category);
+        // console.log('selectedCategory : ', selectedCategory)
+        console.log('setValue : ', setValue);
         if(selectedCategory != null && selectedCategory !== ''){
+            // console.log('currentValue = ', selectedOpt.current.value);
             selectedOpt.current.value = selectedCategory;
             if(setValue){
                 setValue(selectedCategory);

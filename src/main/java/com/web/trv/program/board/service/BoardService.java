@@ -18,9 +18,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <pre>
@@ -63,21 +61,19 @@ public class BoardService {
         double longitude = Double.parseDouble((String) param.get("longitude"));
         int maxDistance = Integer.parseInt((String) param.get("maxDistance"));
 
-        List<BoardDistrictVo> availList = new ArrayList<>();
-        List<BoardDistrictVo> districtList = dao.selectNearby(param);
-        for(BoardDistrictVo districtVo : districtList){
-            boolean bool = CalcDistance.calculateArea(latitude, longitude, districtVo.getLatitude(), districtVo.getLongitude(), maxDistance);
-            if(bool){
-                availList.add(districtVo);
+
+        List<BoardVo> availList = new ArrayList<>();
+        List<BoardVo> boardList = dao.selectBoardList(param);
+        for(BoardVo board : boardList){
+            BoardDistrictVo district = board.getDistrict();
+            double distance = CalcDistance.calculateArea(latitude, longitude, district.getLatitude(), district.getLongitude());
+            district.setToDistance(distance);
+            if(distance < maxDistance){
+                availList.add(board);
             }
         }
 
-        String category = (String) param.get("category");
-        if(availList.size() != 0 || (category != null && !category.equals(""))){
-            param.put("districtList", availList);
-            return dao.selectBoardList(param);
-        } else {
-            return new ArrayList<>();
-        }
+        Collections.sort(availList);
+        return availList;
     }
 }

@@ -31,6 +31,11 @@ input, textarea, button{
     font-size: 15px;
 }
 
+.orange{
+    color: #F2A74B!important;
+    /*border-color: #F2A74B!important;*/
+}
+
 .btn{
     display: flex;
     border: 1px solid gray;
@@ -84,8 +89,8 @@ input, textarea, button{
 .iwContent{
     width: 27vw;
     height: 4vh;
-    background-color:  #292b51;
-    color: #FFF;
+    background-color: #24232B;
+    color: #F2F2F2;
     position: relative;
     display: flex;
     justify-content: center;

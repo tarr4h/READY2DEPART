@@ -2,10 +2,22 @@ import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import * as comn from "../../comn/comnFunction";
 
-function Board({board}){
+function Board({board, selectedCtgrArr}){
 
     const navigate = useNavigate();
     const [extraInfo, setExtraInfo] = useState(false);
+    const [hidden, setHidden] = useState(false);
+
+    useEffect(() => {
+        console.log('board : ', board.district.toDistance);
+        let chk = false;
+        selectedCtgrArr.forEach((item, index) => {
+            if(item.categoryCd === board.category || item.categoryCd === board.upCategoryVo.sysCd){
+                chk = true;
+            }
+        });
+        setHidden(chk);
+    }, [selectedCtgrArr]);
 
     const appendAll = () => {
         setExtraInfo(true);
@@ -37,7 +49,8 @@ function Board({board}){
     }
 
     return (
-        <div className="board">
+        <div className="board"
+             style={!hidden ? {display : 'none'} : {}}>
             <div className="flex-left">
                 <div className="top">
                     <img className="boardCtgrThumbnail" src={comn.imgGend(board.categoryVo)} alt="food"/>
