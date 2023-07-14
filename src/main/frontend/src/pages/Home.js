@@ -11,7 +11,7 @@ function Home(){
     const {pg, extra} = useParams();
 
     useEffect(() => {
-        comn.scrollToTop();
+        // comn.scrollToTop();
     })
 
     function defilePage(){

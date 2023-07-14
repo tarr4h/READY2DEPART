@@ -1,5 +1,5 @@
 import '../../css/main.css';
-import {useCallback, useEffect, useRef, useState} from "react";
+import {useCallback, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import BoardList from "../board/boardList";
 import * as comn from "../../comn/comnFunction";
@@ -26,10 +26,11 @@ function Main(){
     const [isTrackingMode, setIsTrackingMode] = useState(false);
 
     const [onFilter, setOnFilter] = useState(false);
-    // const [filterCtgr, setFilterCtgr] = useState('');
 
     useEffect(() => {
-        comn.scrollToTop();
+        if(window.localStorage.getItem('yOffset') == null){
+            comn.scrollToTop();
+        }
         void setCurrentMap();
 
         return () => {
@@ -37,6 +38,18 @@ function Main(){
         }
 
     }, [navigate]);
+
+    useLayoutEffect(() => {
+            const savedOffset = window.localStorage.getItem('yOffset');
+            if(savedOffset != null){
+                window.scroll(0, Number(savedOffset))
+            }
+    });
+
+    const saveScrollY = () => {
+        const yOffset = window.pageYOffset;
+        window.localStorage.setItem('yOffset', yOffset);
+    }
 
     const trackingMode = () => {
         if(!isTrackingMode){
@@ -293,7 +306,7 @@ function Main(){
     }
 
     return (
-        <div className="mainWrapper">
+        <div className="mainWrapper" onClick={saveScrollY}>
             <div className="mainIco">
                 <div className="left">
                     <RoundImgIco img={onFilter ? 'filter_off.png' : 'filter_on.png'}

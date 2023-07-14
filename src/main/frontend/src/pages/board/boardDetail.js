@@ -13,9 +13,10 @@ function BoardDetail(){
     const [extraInfo, setExtraInfo] = useState(false);
 
     useEffect(() => {
+        comn.scrollToTop();
         showMap(board.district.latitude, board.district.longitude);
         textAreaResize();
-    })
+    }, []);
 
     const textAreaResize = () => {
         textAreaRef.current.style.height = 'auto';

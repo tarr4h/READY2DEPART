@@ -1,7 +1,7 @@
 const {kakao} = window;
 const {daum} = window;
 
-export function scrollToTop(){
+export function scrollToTop(){;
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
