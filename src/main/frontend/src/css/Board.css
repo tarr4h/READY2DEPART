@@ -55,6 +55,11 @@
     border-color: #c5c5c5;
 }
 
+.chkbox_multi.orange > input[type=checkbox]:checked+label{
+    color: #F2A74B;
+}
+
+
 .board{
     display: flex;
     background-color: #F2F2F2;

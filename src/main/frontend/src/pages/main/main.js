@@ -26,7 +26,7 @@ function Main(){
     const [isTrackingMode, setIsTrackingMode] = useState(false);
 
     const [onFilter, setOnFilter] = useState(false);
-    const [filterCtgr, setFilterCtgr] = useState('');
+    // const [filterCtgr, setFilterCtgr] = useState('');
 
     useEffect(() => {
         comn.scrollToTop();
@@ -48,6 +48,7 @@ function Main(){
 
     const onTrackingMode = useCallback(() => {
         setIsTrackingMode(true);
+        mapRadius.current = 2;
         trackingIntervalRef.current = setInterval(() => {
             deleteLocalLocInfo();
             console.log('traking...');
@@ -121,10 +122,8 @@ function Main(){
         kakao.maps.event.addListener(map, 'click', function(mouseEvent){
             deleteLocalLocInfo();
 
-            let newMapLevel = mapLevel;
-            newMapLevel.splice(0, 1);
-            newMapLevel.push(map.getLevel());
-            setMapLevel(newMapLevel);
+            mapLevel[0] = map.getLevel();
+            setMapLevel(mapLevel);
 
             let latlng = mouseEvent.latLng;
 
@@ -255,14 +254,14 @@ function Main(){
 
     const applyFilter = async (region, category) => {
         // 필터에 적용된 category set  >> 순서 반드시 우선시
-        setFilterCtgr(category);
+        // setFilterCtgr(category);
         window.localStorage.setItem('filterCtgr', JSON.stringify(category));
 
         const result = await (await (axios.get('/district/selectRegionGeoLoc', {
             method: 'GET',
             params : region
         }))).data;
-        console.log('filter result : ', result);
+
         mapRadius.current = result.radius === 0 ? 2 : result.radius;
         mapLevelRadiusMatcher();
         setCurrentGeoLoc(result.geoLoc);
@@ -288,7 +287,6 @@ function Main(){
         window.localStorage.removeItem('filterGeoLoc');
         window.localStorage.removeItem('filterRegion');
         window.localStorage.removeItem('filterCtgr');
-        mapRadius.current = 2;
         mapLevel[0] = 7;
         setMapLevel(mapLevel);
         setOnFilter(false);

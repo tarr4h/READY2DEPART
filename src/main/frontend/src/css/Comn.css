@@ -31,11 +31,6 @@ input, textarea, button{
     font-size: 15px;
 }
 
-.orange{
-    color: #F2A74B!important;
-    /*border-color: #F2A74B!important;*/
-}
-
 .btn{
     display: flex;
     border: 1px solid gray;

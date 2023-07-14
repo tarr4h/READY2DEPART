@@ -126,14 +126,14 @@ function BoardList({boardList, isTracking}){
                     검색결과
                 </div>
                 <div>
-                    <div className="chkbox_multi">
+                    <div className="chkbox_multi orange">
                         <input type="checkbox"
                                id="tot"
                                onChange={clearCtgrArr}
                                checked={wholeCtgrChecked}
                                value=""
                         />
-                        <label className="orange" htmlFor="tot">전체({boardList.length})</label>
+                        <label htmlFor="tot">전체({boardList.length})</label>
                     </div>
                     {boardSummary.map((item, index) => (
                         <div className="chkbox_multi" key={index}>
