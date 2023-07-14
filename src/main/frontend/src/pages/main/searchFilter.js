@@ -61,6 +61,7 @@ function SearchFilter({submit, reset}){
     const region1Onchange = async (event) => {
         let val = event.target.value;
         setSelectedRegion1(val);
+        setSelectedRegion2('');
         await selectRegion2List(val);
     }
 

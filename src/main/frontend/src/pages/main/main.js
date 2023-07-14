@@ -254,32 +254,26 @@ function Main(){
     }
 
     const applyFilter = async (region, category) => {
-        // 필터에 적용된 category set
-        if(category.ctgr1 !== ''){
-            setFilterCtgr(category);
-            window.localStorage.setItem('filterCtgr', JSON.stringify(category));
-        }
+        // 필터에 적용된 category set  >> 순서 반드시 우선시
+        setFilterCtgr(category);
+        window.localStorage.setItem('filterCtgr', JSON.stringify(category));
 
-        if(region.region1 !== ''){
-            const result = await (await (axios.get('/district/selectRegionGeoLoc', {
-                method: 'GET',
-                params : region
-            }))).data;
+        const result = await (await (axios.get('/district/selectRegionGeoLoc', {
+            method: 'GET',
+            params : region
+        }))).data;
+        console.log('filter result : ', result);
+        mapRadius.current = result.radius === 0 ? 2 : result.radius;
+        mapLevelRadiusMatcher();
+        setCurrentGeoLoc(result.geoLoc);
+        void setMap(result.geoLoc);
 
-            mapRadius.current = result.radius === 0 ? 2 : result.radius;
-            mapLevelRadiusMatcher();
-            setCurrentGeoLoc(result.geoLoc);
-            void setMap(result.geoLoc);
-
-            // 초기화면에서 저장된 filter값을 유지하기 위해 저장
-            let fGeoLoc = result.geoLoc;
-            fGeoLoc.radius = result.radius;
-            fGeoLoc.mapLevel = mapLevel[0];
-            window.localStorage.setItem('filterGeoLoc', JSON.stringify(fGeoLoc));
-            window.localStorage.setItem('filterRegion', JSON.stringify(region));
-        } else {
-            void setMap(currentGeoLoc);
-        }
+        // 초기화면에서 저장된 filter값을 유지하기 위해 저장
+        let fGeoLoc = result.geoLoc;
+        fGeoLoc.radius = result.radius;
+        fGeoLoc.mapLevel = mapLevel[0];
+        window.localStorage.setItem('filterGeoLoc', JSON.stringify(fGeoLoc));
+        window.localStorage.setItem('filterRegion', JSON.stringify(region));
     }
 
     const resetFilter = async () => {
