@@ -1,15 +1,11 @@
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useMemo, useRef, useState} from "react";
 
-function CategorySelect({onChange, setValue, category, selectedCategory}){
+function CategorySelect({onChange, category, setValue, selectedCategory}){
 
     const selectedOpt = useRef(null);
 
-    useEffect(() => {
-        // console.log('category : ', category);
-        // console.log('selectedCategory : ', selectedCategory)
-        console.log('setValue : ', setValue);
+    useEffect(() =>{
         if(selectedCategory != null && selectedCategory !== ''){
-            // console.log('currentValue = ', selectedOpt.current.value);
             selectedOpt.current.value = selectedCategory;
             if(setValue){
                 setValue(selectedCategory);

@@ -9,7 +9,7 @@ function Board({board, selectedCtgrArr}){
     const [hidden, setHidden] = useState(false);
 
     useEffect(() => {
-        console.log('board : ', board.district.toDistance);
+        // console.log('board : ', board.district.toDistance);
         let chk = false;
         selectedCtgrArr.forEach((item, index) => {
             if(item.categoryCd === board.category || item.categoryCd === board.upCategoryVo.sysCd){

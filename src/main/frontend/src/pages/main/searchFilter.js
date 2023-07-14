@@ -58,6 +58,22 @@ function SearchFilter({submit, reset}){
         setRegion2(list);
     }
 
+    const region1Onchange = async (event) => {
+        let val = event.target.value;
+        setSelectedRegion1(val);
+        await selectRegion2List(val);
+    }
+
+    const region1SetValue = async (val) => {
+        setSelectedRegion1(val);
+        await selectRegion2List(val);
+    }
+
+    const region2Onchange = async (event) => {
+        let val = event.target.value;
+        setSelectedRegion2(val);
+    }
+
     const selectType1List = async () => {
         const list = await(await axios.get('/district/selectType1', {
             method : 'GET'
@@ -75,42 +91,20 @@ function SearchFilter({submit, reset}){
         setType2(list);
     }
 
-    const region1Onchange = async (event) => {
-        let val = event.target.value;
-        setSelectedRegion1(val);
-        await selectRegion2List(val);
-    }
-
-    const type1Onchange = async (event) => {
-        let val = event.target.value;
+    const selectType1Onchange = async (event) => {
+        const val = event.target.value;
         setSelectedType1(val);
+        setSelectedType2('');
         await selectType2List(val);
     }
 
-    const region1SetValue = async (val) => {
-        setSelectedRegion1(val);
-        await selectRegion2List(val);
-    }
-
-    const type1SetValue = async (val) => {
-        setSelectedType1(val);
-        await selectType1List(val);
-    }
-
-
-    const type2SetValue = async (val) => {
-        setSelectedType1(val);
-        await selectType2List(val);
-    }
-
-    const region2Onchange = async (event) => {
-        let val = event.target.value;
-        setSelectedRegion2(val);
-    }
-
-    const type2Onchange = async (event) => {
-        let val = event.target.value;
+    const selectType2Onchange = async (event) => {
+        const val = event.target.value;
         setSelectedType2(val);
+    }
+
+    const selectType1SetValue = async (value) => {
+        await selectType2List(value);
     }
 
     const responseFilter = () => {
@@ -121,19 +115,15 @@ function SearchFilter({submit, reset}){
         const category = {
             ctgr1 : selectedType1,
             ctgr2 : selectedType2
-        };
+        }
         submit(region, category);
     }
 
     const resetFilter = () => {
         setSelectedRegion1('');
         setSelectedRegion2('');
-        setSelectedType1('');
-        setSelectedType2('');
         void selectRegion1List();
         void selectRegion2List();
-        void selectType1List();
-        void selectType2List();
         reset();
     }
     
@@ -157,14 +147,13 @@ function SearchFilter({submit, reset}){
                 <div>유형</div>
                 <div className="select_half_wrapper">
                     <CategorySelect category={type1}
-                                  onChange={type1Onchange}
-                                  setValue={type1SetValue}
-                                  selectedCategory={selectedType1}
+                                    onChange={selectType1Onchange}
+                                    setValue={selectType1SetValue}
+                                    selectedCategory={selectedType1}
                     />
                     <CategorySelect category={type2}
-                                  onChange={type2Onchange}
-                                  setValue={type2SetValue}
-                                  selectedCategory={selectedType2}
+                                    onChange={selectType2Onchange}
+                                    selectedCategory={selectedType2}
                     />
                 </div>
             </div>

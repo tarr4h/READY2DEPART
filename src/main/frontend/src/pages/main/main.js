@@ -255,8 +255,10 @@ function Main(){
 
     const applyFilter = async (region, category) => {
         // 필터에 적용된 category set
-        setFilterCtgr(category);
-        window.localStorage.setItem('filterCtgr', JSON.stringify(category));
+        if(category.ctgr1 !== ''){
+            setFilterCtgr(category);
+            window.localStorage.setItem('filterCtgr', JSON.stringify(category));
+        }
 
         if(region.region1 !== ''){
             const result = await (await (axios.get('/district/selectRegionGeoLoc', {
