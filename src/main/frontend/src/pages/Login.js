@@ -10,6 +10,7 @@ function Login(){
     const navigate = useNavigate();
 
     useEffect(() => {
+        window.localStorage.removeItem('yOffset')
         comn.scrollToTop();
         fetch('/auth/isLogin')
         .then(res => res.json())
