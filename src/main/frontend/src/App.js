@@ -9,9 +9,11 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import './css/Comn.css';
 import ErrPage from "./pages/ErrPage";
+import Modal from "./pages/comn/Modal";
 
 
 function App(){
+
     function setScreenSize() {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty("--vh", `${vh}px`);

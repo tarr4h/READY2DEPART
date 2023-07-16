@@ -3,7 +3,7 @@ import {lazy, useEffect, useState} from "react";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import View from "./View";
-import * as comn from "../comn/comnFunction";
+import Modal from "./comn/Modal";
 
 function Home(){
     const navigate = useNavigate();

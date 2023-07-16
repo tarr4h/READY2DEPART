@@ -74,6 +74,7 @@ function BoardList({boardList, isTracking}){
                 checked
             }
             arr.push(param);
+
             selectedCtgrArr.forEach(function(item, index){
                 arr.push(item);
             });

@@ -149,3 +149,58 @@ input, textarea, button{
     -ms-text-align-last: center;
     -moz-text-align-last: center;
 }
+
+
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.6);
+    padding: 5vw;
+}
+.modal.openModal{
+    display: flex;
+    align-items: center;
+}
+
+.modalWrapper{
+    background-color : #24232B;
+    width: 100%;
+    min-height: 10vh;
+}
+.modalHeader{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+}
+.modalTitle{
+    width: 90%;
+}
+.modalHeader > div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    color: #F2F2F2;
+}
+.modalHeader > div:nth-child(1){
+    justify-content: flex-start;
+    width: 90%;
+    padding-left: 5%;
+}
+.modalHeader > div:nth-child(2){
+    width: 10%;
+    justify-content: center;
+}
+
+.modalContent{
+    padding: 2vh 2vw;
+}

@@ -2,6 +2,7 @@ import {useLocation} from "react-router-dom";
 import '../../css/BoardDetail.css';
 import {useEffect, useRef, useState} from "react";
 import * as comn from "../../comn/comnFunction";
+import AddPlan from "./addPlan";
 const {kakao} = window;
 
 function BoardDetail(){
@@ -129,6 +130,9 @@ function BoardDetail(){
                     ))}
                 </div>
             </div>
+
+
+            <AddPlan/>
         </div>
     )
 }
