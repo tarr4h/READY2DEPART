@@ -1,12 +1,12 @@
 import {useState} from "react";
 
 
-function Modal({title, content, height, callback}){
+function Modal({title, content, callback}){
     const [isOpen, setIsOpen] = useState(true);
 
     const closeModal = () => {
         setIsOpen(false);
-        callback('1234');
+        callback();
     }
 
 

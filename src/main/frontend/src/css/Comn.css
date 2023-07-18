@@ -204,3 +204,10 @@ input, textarea, button{
 .modalContent{
     padding: 2vh 2vw;
 }
+
+input[type=time]{
+    border: 1px solid #F2F2F2;
+    width: 30vw;
+    height: 2vh;
+    color: black;
+}

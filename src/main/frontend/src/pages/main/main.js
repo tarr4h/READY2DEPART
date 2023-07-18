@@ -40,10 +40,10 @@ function Main(){
     }, [navigate]);
 
     useLayoutEffect(() => {
-            const savedOffset = window.localStorage.getItem('yOffset');
-            if(savedOffset != null){
-                window.scroll(0, Number(savedOffset))
-            }
+        const savedOffset = window.localStorage.getItem('yOffset');
+        if(savedOffset != null){
+            window.scroll(0, Number(savedOffset))
+        }
     });
 
     const saveScrollY = () => {
@@ -134,6 +134,7 @@ function Main(){
         kakao.maps.event.removeListener(map, 'click');
         kakao.maps.event.addListener(map, 'click', function(mouseEvent){
             deleteLocalLocInfo();
+            saveScrollY();
 
             mapLevel[0] = map.getLevel();
             setMapLevel(mapLevel);

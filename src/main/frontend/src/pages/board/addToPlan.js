@@ -1,25 +1,18 @@
 import {useEffect, useState} from "react";
 import Home from "../Home";
 import Modal from "../comn/Modal";
+import AddPlanModal from "./addPlanModal";
 
-function AddPlan(){
+function AddToPlan(){
 
     const [showModal, setShowModal] = useState(false);
 
-    const [arr , setStat] = useState([1, 2, 3]);
-    const [count , setCount] = useState(0);
 
     const planContent = () => {
-        const test = () => {
-            console.log('count : ', count);
-            setCount(count => count + 1);
-        }
 
         return (
-            <div onClick={test}>
-                {arr.map((item, index) => (
-                    <input type="text" value={item}/>
-                ))}
+            <div>
+                <AddPlanModal/>
             </div>
         )
     }
@@ -29,7 +22,6 @@ function AddPlan(){
     }
 
     const modalCallback = () => {
-        console.log('count : ',count);
         setShowModal(false);
     }
 
@@ -49,4 +41,4 @@ function AddPlan(){
     )
 }
 
-export default AddPlan;
+export default AddToPlan;
