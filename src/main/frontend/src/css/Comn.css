@@ -35,6 +35,23 @@ input, textarea, button{
     color: black;
 }
 
+
+label, input[type=checkbox]{
+    width: 15px;
+    height: 15px;
+    border: 1px solid #FFF;
+}
+input[type=checkbox]:checked{
+    color: #FFF;
+    border: 3px solid #FFF;
+    background-color: #F2A74B;
+}
+
+input[type=time]::-webkit-clear-button{
+    display: none;
+}
+
+
 .wd_100{
     width: 100%;
 }
@@ -98,17 +115,6 @@ input, textarea, button{
 }
 .pr_3{
     padding-right: 3vw;
-}
-
-label, input[type=checkbox]{
-    width: 15px;
-    height: 15px;
-    border: 1px solid #FFF;
-}
-input[type=checkbox]:checked{
-    color: #FFF;
-    border: 3px solid #FFF;
-    background-color: #F2A74B;
 }
 
 .orange{
