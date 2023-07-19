@@ -16,4 +16,42 @@
             ,   NOW()
         )
     </insert>
+
+    <select id="selectMyPlanList" resultType="com.web.trv.program.plan.model.PlanVo">
+        SELECT  ID
+             ,  USER_ID
+             ,  NM
+             ,  DATE_FORMAT(START_TM, '%H:%i') AS START_TM
+             ,  DATE_FORMAT(END_TM, '%H:%i') AS END_TM
+             ,  MOD_DT
+        FROM    TRV_PLAN_DAY
+        WHERE   USER_ID = #{userId}
+            <if test="existPlanDay != null">
+            AND ID NOT IN
+                <foreach collection="existPlanDay" open="(" close=")" separator="," item="item">
+                    #{item.dayId}
+                </foreach>
+            </if>
+        ORDER BY MOD_DT DESC
+    </select>
+
+    <select id="selectMyPlanDoList" resultType="com.web.trv.program.plan.model.PlanDoVo">
+        SELECT  *
+        FROM    TRV_PLAN_DO
+        WHERE   BOARD_ID = #{boardId}
+            AND DAY_ID IN ( SELECT  ID
+                            FROM    TRV_PLAN_DAY
+                            WHERE   USER_ID = #{userId})
+    </select>
+
+    <insert id="insertPlanDo">
+        INSERT INTO TRV_PLAN_DO
+        (ID, DAY_ID, BOARD_ID, MOD_DT)
+        VALUES(
+                CONCAT('PLO', LPAD(GET_SEQ('PLO'), 7, 0))
+             ,  #{dayId}
+             ,  #{boardId}
+             ,  NOW()
+        )
+    </insert>
 </mapper>

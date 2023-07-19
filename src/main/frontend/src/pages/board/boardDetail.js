@@ -132,8 +132,7 @@ function BoardDetail(){
                 </div>
             </div>
 
-
-            <AddToPlan/>
+            <AddToPlan boardId={board.id}/>
         </div>
     )
 }

@@ -130,7 +130,7 @@ function SearchFilter({submit, reset}){
     
     return (
         <div className="mainScFilter">
-            <div>
+            <div className="titWrapper">
                 <div>장소</div>
                 <div className="select_half_wrapper">
                     <RegionSelect region={region1}
@@ -144,7 +144,7 @@ function SearchFilter({submit, reset}){
                     />
                 </div>
             </div>
-            <div>
+            <div className="titWrapper">
                 <div>유형</div>
                 <div className="select_half_wrapper">
                     <CategorySelect category={type1}
@@ -158,7 +158,7 @@ function SearchFilter({submit, reset}){
                     />
                 </div>
             </div>
-            <div>
+            <div className="btnWrapper_30per">
                 <a className="btn" onClick={resetFilter}>초기화</a>
                 <a className="btn" onClick={responseFilter}>적용</a>
             </div>

@@ -25,6 +25,63 @@ input, textarea, button{
     -moz-border-radius: 0;
 }
 
+.input{
+    height: 5vh;
+    border: 1px solid #292b51;
+    border-radius: 7px;
+    padding-left: 2vw;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+.wd_100{
+    width: 100%;
+}
+.wd_90{
+    width: 90%;
+}
+.wd_60{
+    width: 60%;
+}
+.wd_50{
+    width: 50%;
+}
+
+.mt_1{
+    margin-top: 1vh;
+}
+.mt_3{
+    margin-top: 3vh;
+}
+.mt_5{
+    margin-top: 5vh;
+}
+.mb_1{
+    margin-bottom: 1vh;
+}
+.mb_3{
+    margin-bottom: 3vh;
+}
+.mb_5{
+    margin-bottom: 5vh;
+}
+
+label, input[type=checkbox]{
+    width: 15px;
+    height: 15px;
+    border: 1px solid #FFF;
+}
+input[type=checkbox]:checked{
+    color: #FFF;
+    border: 3px solid #FFF;
+    background-color: #F2A74B;
+}
+
+.orange{
+    color: #F2A74B!important;
+}
+.bd_orange{
+    border-color: #F2A74B!important;
+}
 
 .titColor{
     color: #F2F2F2!important;
@@ -205,9 +262,55 @@ input, textarea, button{
     padding: 2vh 2vw;
 }
 
-input[type=time]{
-    border: 1px solid #F2F2F2;
-    width: 30vw;
-    height: 2vh;
-    color: black;
+.btnWrapper_40per{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+}
+.btnWrapper_40per > a:nth-child(1){
+    border-color: #F2A74B;
+    color: gray;
+    width: 33%;
+}
+.btnWrapper_40per > a:nth-child(2){
+    border: none;
+    background-color: #F2A74B;
+    color: #24232B;
+    width: 59%;
+}
+.btnWrapper_30per{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+}
+.btnWrapper_30per > a:nth-child(1){
+    border-color: #F2A74B;
+    color: gray;
+    width: 20%;
+}
+.btnWrapper_30per > a:nth-child(2){
+    border: none;
+    background-color: #F2A74B;
+    color: #24232B;
+    width: 71%;
+}
+
+.titWrapper{
+    padding: 1vw 0;
+    color: #F2F2F2;
+}
+.titWrapper > div:nth-child(1){
+    width: 100%;
+    margin-left: 2vw;
+}
+.titWrapper > div:nth-child(2){
+    width: 100%;
+    margin-top: 0.5vh;
+    text-align: center;
 }

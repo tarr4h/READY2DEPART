@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
 import Home from "../Home";
 import Modal from "../comn/Modal";
-import AddPlanModal from "./addPlanModal";
+import AddPlanModal from "../plan/addPlanModal";
 import SelectPlanModal from "./selectPlanModal";
 
-function AddToPlan(){
+function AddToPlan({boardId}){
 
     const [showModal, setShowModal] = useState(false);
 
@@ -12,16 +12,22 @@ function AddToPlan(){
         setShowModal(true);
     }
 
+    const closeAddPlanModal = () => {
+        setShowModal(false);
+    }
+
     return (
         <div className="addPlanWrapper">
-            <Modal title={"일정선택"}
-                   content={<SelectPlanModal/>}
+            <Modal title={"일정에 추가하기"}
+                   content={<SelectPlanModal boardId={boardId}
+                                             callback={closeAddPlanModal}
+                   />}
                    isOpen={showModal}
                    setIsOpen={setShowModal}
             />
-            <a className="btn"
+            <a className="btn bd_orange orange"
                onClick={openAddPlanModal}
-            >계획추가</a>
+            >일정에 추가</a>
         </div>
     )
 }

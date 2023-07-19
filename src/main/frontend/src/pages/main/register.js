@@ -257,6 +257,7 @@ function Register(){
                         </div>
                         <div className="line_body">
                             <input
+                                className="input wd_100"
                                 type="text"
                                 name="location"
                                 {...register("location")}
@@ -279,7 +280,8 @@ function Register(){
                             <span>장소명</span>
                         </div>
                         <div className="line_body">
-                            <input type="text" name="title" {...register("title")}/>
+                            <input className="input wd_100"
+                                type="text" name="title" {...register("title")}/>
                             {validateLocNm ? '' : <span>장소명을 입력해주세요!</span>}
                         </div>
                     </div>
@@ -311,7 +313,8 @@ function Register(){
                             <span>한줄요약</span>
                         </div>
                         <div className="line_body">
-                            <input type="text" name="summary" {...register("summary")}/>
+                            <input className="input wd_100"
+                                type="text" name="summary" {...register("summary")}/>
                         </div>
                     </div>
                     <div className="line_case">

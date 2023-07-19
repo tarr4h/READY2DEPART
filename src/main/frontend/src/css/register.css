@@ -1,4 +1,4 @@
-form{
+#regFrm{
     padding: 8px;
 }
 .register_wrapper{
@@ -73,15 +73,6 @@ form{
 
 .line_body{
     width: 100%;
-}
-.line_body input{
-    width: 100%;
-    height: 5vh;
-    border: 1px solid #292b51;
-    border-radius: 7px;
-    padding-left: 2vw;
-    box-sizing: border-box;
-    font-size: 15px;
 }
 .line_body textarea{
     width: 100%;
