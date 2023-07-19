@@ -1,5 +1,6 @@
 package com.web.trv.program.plan.service;
 
+import com.web.trv.comn.util.Utilities;
 import com.web.trv.program.plan.dao.PlanDao;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,6 @@ public class PlanService {
     PlanDao dao;
 
     public Object insertPlanDay(Map<String, Object> param) {
-        log.debug("insertPlanDay param = {}", param);
-        return null;
+        return dao.insertPlanDay(param);
     }
 }

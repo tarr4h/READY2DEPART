@@ -2,6 +2,8 @@ package com.web.trv.program.plan.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.Map;
+
 /**
  * <pre>
  * com.web.trv.program.plan.dao.PlanDao
@@ -17,4 +19,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface PlanDao {
 
 
+    int insertPlanDay(Map<String, Object> param);
 }

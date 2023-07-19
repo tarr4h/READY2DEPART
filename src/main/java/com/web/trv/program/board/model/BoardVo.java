@@ -24,6 +24,7 @@ import java.util.List;
 public class BoardVo implements Comparable<BoardVo> {
 
     private String id;
+    private String userId;
     private String title;
     private String summary;
     private String content;

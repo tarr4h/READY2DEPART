@@ -19,7 +19,7 @@ import lombok.Setter;
 public class UserVo {
 
     private String id;
-    private String userId;
+    private String nm;
     private String pwd;
     private String ph;
     private String modDt;

@@ -1,14 +1,10 @@
 import {useState} from "react";
 
 
-function Modal({title, content, callback}){
-    const [isOpen, setIsOpen] = useState(true);
-
+function Modal({title, content, isOpen, setIsOpen}){
     const closeModal = () => {
         setIsOpen(false);
-        callback();
     }
-
 
     return (
         <div className={

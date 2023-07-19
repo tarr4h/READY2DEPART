@@ -9,9 +9,7 @@ function AddPlanModal(){
     const onSubmit = async(data) => {
         console.log('data : ', data);
 
-
         const result = await(await axios.post('/plan/insertPlanDay', data)).data;
-
         console.log('result data : ', result);
     }
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.trv.program.plan.dao.PlanDao">
+
+    <insert id="insertPlanDay">
+        INSERT INTO TRV_PLAN_DAY
+        (ID, USER_ID, NM, START_TM, END_TM, MOD_DT)
+        VALUES(
+                CONCAT('PLD', LPAD(GET_SEQ('PLD'), 7, 0))
+            ,   #{userId}
+            ,   #{nm}
+            ,   #{startTm}
+            ,   #{endTm}
+            ,   NOW()
+        )
+    </insert>
+</mapper>

@@ -2,6 +2,7 @@ package com.web.trv.program.register.service;
 
 import com.web.trv.comn.model.FileVo;
 import com.web.trv.comn.model.SysCodeVo;
+import com.web.trv.comn.util.Utilities;
 import com.web.trv.program.register.dao.RegisterDao;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.compress.compressors.FileNameUtil;
@@ -50,6 +51,8 @@ public class RegisterService {
     }
 
     public String insertBoard(Map<String, Object> param) {
+        param.put("userId", Utilities.getLoginUser().getId());
+
         if(param.get("rating") == null || param.get("rating").equals("")){
             param.put("rating", 0);
         }

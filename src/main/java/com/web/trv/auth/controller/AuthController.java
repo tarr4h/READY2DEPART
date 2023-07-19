@@ -40,7 +40,8 @@ public class AuthController {
         boolean bool = false;
         if(user != null){
             HttpSession session = req.getSession();
-            session.setAttribute("loginUser", user.getId());
+            session.setAttribute("loginUserId", user.getId());
+            session.setAttribute("loginUser", user);
             param.put("ipAddr", req.getRemoteAddr());
             service.changeLoginUserStatus(param);
 
@@ -53,9 +54,10 @@ public class AuthController {
     public ResponseEntity<?> logout(HttpServletRequest req){
         HttpSession session = req.getSession();
         Map<String, Object> param = new HashMap<>();
-        param.put("id", session.getAttribute("loginUser"));
+        param.put("id", session.getAttribute("loginUserId"));
         service.changeLoginUserStatus(param);
 
+        session.removeAttribute("loginUserId");
         session.removeAttribute("loginUser");
         return ResponseEntity.ok(true);
     }
@@ -63,7 +65,7 @@ public class AuthController {
     @GetMapping("isLogin")
     public ResponseEntity<?> isLogin(HttpServletRequest req){
         HttpSession session = req.getSession();
-        Object id = session.getAttribute("loginUser");
+        Object id = session.getAttribute("loginUserId");
 
         boolean bool = true;
         if(id == null){

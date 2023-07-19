@@ -21,9 +21,10 @@
             SELECT CONCAT('BRD', LPAD(GET_SEQ('BRD'), 7, 0))
         </selectKey>
         INSERT INTO TRV_BOARD
-        (ID, TITLE, SUMMARY, CONTENT, CATEGORY, RATING)
+        (ID, USER_ID, TITLE, SUMMARY, CONTENT, CATEGORY, RATING)
         VALUES(
                 #{boardId}
+            ,   #{userId}
             ,   #{title}
             ,   #{summary}
             ,   #{content}

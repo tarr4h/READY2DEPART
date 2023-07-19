@@ -2,7 +2,7 @@ server:
   port: '8082'
   servlet:
     session:
-      timeout: 180
+      timeout: 1800
 
 spring:
   datasource:
