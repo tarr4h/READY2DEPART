@@ -1,8 +1,11 @@
 
 
-function PlanRow({plan, onChange}){
+function PlanRow({plan, onChange, size}){
     return (
-        <div className="planRow" key={plan.id}>
+        <div className={
+            size === 'big' ? "planRow pl_3 pr_3" : "planRow"
+        }
+             key={plan.id}>
             <div>
                 <input type="checkbox"
                        onChange={onChange}

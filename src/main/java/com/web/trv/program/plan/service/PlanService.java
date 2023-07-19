@@ -35,9 +35,11 @@ public class PlanService {
 
     public Object selectMyPlanList(Map<String, Object> param) {
         log.debug("param = {}", param);
-        List<PlanDoVo> planDoList = dao.selectMyPlanDoList(param);
-        if(planDoList.size() != 0){
-            param.put("existPlanDay", planDoList);
+        if(param.get("boardId") != null){
+            List<PlanDoVo> planDoList = dao.selectMyPlanDoList(param);
+            if(planDoList.size() != 0){
+                param.put("existPlanDay", planDoList);
+            }
         }
         return dao.selectMyPlanList(param);
     }
@@ -56,6 +58,30 @@ public class PlanService {
             result += dao.insertPlanDo(map);
         }
 
+        return result;
+    }
+
+    @SuppressWarnings("unchecked")
+    public Object deletePlanDay(Map<String, Object> param) {
+        log.debug("param = {}", param);
+        int result = 0;
+
+        List<String> planDayList = (List<String>) param.get("selectedPlanList");
+        for(String dayId : planDayList){
+            log.debug("--------------------------------------------------");
+            Map<String, Object> map = new HashMap<>();
+            map.put("dayId", dayId);
+            List<PlanDoVo> planDoList = dao.selectMyPlanDoList(map);
+            int doDelResult = 0;
+            for(PlanDoVo planDo : planDoList){
+                doDelResult += dao.deletePlanDo(planDo);
+            }
+            log.debug("do del result = {}", doDelResult);
+
+            map.put("id", dayId);
+            result += dao.deletePlanDay(map);
+            log.debug("fin del result = {}", result);
+        }
         return result;
     }
 }

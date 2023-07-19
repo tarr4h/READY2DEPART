@@ -38,10 +38,16 @@
     <select id="selectMyPlanDoList" resultType="com.web.trv.program.plan.model.PlanDoVo">
         SELECT  *
         FROM    TRV_PLAN_DO
-        WHERE   BOARD_ID = #{boardId}
-            AND DAY_ID IN ( SELECT  ID
-                            FROM    TRV_PLAN_DAY
-                            WHERE   USER_ID = #{userId})
+        WHERE
+            <if test="boardId != null and boardId != ''">
+            DAY_ID IN ( SELECT  ID
+                        FROM    TRV_PLAN_DAY
+                        WHERE   USER_ID = #{userId})
+            AND BOARD_ID = #{boardId}
+            </if>
+            <if test="dayId != null and dayId != ''">
+            DAY_ID = #{dayId}
+            </if>
     </select>
 
     <insert id="insertPlanDo">
@@ -54,4 +60,14 @@
              ,  NOW()
         )
     </insert>
+
+    <delete id="deletePlanDo">
+        DELETE FROM TRV_PLAN_DO
+        WHERE   ID = #{id}
+    </delete>
+
+    <delete id="deletePlanDay">
+        DELETE FROM TRV_PLAN_DAY
+        WHERE   ID = #{id}
+    </delete>
 </mapper>

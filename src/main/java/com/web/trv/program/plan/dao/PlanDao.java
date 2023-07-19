@@ -30,4 +30,7 @@ public interface PlanDao {
 
     int insertPlanDo(Map<String, Object> param);
 
+    int deletePlanDo(PlanDoVo planDo);
+
+    int deletePlanDay(Map<String, Object> map);
 }

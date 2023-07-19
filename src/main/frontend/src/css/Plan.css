@@ -1,0 +1,46 @@
+
+.planTitWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+}
+.planTitWrapper > div:nth-child(2){
+    display: flex;
+}
+.planTitWrapper .btn {
+    height: 3vh;
+}
+
+.addPlanWrapper{
+    margin-top: 2vh;
+}
+.addPlanWrapper > .btn{
+    height: 3.7vh;
+}
+.planRow{
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+}
+.planRow > div {
+    color: #F2F2F2;
+}
+.planRow > div:nth-child(1){
+    width: 8%;
+}
+.planRow > div:nth-child(2){
+    width: 58%;
+    padding-left: 3%;
+    padding-right: 3%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.planRow > div:nth-child(3){
+    width: 30%;
+}

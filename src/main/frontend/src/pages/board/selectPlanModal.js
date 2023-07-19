@@ -2,9 +2,8 @@ import Modal from "../comn/Modal";
 import AddPlanModal from "../plan/addPlanModal";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {findAllByDisplayValue} from "@testing-library/react";
-import PlanRow from "./planRow";
-import planRow from "./planRow";
+import PlanRow from "../plan/planRow";
+import PlanList from "../plan/planList";
 
 
 function SelectPlanModal({boardId, callback}){
@@ -47,24 +46,6 @@ function SelectPlanModal({boardId, callback}){
         callback();
     };
 
-    const planRowSelect = (event) => {
-        const planId = event.target.value;
-        const checked = event.target.checked;
-        if(checked){
-            let arr = selectedPlanList;
-            arr.push(planId);
-            setSelectedPlanList(arr);
-        } else {
-            let arr = [];
-            selectedPlanList.forEach((item, index) => {
-               if(item !== planId){
-                   arr.push(item);
-               }
-            });
-            setSelectedPlanList(arr);
-        }
-    }
-
     return (
         <div>
             <Modal title={"일정추가"}
@@ -72,14 +53,11 @@ function SelectPlanModal({boardId, callback}){
                    isOpen={showAddModal}
                    setIsOpen={setShowAddModal}
             />
-            {
-                planList.map((item, index) => (
-                    <PlanRow key={index}
-                             plan={item}
-                             onChange={planRowSelect}
-                    />
-                ))
-            }
+            <PlanList planList={planList}
+                      selectedPlanList={selectedPlanList}
+                      setSelectedPlanList={setSelectedPlanList}
+                      size={'small'}
+            />
             <div className="btnWrapper_40per">
                 <a className="btn orange"
                    onClick={openAddPlanModal}

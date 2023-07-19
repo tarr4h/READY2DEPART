@@ -40,4 +40,9 @@ public class PlanController {
     public ResponseEntity<?> insertPlanDo(@RequestBody Map<String, Object> param){
         return ResponseEntity.ok().body(service.insertPlanDo(param));
     }
+
+    @PostMapping("deletePlanDay")
+    public ResponseEntity<?> deletePlanDay(@RequestBody Map<String, Object> param){
+        return ResponseEntity.ok().body(service.deletePlanDay(param));
+    }
 }

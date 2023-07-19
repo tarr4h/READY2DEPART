@@ -78,31 +78,4 @@ img{
     border-radius: 7px;
 }
 
-.addPlanWrapper{
-    margin-top: 2vh;
-}
-.planRow{
-    height: 5vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: flex-start;
-}
-.planRow > div {
-    color: #F2F2F2;
-}
-.planRow > div:nth-child(1){
-    width: 8%;
-}
-.planRow > div:nth-child(2){
-    width: 60%;
-    padding-left: 3%;
-    padding-right: 1%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.planRow > div:nth-child(3){
-    width: 30%;
-}
+

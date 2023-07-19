@@ -32,7 +32,9 @@ input, textarea, button{
     padding-left: 2vw;
     box-sizing: border-box;
     font-size: 15px;
+    color: black;
 }
+
 .wd_100{
     width: 100%;
 }
@@ -64,6 +66,39 @@ input, textarea, button{
 .mb_5{
     margin-bottom: 5vh;
 }
+.ml_1{
+    margin-left: 1vw;
+}
+.ml_3{
+    margin-left: 3vw;
+}
+.ml_5{
+    margin-left: 5vw;
+}
+.pt_1{
+    padding-top: 1vh;
+}
+.pt_3{
+    padding-top: 3vh;
+}
+.pb_1{
+    padding-bottom: 1vh;
+}
+.pb_3{
+    padding-bottom: 3vh;
+}
+.pl_1{
+    padding-left: 1vw;
+}
+.pl_3{
+    padding-left: 3vw;
+}
+.pr_1{
+    padding-right: 1vw;
+}
+.pr_3{
+    padding-right: 3vw;
+}
 
 label, input[type=checkbox]{
     width: 15px;
@@ -82,6 +117,9 @@ input[type=checkbox]:checked{
 .bd_orange{
     border-color: #F2A74B!important;
 }
+.bg_orange{
+    background-color: #F2A74B!important;
+}
 
 .titColor{
     color: #F2F2F2!important;
@@ -93,7 +131,7 @@ input[type=checkbox]:checked{
     border: 1px solid gray;
     padding: 0.5vh 1vw;
     min-width: 15vw;
-    height: 3vh;
+    height: 3.5vh;
     font-size: 0.9rem;
     text-align: center;
     border-radius: 7px;
@@ -216,7 +254,7 @@ input[type=checkbox]:checked{
     left: 0;
     bottom: 0;
     z-index: 9999;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.8);
     padding: 5vw;
 }
 .modal.openModal{
@@ -228,6 +266,8 @@ input[type=checkbox]:checked{
     background-color : #24232B;
     width: 100%;
     min-height: 10vh;
+    border-radius: 5px;
+    /*border: 1px solid black;*/
 }
 .modalHeader{
     width: 100%;
@@ -276,7 +316,7 @@ input[type=checkbox]:checked{
     width: 33%;
 }
 .btnWrapper_40per > a:nth-child(2){
-    border: none;
+    border: 1px solid #F2A74B;
     background-color: #F2A74B;
     color: #24232B;
     width: 59%;
@@ -313,4 +353,9 @@ input[type=checkbox]:checked{
     width: 100%;
     margin-top: 0.5vh;
     text-align: center;
+}
+
+.pageTit{
+    color: #F2F2F2;
+    font-size: 1.6rem;
 }

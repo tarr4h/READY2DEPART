@@ -10,7 +10,7 @@ function Footer(){
             <NavLink to={'/friends'}>
                 FRNDS
             </NavLink>
-            <NavLink to={'/plan'}>
+            <NavLink to={'/my/plan'}>
                 PLAN
             </NavLink>
             <NavLink to={'/my'}>
