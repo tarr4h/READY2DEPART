@@ -3,7 +3,7 @@ const {createProxyMiddleware} = require('http-proxy-middleware')
 
 module.exports = app => {
 
-    const urlPaths = ['/auth', '/register', '/board', '/district', '/plan'];
+    const urlPaths = ['/auth', '/register', '/board', '/district', '/pln'];
 
     app.use(
         createProxyMiddleware(urlPaths, {

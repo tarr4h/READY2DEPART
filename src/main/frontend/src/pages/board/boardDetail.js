@@ -2,7 +2,6 @@ import {useLocation} from "react-router-dom";
 import '../../css/BoardDetail.css';
 import {useEffect, useRef, useState} from "react";
 import * as comn from "../../comn/comnFunction";
-import AddPlan from "./addToPlan";
 import AddToPlan from "./addToPlan";
 const {kakao} = window;
 
@@ -15,6 +14,7 @@ function BoardDetail(){
     const [extraInfo, setExtraInfo] = useState(false);
 
     useEffect(() => {
+        console.log('board : ', board);
         comn.scrollToTop();
         showMap(board.district.latitude, board.district.longitude);
         textAreaResize();
@@ -52,6 +52,9 @@ function BoardDetail(){
             <div className="boardDetail">
                 <div>
                     <h1 className="detailTit">{board.title}</h1>
+                </div>
+                <div>
+                    <span>{(comn.kmToMt(board.district.toDistance))}</span>
                 </div>
                 <div>
                     <span>{board.modDt}</span>

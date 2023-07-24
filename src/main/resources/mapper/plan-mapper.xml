@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.web.trv.program.plan.dao.PlanDao">
 
+    <resultMap id="planDoMap" type="com.web.trv.program.plan.model.PlanDoVo">
+        <collection column="boardId = board_id" property="board" javaType="com.web.trv.program.board.model.BoardVo"
+                    select="selectBoard"/>
+    </resultMap>
+
     <insert id="insertPlanDay">
         INSERT INTO TRV_PLAN_DAY
         (ID, USER_ID, NM, START_TM, END_TM, MOD_DT)
@@ -70,4 +75,16 @@
         DELETE FROM TRV_PLAN_DAY
         WHERE   ID = #{id}
     </delete>
+
+    <select id="selectDoList" resultMap="planDoMap">
+        SELECT  *
+        FROM    TRV_PLAN_DO
+        WHERE   DAY_ID = #{dayId}
+    </select>
+
+    <select id="selectBoard" resultType="com.web.trv.program.board.model.BoardVo">
+        SELECT  *
+        FROM    TRV_BOARD
+        WHERE   ID = #{boardId}
+    </select>
 </mapper>

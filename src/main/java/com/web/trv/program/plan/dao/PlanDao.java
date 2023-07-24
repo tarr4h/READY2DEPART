@@ -33,4 +33,6 @@ public interface PlanDao {
     int deletePlanDo(PlanDoVo planDo);
 
     int deletePlanDay(Map<String, Object> map);
+
+    List<PlanDoVo> selectDoList(Map<String, Object> param);
 }

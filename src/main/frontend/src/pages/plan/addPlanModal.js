@@ -8,7 +8,7 @@ function AddPlanModal({callback}){
 
     const onSubmit = async(data) => {
         if(!validate(data)) return false;
-        const result = await(await axios.post('/plan/insertPlanDay', data)).data;
+        const result = await(await axios.post('/pln/insertPlanDay', data)).data;
         if(result > 0){
             alert('등록되었습니다.');
             reset();

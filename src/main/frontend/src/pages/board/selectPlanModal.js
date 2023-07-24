@@ -27,7 +27,7 @@ function SelectPlanModal({boardId, callback}){
     }
 
     const getPlanList = async () => {
-        const list = await(await axios.get('/plan/selectMyPlanList', {
+        const list = await(await axios.get('/pln/selectMyPlanList', {
             params : {
                 boardId
             }
@@ -40,7 +40,7 @@ function SelectPlanModal({boardId, callback}){
             selectedPlanList,
             boardId
         }
-        const result = await(await axios.post('/plan/insertPlanDo', param)).data;
+        const result = await(await axios.post('/pln/insertPlanDo', param)).data;
         alert(result + '건의 일정에 추가되었습니다.');
         void getPlanList();
         callback();

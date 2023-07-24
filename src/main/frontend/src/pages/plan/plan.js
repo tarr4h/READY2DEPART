@@ -37,12 +37,13 @@ function Plan(){
     }
 
     const getPlanList = async () => {
-        const list = await(await axios.get('/plan/selectMyPlanList')).data;
+        const list = await(await axios.get('/pln/selectMyPlanList')).data;
+        if(list.length === 0) setShowDelBtn(false);
         setPlanList(list);
     }
 
     const deletePlan = async () => {
-        const result = await(await axios.post('/plan/deletePlanDay', {
+        const result = await(await axios.post('/pln/deletePlanDay', {
             selectedPlanList
         })).data;
 

@@ -84,3 +84,8 @@ export function imgGend(sysCd){
 
     return require(`../img/${img}`);
 }
+
+export function kmToMt(km) {
+    const mt = Math.round((Number(km) * 1000));
+    return mt + 'm'
+}

@@ -19,7 +19,7 @@ import java.util.Map;
  * @date : 2023/07/17
  */
 @RestController
-@RequestMapping("/plan")
+@RequestMapping("/pln")
 public class PlanController {
 
     @Autowired
@@ -44,5 +44,10 @@ public class PlanController {
     @PostMapping("deletePlanDay")
     public ResponseEntity<?> deletePlanDay(@RequestBody Map<String, Object> param){
         return ResponseEntity.ok().body(service.deletePlanDay(param));
+    }
+
+    @GetMapping("selectDoList")
+    public ResponseEntity<?> selectDoList(@RequestParam Map<String, Object> param){
+        return ResponseEntity.ok().body(service.selectDoList(param));
     }
 }

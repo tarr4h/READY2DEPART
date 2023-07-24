@@ -1,5 +1,6 @@
 package com.web.trv.program.plan.model;
 
+import com.web.trv.program.board.model.BoardVo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,4 +27,6 @@ public class PlanDoVo {
     private int stayTmMin;
     private int travelTmMin;
     private String modDt;
+
+    private BoardVo board;
 }

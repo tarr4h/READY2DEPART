@@ -95,6 +95,7 @@ function Board({board, selectedCtgrArr}){
                     </div>
                 </div>
                 <div className="bottom">
+                    {comn.kmToMt(board.district.toDistance)}
                     <span>{board.modDt}</span>
                 </div>
             </div>

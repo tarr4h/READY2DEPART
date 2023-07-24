@@ -2,7 +2,6 @@ import PlanRow from "./planRow";
 
 
 function PlanList({planList, selectedPlanList, setSelectedPlanList, size}){
-
     const planRowSelect = (event) => {
         const planId = event.target.value;
         const checked = event.target.checked;
