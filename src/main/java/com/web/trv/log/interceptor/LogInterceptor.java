@@ -28,7 +28,6 @@ public class LogInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("\n[log-interceptor]");
         sb.append("\n ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         sb.append("\n -- requestURI : ").append(request.getRequestURI());
         sb.append("\n -- requestURL : ").append(request.getRequestURL());

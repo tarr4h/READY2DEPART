@@ -30,6 +30,13 @@ function PlanDetail(){
     return (
         <div>
             planDetail, planId : {plan.id}
+            {
+                doList.map((item) => (
+                    <div>
+                        {item.board.title}
+                    </div>
+                ))
+            }
         </div>
     )
 }

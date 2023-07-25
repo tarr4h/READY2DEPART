@@ -48,7 +48,7 @@ function Main(){
 
     const saveScrollY = () => {
         const yOffset = window.pageYOffset;
-        window.localStorage.setItem('yOffset', yOffset);
+        window.localStorage.setItem('yOffset', yOffset.toString());
     }
 
     const trackingMode = () => {
@@ -100,7 +100,7 @@ function Main(){
     }
 
     const setCurrentMap = async () => {
-        let geoLoc = null;
+        let geoLoc;
 
         // 필터 검색 > 상세페이지 또는 기타 navigate 이후 반영
         const fGeoLoc = JSON.parse(window.localStorage.getItem('filterGeoLoc'));
