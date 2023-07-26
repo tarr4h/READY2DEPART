@@ -47,6 +47,7 @@ function BoardDetail(){
         customOverlay.setMap(map);
     }
 
+
     return (
         <div className="boardDetailWrapper">
             <div className="boardDetail">
@@ -68,7 +69,7 @@ function BoardDetail(){
                 <div>
                     <div>
                         {
-                            board.upCategoryVo.nm + ' > '
+                            board.upCategoryVo.upSysCd != null ? board.upCategoryVo.nm + ' > ' : ''
                          }
                         {
                             board.categoryVo.nm
