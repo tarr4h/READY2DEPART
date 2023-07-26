@@ -82,6 +82,8 @@ function Login(){
     }
 
     const closeJoinModal = () => {
+        comn.scrollToTop();
+        resetLoginForm();
         setShowJoinModal(false);
     }
 
