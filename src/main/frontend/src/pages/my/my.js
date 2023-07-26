@@ -7,6 +7,7 @@ function My(){
         fetch('/auth/logout', {
             method: 'POST'
         }).then(() => {
+            window.localStorage.removeItem('currGeoLoc');
             navigate('/login');
         });
     }

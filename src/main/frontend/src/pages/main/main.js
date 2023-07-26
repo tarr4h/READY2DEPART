@@ -28,10 +28,23 @@ function Main(){
     const [onFilter, setOnFilter] = useState(false);
 
     useEffect(() => {
+        const currGeoLoc = JSON.parse(window.localStorage.getItem('currGeoLoc'));
+        if(currGeoLoc == null){
+            setCurrentGeoLoc(currGeoLoc);
+            void setCurrentMap();
+        } else {
+            mapLevel[0] = JSON.parse(window.localStorage.getItem('currMapLvl'));
+            setMapLevel(mapLevel);
+            mapRadius.current = JSON.parse(window.localStorage.getItem('currMapRad'));
+            void setMap(currGeoLoc);
+        }
+
+    }, []);
+
+    useEffect(() => {
         if(window.localStorage.getItem('yOffset') == null){
             comn.scrollToTop();
         }
-        void setCurrentMap();
 
         return () => {
             clearInterval(trackingIntervalRef.current);
@@ -148,6 +161,9 @@ function Main(){
             }
             offTrackingMode();
             setCurrentGeoLoc(geoLoc);
+            window.localStorage.setItem('currGeoLoc', JSON.stringify(geoLoc));
+            window.localStorage.setItem('currMapLvl', JSON.stringify(map.getLevel()));
+            window.localStorage.setItem('currMapRad', JSON.stringify(mapRadius.current));
             setMap(geoLoc);
         });
 
@@ -278,6 +294,9 @@ function Main(){
 
         mapRadius.current = result.radius === 0 ? 2 : result.radius;
         mapLevelRadiusMatcher();
+        window.localStorage.setItem('currGeoLoc', JSON.stringify(result.geoLoc));
+        window.localStorage.setItem('currMapRad', JSON.stringify(mapRadius.current));
+        window.localStorage.setItem('currMapLvl', JSON.stringify(mapLevel[0]));
         setCurrentGeoLoc(result.geoLoc);
         void setMap(result.geoLoc);
 
@@ -301,6 +320,10 @@ function Main(){
         window.localStorage.removeItem('filterGeoLoc');
         window.localStorage.removeItem('filterRegion');
         window.localStorage.removeItem('filterCtgr');
+        window.localStorage.removeItem('currGeoLoc');
+        window.localStorage.removeItem('currMapLvl');
+        window.localStorage.removeItem('currMapRad');
+
         mapLevel[0] = 7;
         setMapLevel(mapLevel);
         setOnFilter(false);
