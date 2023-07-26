@@ -15,7 +15,7 @@ function Header(){
                     margin: '8px',
                     fontSize: '1.5rem'
                 }}>
-                TRAVEL_WEB
+                READY2DEPART
             </h1>
         </div>
     )

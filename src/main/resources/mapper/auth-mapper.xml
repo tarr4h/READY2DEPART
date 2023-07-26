@@ -41,4 +41,29 @@
             ,   NOW()
         )
     </insert>
+
+    <select id="checkUserExist" resultType="Tmap">
+        SELECT
+                (   SELECT  COUNT(*)
+                    FROM    TRV_USER
+                    WHERE   ID = #{id}  ) ID_DUP_CNT
+            ,   (   SELECT  COUNT(*)
+                    FROM    TRV_USER
+                    WHERE   USER_ID = #{userId} ) USER_ID_DUP_CNT
+            ,   (   SELECT  COUNT(*)
+                    FROM    TRV_USER
+                    WHERE   PH = CONCAT(#{ph1}, '-', #{ph2}, '-', #{ph3})   ) PH_DUP_CNT
+        FROM    DUAL
+    </select>
+
+    <insert id="insertUser">
+        INSERT INTO TRV_USER
+        (ID, USER_ID, PWD, PH)
+        VALUES(
+                #{id}
+           ,    #{userId}
+           ,    #{password}
+           ,    CONCAT(#{ph1}, '-', #{ph2}, '-', #{ph3})
+        )
+    </insert>
 </mapper>

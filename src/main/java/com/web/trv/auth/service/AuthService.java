@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -45,5 +46,18 @@ public class AuthService {
         } else {
             dao.insertLoginUser(param);
         }
+    }
+
+    public Object join(Map<String, Object> param) {
+        Map<String, Object> returnMap = new HashMap<>();
+        boolean result = false;
+        Map<String, Long> chkUser = dao.checkUserExist(param);
+        if(chkUser.get("userIdDupCnt") != 0 || chkUser.get("phDupCnt") != 0 || chkUser.get("idDupCnt") != 0){
+            returnMap.put("chkUser", chkUser);
+        } else {
+            result = dao.insertUser(param) > 0;
+        }
+        returnMap.put("validate", result);
+        return returnMap;
     }
 }

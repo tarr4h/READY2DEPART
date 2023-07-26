@@ -75,4 +75,8 @@ public class AuthController {
         return ResponseEntity.ok().body(bool);
     }
 
+    @PostMapping("join")
+    public ResponseEntity<?> join(@RequestBody Map<String, Object> param){
+        return ResponseEntity.ok().body(service.join(param));
+    }
 }

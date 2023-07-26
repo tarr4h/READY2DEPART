@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import {useEffect, useState} from "react";
 import './css/Comn.css';
-import Login from "./pages/Login";
+import Login from "./pages/login/Login";
 import Home from "./pages/Home";
 import './css/Comn.css';
 import ErrPage from "./pages/ErrPage";

@@ -50,3 +50,10 @@
     font-weight: 600;
     box-shadow: 1px 1px 2px 1px #595763;
 }
+
+.join{
+    margin-top: 3vh;
+    color: #292b51;
+    font-weight: 500;
+    text-decoration: underline;
+}

@@ -11,7 +11,6 @@ function PlanDetail(){
     const [doList, setDoList] = useState([]);
 
     useEffect(() => {
-        console.log('plan : ', plan);
         void getDoList();
     },[]);
 
@@ -31,8 +30,8 @@ function PlanDetail(){
         <div>
             planDetail, planId : {plan.id}
             {
-                doList.map((item) => (
-                    <div>
+                doList.map((item, index) => (
+                    <div key={index}>
                         {item.board.title}
                     </div>
                 ))
