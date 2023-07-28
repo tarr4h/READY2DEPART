@@ -55,9 +55,16 @@ function BoardDetail(){
                 <div>
                     <h1 className="detailTit">{board.title}</h1>
                 </div>
-                <div>
-                    <span>{(comn.getDistanceMark(board.district.toDistance))}</span>
-                </div>
+                {
+                    board.district.toDistance != null ?
+                        (
+                            <div>
+                                <span>{(comn.getDistanceMark(board.district.toDistance))}</span>
+                            </div>
+                        )
+                        :
+                        ''
+                }
                 <div>
                     <span>{board.modDt}</span>
                 </div>

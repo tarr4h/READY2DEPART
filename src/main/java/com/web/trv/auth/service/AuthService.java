@@ -37,7 +37,6 @@ public class AuthService {
 
     public void changeLoginUserStatus(Map<String, Object> param) {
         Map<String, Object> loginUser = dao.selectLoginUser(param);
-        log.debug("loginUser = {}", loginUser);
         if(loginUser != null){
             if(loginUser.get("loginYn").equals("Y")){
                 param.put("loginYn", "N");

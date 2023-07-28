@@ -36,8 +36,8 @@ function PlanDetail(){
     
 
     return (
-        <div>
-            <div className="planTitWrapper pt_3 pl_3 pr_3 pb_3">
+        <div className="pr_3 pl_3">
+            <div className="planTitWrapper pt_3 pb_3">
                 <div className="pageTit orange fw_500">
                     {plan.nm}
                 </div>
@@ -55,18 +55,11 @@ function PlanDetail(){
             </div>
             <div className="planDetailBody">
                 {editMode ?
-                    (<EditPlanDetail/>)
+                    (<EditPlanDetail doList={doList}/>)
                     :
                     (<ResultPlanDetail/>)
                 }
             </div>
-            {
-                doList.map((item, index) => (
-                    <div key={index}>
-                        {item.board.title}
-                    </div>
-                ))
-            }
         </div>
     )
 }
