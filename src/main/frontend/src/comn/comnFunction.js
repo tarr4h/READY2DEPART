@@ -85,7 +85,12 @@ export function imgGend(sysCd){
     return require(`../img/${img}`);
 }
 
-export function kmToMt(km) {
-    const mt = Math.round((Number(km) * 1000));
-    return mt + 'm'
+export function getDistanceMark(num){
+    let distance = Math.round((Number(num) * 1000));
+    let mark = 'm';
+    if(distance > 999){
+        distance = Math.round(distance / 100)/10;
+        mark = 'km';
+    }
+    return distance + mark;
 }

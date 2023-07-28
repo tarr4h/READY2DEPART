@@ -3,6 +3,7 @@ import '../../css/BoardDetail.css';
 import {useEffect, useRef, useState} from "react";
 import * as comn from "../../comn/comnFunction";
 import AddToPlan from "./addToPlan";
+import {getDistanceMark} from "../../comn/comnFunction";
 const {kakao} = window;
 
 function BoardDetail(){
@@ -55,7 +56,7 @@ function BoardDetail(){
                     <h1 className="detailTit">{board.title}</h1>
                 </div>
                 <div>
-                    <span>{(comn.kmToMt(board.district.toDistance))}</span>
+                    <span>{(comn.getDistanceMark(board.district.toDistance))}</span>
                 </div>
                 <div>
                     <span>{board.modDt}</span>

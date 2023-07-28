@@ -54,6 +54,10 @@ input[type=time]::-webkit-clear-button{
     display: none;
 }
 
+.fw_500{
+    font-weight: 500;
+}
+
 
 .wd_100{
     width: 100%;

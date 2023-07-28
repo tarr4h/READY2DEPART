@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import * as comn from "../../comn/comnFunction";
+import {getDistanceMark} from "../../comn/comnFunction";
 
 function Board({board, selectedCtgrArr}){
 
@@ -95,7 +96,7 @@ function Board({board, selectedCtgrArr}){
                     </div>
                 </div>
                 <div className="bottom">
-                    {comn.kmToMt(board.district.toDistance)}
+                    {comn.getDistanceMark(board.district.toDistance)}
                     <span>{board.modDt}</span>
                 </div>
             </div>
