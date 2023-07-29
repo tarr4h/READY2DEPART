@@ -1,8 +1,9 @@
 import {useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
-import axios from "axios";
+import axios, {formToJSON} from "axios";
 import EditPlanDetail from "./planDetail_edit";
 import ResultPlanDetail from "./planDetail_rslt";
+import {useForm} from "react-hook-form";
 
 
 function PlanDetail(){
@@ -13,6 +14,7 @@ function PlanDetail(){
     const [doList, setDoList] = useState([]);
 
     const [editMode, setEditMode] = useState(false);
+    const {register, setValue, handleSubmit} = useForm();
 
     useEffect(() => {
         console.log('plan : ', plan);
@@ -33,7 +35,10 @@ function PlanDetail(){
         setEditMode((current) => (!current));
     }
 
-    
+    const submitEditing = async (data) => {
+        console.log('data : ', data);
+        chngEditMode();
+    }
 
     return (
         <div className="pr_3 pl_3">
@@ -44,7 +49,7 @@ function PlanDetail(){
                 <div>
                     {editMode ?
                         (<a className="btn bg_orange bd_orange"
-                            onClick={chngEditMode}
+                            onClick={handleSubmit(submitEditing)}
                         >저장</a>)
                         :
                         (<a className="btn orange bd_orange"
@@ -55,7 +60,11 @@ function PlanDetail(){
             </div>
             <div className="planDetailBody">
                 {editMode ?
-                    (<EditPlanDetail doList={doList}/>)
+                    (<form id="editFrm" onSubmit={handleSubmit(submitEditing)}>
+                        <EditPlanDetail doList={doList}
+                                        register={register}
+                        />
+                    </form>)
                     :
                     (<ResultPlanDetail/>)
                 }

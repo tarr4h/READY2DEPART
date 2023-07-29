@@ -1,8 +1,8 @@
 import PlanDoDetail from "./planDoDetail";
+import {useForm} from "react-hook-form";
 
 
-function EditPlanDetail({doList}){
-
+function EditPlanDetail({doList, register}){
 
     return (
         <div>
@@ -15,6 +15,7 @@ function EditPlanDetail({doList}){
                     <div>
                         <input type="time"
                                className="input wd_100"
+                               {...register('startTm')}
                                name="startTm"/>
                     </div>
                 </div>
@@ -23,6 +24,7 @@ function EditPlanDetail({doList}){
                     <div>
                         <input type="time"
                                className="input wd_100"
+                               {...register('endTm')}
                                name="endTm"/>
                     </div>
                 </div>
@@ -32,6 +34,7 @@ function EditPlanDetail({doList}){
                         <div className="flex">
                             <input type="text"
                                    className="input wd_90"
+                                   {...register('startLocNm')}
                                    name="startLocNm"/>
                             <a className="btn bd_orange orange ml_1">검색</a>
                         </div>
