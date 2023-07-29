@@ -6,7 +6,6 @@ import PlanList from "./planList";
 import Modal from "../comn/Modal";
 import AddPlanModal from "./addPlanModal";
 
-
 function Plan(){
 
     const [planList, setPlanList] = useState([]);

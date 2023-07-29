@@ -12,12 +12,13 @@ function PlanDetail(){
     const plan = location.state.plan;
 
     const [doList, setDoList] = useState([]);
-
     const [editMode, setEditMode] = useState(false);
+
     const {register, setValue, handleSubmit} = useForm();
+    const [stayTmList, setStayTmList] = useState([]);
 
     useEffect(() => {
-        console.log('plan : ', plan);
+        // console.log('plan : ', plan);
         void getDoList();
     },[]);
 
@@ -36,9 +37,16 @@ function PlanDetail(){
     }
 
     const submitEditing = async (data) => {
-        console.log('data : ', data);
+        data.id = plan.id;
+        data.nm = plan.nm;
+        if(stayTmList.length !== 0){
+            data.stayTmList = stayTmList;
+        }
+        console.log('data: ', data);
+        const result = await(await axios.post('/pln/updatePlanDay', data)).data;
         chngEditMode();
     }
+
 
     return (
         <div className="pr_3 pl_3">
@@ -60,9 +68,13 @@ function PlanDetail(){
             </div>
             <div className="planDetailBody">
                 {editMode ?
-                    (<form id="editFrm" onSubmit={handleSubmit(submitEditing)}>
-                        <EditPlanDetail doList={doList}
+                    (<form>
+                        <EditPlanDetail plan={plan}
+                                        doList={doList}
                                         register={register}
+                                        setValue={setValue}
+                                        stayTmList={stayTmList}
+                                        setStayTmList={setStayTmList}
                         />
                     </form>)
                     :

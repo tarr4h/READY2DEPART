@@ -88,4 +88,20 @@ public class PlanService {
     public Object selectDoList(Map<String, Object> param) {
         return dao.selectDoList(param);
     }
+
+    @SuppressWarnings("unchecked")
+    public Object updatePlanDay(Map<String, Object> param) {
+        log.debug("param = {}", param);
+        int result = dao.updatePlanDay(param);
+        if(param.get("stayTmList") != null){
+            List<Map<String, Object>> stayTmList = (List<Map<String, Object>>) param.get("stayTmList");
+            for(Map<String, Object> stayObj : stayTmList){
+                PlanDoVo planDo = dao.selectPlanDo(stayObj);
+                planDo.setStayTmMin(Integer.parseInt((String) stayObj.get("stayTm")));
+                log.debug("planDo = {}", planDo);
+                dao.updatePlanDo(planDo);
+            }
+        }
+        return result;
+    }
 }

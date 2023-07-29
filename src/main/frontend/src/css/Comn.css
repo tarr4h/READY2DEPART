@@ -24,6 +24,9 @@ input, textarea, button{
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
 }
+input:disabled{
+    background-color: #F2F2F2;
+}
 
 .input{
     height: 5vh;
@@ -428,4 +431,16 @@ input[type=time]::-webkit-clear-button{
     padding: 2vh 2vw;
     border: 1px solid;
     border-radius: 7px;
+}
+
+.searchMapWrapper{
+    width: 100%;
+    min-height: 30vh;
+}
+.searchResultRow{
+    border: 1px solid #F2A74B;
+    margin-bottom: 1vh;
+    border-radius: 7px;
+    padding: 1.3vh 1vw 1.3vh 2vw;
+    color: #F2F2F2;
 }

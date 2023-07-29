@@ -50,4 +50,9 @@ public class PlanController {
     public ResponseEntity<?> selectDoList(@RequestParam Map<String, Object> param){
         return ResponseEntity.ok().body(service.selectDoList(param));
     }
+
+    @PostMapping("updatePlanDay")
+    public ResponseEntity<?> updatePlanDay(@RequestBody Map<String, Object> param){
+        return ResponseEntity.ok().body(service.updatePlanDay(param));
+    }
 }

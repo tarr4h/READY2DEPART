@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.web.trv.program.board.dao.BoardDao">
 
-    <resultMap id="boardList" type="com.web.trv.program.board.model.BoardVo">
+    <resultMap id="boardMap" type="com.web.trv.program.board.model.BoardVo">
         <collection column="boardId = id" property="addInfoList" javaType="List" ofType="com.web.trv.program.board.model.AddInfoVo"
                     select="selectAddInfoList"/>
         <collection column="refId = id" property="fileList" javaType="List" ofType="com.web.trv.comn.model.FileVo"
@@ -17,7 +17,7 @@
                     select="selectUpSysCd"/>
     </resultMap>
 
-    <select id="selectBoardList" resultMap="boardList">
+    <select id="selectBoardList" resultMap="boardMap">
         SELECT  *
         FROM    TRV_BOARD
         <where>

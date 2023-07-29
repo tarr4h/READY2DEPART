@@ -35,4 +35,10 @@ public interface PlanDao {
     int deletePlanDay(Map<String, Object> map);
 
     List<PlanDoVo> selectDoList(Map<String, Object> param);
+
+    int updatePlanDay(Map<String, Object> param);
+
+    PlanDoVo selectPlanDo(Map<String, Object> stayObj);
+
+    int updatePlanDo(PlanDoVo planDo);
 }

@@ -23,7 +23,7 @@ public class PlanVo {
     String nm;
     String startTm;
     String endTm;
-    String startLoc;
+    String startLocNm;
     String startLocLat;
     String startLocLng;
     String modDt;

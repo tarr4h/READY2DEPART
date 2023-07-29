@@ -9,20 +9,6 @@
                     select="selectBoard"/>
     </resultMap>
 
-    <resultMap id="boardMap" type="com.web.trv.program.board.model.BoardVo">
-        <collection column="sysCd = category" property="categoryVo" javaType="com.web.trv.comn.model.SysCodeVo"
-                    select="selectSysCd"/>
-        <collection column="sysCd = category" property="upCategoryVo" javaType="com.web.trv.comn.model.SysCodeVo"
-                    select="selectUpSysCd"/>
-        <collection column="boardId = id" property="addInfoList" javaType="List" ofType="com.web.trv.program.board.model.AddInfoVo"
-                    select="selectAddInfoList"/>
-        <collection column="refId = id" property="fileList" javaType="List" ofType="com.web.trv.comn.model.FileVo"
-                    select="selectFileList"/>
-        <collection column="boardId = id" property="district" javaType="com.web.trv.program.board.model.BoardDistrictVo"
-                    select="selectBoardDistrict"/>
-    </resultMap>
-
-
     <insert id="insertPlanDay">
         INSERT INTO TRV_PLAN_DAY
         (ID, USER_ID, NM, START_TM, END_TM, MOD_DT)
@@ -36,12 +22,27 @@
         )
     </insert>
 
+    <update id="updatePlanDay">
+        UPDATE TRV_PLAN_DAY
+        SET     NM = #{nm}
+            ,   START_TM = #{startTm}
+            ,   END_TM = #{endTm}
+            ,   START_LOC_NM = #{startLocNm}
+            ,   START_LOC_LAT = #{startLocLat}
+            ,   START_LOC_LNG = #{startLocLng}
+            ,   MOD_DT = NOW()
+        WHERE   ID = #{id}
+    </update>
+
     <select id="selectMyPlanList" resultType="com.web.trv.program.plan.model.PlanVo">
         SELECT  ID
              ,  USER_ID
              ,  NM
              ,  DATE_FORMAT(START_TM, '%H:%i') AS START_TM
              ,  DATE_FORMAT(END_TM, '%H:%i') AS END_TM
+             ,  START_LOC_NM
+             ,  START_LOC_LAT
+             ,  START_LOC_LNG
              ,  MOD_DT
         FROM    TRV_PLAN_DAY
         WHERE   USER_ID = #{userId}
@@ -69,6 +70,12 @@
             </if>
     </select>
 
+    <select id="selectPlanDo" resultType="com.web.trv.program.plan.model.PlanDoVo">
+        SELECT  *
+        FROM    TRV_PLAN_DO
+        WHERE   ID = #{id}
+    </select>
+
     <insert id="insertPlanDo">
         INSERT INTO TRV_PLAN_DO
         (ID, DAY_ID, BOARD_ID, MOD_DT)
@@ -79,6 +86,18 @@
              ,  NOW()
         )
     </insert>
+
+    <update id="updatePlanDo">
+        UPDATE TRV_PLAN_DO
+        SET     ORDR = #{ordr}
+            <if test="expectedTm != null and expectedTm != ''">
+            ,   EXPECTED_TM = #{expectedTm}
+            </if>
+            ,   STAY_TM_MIN = #{stayTmMin}
+            ,   TRAVEL_TM_MIN = #{travelTmMin}
+            ,   MOD_DT = NOW()
+        WHERE   ID = #{id}
+    </update>
 
     <delete id="deletePlanDo">
         DELETE FROM TRV_PLAN_DO
@@ -96,52 +115,9 @@
         WHERE   DAY_ID = #{dayId}
     </select>
 
-    <select id="selectBoard" resultMap="boardMap">
+    <select id="selectBoard" resultMap="com.web.trv.program.board.dao.BoardDao.boardMap">
         SELECT  *
         FROM    TRV_BOARD
         WHERE   ID = #{boardId}
-    </select>
-
-    <select id="selectSysCd" resultType="com.web.trv.comn.model.SysCodeVo">
-        SELECT  *
-        FROM    TRV_SYS_CODE
-        WHERE   SYS_CD = #{sysCd}
-    </select>
-
-    <select id="selectUpSysCd" resultType="com.web.trv.comn.model.SysCodeVo">
-        SELECT  *
-        FROM    TRV_SYS_CODE
-        WHERE   SYS_CD =    (   SELECT  UP_SYS_CD
-                                FROM    TRV_SYS_CODE
-                                WHERE   SYS_CD = #{sysCd} )
-    </select>
-
-    <select id="selectAddInfoList" resultType="com.web.trv.program.board.model.AddInfoVo">
-        SELECT  A.*
-             ,   (SELECT NM
-                  FROM   TRV_SYS_CODE
-                  WHERE  SYS_CD = A.SYS_CD) sysCdNm
-        FROM    TRV_BOARD_ADD_INFO A
-        WHERE   BOARD_ID = #{boardId}
-          AND VAL = 'Y'
-    </select>
-
-    <select id="selectFileList" resultType="com.web.trv.comn.model.FileVo">
-        SELECT  *
-        FROM    TRV_FILE
-        WHERE   REF_ID = #{refId}
-    </select>
-
-    <select id="selectBoardDistrict" resultType="com.web.trv.program.board.model.BoardDistrictVo">
-        SELECT  BOARD_ID
-             ,  LATITUDE
-             ,  LONGITUDE
-             ,  REGION_1
-             ,  REGION_2
-             ,  REGION_3
-             ,  ADDR
-             ,  MOD_DT
-        FROM    TRV_BOARD_DISTRICT
-        WHERE   BOARD_ID = #{boardId}
     </select>
 </mapper>
