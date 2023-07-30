@@ -6,7 +6,7 @@ import Modal from "./Modal";
 import FindLocSearchResultModal from "./findLocSearchResultModal";
 const {kakao} = window;
 
-function FindLocModal({getStartLoc}){
+function FindLocModal({getStartLoc, showModal}){
 
     const [selectedGeoLoc, setSelectedGeoLoc] = useState(null);
     const [selectedLocNm, setSelectedLocNm] = useState('');
@@ -16,8 +16,10 @@ function FindLocModal({getStartLoc}){
     const [searchResultList, setSearchResultList] = useState([]);
 
     useEffect(() => {
-        void createMap();
-    }, []);
+        if(showModal){
+            void createMap();
+        }
+    }, [showModal]);
 
     const createMap = async (geoLoc) => {
         if(geoLoc == null){
@@ -37,6 +39,7 @@ function FindLocModal({getStartLoc}){
                 longitude : latlng.getLng()
             }
             setSelectedGeoLoc(newGeoLoc);
+            geocoder.coord2RegionCode(latlng.getLng(), latlng.getLat(), coordResult);
         });
     }
 
@@ -72,7 +75,6 @@ function FindLocModal({getStartLoc}){
             latitude : result.y,
             longitude : result.x
         }
-        // setSelectedLocNm(result.address_name);
         void createMap(geoLoc);
     }
 

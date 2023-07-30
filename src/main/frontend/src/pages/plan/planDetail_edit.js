@@ -23,7 +23,9 @@ function EditPlanDetail({plan, doList, register, setValue, stayTmList, setStayTm
     return (
         <div>
             <Modal title={'출발위치 검색'}
-                   content={<FindLocModal getStartLoc={getStartLoc}/>}
+                   content={<FindLocModal getStartLoc={getStartLoc}
+                                          showModal={showSearchModal}
+                            />}
                    isOpen={showSearchModal}
                    setIsOpen={setShowSearchModal}
             />

@@ -42,7 +42,6 @@ function PlanDetail(){
         if(stayTmList.length !== 0){
             data.stayTmList = stayTmList;
         }
-        console.log('data: ', data);
         const result = await(await axios.post('/pln/updatePlanDay', data)).data;
         chngEditMode();
     }

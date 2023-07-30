@@ -62,7 +62,6 @@ export function setMap(mapId, latitude, longitude, level){
     });
 
     marker.setMap(map);
-
     return {map, marker};
 }
 
