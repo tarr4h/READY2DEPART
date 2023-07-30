@@ -47,7 +47,7 @@ function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList})
                            onChange={stayTmOnChange}
                            defaultValue={planDo.stayTmMin == null ? 0 : planDo.stayTmMin}
                            className="input wd_90"/>
-                    <span className="gray ml_1">(분)</span>
+                    <span className="addTxt ml_1">(분)</span>
                 </div>
             </div>
         </div>

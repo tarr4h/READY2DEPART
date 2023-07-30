@@ -15,7 +15,7 @@ function My(){
     return (
         <div>
             <h3>MY</h3>
-            <button onClick={logout}>LOGOUT</button>
+            <a className="btn bd_orange orange" onClick={logout}>LOGOUT</a>
         </div>
     )
 }
