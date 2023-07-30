@@ -1,16 +1,23 @@
 import PlanDoDetail from "./planDoDetail";
-import {useForm} from "react-hook-form";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Modal from "../comn/Modal";
 import FindLocModal from "../comn/findLocModal";
+import BoardDetailContent from "../board/boardDetailContent";
 
 
 function EditPlanDetail({plan, doList, register, setValue, stayTmList, setStayTmList}){
 
     const [showSearchModal, setShowSearchModal] = useState(false);
+    const [showBoardDetailModal, setShowBoardDetailModal] = useState(false);
+    const selectedBoard = useRef(null);
 
     const openSearchModal = () => {
         setShowSearchModal(true);
+    }
+
+    const openBoardDetailModal = (board) => {
+        selectedBoard.current = board;
+        setShowBoardDetailModal(true);
     }
 
     const getStartLoc = (data) => {
@@ -29,6 +36,20 @@ function EditPlanDetail({plan, doList, register, setValue, stayTmList, setStayTm
                    isOpen={showSearchModal}
                    setIsOpen={setShowSearchModal}
             />
+            {
+                showBoardDetailModal ?
+                    (
+                        <Modal title={'상세보기'}
+                               content={<BoardDetailContent board={selectedBoard.current}
+                                                            modal={true}
+                                        />}
+                               isOpen={showBoardDetailModal}
+                               setIsOpen={setShowBoardDetailModal}
+                        />
+                    )
+                    :
+                    ''
+            }
             <div className="box1 bd_gray">
                 <div className="subTit orange">
                     <span>기본설정</span>
@@ -62,7 +83,7 @@ function EditPlanDetail({plan, doList, register, setValue, stayTmList, setStayTm
                                    defaultValue={plan.startLocNm}
                                    {...register('startLocNm')}
                                    name="startLocNm"
-                                   disabled={true}
+                                   readOnly={true}
                             />
                             <input type="hidden"
                                    defaultValue={plan.startLocLat}
@@ -86,6 +107,7 @@ function EditPlanDetail({plan, doList, register, setValue, stayTmList, setStayTm
                         doList.map((item, index) => (
                             <PlanDoDetail key={index}
                                           planDo={item}
+                                          openBoardDetailModal={openBoardDetailModal}
                                           stayTmList={stayTmList}
                                           setStayTmList={setStayTmList}
                             />

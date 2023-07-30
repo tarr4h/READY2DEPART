@@ -36,6 +36,11 @@ public class PlanController {
         return ResponseEntity.ok().body(service.selectMyPlanList(param));
     }
 
+    @GetMapping("selectPlan")
+    public ResponseEntity<?> selectPlan(@RequestParam Map<String, Object> param){
+        return ResponseEntity.ok().body(service.selectPlan(param));
+    }
+
     @PostMapping("insertPlanDo")
     public ResponseEntity<?> insertPlanDo(@RequestBody Map<String, Object> param){
         return ResponseEntity.ok().body(service.insertPlanDo(param));

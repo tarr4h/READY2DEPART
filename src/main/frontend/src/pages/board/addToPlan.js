@@ -1,7 +1,5 @@
-import {useEffect, useState} from "react";
-import Home from "../Home";
+import {useState} from "react";
 import Modal from "../comn/Modal";
-import AddPlanModal from "../plan/addPlanModal";
 import SelectPlanModal from "./selectPlanModal";
 
 function AddToPlan({boardId}){

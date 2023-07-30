@@ -41,4 +41,6 @@ public interface PlanDao {
     PlanDoVo selectPlanDo(Map<String, Object> stayObj);
 
     int updatePlanDo(PlanDoVo planDo);
+
+    PlanVo selectPlan(Map<String, Object> param);
 }

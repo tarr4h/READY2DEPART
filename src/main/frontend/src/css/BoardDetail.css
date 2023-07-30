@@ -1,12 +1,18 @@
 .boardDetailWrapper{
     padding: 1vh 2vw;
 }
+.boardDetailWrapper.sm{
+    height: 70vh;
+    overflow: auto;
+    padding: 0;
+}
 .boardDetail{
     padding: 1vh 2vw;
     background-color: #FFF;
     box-shadow: 1px 1px 10px 0px #595763;
     border-radius: 5px;
 }
+
 
 .boardDetail > div{
     width: 100%;

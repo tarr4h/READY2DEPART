@@ -1,6 +1,5 @@
 package com.web.trv.program.plan.service;
 
-import com.web.trv.comn.util.Utilities;
 import com.web.trv.program.plan.dao.PlanDao;
 import com.web.trv.program.plan.model.PlanDoVo;
 import lombok.extern.slf4j.Slf4j;
@@ -42,6 +41,11 @@ public class PlanService {
             }
         }
         return dao.selectMyPlanList(param);
+    }
+
+
+    public Object selectPlan(Map<String, Object> param) {
+        return dao.selectPlan(param);
     }
 
 

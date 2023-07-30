@@ -403,9 +403,20 @@ input[type=time]::-webkit-clear-button{
     text-align: center;
 }
 
+.titWrapper.tb {
+    display: flex;
+}
+.titWrapper.tb > div:nth-child(1){
+    width: 40%;
+}
+.titWrapper.tb > div:nth-child(2){
+    margin-top: 0;
+    width: 60%;
+}
+
 .subTit{
     font-size: 1.2rem;
-    font-weight: 400;
+    font-weight: 500;
     color: #c5c5c5;
     padding-bottom: 1vh;
     padding-left: 1vw;
@@ -414,6 +425,11 @@ input[type=time]::-webkit-clear-button{
 .pageTit{
     color: #F2F2F2;
     font-size: 1.6rem;
+}
+
+.addTxt{
+    font-size: 0.7rem;
+    color: gray;
 }
 
 .pwd{

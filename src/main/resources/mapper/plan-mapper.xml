@@ -55,8 +55,29 @@
         ORDER BY MOD_DT DESC
     </select>
 
+    <select id="selectPlan" resultType="com.web.trv.program.plan.model.PlanVo">
+        SELECT  ID
+             ,  USER_ID
+             ,  NM
+             ,  DATE_FORMAT(START_TM, '%H:%i') AS START_TM
+             ,  DATE_FORMAT(END_TM, '%H:%i') AS END_TM
+             ,  START_LOC_NM
+             ,  START_LOC_LAT
+             ,  START_LOC_LNG
+             ,  MOD_DT
+        FROM    TRV_PLAN_DAY
+        WHERE   USER_ID = #{userId}
+            AND ID = #{id}
+    </select>
+
     <select id="selectMyPlanDoList" resultType="com.web.trv.program.plan.model.PlanDoVo">
-        SELECT  *
+        SELECT  ID, DAY_ID
+             ,  BOARD_ID
+             ,  ORDR
+             ,  DATE_FORMAT(EXPECTED_TM, '%H:%i') AS EXPECTED_TM
+             ,  STAY_TM_MIN
+             ,  TRAVEL_TM_MIN
+             ,  MOD_DT
         FROM    TRV_PLAN_DO
         WHERE
             <if test="boardId != null and boardId != ''">
@@ -71,7 +92,13 @@
     </select>
 
     <select id="selectPlanDo" resultType="com.web.trv.program.plan.model.PlanDoVo">
-        SELECT  *
+        SELECT  ID, DAY_ID
+             ,  BOARD_ID
+             ,  ORDR
+             ,  DATE_FORMAT(EXPECTED_TM, '%H:%i') AS EXPECTED_TM
+             ,  STAY_TM_MIN
+             ,  TRAVEL_TM_MIN
+             ,  MOD_DT
         FROM    TRV_PLAN_DO
         WHERE   ID = #{id}
     </select>
@@ -110,7 +137,13 @@
     </delete>
 
     <select id="selectDoList" resultMap="planDoMap">
-        SELECT  *
+        SELECT  ID, DAY_ID
+             ,  BOARD_ID
+             ,  ORDR
+             ,  DATE_FORMAT(EXPECTED_TM, '%H:%i') AS EXPECTED_TM
+             ,  STAY_TM_MIN
+             ,  TRAVEL_TM_MIN
+             ,  MOD_DT
         FROM    TRV_PLAN_DO
         WHERE   DAY_ID = #{dayId}
     </select>

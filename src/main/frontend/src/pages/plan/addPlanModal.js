@@ -63,7 +63,7 @@ function AddPlanModal({callback}){
                             <input className="input wd_100"
                                    type="time"
                                    name="endtm"
-                                   defaultValue={'00:00'}
+                                   defaultValue={'23:59'}
                                    {...register('endTm')}/>
                         </div>
                     </div>

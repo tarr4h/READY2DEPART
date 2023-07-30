@@ -9,7 +9,7 @@ import {useForm} from "react-hook-form";
 function PlanDetail(){
 
     const location = useLocation();
-    const plan = location.state.plan;
+    const [plan, setPlan] = useState(location.state.plan);
 
     const [doList, setDoList] = useState([]);
     const [editMode, setEditMode] = useState(false);
@@ -18,9 +18,17 @@ function PlanDetail(){
     const [stayTmList, setStayTmList] = useState([]);
 
     useEffect(() => {
-        // console.log('plan : ', plan);
         void getDoList();
     },[]);
+
+    const getPlan = async() => {
+        const result = await(await axios.get('/pln/selectPlan', {
+            params : {
+                id : plan.id
+            }
+        })).data;
+        setPlan(result);
+    }
 
     const getDoList = async () => {
         const list = await(await axios.get('/pln/selectDoList', {
@@ -44,6 +52,8 @@ function PlanDetail(){
         }
         const result = await(await axios.post('/pln/updatePlanDay', data)).data;
         chngEditMode();
+        void getDoList();
+        void getPlan();
     }
 
 
@@ -77,7 +87,9 @@ function PlanDetail(){
                         />
                     </form>)
                     :
-                    (<ResultPlanDetail/>)
+                    (<ResultPlanDetail plan={plan}
+                                       doList={doList}
+                    />)
                 }
             </div>
         </div>

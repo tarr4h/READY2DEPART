@@ -2,16 +2,10 @@ import {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 
 
-function PlanDoDetail({planDo, stayTmList, setStayTmList}) {
-
-    const navigate = useNavigate();
+function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList}) {
 
     const showBoardDetail = () => {
-        navigate('/main/boardDetail', {
-            state : {
-                board : planDo.board
-            }
-        });
+        openBoardDetailModal(planDo.board);
     }
 
     const stayTmOnChange = (event) => {
@@ -47,7 +41,7 @@ function PlanDoDetail({planDo, stayTmList, setStayTmList}) {
                 <span>{planDo.board.summary}</span>
             </div>
             <div className="titWrapper mt_1">
-                <div>머무르는 시간</div>
+                <div>머무르는시간</div>
                 <div>
                     <input type="number"
                            onChange={stayTmOnChange}

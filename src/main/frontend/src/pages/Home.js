@@ -1,9 +1,8 @@
-import {Routes, useLocation, useNavigate, useParams} from "react-router-dom";
-import {lazy, useEffect, useState} from "react";
+import {useNavigate, useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import View from "./View";
-import Modal from "./comn/Modal";
 
 function Home(){
     const navigate = useNavigate();

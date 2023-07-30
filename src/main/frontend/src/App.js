@@ -1,9 +1,9 @@
 import {
     BrowserRouter as Router,
     Routes,
-    Route, Navigate, useNavigate,
+    Route
 } from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import './css/Comn.css';
 import Login from "./pages/login/Login";
 import Home from "./pages/Home";
