@@ -13,8 +13,10 @@ function My(){
     }
 
     return (
-        <div>
-            <h3>MY</h3>
+        <div className="flex j_between pl_3 pt_3 pr_3">
+            <div className="pageTit orange">
+                MY
+            </div>
             <a className="btn bd_orange orange" onClick={logout}>LOGOUT</a>
         </div>
     )
