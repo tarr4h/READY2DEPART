@@ -3,6 +3,8 @@ package com.web.trv.program.plan.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
  * <pre>
  * com.web.trv.program.plan.model.PlanVo
@@ -24,7 +26,9 @@ public class PlanVo {
     String startTm;
     String endTm;
     String startLocNm;
-    String startLocLat;
-    String startLocLng;
+    double startLocLat;
+    double startLocLng;
     String modDt;
+
+    List<PlanDoVo> planDoList;
 }

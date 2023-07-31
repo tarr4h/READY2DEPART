@@ -2,7 +2,6 @@ package com.web.trv.comn.util;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +22,7 @@ public class CalcDistance {
 
     private static final double EARTH_RADIUS = 6371;
 
-    // X, Y : 기준 locationX, locationY - A, B : 비교할 locationX, locationY
+    // X, Y : 기준 lat, lng - A, B : 비교할 lat, lng
     public static double calculateArea(double X, double Y, double A, double B) {
         if(X == A && Y == B) {
             return 0;

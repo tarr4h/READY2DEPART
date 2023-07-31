@@ -51,6 +51,7 @@ function PlanDetail(){
             data.stayTmList = stayTmList;
         }
         const result = await(await axios.post('/pln/updatePlanDay', data)).data;
+        console.log('result = ', result);
         chngEditMode();
         void getDoList();
         void getPlan();

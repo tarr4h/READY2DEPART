@@ -17,7 +17,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class PlanDoVo {
+public class PlanDoVo implements Comparable<PlanDoVo> {
 
     private String id;
     private String dayId;
@@ -29,4 +29,17 @@ public class PlanDoVo {
     private String modDt;
 
     private BoardVo board;
+
+    private double startDistance;
+
+    @Override
+    public int compareTo(PlanDoVo planDo) {
+        if(this.getStartDistance() < planDo.getStartDistance()){
+            return -1;
+        } else if(this.getStartDistance() == planDo.getStartDistance()){
+            return 0;
+        } else {
+            return 1;
+        }
+    }
 }

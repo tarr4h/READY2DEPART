@@ -1,14 +1,16 @@
 package com.web.trv.program.plan.service;
 
+import com.web.trv.comn.model.DrivingVo;
+import com.web.trv.comn.util.CalcDistance;
+import com.web.trv.comn.util.Utilities;
 import com.web.trv.program.plan.dao.PlanDao;
 import com.web.trv.program.plan.model.PlanDoVo;
+import com.web.trv.program.plan.model.PlanVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <pre>
@@ -47,7 +49,6 @@ public class PlanService {
     public Object selectPlan(Map<String, Object> param) {
         return dao.selectPlan(param);
     }
-
 
     @SuppressWarnings("unchecked")
     public Object insertPlanDo(Map<String, Object> param) {
@@ -90,22 +91,63 @@ public class PlanService {
     }
 
     public Object selectDoList(Map<String, Object> param) {
-        return dao.selectDoList(param);
+        return lineUpPlanDo(param).getPlanDoList();
     }
 
     @SuppressWarnings("unchecked")
     public Object updatePlanDay(Map<String, Object> param) {
-        log.debug("param = {}", param);
         int result = dao.updatePlanDay(param);
         if(param.get("stayTmList") != null){
             List<Map<String, Object>> stayTmList = (List<Map<String, Object>>) param.get("stayTmList");
             for(Map<String, Object> stayObj : stayTmList){
                 PlanDoVo planDo = dao.selectPlanDo(stayObj);
                 planDo.setStayTmMin(Integer.parseInt((String) stayObj.get("stayTm")));
-                log.debug("planDo = {}", planDo);
                 dao.updatePlanDo(planDo);
             }
         }
-        return result;
+
+        return setExpectedTime(lineUpPlanDo(param));
+    }
+
+    public PlanVo lineUpPlanDo(Map<String, Object> param){
+        if(param.get("dayId") == null && param.get("id") != null){
+            param.put("dayId", param.get("id"));
+        } else if(param.get("id") == null && param.get("dayId") != null){
+            param.put("id", param.get("dayId"));
+        } else if(param.get("id") == null && param.get("dayId") == null) {
+            throw new RuntimeException("PLAN ID가 조회되지 않습니다.");
+        }
+
+        PlanVo plan = dao.selectPlan(param);
+        List<PlanDoVo> doList = dao.selectDoList(param);
+
+        for(PlanDoVo planDo : doList){
+            double a = planDo.getBoard().getDistrict().getLatitude();
+            double b = planDo.getBoard().getDistrict().getLongitude();
+            double centerDistance = CalcDistance.calculateArea(plan.getStartLocLat(), plan.getStartLocLng(), a, b);
+            planDo.setStartDistance(centerDistance);
+        }
+
+        Collections.sort(doList);
+        plan.setPlanDoList(doList);
+        return plan;
+    }
+
+    public Object setExpectedTime(PlanVo plan){
+        List<PlanDoVo> planDoList = plan.getPlanDoList();
+        double startLat = plan.getStartLocLat();
+        double startLng = plan.getStartLocLng();
+
+        List<DrivingVo> drivList = new ArrayList<>();
+        for(PlanDoVo planDo : planDoList){
+            double goalLat = planDo.getBoard().getDistrict().getLatitude();
+            double goalLng = planDo.getBoard().getDistrict().getLongitude();
+            DrivingVo driving = Utilities.getDriving(startLat, startLng, goalLat, goalLng);
+            drivList.add(driving);
+            startLat = goalLat;
+            startLng = goalLng;
+        }
+
+        return drivList;
     }
 }
