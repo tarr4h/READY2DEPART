@@ -7,8 +7,8 @@ import java.util.List;
 
 /**
  * <pre>
- * com.web.trv.comn.model.DrivingVo2
- *   - DrivingVo2.java
+ * com.web.trv.comn.model.DrivingVo
+ *   - DrivingVo.java
  * </pre>
  *
  * @author : 한태우
