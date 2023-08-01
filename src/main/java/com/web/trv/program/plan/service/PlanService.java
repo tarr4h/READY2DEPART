@@ -105,8 +105,8 @@ public class PlanService {
                 dao.updatePlanDo(planDo);
             }
         }
-
-        return setExpectedTime(lineUpPlanDo(param));
+        setExpectedTime(param);
+        return result;
     }
 
     public PlanVo lineUpPlanDo(Map<String, Object> param){
@@ -126,6 +126,10 @@ public class PlanService {
             double b = planDo.getBoard().getDistrict().getLongitude();
             double centerDistance = CalcDistance.calculateArea(plan.getStartLocLat(), plan.getStartLocLng(), a, b);
             planDo.setStartDistance(centerDistance);
+
+            if(planDo.getExpectedTm() != null && planDo.getStayTmMin() != 0){
+                planDo.setDepartTm(Utilities.addMinToTimeFmt(planDo.getExpectedTm(), planDo.getStayTmMin()));
+            }
         }
 
         Collections.sort(doList);
@@ -133,21 +137,50 @@ public class PlanService {
         return plan;
     }
 
-    public Object setExpectedTime(PlanVo plan){
+    public void setExpectedTime(Map<String, Object> param){
+        PlanVo plan = lineUpPlanDo(param);
         List<PlanDoVo> planDoList = plan.getPlanDoList();
         double startLat = plan.getStartLocLat();
         double startLng = plan.getStartLocLng();
+        String stndTm = plan.getStartTm();
 
-        List<DrivingVo> drivList = new ArrayList<>();
+        int ordr = 1;
         for(PlanDoVo planDo : planDoList){
+            if(planDo.getStayTmMin() == 0){
+                continue;
+            }
+
             double goalLat = planDo.getBoard().getDistrict().getLatitude();
             double goalLng = planDo.getBoard().getDistrict().getLongitude();
             DrivingVo driving = Utilities.getDriving(startLat, startLng, goalLat, goalLng);
-            drivList.add(driving);
+            planDo.setDrivingVo(driving);
+            planDo.setOrdr(ordr);
+            ordr++;
+
+            // get duration
+            try {
+                if(driving == null){
+                    throw new NullPointerException();
+                }
+
+                int duration = driving.getRoute().getTraoptimal().get(0).getSummary().getDuration(); // millisecond
+                int min = Utilities.miliSec2min(duration);
+
+                planDo.setTravelTmMin(min);
+                // set expected tm
+                String expectedTm = Utilities.addMinToTimeFmt(stndTm, min);
+                planDo.setExpectedTm(expectedTm);
+
+                stndTm = Utilities.addMinToTimeFmt(expectedTm, planDo.getStayTmMin());
+            } catch (NullPointerException e){
+                log.error("****** DRIVING NULL = {}", e.getMessage());
+            }
+
+            log.debug("updt planDo = {}", planDo);
+            dao.updatePlanDo(planDo);
+
             startLat = goalLat;
             startLng = goalLng;
         }
-
-        return drivList;
     }
 }

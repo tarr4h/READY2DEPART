@@ -15,6 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * <pre>
@@ -42,7 +47,6 @@ public class Utilities {
         }
     }
 
-    @SuppressWarnings("unchecked")
     public static DrivingVo getDriving(double startLat, double startLng, double goalLat, double goalLng){
         final String apiKeyId = "qf1nz5j1ox";
         final String apiKey = "zKk2iApYsA7XFiXgqTTdtguAsvgSJlXZJ59a1HhL";
@@ -77,5 +81,30 @@ public class Utilities {
             log.error("NAVERMAP API RESPONSE ERROR = {}", e.getMessage());
             return null;
         }
+    }
+
+    public static int sec2min(int sec){
+        float range = Math.round((float) sec * 100 / 60);
+        return Math.round(range/100);
+    }
+
+    public static int miliSec2min(int milisec){
+        int sec = milisec/1000;
+        return sec2min(sec);
+    }
+
+    public static String addMinToTimeFmt(String timeFormat, int min){
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        try{
+            Date date = sdf.parse(timeFormat);
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            cal.add(Calendar.MINUTE, min);
+            timeFormat = sdf.format(cal.getTime());
+        } catch (ParseException e){
+            log.error("PARSING EXCEPTION = {}", e.getMessage());
+        }
+
+        return timeFormat;
     }
 }

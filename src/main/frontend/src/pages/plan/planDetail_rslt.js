@@ -54,6 +54,7 @@ function ResultPlanDetail({plan, doList}){
             {
                 doList.map((item, index) => (
                     <PlanDoResult key={index}
+                                  number={index}
                                   planDo={item}
                                   openBoardDetailModal={openBoardDetailModal}
                     />

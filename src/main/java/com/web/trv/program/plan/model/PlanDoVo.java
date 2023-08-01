@@ -1,5 +1,6 @@
 package com.web.trv.program.plan.model;
 
+import com.web.trv.comn.model.DrivingVo;
 import com.web.trv.program.board.model.BoardVo;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,12 +30,13 @@ public class PlanDoVo implements Comparable<PlanDoVo> {
     private String modDt;
 
     private BoardVo board;
-
     private double startDistance;
+    private DrivingVo drivingVo;
+    private String departTm;
 
     @Override
     public int compareTo(PlanDoVo planDo) {
-        if(this.getStartDistance() < planDo.getStartDistance()){
+        if(this.getStartDistance() < planDo.getStartDistance() && this.getStayTmMin() != 0){
             return -1;
         } else if(this.getStartDistance() == planDo.getStartDistance()){
             return 0;
