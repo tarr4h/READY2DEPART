@@ -36,7 +36,9 @@ public class PlanDoVo implements Comparable<PlanDoVo> {
 
     @Override
     public int compareTo(PlanDoVo planDo) {
-        if(this.getStartDistance() < planDo.getStartDistance() && this.getStayTmMin() != 0){
+        if (this.getStayTmMin() == 0 || planDo.getStayTmMin() == 0){
+            return 1;
+        } else if(this.getStartDistance() < planDo.getStartDistance()){
             return -1;
         } else if(this.getStartDistance() == planDo.getStartDistance()){
             return 0;

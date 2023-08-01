@@ -1,12 +1,11 @@
 import {useEffect, useState} from "react";
 import * as comn from "../../comn/comnFunction";
-import {create} from "axios";
 import {useInput} from "../../hks/useInput";
 import Modal from "./Modal";
 import FindLocSearchResultModal from "./findLocSearchResultModal";
 const {kakao} = window;
 
-function FindLocModal({getStartLoc, showModal}){
+function FindLocModal({callback, showModal}){
 
     const [selectedGeoLoc, setSelectedGeoLoc] = useState(null);
     const [selectedLocNm, setSelectedLocNm] = useState('');
@@ -57,10 +56,20 @@ function FindLocModal({getStartLoc, showModal}){
             if(result.length > 1){
                 setSearchResultList(result);
                 setShowSearchListModal(true);
-            } else {
+            } else if(result.length === 1){
                 setMapBySearch(result[0]);
+            } else {
+                /// 주소검색 결과 없는 경우 장소검색으로 전환
+                let ps = new kakao.maps.services.Places();
+                ps.keywordSearch(searchKeyword.val, placeSearch);
+                return false;
             }
         });
+    }
+
+    const placeSearch = async(data, status, pagination) => {
+        setSearchResultList(data);
+        setShowSearchListModal(true);
     }
 
     const onSearchKeywordKeyup = (event) => {
@@ -85,10 +94,10 @@ function FindLocModal({getStartLoc, showModal}){
 
     const sendReponse = () => {
         const param = {
-            startLocNm : selectedLocNm,
-            startGeoLoc : selectedGeoLoc
+            locNm : selectedLocNm,
+            geoLoc : selectedGeoLoc
         }
-        getStartLoc(param);
+        callback(param);
     }
 
     return (

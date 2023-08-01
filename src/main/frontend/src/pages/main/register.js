@@ -8,6 +8,8 @@ import axios from "axios";
 import BoardCategory from "../board/boardCategory";
 import * as comn from "../../comn/comnFunction";
 import BoardCategoryDetail from "../board/boardCategoryDetail";
+import Modal from "../comn/Modal";
+import FindLocModal from "../comn/findLocModal";
 const {kakao} = window;
 const {daum} = window;
 
@@ -17,6 +19,7 @@ function Register(){
 
     const [httpPlaceholder, setHttpPlaceholder] = useState(false);
     const [searchLoc, setSearchLoc] = useState(false);
+    const [showSearchModal, setShowSearchModal] = useState(false);
     const [additionalInfoView, setAdditionalInfoView] = useState(false);
     const [additionalInfo, setAdditionalInfo] = useState([]);
     const [category, setCategory] = useState([]);
@@ -27,7 +30,7 @@ function Register(){
     const [selectedCtgr, setSelectedCtgr] = useState('');
 
     const [districtInfo, setDistrictInfo] = useState({});
-    const [validateLocNm, setValidateLocNm] = useState(true);
+    const [validateLocNm, setValidateLocNm] = useState(false);
 
     const {register, setValue, handleSubmit} = useForm();
 
@@ -62,29 +65,13 @@ function Register(){
     }
 
     function getLocationByPostCode(){
-        new daum.Postcode({
-            oncomplete: function(data) {
-                findLocByAddr(data.address);
-            }
-        }).open();
+        setShowSearchModal(true);
     }
 
-    function findLocByAddr(addr){
-        let geocoder = new kakao.maps.services.Geocoder();
-
-        geocoder.addressSearch(addr, function(result, status){
-            if(result.length === 0) {
-                alert('유효하지 않은 주소입니다.');
-                return false;
-            }
-            let geoLoc = {
-                latitude : result[0].road_address.y,
-                longitude : result[0].road_address.x
-            }
-
-            setAddress(geoLoc);
-            setSearchLoc(true);
-        });
+    function setLocation(data){
+        setAddress(data.geoLoc);
+        setSearchLoc(true);
+        setShowSearchModal(false);
     }
 
     async function findLocByGeoLoc() {
@@ -146,6 +133,15 @@ function Register(){
 
             setAddress(param);
         })
+    }
+
+    function titleKeyup(event){
+        const val = event.target.value;
+        if(val === ''){
+            setValidateLocNm(false);
+        } else {
+            setValidateLocNm(true);
+        }
     }
 
     function uploadFileOnClick(event){
@@ -245,6 +241,13 @@ function Register(){
 
     return (
         <div>
+            <Modal title={'장소 검색'}
+                   content={<FindLocModal callback={setLocation}
+                                          showModal={showSearchModal}
+                   />}
+                   isOpen={showSearchModal}
+                   setIsOpen={setShowSearchModal}
+            />
             <form id="regFrm" onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                 <div className="register_wrapper">
                     <div className="line_case">
@@ -281,8 +284,9 @@ function Register(){
                         </div>
                         <div className="line_body">
                             <input className="input wd_100"
-                                type="text" name="title" {...register("title")}/>
-                            {validateLocNm ? '' : <span>장소명을 입력해주세요!</span>}
+                                   onKeyUp={titleKeyup}
+                                   type="text" name="title" {...register("title")}/>
+                            {validateLocNm ? '' : <span className="ml_1 gray">장소명을 입력해주세요!</span>}
                         </div>
                     </div>
                     <div className="line_case">

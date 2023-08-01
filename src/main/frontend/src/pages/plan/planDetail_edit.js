@@ -21,16 +21,16 @@ function EditPlanDetail({plan, doList, register, setValue, stayTmList, setStayTm
     }
 
     const getStartLoc = (data) => {
-        setValue('startLocNm', data.startLocNm);
-        setValue('startLocLat', data.startGeoLoc.latitude);
-        setValue('startLocLng', data.startGeoLoc.longitude);
+        setValue('startLocNm', data.locNm);
+        setValue('startLocLat', data.geoLoc.latitude);
+        setValue('startLocLng', data.geoLoc.longitude);
         setShowSearchModal(false);
     }
 
     return (
         <div>
             <Modal title={'출발위치 검색'}
-                   content={<FindLocModal getStartLoc={getStartLoc}
+                   content={<FindLocModal callback={getStartLoc}
                                           showModal={showSearchModal}
                             />}
                    isOpen={showSearchModal}

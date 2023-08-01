@@ -1,14 +1,22 @@
-
+import {useEffect, useRef} from "react";
 
 function FindLocSearchResultModal({resultList, callback}){
 
+    const wpRef = useRef();
+
+    useEffect(() => {
+        wpRef.current.scrollTop = 0;
+    }, [resultList]);
+
     const sendResponse = (obj) => {
-        const id = obj.target.id;
+        const id = obj.currentTarget.id;
         callback(resultList[id]);
     }
 
     return (
-        <div>
+        <div className="locSearchResultModalWrapper"
+             ref={wpRef}
+        >
             {
                 resultList.map((item, index) => (
                     <div key={index}
@@ -16,6 +24,13 @@ function FindLocSearchResultModal({resultList, callback}){
                          onClick={sendResponse}
                          id={index}
                     >
+                        {
+                            item.place_name == null ?
+                                null
+                                :
+                                (<div className="orange mb_1"
+                                >{item.place_name}</div>)
+                        }
                         {item.address_name}
                     </div>
                 ))

@@ -101,7 +101,17 @@ public class PlanService {
             List<Map<String, Object>> stayTmList = (List<Map<String, Object>>) param.get("stayTmList");
             for(Map<String, Object> stayObj : stayTmList){
                 PlanDoVo planDo = dao.selectPlanDo(stayObj);
-                planDo.setStayTmMin(Integer.parseInt((String) stayObj.get("stayTm")));
+                int stayTm = 0;
+                if(stayObj.get("stayTm") != null && !stayObj.get("stayTm").equals("")){
+                    stayTm = Integer.parseInt((String) stayObj.get("stayTm"));
+                }
+                if(stayTm == 0){
+                    planDo.setOrdr(9999);
+                    planDo.setExpectedTm(null);
+                    planDo.setTravelTmMin(0);
+                }
+
+                planDo.setStayTmMin(stayTm);
                 dao.updatePlanDo(planDo);
             }
         }
@@ -176,7 +186,6 @@ public class PlanService {
                 log.error("****** DRIVING NULL = {}", e.getMessage());
             }
 
-            log.debug("updt planDo = {}", planDo);
             dao.updatePlanDo(planDo);
 
             startLat = goalLat;

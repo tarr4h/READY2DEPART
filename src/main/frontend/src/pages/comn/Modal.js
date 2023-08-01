@@ -1,4 +1,5 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import * as comn from "../../comn/comnFunction";
 
 
 function Modal({title, content, isOpen, setIsOpen}){

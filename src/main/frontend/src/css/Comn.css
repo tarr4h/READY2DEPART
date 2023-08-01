@@ -466,3 +466,8 @@ input[type=time]::-webkit-clear-button{
     padding: 1.3vh 1vw 1.3vh 2vw;
     color: #F2F2F2;
 }
+
+.locSearchResultModalWrapper{
+    max-height: 50vh;
+    overflow: auto;
+}

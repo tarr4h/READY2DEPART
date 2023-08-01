@@ -30,7 +30,7 @@ public class AuthService {
     AuthDao dao;
 
     public UserVo selectUser(Map<String, Object> param) {
-        String enc = EncUtil.encryptPwd((String) param.get("id"), (String) param.get("pwd"));
+        String enc = EncUtil.encryptPwd((String) param.get("pwd"), (String) param.get("id"));
         param.put("encPwd", enc);
         return dao.selectUser(param);
     }

@@ -117,9 +117,7 @@
     <update id="updatePlanDo">
         UPDATE TRV_PLAN_DO
         SET     ORDR = #{ordr}
-            <if test="expectedTm != null and expectedTm != ''">
             ,   EXPECTED_TM = #{expectedTm}
-            </if>
             ,   STAY_TM_MIN = #{stayTmMin}
             ,   TRAVEL_TM_MIN = #{travelTmMin}
             ,   MOD_DT = NOW()
@@ -146,6 +144,7 @@
              ,  MOD_DT
         FROM    TRV_PLAN_DO
         WHERE   DAY_ID = #{dayId}
+        ORDER BY ORDR
     </select>
 
     <select id="selectBoard" resultMap="com.web.trv.program.board.dao.BoardDao.boardMap">

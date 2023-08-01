@@ -50,6 +50,13 @@ function PlanDetail(){
         if(stayTmList.length !== 0){
             data.stayTmList = stayTmList;
         }
+
+        if(data.startLocNm === '' || data.startLocLat === '' || data.startLocLng === ''){
+            alert('출발위치 지정 시 저장 가능합니다.');
+            return false;
+        }
+
+        console.log('data : ', data);
         const result = await(await axios.post('/pln/updatePlanDay', data)).data;
         console.log('result = ', result);
         chngEditMode();
