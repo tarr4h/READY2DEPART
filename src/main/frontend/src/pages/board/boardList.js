@@ -12,7 +12,7 @@ function BoardList({boardList, isTracking}){
     const [wholeCtgrChecked, setWholeCtgrChecked] = useState(true);
 
     useEffect(() => {
-        setSummary();
+        void setSummary();
         if(isTracking){
             setWholeCtgrChecked(current => current = true);
         }
@@ -22,7 +22,7 @@ function BoardList({boardList, isTracking}){
         navigate('/my/register');
     }
 
-    function setSummary(){
+    const setSummary = async() => {
         const ctgrArr = [];
         const selectedArr = [];
 

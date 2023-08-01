@@ -116,9 +116,9 @@ function Main(){
         let geoLoc;
 
         // 필터 검색 > 상세페이지 또는 기타 navigate 이후 반영
-        const fGeoLoc = JSON.parse(window.localStorage.getItem('filterGeoLoc'));
+        const fGeoLoc = window.localStorage.getItem('filterGeoLoc');
         if(fGeoLoc != null){
-            geoLoc = fGeoLoc;
+            geoLoc = JSON.parse(fGeoLoc);
             if(fGeoLoc.radius != null && fGeoLoc.radius !== 0){
                 mapRadius.current = fGeoLoc.radius;
             }
@@ -178,10 +178,16 @@ function Main(){
 
         list.forEach((board, index) => {
             let imgSize = new kakao.maps.Size(20, 20);
-            let imgSrc = comn.imgGend(board.categoryVo);
+
+            let imgSrc;
+            try{
+                imgSrc = comn.imgGend(board.categoryVo);
+
+            } catch (error) {
+                console.error('error : ', error);
+            }
 
             let markerImg = new kakao.maps.MarkerImage(imgSrc, imgSize);
-
             let mkr = new kakao.maps.Marker({
                 map : map,
                 position : new kakao.maps.LatLng(board.district.latitude, board.district.longitude),

@@ -181,11 +181,13 @@ function Register(){
         data.addInfoList = additionalInfo;
         data.district = districtInfo;
 
+        comn.blockUI();
         let boardId = await(await insertBoard(data)).text();
         if(fileList.length > 0){
             let fileResult = await(await insertFile(fileList, boardId)).json();
         }
         alert('등록되었습니다.');
+        comn.unBlockUI();
         navigate('/home', {replace : true});
     }
 

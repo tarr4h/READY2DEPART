@@ -32,6 +32,9 @@ function Home(){
 
     return (
         <div>
+            <div id="blockUI">
+                <div>잠시만 기다려주세요.</div>
+            </div>
             <Header/>
             <View page={defilePage()}/>
             <Footer/>

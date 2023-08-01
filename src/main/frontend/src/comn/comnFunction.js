@@ -1,5 +1,4 @@
 const {kakao} = window;
-const {daum} = window;
 
 export function scrollToTop(){;
     window.scrollTo({
@@ -49,7 +48,7 @@ export function setMap(mapId, latitude, longitude, level){
 
     let map = new kakao.maps.Map(mapContainer, mapOption);
 
-    let imageSrc = require('../../src/img/location-pin.png'),
+    let imageSrc = require('../img/location-pin.png'),
         imageSize = new kakao.maps.Size(imgSize.x, imgSize.y),
         imageOption = {offset : new kakao.maps.Point(imgSize.x/2, imgSize.x)};
 
@@ -92,4 +91,17 @@ export function getDistanceMark(num){
         mark = 'km';
     }
     return distance + mark;
+}
+
+
+export function blockUI(){
+    let bodyHeight = document.body.scrollHeight;
+    const block = window.document.getElementById('blockUI');
+    block.style.height = bodyHeight + 'px';
+    block.style.display = 'block';
+}
+
+export function unBlockUI(){
+    const block = window.document.getElementById('blockUI');
+    block.style.display = 'none';
 }

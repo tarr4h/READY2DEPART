@@ -4,6 +4,7 @@ import axios, {formToJSON} from "axios";
 import EditPlanDetail from "./planDetail_edit";
 import ResultPlanDetail from "./planDetail_rslt";
 import {useForm} from "react-hook-form";
+import * as comn from "../../comn/comnFunction";
 
 
 function PlanDetail(){
@@ -57,11 +58,13 @@ function PlanDetail(){
         }
 
         console.log('data : ', data);
+        comn.blockUI();
         const result = await(await axios.post('/pln/updatePlanDay', data)).data;
         console.log('result = ', result);
         chngEditMode();
         void getDoList();
         void getPlan();
+        comn.unBlockUI();
     }
 
 

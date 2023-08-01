@@ -17,8 +17,8 @@
     <properties>
         <java.version>11</java.version>
         <frontend-src-dir>${project.basedir}/src/main/frontend</frontend-src-dir>
-        <node.version>v18.15.0</node.version>
-        <npm.version>9.5.0</npm.version>
+        <node.version>v18.16.0</node.version>
+        <npm.version>9.6.5</npm.version>
         <yarn.version>v1.22.19</yarn.version>
         <frontend-maven-plugin.version>1.7.6</frontend-maven-plugin.version>
     </properties>
@@ -209,28 +209,28 @@
                 </executions>
             </plugin>
 
-<!--            <plugin>-->
-<!--                <artifactId>maven-resources-plugin</artifactId>-->
-<!--                <version>3.0.1</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>position-react-build</id>-->
-<!--                        <goals>-->
-<!--                            <goal>copy-resources</goal>-->
-<!--                        </goals>-->
-<!--                        <phase>prepare-package</phase>-->
-<!--                        <configuration>-->
-<!--                            <outputDirectory>${project.build.outputDirectory}/static</outputDirectory>-->
-<!--                            <resources>-->
-<!--                                <resource>-->
-<!--                                    <directory>${frontend-src-dir}/build</directory>-->
-<!--                                    <filtering>false</filtering>-->
-<!--                                </resource>-->
-<!--                            </resources>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>position-react-build</id>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${frontend-src-dir}/build</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

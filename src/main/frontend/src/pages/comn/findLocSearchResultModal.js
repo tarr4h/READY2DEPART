@@ -2,7 +2,7 @@ import {useEffect, useRef} from "react";
 
 function FindLocSearchResultModal({resultList, callback}){
 
-    const wpRef = useRef();
+    const wpRef = useRef(null);
 
     useEffect(() => {
         wpRef.current.scrollTop = 0;

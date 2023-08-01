@@ -11,7 +11,7 @@ function Board({board, selectedCtgrArr}){
 
     useEffect(() => {
         let chk = false;
-        selectedCtgrArr.forEach((item, index) => {
+        selectedCtgrArr.map((item, index) => {
             if(item.categoryCd === board.category || item.categoryCd === board.upCategoryVo.sysCd){
                 chk = true;
             }
