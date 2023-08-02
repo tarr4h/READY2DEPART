@@ -46,6 +46,7 @@ function PlanDetail(){
     }
 
     const submitEditing = async (data) => {
+        if(!editMode) return false;
         data.id = plan.id;
         data.nm = plan.nm;
         if(stayTmList.length !== 0){

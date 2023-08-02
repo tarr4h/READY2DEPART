@@ -60,4 +60,9 @@ public class PlanController {
     public ResponseEntity<?> updatePlanDay(@RequestBody Map<String, Object> param){
         return ResponseEntity.ok().body(service.updatePlanDay(param));
     }
+
+    @PostMapping("selectPlanRsltLocale")
+    public ResponseEntity<?> selectPlanRsltLocale(@RequestBody Map<String, Object> param){
+        return ResponseEntity.ok().body(service.selectPlanRsltLocale(param));
+    }
 }

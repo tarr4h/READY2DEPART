@@ -248,6 +248,15 @@ input[type=time]::-webkit-clear-button{
     text-align: center;
     font-size: 11px;
 }
+.iwContent.circle {
+    width: 7vw;
+    height: 7vw;
+    font-size: 0.7rem;
+    border-radius: 100%;
+    text-align: center;
+    opacity: 0.8;
+    background-color: #24232B;
+}
 
 
 .roundImgIco{

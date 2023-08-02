@@ -24,7 +24,7 @@ function BoardDetailContent({board, modal}){
     }
 
     async function showMap(latitude, longitude){
-        let {map, marker} = await comn.setMap('boardDetailMap', latitude, longitude);
+        let {map, marker} = await comn.setMap('boardDetailMap', latitude, longitude, true);
 
         let addr = board.title;
 

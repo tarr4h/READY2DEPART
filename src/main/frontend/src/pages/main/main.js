@@ -64,8 +64,12 @@ function Main(){
         window.localStorage.setItem('yOffset', yOffset.toString());
     }
 
-    const trackingMode = () => {
+    const trackingMode = async () => {
         if(!isTrackingMode){
+            comn.blockUI();
+            deleteLocalLocInfo();
+            await setCurrentMap();
+            comn.unBlockUI();
             onTrackingMode();
         } else {
             offTrackingMode();
@@ -141,7 +145,12 @@ function Main(){
     const showMap = async (latitude, longitude, list) => {
         let level = mapLevel[0];
         if(level == null) level = 7;
-        let {map, marker} = await comn.setMap('mainMap', latitude, longitude, level);
+        let {map, marker} = await comn.setMap('mainMap', latitude, longitude, true, level);
+
+        if(!map){
+            return false;
+        }
+
         setMapObj(map);
 
         kakao.maps.event.removeListener(map, 'click');
@@ -262,23 +271,8 @@ function Main(){
         let newMapLevel = mapLevel;
         newMapLevel.splice(0, 1);
 
-        let level = mapObj.getLevel();
         let radius = mapRadius.current;
-        if(radius < 4){
-            level = 7;
-        } else if(radius < 6){
-            level = 8;
-        } else if(radius < 11){
-            level = 9;
-        } else if(radius < 23){
-            level = 10;
-        } else if(radius < 46){
-            level = 11;
-        } else if(radius < 200){
-            level = 13;
-        } else {
-            level = 14;
-        }
+        let level = comn.mapLevelRadiusMatcher(radius);
 
         newMapLevel.push(level);
         setMapLevel(newMapLevel);
@@ -289,6 +283,7 @@ function Main(){
     }
 
     const applyFilter = async (region, category) => {
+        comn.blockUI();
         // 필터에 적용된 category set  >> 순서 반드시 우선시
         // setFilterCtgr(category);
         window.localStorage.setItem('filterCtgr', JSON.stringify(category));
@@ -304,7 +299,7 @@ function Main(){
         window.localStorage.setItem('currMapRad', JSON.stringify(mapRadius.current));
         window.localStorage.setItem('currMapLvl', JSON.stringify(mapLevel[0]));
         setCurrentGeoLoc(result.geoLoc);
-        void setMap(result.geoLoc);
+        await setMap(result.geoLoc);
 
         // 초기화면에서 저장된 filter값을 유지하기 위해 저장
         let fGeoLoc = result.geoLoc;
@@ -312,14 +307,17 @@ function Main(){
         fGeoLoc.mapLevel = mapLevel[0];
         window.localStorage.setItem('filterGeoLoc', JSON.stringify(fGeoLoc));
         window.localStorage.setItem('filterRegion', JSON.stringify(region));
+        comn.unBlockUI();
     }
 
     const resetFilter = async () => {
+        comn.blockUI();
         deleteLocalLocInfo();
         mapRadius.current = 2;
         mapLevel.splice(0, 1);
         setMapLevel(mapLevel);
-        void setCurrentMap();
+        await setCurrentMap();
+        comn.unBlockUI();
     }
 
     const deleteLocalLocInfo = () => {

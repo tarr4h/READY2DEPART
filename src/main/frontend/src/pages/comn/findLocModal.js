@@ -25,7 +25,7 @@ function FindLocModal({callback, showModal}){
             geoLoc = await comn.getGeoLocation();
         }
         setSelectedGeoLoc(geoLoc);
-        let {map, marker} = await comn.setMap('searchMap', geoLoc.latitude, geoLoc.longitude, 8);
+        let {map, marker} = await comn.setMap('searchMap', geoLoc.latitude, geoLoc.longitude, true, 8);
 
         let geocoder = new kakao.maps.services.Geocoder();
         geocoder.coord2RegionCode(map.getCenter().getLng(), map.getCenter().getLat(), coordResult);

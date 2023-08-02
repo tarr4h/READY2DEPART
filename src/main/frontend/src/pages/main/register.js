@@ -118,7 +118,7 @@ function Register(){
     }
 
     async function showMap(latitude, longitude){
-        let {map, marker} = await comn.setMap('registerMap', latitude, longitude);
+        let {map, marker} = await comn.setMap('registerMap', latitude, longitude, true);
 
         // 지도 클릭하여 주소, 마커 재지정
         kakao.maps.event.addListener(map, 'click', function(mouseEvent){
