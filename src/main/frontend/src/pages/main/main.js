@@ -80,7 +80,7 @@ function Main(){
         setIsTrackingMode(true);
         mapRadius.current = 2;
         trackingIntervalRef.current = setInterval(() => {
-            deleteLocalLocInfo();
+            // deleteLocalLocInfo();
             console.log('traking...');
             void setCurrentMap();
         }, 5000);

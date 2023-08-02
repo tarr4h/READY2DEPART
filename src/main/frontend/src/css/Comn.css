@@ -249,8 +249,8 @@ input[type=time]::-webkit-clear-button{
     font-size: 11px;
 }
 .iwContent.circle {
-    width: 7vw;
-    height: 7vw;
+    width: 3.5vh;
+    height: 3.5vh;
     font-size: 0.7rem;
     border-radius: 100%;
     text-align: center;
