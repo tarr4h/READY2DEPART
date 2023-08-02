@@ -10,7 +10,7 @@ function BoardDetailContent({board, modal}){
     const [extraInfo, setExtraInfo] = useState(false);
 
     useEffect(() => {
-        showMap(board.district.latitude, board.district.longitude);
+        void showMap(board.district.latitude, board.district.longitude);
         textAreaResize();
     }, []);
 
@@ -23,8 +23,8 @@ function BoardDetailContent({board, modal}){
         setExtraInfo(true);
     }
 
-    function showMap(latitude, longitude){
-        let {map, marker} = comn.setMap('boardDetailMap', latitude, longitude);
+    async function showMap(latitude, longitude){
+        let {map, marker} = await comn.setMap('boardDetailMap', latitude, longitude);
 
         let addr = board.title;
 

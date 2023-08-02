@@ -25,7 +25,7 @@ export function getGeoLocation(){
     });
 }
 
-export function setMap(mapId, latitude, longitude, level){
+export async function setMap(mapId, latitude, longitude, level){
     let imgSize = {x : 0, y: 0};
 
     if(level == null) level = 3;
@@ -39,7 +39,10 @@ export function setMap(mapId, latitude, longitude, level){
             imgSize.y = 40;
     }
 
+    const mapComp = document.getElementById(mapId);
+    if(mapComp){
 
+    }
     let mapContainer = document.getElementById(mapId),
         mapOption = {
             center: new kakao.maps.LatLng(latitude, longitude),
@@ -60,7 +63,7 @@ export function setMap(mapId, latitude, longitude, level){
         image : markerImage
     });
 
-    marker.setMap(map);
+    await marker.setMap(map);
     return {map, marker};
 }
 

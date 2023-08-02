@@ -141,7 +141,7 @@ function Main(){
     const showMap = async (latitude, longitude, list) => {
         let level = mapLevel[0];
         if(level == null) level = 7;
-        let {map, marker} = comn.setMap('mainMap', latitude, longitude, level);
+        let {map, marker} = await comn.setMap('mainMap', latitude, longitude, level);
         setMapObj(map);
 
         kakao.maps.event.removeListener(map, 'click');

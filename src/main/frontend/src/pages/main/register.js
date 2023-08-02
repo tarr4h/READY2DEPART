@@ -80,10 +80,10 @@ function Register(){
             setHttpPlaceholder(true);
         }
         if(geoLoc != null) setSearchLoc(true);
-        setAddress(geoLoc);
+        void setAddress(geoLoc);
     }
 
-    function setAddress(geoLoc){
+    async function setAddress(geoLoc){
         let geocoder = new kakao.maps.services.Geocoder();
         let coord = new kakao.maps.LatLng(geoLoc.latitude, geoLoc.longitude);
         let callback = function (res, status, jqXHR) {
@@ -114,11 +114,11 @@ function Register(){
             {...current, latitude : geoLoc.latitude, longitude : geoLoc.longitude}
         ));
 
-        showMap(geoLoc.latitude, geoLoc.longitude);
+        await showMap(geoLoc.latitude, geoLoc.longitude);
     }
 
-    function showMap(latitude, longitude){
-        let {map, marker} = comn.setMap('registerMap', latitude, longitude);
+    async function showMap(latitude, longitude){
+        let {map, marker} = await comn.setMap('registerMap', latitude, longitude);
 
         // 지도 클릭하여 주소, 마커 재지정
         kakao.maps.event.addListener(map, 'click', function(mouseEvent){
