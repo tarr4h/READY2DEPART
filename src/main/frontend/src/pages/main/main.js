@@ -28,15 +28,15 @@ function Main(){
     const [onFilter, setOnFilter] = useState(false);
 
     useEffect(() => {
-        const currGeoLoc = JSON.parse(window.localStorage.getItem('currGeoLoc'));
+        const currGeoLoc = window.localStorage.getItem('currGeoLoc');
         if(currGeoLoc == null){
-            setCurrentGeoLoc(currGeoLoc);
             void setCurrentMap();
         } else {
+            setCurrentGeoLoc(JSON.parse(currGeoLoc));
             mapLevel[0] = JSON.parse(window.localStorage.getItem('currMapLvl'));
             setMapLevel(mapLevel);
             mapRadius.current = JSON.parse(window.localStorage.getItem('currMapRad'));
-            void setMap(currGeoLoc);
+            void setMap(JSON.parse(currGeoLoc));
         }
 
     }, []);
@@ -123,10 +123,10 @@ function Main(){
         const fGeoLoc = window.localStorage.getItem('filterGeoLoc');
         if(fGeoLoc != null){
             geoLoc = JSON.parse(fGeoLoc);
-            if(fGeoLoc.radius != null && fGeoLoc.radius !== 0){
-                mapRadius.current = fGeoLoc.radius;
+            if(geoLoc.radius != null && geoLoc.radius !== 0){
+                mapRadius.current = geoLoc.radius;
             }
-            mapLevel[0] = fGeoLoc.mapLevel;
+            mapLevel[0] = geoLoc.mapLevel;
             setMapLevel(mapLevel);
         } else {
             geoLoc = await comn.getGeoLocation();

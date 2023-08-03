@@ -84,6 +84,9 @@ input[type=time]::-webkit-clear-button{
 .mt_1{
     margin-top: 1vh;
 }
+.mt_2{
+    margin-top: 2vh;
+}
 .mt_3{
     margin-top: 3vh;
 }
@@ -162,7 +165,7 @@ input[type=time]::-webkit-clear-button{
     color: #c5c5c5!important;
 }
 .bd_gray{
-    color: #c5c5c5!important;
+    border-color: #c5c5c5!important;
 }
 
 .flex{

@@ -98,7 +98,7 @@ public class PlanService {
                 PlanDoVo planDo = dao.selectPlanDo(stayObj);
                 int stayTm = 0;
                 if(stayObj.get("stayTm") != null && !stayObj.get("stayTm").equals("")){
-                    stayTm = Integer.parseInt((String) stayObj.get("stayTm"));
+                    stayTm = (int) stayObj.get("stayTm");
                 }
                 if(stayTm == 0){
                     planDo.setOrdr(9999);
@@ -112,6 +112,31 @@ public class PlanService {
         }
         setExpectedTime(param);
         return result;
+    }
+
+    @SuppressWarnings("unchecked")
+    public Map<String, Object> checkStayTmRestrict(Map<String, Object> param){
+        Map<String, Object> returnMap = new HashMap<>();
+        boolean bool = false;
+        int betweenMin = Utilities.minBetweenTimeStr((String) param.get("startTm"), (String) param.get("endTm"));
+        log.debug("betweenMin = {}", betweenMin);
+
+        List<Map<String, Object>> stayTmList = (List<Map<String, Object>>) param.get("stayTmList");
+        int totStayTm = 0;
+        for(Map<String, Object> stayObj : stayTmList){
+            if(stayObj.get("stayTm") != null && !stayObj.get("stayTm").equals("")){
+                totStayTm += (int) stayObj.get("stayTm");
+            }
+        }
+
+        if(betweenMin >= totStayTm){
+            bool = true;
+        } else {
+            returnMap.put("overTm", totStayTm - betweenMin);
+        }
+
+        returnMap.put("bool", bool);
+        return returnMap;
     }
 
     public PlanVo lineUpPlanDo(Map<String, Object> param){

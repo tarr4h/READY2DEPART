@@ -55,6 +55,17 @@ function EditPlanDetail({plan, doList, register, setValue, stayTmList, setStayTm
                     <span>기본설정</span>
                 </div>
                 <div className="titWrapper">
+                    <div>제목</div>
+                    <div>
+                        <input type="text"
+                               className="input wd_100"
+                               name="nm"
+                               defaultValue={plan.nm}
+                               {...register('nm')}
+                        />
+                    </div>
+                </div>
+                <div className="titWrapper">
                     <div>시작시간</div>
                     <div>
                         <input type="time"

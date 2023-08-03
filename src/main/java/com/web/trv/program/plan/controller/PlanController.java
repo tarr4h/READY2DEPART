@@ -65,4 +65,9 @@ public class PlanController {
     public ResponseEntity<?> selectPlanRsltLocale(@RequestBody Map<String, Object> param){
         return ResponseEntity.ok().body(service.selectPlanRsltLocale(param));
     }
+
+    @PostMapping("checkStayTmRestrict")
+    public ResponseEntity<?> checkStayTmRestrict(@RequestBody Map<String, Object> param){
+        return ResponseEntity.ok().body(service.checkStayTmRestrict(param));
+    }
 }

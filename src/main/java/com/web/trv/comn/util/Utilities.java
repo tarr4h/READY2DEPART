@@ -107,4 +107,29 @@ public class Utilities {
 
         return timeFormat;
     }
+
+    public static int minBetweenTimeStr(String timeFormat1, String timeFormat2){
+        int result = 0;
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        try{
+            Date date1 = sdf.parse(timeFormat1);
+            Calendar cal1 = Calendar.getInstance();
+            cal1.setTime(date1);
+
+            Date date2 = sdf.parse(timeFormat2);
+            Calendar cal2 = Calendar.getInstance();
+            cal2.setTime(date2);
+
+            if(cal1.getTimeInMillis() > cal2.getTimeInMillis()){
+                throw new Exception("timeFormat1이 2보다 큽니다.");
+            }
+
+            int gap = (int) (cal2.getTimeInMillis() - cal1.getTimeInMillis());
+            result = miliSec2min(gap);
+        } catch (Exception e){
+            log.error("PARSING EXCEPTION = {}", e.getMessage());
+        }
+
+        return result;
+    }
 }

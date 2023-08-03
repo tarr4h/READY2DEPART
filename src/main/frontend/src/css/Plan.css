@@ -1,4 +1,9 @@
 
+.planWrapper{
+    height: 31vh;
+    overflow: auto;
+}
+
 .planTitWrapper{
     display: flex;
     flex-direction: row;

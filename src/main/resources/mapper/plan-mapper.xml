@@ -52,7 +52,7 @@
                     #{item.dayId}
                 </foreach>
             </if>
-        ORDER BY MOD_DT DESC
+        ORDER BY NM
     </select>
 
     <select id="selectPlan" resultType="com.web.trv.program.plan.model.PlanVo">

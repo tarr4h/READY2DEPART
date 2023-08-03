@@ -24,13 +24,17 @@ function PlanList({planList, selectedPlanList, setSelectedPlanList, size}){
     }
 
     return (
-        planList.map((item, index) => (
-            <PlanRow key={index}
-                     plan={item}
-                     onChange={planRowSelect}
-                     size={size}
-            />
-        ))
+        <div className="planWrapper">
+            {
+                planList.map((item, index) => (
+                    <PlanRow key={index}
+                             plan={item}
+                             onChange={planRowSelect}
+                             size={size}
+                    />
+                ))
+            }
+        </div>
     )
 }
 

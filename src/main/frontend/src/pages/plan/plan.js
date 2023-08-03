@@ -5,6 +5,7 @@ import '../../css/Plan.css'
 import PlanList from "./planList";
 import Modal from "../comn/Modal";
 import AddPlanModal from "./addPlanModal";
+import * as comn from "../../comn/comnFunction";
 
 function Plan(){
 
@@ -42,12 +43,14 @@ function Plan(){
     }
 
     const deletePlan = async () => {
+        comn.blockUI();
         const result = await(await axios.post('/pln/deletePlanDay', {
             selectedPlanList
         })).data;
 
         alert(result + '건이 삭제되었습니다.');
         void getPlanList();
+        comn.unBlockUI();
     }
 
     return (
@@ -57,26 +60,37 @@ function Plan(){
                    isOpen={showAddModal}
                    setIsOpen={setShowAddModal}
             />
-            <div className="planTitWrapper pt_3 pl_3 pr_3 pb_3">
-                <div className="pageTit orange">
-                    PLAN
+            <div className="box1 bd_gray mt_3">
+                <div className="planTitWrapper pl_3 pr_3 pb_3">
+                    <div className="pageTit orange">
+                        DAILY_PLAN
+                    </div>
+                    <div>
+                        <a className="btn bg_orange bd_orange"
+                           onClick={openAddPlanModal}
+                        >추가하기</a>
+                        {
+                            showDelBtn ? <a className="btn orange bd_orange ml_1"
+                                            onClick={deletePlan}
+                                            >삭제</a> : ''
+                        }
+                    </div>
                 </div>
-                <div>
-                    <a className="btn bg_orange bd_orange"
-                       onClick={openAddPlanModal}
-                    >추가하기</a>
-                    {
-                        showDelBtn ? <a className="btn orange bd_orange ml_1"
-                                        onClick={deletePlan}
-                                        >삭제</a> : ''
-                    }
+                <PlanList planList={planList}
+                          selectedPlanList={selectedPlanList}
+                          setSelectedPlanList={setSelectedPlanList}
+                          size={"big"}
+                />
+            </div>
+            <div className="box1 bd_gray mt_2">
+                <div className="planGrpWrapper">
+                    <div className="planTitWrapper pl_3 pr_3 pb_3">
+                        <div className="pageTit orange">
+                            GROUP
+                        </div>
+                    </div>
                 </div>
             </div>
-            <PlanList planList={planList}
-                      selectedPlanList={selectedPlanList}
-                      setSelectedPlanList={setSelectedPlanList}
-                      size={"big"}
-            />
         </div>
     )
 }

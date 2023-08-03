@@ -1,8 +1,30 @@
 import {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
+import plan from "./plan";
 
 
 function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList}) {
+
+    useEffect(() => {
+        if(planDo.stayTmMin != null){
+            let exist = true;
+            stayTmList.forEach((item, index) => {
+                if(item.id === planDo.id){
+                    exist = false;
+                }
+            });
+
+            if(exist){
+                const param = {
+                    stayTm : planDo.stayTmMin,
+                    id : planDo.id
+                }
+
+                stayTmList.push(param);
+                setStayTmList(stayTmList);
+            }
+        }
+    }, []);
 
     const showBoardDetail = () => {
         openBoardDetailModal(planDo.board);
@@ -12,7 +34,7 @@ function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList})
         let stayTm = event.target.value;
         let id = planDo.id;
         let param = {
-            stayTm,
+            stayTm : Number(stayTm),
             id
         }
 
@@ -26,7 +48,7 @@ function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList})
     }
 
     return (
-        <div className="box1 mb_1">
+        <div className="box1 mb_1 bd_gray gray">
             <div className="flex j_between">
                 <div className="subTit"
                      onClick={showBoardDetail}

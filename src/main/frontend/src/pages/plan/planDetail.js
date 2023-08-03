@@ -48,20 +48,24 @@ function PlanDetail(){
     const submitEditing = async (data) => {
         if(!editMode) return false;
         data.id = plan.id;
-        data.nm = plan.nm;
-        if(stayTmList.length !== 0){
-            data.stayTmList = stayTmList;
-        }
 
         if(data.startLocNm === '' || data.startLocLat === '' || data.startLocLng === ''){
             alert('출발위치 지정 시 저장 가능합니다.');
             return false;
         }
 
+        if(stayTmList.length !== 0){
+            data.stayTmList = stayTmList;
+            const restricted = await(await axios.post('/pln/checkStayTmRestrict', data)).data;
+            if(!restricted.bool){
+                alert('총 소요시간이 설정한 시간보다 '+restricted.overTm +'분 만큼 초과되었습니다.');
+                return false;
+            }
+        }
+
         console.log('data : ', data);
         comn.blockUI();
-        const result = await(await axios.post('/pln/updatePlanDay', data)).data;
-        console.log('result = ', result);
+        await(await axios.post('/pln/updatePlanDay', data)).data;
         chngEditMode();
         void getDoList();
         void getPlan();
