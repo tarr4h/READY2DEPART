@@ -15,6 +15,7 @@ function ResultPlanDetail({plan, doList}){
     const selectedBoard = useRef(null);
 
     useEffect(() => {
+        console.log('doList : ', doList);
         if(plan.startLocNm !== '' && plan.startLocNm != null){
             setShowMap(true);
             void createMap();

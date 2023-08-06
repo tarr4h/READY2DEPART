@@ -1,6 +1,5 @@
 package com.web.trv.program.board.controller;
 
-import com.web.trv.comn.util.Utilities;
 import com.web.trv.program.board.service.BoardService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

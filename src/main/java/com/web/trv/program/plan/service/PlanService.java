@@ -10,7 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <pre>
@@ -44,7 +47,6 @@ public class PlanService {
         }
         return dao.selectMyPlanList(param);
     }
-
 
     public Object selectPlan(Map<String, Object> param) {
         return dao.selectPlan(param);
@@ -85,8 +87,12 @@ public class PlanService {
         return result;
     }
 
-    public Object selectDoList(Map<String, Object> param) {
-        return dao.selectDoList(param);
+    public List<PlanDoVo> selectDoList(Map<String, Object> param) {
+        List<PlanDoVo> list = dao.selectDoList(param);
+        for(PlanDoVo planDo : list){
+            planDo.setDepartTm(Utilities.addMinToTimeFmt(planDo.getExpectedTm(), planDo.getStayTmMin()));
+        }
+        return list;
     }
 
     @SuppressWarnings("unchecked")

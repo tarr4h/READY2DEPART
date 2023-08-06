@@ -2,10 +2,9 @@ package com.web.trv.auth.controller;
 
 import com.web.trv.auth.model.UserVo;
 import com.web.trv.auth.service.AuthService;
+import com.web.trv.comn.util.Utilities;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,7 +39,6 @@ public class AuthController {
         boolean bool = false;
         if(user != null){
             HttpSession session = req.getSession();
-            session.setAttribute("loginUserId", user.getId());
             session.setAttribute("loginUser", user);
             param.put("ipAddr", req.getRemoteAddr());
             service.changeLoginUserStatus(param);
@@ -54,24 +52,22 @@ public class AuthController {
     public ResponseEntity<?> logout(HttpServletRequest req){
         HttpSession session = req.getSession();
         Map<String, Object> param = new HashMap<>();
-        param.put("id", session.getAttribute("loginUserId"));
-        service.changeLoginUserStatus(param);
+        UserVo loginUser = Utilities.getLoginUser();
+        if(loginUser != null){
+            param.put("id", loginUser.getId());
+            service.changeLoginUserStatus(param);
 
-        session.removeAttribute("loginUserId");
-        session.removeAttribute("loginUser");
+            session.removeAttribute("loginUser");
+        }
         return ResponseEntity.ok(true);
     }
 
     @GetMapping("isLogin")
     public ResponseEntity<?> isLogin(HttpServletRequest req){
         HttpSession session = req.getSession();
-        Object id = session.getAttribute("loginUserId");
+        UserVo loginUser = Utilities.getLoginUser();
 
-        boolean bool = true;
-        if(id == null){
-            bool = false;
-        }
-
+        boolean bool = loginUser != null;
         return ResponseEntity.ok().body(bool);
     }
 
