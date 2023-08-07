@@ -30,7 +30,7 @@ public class DaoAspect {
 
 
     @Before(value = "execution(* *..*Dao.*(..))")
-    public void queryBefore(JoinPoint jp){
+    public void queryBefore(JoinPoint jp) throws Exception {
         Object[] args = jp.getArgs();
         Map<String, Object> param = new HashMap<>();
         for(Object arg : args){

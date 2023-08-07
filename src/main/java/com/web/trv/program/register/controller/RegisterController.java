@@ -4,12 +4,10 @@ import com.web.trv.comn.model.SysCodeVo;
 import com.web.trv.program.register.service.RegisterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +43,7 @@ public class RegisterController {
     }
 
     @PostMapping("insertBoard")
-    public ResponseEntity<?> insertBoard(@RequestBody Map<String, Object> param){
+    public ResponseEntity<?> insertBoard(@RequestBody Map<String, Object> param) throws Exception {
         return ResponseEntity.ok().body(service.insertBoard(param));
     }
 

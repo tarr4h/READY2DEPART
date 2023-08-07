@@ -5,7 +5,6 @@ import com.web.trv.comn.model.SysCodeVo;
 import com.web.trv.comn.util.Utilities;
 import com.web.trv.program.register.dao.RegisterDao;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.compress.compressors.FileNameUtil;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -50,7 +49,7 @@ public class RegisterService {
         return dao.selectBoardCategory(param);
     }
 
-    public String insertBoard(Map<String, Object> param) {
+    public String insertBoard(Map<String, Object> param) throws Exception {
         param.put("userId", Utilities.getLoginUser().getId());
 
         if(param.get("rating") == null || param.get("rating").equals("")){

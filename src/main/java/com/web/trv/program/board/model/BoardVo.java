@@ -39,7 +39,7 @@ public class BoardVo implements Comparable<BoardVo> {
     private SysCodeVo categoryVo;
     private SysCodeVo upCategoryVo;
 
-    public boolean getIsMine(){
+    public boolean getIsMine() throws Exception {
         UserVo loginUser = Utilities.getLoginUser();
         if(loginUser != null && this.getUserId().equals(loginUser.getId())){
             return true;

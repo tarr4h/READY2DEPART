@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +60,7 @@ public class AuthController {
     }
 
     @PostMapping("logout")
-    public ResponseEntity<?> logout(HttpServletRequest req){
+    public ResponseEntity<?> logout(HttpServletRequest req) throws Exception {
         HttpSession session = req.getSession();
         Map<String, Object> param = new HashMap<>();
         UserVo loginUser = Utilities.getLoginUser();
@@ -71,7 +74,7 @@ public class AuthController {
     }
 
     @GetMapping("isLogin")
-    public ResponseEntity<?> isLogin(HttpServletRequest req){
+    public ResponseEntity<?> isLogin(HttpServletRequest req) throws Exception {
         HttpSession session = req.getSession();
         LocalDateTime loginTm = (LocalDateTime) session.getAttribute("loginTm");
         LocalDateTime current = LocalDateTime.now();
@@ -88,6 +91,16 @@ public class AuthController {
         }
 
         return ResponseEntity.ok().body(bool);
+    }
+
+    @PostMapping("sendVerifyPhRequest")
+    public ResponseEntity<?> sendVerifyPhRequest(@RequestBody Map<String, Object> param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
+        return ResponseEntity.ok().body(service.sendVerifyPhRequest(param));
+    }
+
+    @PostMapping("verifyPh")
+    public ResponseEntity<?> verifyPh(@RequestBody Map<String, Object> param) throws Exception {
+        return ResponseEntity.ok().body(service.verifyPh(param));
     }
 
     @PostMapping("join")

@@ -37,3 +37,9 @@ logging:
   level:
     com.web.trv: DEBUG
 
+
+naver:
+  service-id: ncp:sms:kr:279120411997:ready2depart
+  access-key-id: hrcUaugvUkDKgHHE63SM
+  secret-key: up1ef6rVvqgGP6ZY1rNQmyaZOIq0qYRizRlFolKg
+  send-ph: 01095378117

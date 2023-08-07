@@ -453,6 +453,7 @@ input[type=time]::-webkit-clear-button{
 .pwd{
     margin-left: 1vw;
     font-size: 0.8rem;
+    display: block;
 }
 .pwd.poss{
     color: #089308;

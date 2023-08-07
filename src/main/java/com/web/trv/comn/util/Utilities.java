@@ -35,24 +35,27 @@ import java.util.Locale;
 @Slf4j
 public class Utilities {
 
-    public static UserVo getLoginUser(){
+    public static UserVo getLoginUser() throws Exception {
+        return (UserVo) Utilities.getSession().getAttribute("loginUser");
+    }
+
+    public static HttpSession getSession() throws Exception {
         ServletRequestAttributes servletContainer = (ServletRequestAttributes) RequestContextHolder
                 .getRequestAttributes();
         if(servletContainer != null){
             HttpServletRequest request = servletContainer.getRequest();
-            HttpSession session = request.getSession();
-            return (UserVo) session.getAttribute("loginUser");
+            return request.getSession();
         } else {
-            return null;
+            throw new Exception("SERVLETCONTAINER NULL");
         }
     }
 
     public static DrivingVo getDriving(double startLat, double startLng, double goalLat, double goalLng){
-        final String apiKeyId = "qf1nz5j1ox";
-        final String apiKey = "zKk2iApYsA7XFiXgqTTdtguAsvgSJlXZJ59a1HhL";
-        final String url = "https://naveropenapi.apigw.ntruss.com/map-direction/v1/driving";
-
         RestTemplate restTemplate = new RestTemplate();
+
+        String apiKeyId = "qf1nz5j1ox";
+        String apiKey = "zKk2iApYsA7XFiXgqTTdtguAsvgSJlXZJ59a1HhL";
+        String drivingUrl = "https://naveropenapi.apigw.ntruss.com/map-direction/v1/driving";
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -63,7 +66,7 @@ public class Utilities {
 
         HttpEntity<HttpHeaders> request = new HttpEntity<>(headers);
 
-        URI uri = UriComponentsBuilder.fromHttpUrl(url)
+        URI uri = UriComponentsBuilder.fromHttpUrl(drivingUrl)
                 .queryParam("start", startLng + "," + startLat)
                 .queryParam("goal", goalLng + "," + goalLat)
                 .encode(StandardCharsets.UTF_8)
@@ -132,4 +135,9 @@ public class Utilities {
 
         return result;
     }
+
+    public static int getRandom6Number(){
+        return (int) Math.floor(Math.random() * 1000000);
+    }
+
 }
