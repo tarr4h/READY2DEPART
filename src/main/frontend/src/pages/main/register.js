@@ -69,7 +69,7 @@ function Register(){
     }
 
     function setLocation(data){
-        setAddress(data.geoLoc);
+        void setAddress(data.geoLoc);
         setSearchLoc(true);
         setShowSearchModal(false);
     }

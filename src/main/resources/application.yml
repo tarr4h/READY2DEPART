@@ -37,6 +37,3 @@ logging:
   level:
     com.web.trv: DEBUG
 
-
-
-

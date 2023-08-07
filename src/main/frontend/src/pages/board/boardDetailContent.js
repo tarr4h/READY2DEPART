@@ -45,8 +45,12 @@ function BoardDetailContent({board, modal}){
     return (
         <div className={modal ? 'boardDetailWrapper sm' : 'boardDetailWrapper'}>
             <div className="boardDetail">
-                <div>
+                <div className="flex j_between">
                     <h1 className="detailTit">{board.title}</h1>
+                    {
+                        board.isMine && !modal ?
+                            (<a className="btn" style={{height : '2vh'}}>EDIT</a>) : null
+                    }
                 </div>
                 {
                     board.district.toDistance !== 0 ?
