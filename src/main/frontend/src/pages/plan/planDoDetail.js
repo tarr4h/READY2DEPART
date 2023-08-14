@@ -1,9 +1,10 @@
 import {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import plan from "./plan";
+import RoundImgIco from "../comn/roundImgIco";
 
 
-function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList}) {
+function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList, changeOrdr}) {
 
     useEffect(() => {
         if(planDo.stayTmMin != null){
@@ -32,6 +33,11 @@ function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList})
 
     const stayTmOnChange = (event) => {
         let stayTm = event.target.value;
+        if(Number(stayTm) < 0){  // prevent minus value
+            alert('0 이하는 입력하실 수 없습니다.');
+            return false;
+        }
+
         let id = planDo.id;
         let param = {
             stayTm : Number(stayTm),
@@ -47,6 +53,14 @@ function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList})
         setStayTmList(stayTmList);
     }
 
+    const toUp = () => {
+        changeOrdr(planDo.ordr, true);
+    }
+
+    const toDown = () => {
+        changeOrdr(planDo.ordr, false);
+    }
+
     return (
         <div className="box1 mb_1 bd_gray gray">
             <div className="flex j_between">
@@ -59,8 +73,24 @@ function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList})
                     <span>{planDo.board.categoryVo.nm}</span>
                 </div>
             </div>
-            <div className="pl_1">
+            <div className="flex j_between pl_1">
                 <span>{planDo.board.summary}</span>
+                {
+                    planDo.ordr !== 9999 ? (
+                        <div className="flex">
+                            {
+                                planDo.ordr !== 1 ? (
+                                    <RoundImgIco img={'angle-double-small-up.png'}
+                                                 onClick={toUp}
+                                    />
+                                ) : null
+                            }
+                            <RoundImgIco img={'angle-double-small-down.png'}
+                                         onClick={toDown}
+                            />
+                        </div>
+                        ) : null
+                }
             </div>
             <div className="titWrapper mt_1">
                 <div>머무르는시간</div>
