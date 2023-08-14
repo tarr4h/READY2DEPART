@@ -4,7 +4,7 @@ import plan from "./plan";
 import RoundImgIco from "../comn/roundImgIco";
 
 
-function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList, changeOrdr}) {
+function PlanDoDetail({planDo, availDoListLength, openBoardDetailModal, stayTmList, setStayTmList, changeOrdr}) {
 
     useEffect(() => {
         if(planDo.stayTmMin != null){
@@ -35,6 +35,7 @@ function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList, 
         let stayTm = event.target.value;
         if(Number(stayTm) < 0){  // prevent minus value
             alert('0 이하는 입력하실 수 없습니다.');
+            event.target.value = 0;
             return false;
         }
 
@@ -85,9 +86,13 @@ function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList, 
                                     />
                                 ) : null
                             }
-                            <RoundImgIco img={'angle-double-small-down.png'}
-                                         onClick={toDown}
-                            />
+                            {
+                                planDo.ordr !== availDoListLength ? (
+                                    <RoundImgIco img={'angle-double-small-down.png'}
+                                                 onClick={toDown}
+                                    />
+                                    ) : null
+                            }
                         </div>
                         ) : null
                 }

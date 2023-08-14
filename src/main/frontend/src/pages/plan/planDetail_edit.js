@@ -10,10 +10,17 @@ function EditPlanDetail({plan, doList, setDoList, register, setValue, stayTmList
     const [showSearchModal, setShowSearchModal] = useState(false);
     const [showBoardDetailModal, setShowBoardDetailModal] = useState(false);
     const selectedBoard = useRef(null);
+    const [availDoListLength, setAvailDoListLength] = useState(doList.length);
 
-    useLayoutEffect(() => {
-        console.log('layout effected --- ');
-    }, [doList]);
+    useEffect(() => {
+        let cnt = 0;
+        doList.forEach((item, index) => {
+            if(item.stayTmMin !== 0){
+                cnt++;
+            }
+        });
+        setAvailDoListLength(cnt);
+    }, [doList, availDoListLength]);
 
     const openSearchModal = () => {
         setShowSearchModal(true);
@@ -160,6 +167,7 @@ function EditPlanDetail({plan, doList, setDoList, register, setValue, stayTmList
                     doList.map((item, index) => (
                         <PlanDoDetail key={index}
                                       planDo={item}
+                                      availDoListLength={availDoListLength}
                                       openBoardDetailModal={openBoardDetailModal}
                                       stayTmList={stayTmList}
                                       setStayTmList={setStayTmList}
