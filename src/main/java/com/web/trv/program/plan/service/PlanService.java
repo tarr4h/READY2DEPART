@@ -90,7 +90,9 @@ public class PlanService {
     public List<PlanDoVo> selectDoList(Map<String, Object> param) {
         List<PlanDoVo> list = dao.selectDoList(param);
         for(PlanDoVo planDo : list){
-            planDo.setDepartTm(Utilities.addMinToTimeFmt(planDo.getExpectedTm(), planDo.getStayTmMin()));
+            if(planDo.getExpectedTm() != null){
+                planDo.setDepartTm(Utilities.addMinToTimeFmt(planDo.getExpectedTm(), planDo.getStayTmMin()));
+            }
         }
         return list;
     }
@@ -116,6 +118,17 @@ public class PlanService {
                 dao.updatePlanDo(planDo);
             }
         }
+
+        // 근거리 우선계산인지, 사용쟈지정순번 반영인지 분기처리 필요
+
+        List<Map<String, Object>> doList = (List<Map<String, Object>>) param.get("doList");
+        for(Map<String, Object> planDo : doList){
+            int stayTm = Utilities.parseInt(planDo.get("stayTmMin"));
+            if(stayTm != 0){
+                dao.updatePlanDo(planDo);
+            }
+        }
+
         setExpectedTime(param);
         return result;
     }
@@ -174,11 +187,8 @@ public class PlanService {
     }
 
     public void setExpectedTime(Map<String, Object> param){
-        // 1. 계산로직 수정필요
+        // #### 계산로직 수정필요 ####
         // 출발지와 무조건 가까운 순은 문제가 있음.
-        // 종료위치를 지정할 수 있어야 함
-
-        // 2. 사용자 순번 임의지정 시, 가까운 순 고려하지 않고 변경 가능하여야 함
         PlanVo plan = lineUpPlanDo(param);
         List<PlanDoVo> planDoList = plan.getPlanDoList();
         double startLat = plan.getStartLocLat();
@@ -188,7 +198,6 @@ public class PlanService {
         int ordr = 1;
         int repeat = planDoList.size();
         for(int i = 0; i < repeat; i++){
-            // 2번 고려 시 제외되어야 할 부분 START
             if(planDoList.size() == 0){
                 break;
             }
@@ -213,7 +222,6 @@ public class PlanService {
                 }
                 getIndex = rowestIndex;
             }
-            // 2번 고려 시 제외되어야 할 부분 END
 
             PlanDoVo planDo = planDoList.get(getIndex);
             // 확인한 do는 지워준다.

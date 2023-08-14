@@ -140,4 +140,15 @@ public class Utilities {
         return (int) Math.floor(Math.random() * 1000000);
     }
 
+    public static int parseInt(Object obj){
+        try {
+            if(obj instanceof String){
+                return Integer.parseInt(String.valueOf(obj));
+            } else {
+                return (int) obj;
+            }
+        } catch (NullPointerException e){
+            throw new NullPointerException("PARSE INT >> OBJ == NULL");
+        }
+    }
 }

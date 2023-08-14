@@ -37,6 +37,7 @@ function PlanDetail(){
                 dayId : plan.id
             }
         })).data;
+        console.log('list : ', list);
 
         setDoList(list);
     }
@@ -63,7 +64,9 @@ function PlanDetail(){
             }
         }
 
-        console.log('data : ', data);
+        // doList의 순번변경
+        data.doList = doList;
+
         comn.blockUI();
         await(await axios.post('/pln/updatePlanDay', data)).data;
         chngEditMode();
@@ -96,6 +99,7 @@ function PlanDetail(){
                     (<form>
                         <EditPlanDetail plan={plan}
                                         doList={doList}
+                                        setDoList={setDoList}
                                         register={register}
                                         setValue={setValue}
                                         stayTmList={stayTmList}
