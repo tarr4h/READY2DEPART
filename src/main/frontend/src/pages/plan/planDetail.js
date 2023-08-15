@@ -18,6 +18,8 @@ function PlanDetail(){
     const {register, setValue, handleSubmit} = useForm();
     const [stayTmList, setStayTmList] = useState([]);
 
+    const [reArranged, setReArranged] = useState(false);
+
     useEffect(() => {
         void getDoList();
     },[]);
@@ -37,7 +39,6 @@ function PlanDetail(){
                 dayId : plan.id
             }
         })).data;
-        console.log('list : ', list);
 
         setDoList(list);
     }
@@ -64,12 +65,24 @@ function PlanDetail(){
             }
         }
 
-        // doList의 순번변경
-        data.doList = doList;
-
         comn.blockUI();
         await(await axios.post('/pln/updatePlanDay', data)).data;
         chngEditMode();
+        void getDoList();
+        void getPlan();
+        comn.unBlockUI();
+    }
+
+    const saveReArrange = async() => {
+        const param = {
+            id : plan.id,
+            dayId : plan.id,
+            doList
+        }
+        comn.blockUI();
+        const result = await (await axios.post('/pln/saveReArrange', param)).data;
+        alert(result + '건이 변경되었습니다.');
+        await setReArranged(false);
         void getDoList();
         void getPlan();
         comn.unBlockUI();
@@ -84,13 +97,29 @@ function PlanDetail(){
                 </div>
                 <div>
                     {editMode ?
-                        (<a className="btn bg_orange bd_orange"
+                        (
+                            <a className="btn bg_orange bd_orange"
                             onClick={handleSubmit(submitEditing)}
-                        >저장</a>)
+                            >저장</a>
+                        )
                         :
-                        (<a className="btn orange bd_orange"
-                            onClick={chngEditMode}
-                        >수정</a>)
+                        (
+                            <div className="flex j_between">
+                                {
+                                    reArranged ?
+                                        (
+                                            <a className="btn gray mr_1"
+                                               onClick={saveReArrange}
+                                            >순번저장</a>
+                                        )
+                                        :
+                                        null
+                                }
+                                <a className="btn orange bd_orange"
+                                onClick={chngEditMode}
+                                >수정</a>
+                            </div>
+                        )
                     }
                 </div>
             </div>
@@ -99,7 +128,6 @@ function PlanDetail(){
                     (<form>
                         <EditPlanDetail plan={plan}
                                         doList={doList}
-                                        setDoList={setDoList}
                                         register={register}
                                         setValue={setValue}
                                         stayTmList={stayTmList}
@@ -108,7 +136,10 @@ function PlanDetail(){
                     </form>)
                     :
                     (<ResultPlanDetail plan={plan}
+                                       setDoList={setDoList}
                                        doList={doList}
+                                       reArranged={reArranged}
+                                       setReArranged={setReArranged}
                     />)
                 }
             </div>

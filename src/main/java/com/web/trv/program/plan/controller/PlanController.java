@@ -70,4 +70,9 @@ public class PlanController {
     public ResponseEntity<?> checkStayTmRestrict(@RequestBody Map<String, Object> param){
         return ResponseEntity.ok().body(service.checkStayTmRestrict(param));
     }
+
+    @PostMapping("saveReArrange")
+    public ResponseEntity<?> saveReArrange(@RequestBody Map<String, Object> param){
+        return ResponseEntity.ok().body(service.saveReArrange(param));
+    }
 }

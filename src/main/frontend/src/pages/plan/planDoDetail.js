@@ -4,7 +4,7 @@ import plan from "./plan";
 import RoundImgIco from "../comn/roundImgIco";
 
 
-function PlanDoDetail({planDo, availDoListLength, openBoardDetailModal, stayTmList, setStayTmList, changeOrdr}) {
+function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList}) {
 
     useEffect(() => {
         if(planDo.stayTmMin != null){
@@ -46,20 +46,12 @@ function PlanDoDetail({planDo, availDoListLength, openBoardDetailModal, stayTmLi
         }
 
         stayTmList.forEach((item, index) => {
-           if(item.id === id){
-               stayTmList.splice(index, 1);
-           }
+            if(item.id === id){
+                stayTmList.splice(index, 1);
+            }
         });
         stayTmList.push(param);
         setStayTmList(stayTmList);
-    }
-
-    const toUp = () => {
-        changeOrdr(planDo.ordr, true);
-    }
-
-    const toDown = () => {
-        changeOrdr(planDo.ordr, false);
     }
 
     return (
@@ -73,29 +65,6 @@ function PlanDoDetail({planDo, availDoListLength, openBoardDetailModal, stayTmLi
                 <div className="subTit">
                     <span>{planDo.board.categoryVo.nm}</span>
                 </div>
-            </div>
-            <div className="flex j_between pl_1">
-                <span>{planDo.board.summary}</span>
-                {
-                    planDo.ordr !== 9999 ? (
-                        <div className="flex">
-                            {
-                                planDo.ordr !== 1 ? (
-                                    <RoundImgIco img={'angle-double-small-up.png'}
-                                                 onClick={toUp}
-                                    />
-                                ) : null
-                            }
-                            {
-                                planDo.ordr !== availDoListLength ? (
-                                    <RoundImgIco img={'angle-double-small-down.png'}
-                                                 onClick={toDown}
-                                    />
-                                    ) : null
-                            }
-                        </div>
-                        ) : null
-                }
             </div>
             <div className="titWrapper mt_1">
                 <div>머무르는시간</div>

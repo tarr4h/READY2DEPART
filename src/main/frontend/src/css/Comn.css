@@ -169,6 +169,10 @@ input[type=time]::-webkit-clear-button{
     padding-right: 3vw;
 }
 
+.center {
+    text-align: center;
+}
+
 .orange{
     color: #F2A74B!important;
 }

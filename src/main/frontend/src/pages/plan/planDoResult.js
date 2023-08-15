@@ -1,9 +1,18 @@
+import RoundImgIco from "../comn/roundImgIco";
 
 
-function PlanDoResult({planDo, number, openBoardDetailModal}){
+function PlanDoResult({planDo, availDoListLength, number, openBoardDetailModal, changeOrdr}){
 
     const showBoardDetail = () => {
         openBoardDetailModal(planDo.board);
+    }
+
+    const toUp = () => {
+        changeOrdr(planDo.ordr, true);
+    }
+
+    const toDown = () => {
+        changeOrdr(planDo.ordr, false);
     }
 
     return (
@@ -20,8 +29,28 @@ function PlanDoResult({planDo, number, openBoardDetailModal}){
                     <span>{planDo.board.categoryVo.nm}</span>
                 </div>
             </div>
-            <div className="pl_2">
+            <div className="pl_2 flex j_between">
                 <span>{planDo.board.summary}</span>
+                {
+                    planDo.ordr !== 9999 ? (
+                        <div className="flex">
+                            {
+                                planDo.ordr !== 1 ? (
+                                    <RoundImgIco img={'angle-double-small-up.png'}
+                                                 onClick={toUp}
+                                    />
+                                ) : null
+                            }
+                            {
+                                planDo.ordr !== availDoListLength ? (
+                                    <RoundImgIco img={'angle-double-small-down.png'}
+                                                 onClick={toDown}
+                                    />
+                                ) : null
+                            }
+                        </div>
+                    ) : null
+                }
             </div>
             <div className="flex j_between mt_1">
                 <div className="titWrapper tb wd_50">

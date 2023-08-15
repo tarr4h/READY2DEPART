@@ -1,26 +1,19 @@
 import PlanDoDetail from "./planDoDetail";
-import {useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Modal from "../comn/Modal";
 import FindLocModal from "../comn/findLocModal";
 import BoardDetailContent from "../board/boardDetailContent";
 
 
-function EditPlanDetail({plan, doList, setDoList, register, setValue, stayTmList, setStayTmList}){
+function EditPlanDetail({plan, doList, register, setValue, stayTmList, setStayTmList}){
 
     const [showSearchModal, setShowSearchModal] = useState(false);
     const [showBoardDetailModal, setShowBoardDetailModal] = useState(false);
     const selectedBoard = useRef(null);
-    const [availDoListLength, setAvailDoListLength] = useState(doList.length);
 
     useEffect(() => {
-        let cnt = 0;
-        doList.forEach((item, index) => {
-            if(item.stayTmMin !== 0){
-                cnt++;
-            }
-        });
-        setAvailDoListLength(cnt);
-    }, [doList, availDoListLength]);
+
+    }, [doList]);
 
     const openSearchModal = () => {
         setShowSearchModal(true);
@@ -36,45 +29,6 @@ function EditPlanDetail({plan, doList, setDoList, register, setValue, stayTmList
         setValue('startLocLat', data.geoLoc.latitude);
         setValue('startLocLng', data.geoLoc.longitude);
         setShowSearchModal(false);
-    }
-
-    const changeOrder = async (ordr, direction) => {
-        const index = ordr - 1;
-        const planDo = doList[index];
-
-        // 변수를 새로운 memory 올리기
-        let newDoList = [];
-        doList.forEach((item, ind) => {
-            newDoList.push(item);
-        });
-
-        newDoList.splice(index, 1);
-        if(direction){
-            // up
-            if(index === 1){
-                newDoList.unshift(planDo);
-            } else {
-                await (newDoList.forEach((item, ind) => {
-                    if(ind === index - 1){
-                        newDoList.splice(ind, 0, planDo);
-                    }
-                }));
-            }
-
-        } else {
-            // down
-            newDoList.splice(ordr, 0, planDo);
-        }
-
-        // 완성 후 ordr 재정렬
-        newDoList.forEach((item, ind) => {
-            if(item.stayTmMin != null && item.stayTmMin !== 0){
-                item.ordr = ind + 1;
-            }
-        });
-        await setDoList(newDoList);
-        console.log('after doList : ', newDoList);
-
     }
 
     return (
@@ -167,11 +121,9 @@ function EditPlanDetail({plan, doList, setDoList, register, setValue, stayTmList
                     doList.map((item, index) => (
                         <PlanDoDetail key={index}
                                       planDo={item}
-                                      availDoListLength={availDoListLength}
                                       openBoardDetailModal={openBoardDetailModal}
                                       stayTmList={stayTmList}
                                       setStayTmList={setStayTmList}
-                                      changeOrdr={changeOrder}
                         />
                     ))
                 }

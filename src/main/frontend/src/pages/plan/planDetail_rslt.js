@@ -8,19 +8,27 @@ import axios from "axios";
 const {kakao} = window;
 
 
-function ResultPlanDetail({plan, doList}){
+function ResultPlanDetail({plan, doList, setDoList, reArranged, setReArranged}){
 
     const [showMap, setShowMap] = useState(false);
     const [showBoardDetailModal, setShowBoardDetailModal] = useState(false);
     const selectedBoard = useRef(null);
+    const [availDoListLength, setAvailDoListLength] = useState(doList.length);
 
     useEffect(() => {
-        console.log('doList : ', doList);
+        let cnt = 0;
+        doList.forEach((item, index) => {
+            if(item.stayTmMin !== 0){
+                cnt++;
+            }
+        });
+        setAvailDoListLength(cnt);
+
         if(plan.startLocNm !== '' && plan.startLocNm != null){
             setShowMap(true);
             void createMap();
         }
-    }, [doList]);
+    }, [doList, availDoListLength]);
 
     const openBoardDetailModal = (board) => {
         selectedBoard.current = board;
@@ -88,6 +96,44 @@ function ResultPlanDetail({plan, doList}){
         customOverlay.setMap(map);
     }
 
+    const changeOrder = async (ordr, direction) => {
+        const index = ordr - 1;
+        const planDo = doList[index];
+
+        // 변수를 새로운 memory 올리기
+        let newDoList = [];
+        doList.forEach((item, ind) => {
+            newDoList.push(item);
+        });
+
+        newDoList.splice(index, 1);
+        if(direction){
+            // up
+            if(index === 1){
+                newDoList.unshift(planDo);
+            } else {
+                await (newDoList.forEach((item, ind) => {
+                    if(ind === index - 1){
+                        newDoList.splice(ind, 0, planDo);
+                    }
+                }));
+            }
+
+        } else {
+            // down
+            newDoList.splice(ordr, 0, planDo);
+        }
+
+        // 완성 후 ordr 재정렬
+        newDoList.forEach((item, ind) => {
+            if(item.stayTmMin != null && item.stayTmMin !== 0){
+                item.ordr = ind + 1;
+            }
+        });
+        await setDoList(newDoList);
+        await setReArranged(true);
+    }
+
     return (
         <div>
             {
@@ -128,10 +174,15 @@ function ResultPlanDetail({plan, doList}){
                 showMap ? <div id="planRsltMap" className="map mb_3"></div> : null
             }
             {
+                reArranged ? <div className="gray ml_1 mt_1 mb_1 center">순번 변경 후 저장 시 반영됩니다.</div> : ''
+            }
+            {
                 doList.map((item, index) => (
                     <PlanDoResult key={index}
                                   number={index}
                                   planDo={item}
+                                  availDoListLength={availDoListLength}
+                                  changeOrdr={changeOrder}
                                   openBoardDetailModal={openBoardDetailModal}
                     />
                 ))

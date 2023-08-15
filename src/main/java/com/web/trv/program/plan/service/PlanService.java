@@ -98,42 +98,6 @@ public class PlanService {
     }
 
     @SuppressWarnings("unchecked")
-    public Object updatePlanDay(Map<String, Object> param) {
-        int result = dao.updatePlanDay(param);
-        if(param.get("stayTmList") != null){
-            List<Map<String, Object>> stayTmList = (List<Map<String, Object>>) param.get("stayTmList");
-            for(Map<String, Object> stayObj : stayTmList){
-                PlanDoVo planDo = dao.selectPlanDo(stayObj);
-                int stayTm = 0;
-                if(stayObj.get("stayTm") != null && !stayObj.get("stayTm").equals("")){
-                    stayTm = (int) stayObj.get("stayTm");
-                }
-                if(stayTm == 0){
-                    planDo.setOrdr(9999);
-                    planDo.setExpectedTm(null);
-                    planDo.setTravelTmMin(0);
-                }
-
-                planDo.setStayTmMin(stayTm);
-                dao.updatePlanDo(planDo);
-            }
-        }
-
-        // 근거리 우선계산인지, 사용쟈지정순번 반영인지 분기처리 필요
-
-        List<Map<String, Object>> doList = (List<Map<String, Object>>) param.get("doList");
-        for(Map<String, Object> planDo : doList){
-            int stayTm = Utilities.parseInt(planDo.get("stayTmMin"));
-            if(stayTm != 0){
-                dao.updatePlanDo(planDo);
-            }
-        }
-
-        setExpectedTime(param);
-        return result;
-    }
-
-    @SuppressWarnings("unchecked")
     public Map<String, Object> checkStayTmRestrict(Map<String, Object> param){
         Map<String, Object> returnMap = new HashMap<>();
         boolean bool = false;
@@ -156,6 +120,32 @@ public class PlanService {
 
         returnMap.put("bool", bool);
         return returnMap;
+    }
+
+    @SuppressWarnings("unchecked")
+    public Object updatePlanDay(Map<String, Object> param) {
+        int result = dao.updatePlanDay(param);
+        if(param.get("stayTmList") != null){
+            List<Map<String, Object>> stayTmList = (List<Map<String, Object>>) param.get("stayTmList");
+            for(Map<String, Object> stayObj : stayTmList){
+                PlanDoVo planDo = dao.selectPlanDo(stayObj);
+                int stayTm = 0;
+                if(stayObj.get("stayTm") != null && !stayObj.get("stayTm").equals("")){
+                    stayTm = (int) stayObj.get("stayTm");
+                }
+                if(stayTm == 0){
+                    planDo.setOrdr(9999);
+                    planDo.setExpectedTm(null);
+                    planDo.setTravelTmMin(0);
+                }
+
+                planDo.setStayTmMin(stayTm);
+                dao.updatePlanDo(planDo);
+            }
+        }
+
+        setExpectedTime(param);
+        return result;
     }
 
     public PlanVo lineUpPlanDo(Map<String, Object> param){
@@ -232,34 +222,42 @@ public class PlanService {
 
             double goalLat = planDo.getBoard().getDistrict().getLatitude();
             double goalLng = planDo.getBoard().getDistrict().getLongitude();
-            DrivingVo driving = Utilities.getDriving(startLat, startLng, goalLat, goalLng);
-            planDo.setDrivingVo(driving);
             planDo.setOrdr(ordr);
             ordr++;
 
             // get duration
-            try {
-                if(driving == null){
-                    throw new NullPointerException();
-                }
-
-                int duration = driving.getRoute().getTraoptimal().get(0).getSummary().getDuration(); // millisecond
-                int min = Utilities.miliSec2min(duration);
-
-                planDo.setTravelTmMin(min);
-                // set expected tm
-                String expectedTm = Utilities.addMinToTimeFmt(stndTm, min);
-                planDo.setExpectedTm(expectedTm);
-
-                stndTm = Utilities.addMinToTimeFmt(expectedTm, planDo.getStayTmMin());
-            } catch (NullPointerException e){
-                log.error("****** DRIVING NULL = {}", e.getMessage());
-            }
+            stndTm = setPlanDoDriving(planDo, stndTm, startLat, startLng, goalLat, goalLng);
 
             dao.updatePlanDo(planDo);
             startLat = goalLat;
             startLng = goalLng;
         }
+    }
+
+    public String setPlanDoDriving(PlanDoVo planDo, String stndTm, double startLat, double startLng, double goalLat, double goalLng){
+        DrivingVo driving = Utilities.getDriving(startLat, startLng, goalLat, goalLng);
+        planDo.setDrivingVo(driving);
+
+        // get duration
+        try {
+            if(driving == null){
+                throw new NullPointerException();
+            }
+
+            int duration = driving.getRoute().getTraoptimal().get(0).getSummary().getDuration(); // millisecond
+            int min = Utilities.miliSec2min(duration);
+
+            planDo.setTravelTmMin(min);
+            // set expected tm
+            String expectedTm = Utilities.addMinToTimeFmt(stndTm, min);
+            planDo.setExpectedTm(expectedTm);
+
+            stndTm = Utilities.addMinToTimeFmt(expectedTm, planDo.getStayTmMin());
+        } catch (NullPointerException e){
+            log.error("****** DRIVING NULL = {}", e.getMessage());
+        }
+
+        return stndTm;
     }
 
     public Object selectPlanRsltLocale(Map<String, Object> param) {
@@ -316,5 +314,38 @@ public class PlanService {
         returnMap.put("radius", radius);
 
         return returnMap;
+    }
+
+    @SuppressWarnings("unchecked")
+    public int saveReArrange(Map<String, Object> param) {
+        List<Map<String, Object>> list = (List<Map<String, Object>>) param.get("doList");
+        for(Map<String, Object> planDo : list){
+            dao.updatePlanDo(planDo);
+        }
+
+        PlanVo plan = dao.selectPlan(param);
+        List<PlanDoVo> doList = dao.selectDoList(param);
+
+        String stndTm = plan.getStartTm();
+        double startLat = plan.getStartLocLat();
+        double startLng = plan.getStartLocLng();
+
+        int result = 0;
+        for(PlanDoVo planDo : doList){
+            if(planDo.getStayTmMin() == 0){
+                continue;
+            }
+
+            double goalLat = planDo.getBoard().getDistrict().getLatitude();
+            double goalLng = planDo.getBoard().getDistrict().getLongitude();
+
+            // get duration
+            stndTm = setPlanDoDriving(planDo, stndTm, startLat, startLng, goalLat, goalLng);
+
+            result += dao.updatePlanDo(planDo);
+            startLat = goalLat;
+            startLng = goalLng;
+        }
+        return result;
     }
 }
