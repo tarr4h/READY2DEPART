@@ -4,7 +4,7 @@ import axios, {formToJSON} from "axios";
 import EditPlanDetail from "./planDetail_edit";
 import ResultPlanDetail from "./planDetail_rslt";
 import {useForm} from "react-hook-form";
-import * as comn from "../../comn/comnFunction";
+import * as comn from "../../../comn/comnFunction";
 
 
 function PlanDetail(){

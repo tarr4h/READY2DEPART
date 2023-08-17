@@ -4,7 +4,7 @@ import ErrPage from "./ErrPage";
 import Register from "./main/register";
 import BoardDetail from "./board/boardDetail";
 import Plan from "./plan/plan";
-import PlanDetail from "./plan/planDetail";
+import PlanDetail from "./plan/day/planDetail";
 
 
 function View({page}){

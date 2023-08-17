@@ -1,8 +1,8 @@
 import PlanDoDetail from "./planDoDetail";
 import {useEffect, useRef, useState} from "react";
-import Modal from "../comn/Modal";
-import FindLocModal from "../comn/findLocModal";
-import BoardDetailContent from "../board/boardDetailContent";
+import Modal from "../../comn/Modal";
+import FindLocModal from "../../comn/findLocModal";
+import BoardDetailContent from "../../board/boardDetailContent";
 
 
 function EditPlanDetail({plan, doList, register, setValue, stayTmList, setStayTmList}){

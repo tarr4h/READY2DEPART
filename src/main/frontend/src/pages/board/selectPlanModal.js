@@ -1,9 +1,9 @@
 import Modal from "../comn/Modal";
-import AddPlanModal from "../plan/addPlanModal";
+import AddPlanModal from "../plan/day/addPlanModal";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import PlanRow from "../plan/planRow";
-import PlanList from "../plan/planList";
+import PlanRow from "../plan/day/planRow";
+import PlanList from "../plan/day/planList";
 
 
 function SelectPlanModal({boardId, callback}){

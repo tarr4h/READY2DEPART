@@ -1,4 +1,4 @@
-import RoundImgIco from "../comn/roundImgIco";
+import RoundImgIco from "../../comn/roundImgIco";
 
 
 function PlanDoResult({planDo, availDoListLength, number, openBoardDetailModal, changeOrdr}){

@@ -1,7 +1,7 @@
 import {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
-import plan from "./plan";
-import RoundImgIco from "../comn/roundImgIco";
+import plan from "../plan";
+import RoundImgIco from "../../comn/roundImgIco";
 
 
 function PlanDoDetail({planDo, openBoardDetailModal, stayTmList, setStayTmList}) {

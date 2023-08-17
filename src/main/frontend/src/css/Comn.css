@@ -114,6 +114,9 @@ input[type=time]::-webkit-clear-button{
 .mb_1{
     margin-bottom: 1vh;
 }
+.mb_2{
+    margin-bottom: 2vh;
+}
 .mb_3{
     margin-bottom: 3vh;
 }
@@ -190,6 +193,17 @@ input[type=time]::-webkit-clear-button{
     border-color: #c5c5c5!important;
 }
 
+.deep_gray{
+    color: #3e3d4a;
+}
+.bg_deep_gray{
+    background-color: #3e3d4a;
+}
+
+.deem{
+    color: #F2F2F2!important;
+}
+
 .flex{
     display: flex;
 }
@@ -198,6 +212,9 @@ input[type=time]::-webkit-clear-button{
 }
 .flex.j_between{
     justify-content: space-between;
+}
+.flex.j_around{
+    justify-content: space-around;
 }
 
 .titColor{
@@ -331,6 +348,29 @@ input[type=time]::-webkit-clear-button{
     text-align: center;
     -ms-text-align-last: center;
     -moz-text-align-last: center;
+}
+
+.sortBox{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    height: 4vh;
+}
+.sortBox .sortTit {
+    color: #c5c5c5;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    margin-right: 2vw;
+    font-size: 0.9rem;
+}
+.sortBox select {
+    height: 3.3vh;
+    font-size: 0.9rem;
 }
 
 
@@ -520,4 +560,33 @@ input[type=time]::-webkit-clear-button{
     color: #FFF;
     top: 50vh;
     position: relative;
+}
+
+.tab {
+    display: flex;
+    justify-content: space-around;
+}
+.tabContent {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    border-bottom: 2px solid #c5c5c5;
+    color: #c5c5c5;
+    margin-left: 1px;
+}
+.tabContent.active{
+    color : #F2A74B;
+    border-color: #F2A74B;
+    /*border-bottom: none!important;*/
+}
+.tabContent:last-child{
+    margin-right: 1px;
+}
+
+.tab.roof{
+    height: 5vh;
+    margin-top: 2vh;
 }

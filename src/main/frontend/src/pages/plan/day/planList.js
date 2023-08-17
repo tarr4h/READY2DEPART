@@ -1,7 +1,13 @@
 import PlanRow from "./planRow";
+import {useEffect} from "react";
 
 
 function PlanList({planList, selectedPlanList, setSelectedPlanList, size}){
+
+    useEffect(() => {
+        console.log('sorted --- ');
+    }, [planList]);
+
     const planRowSelect = (event) => {
         const planId = event.target.value;
         const checked = event.target.checked;

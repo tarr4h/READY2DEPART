@@ -1,9 +1,9 @@
 import PlanDoDetail from "./planDoDetail";
 import PlanDoResult from "./planDoResult";
-import Modal from "../comn/Modal";
-import BoardDetailContent from "../board/boardDetailContent";
+import Modal from "../../comn/Modal";
+import BoardDetailContent from "../../board/boardDetailContent";
 import {useEffect, useRef, useState} from "react";
-import * as comn from "../../comn/comnFunction";
+import * as comn from "../../../comn/comnFunction";
 import axios from "axios";
 const {kakao} = window;
 

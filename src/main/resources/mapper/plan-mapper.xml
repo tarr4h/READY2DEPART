@@ -52,7 +52,15 @@
                     #{item.dayId}
                 </foreach>
             </if>
-        ORDER BY NM
+        ORDER BY
+            <choose>
+                <when test="sort != null and sort != ''">
+                    ${sort}
+                </when>
+                <otherwise>
+                    NM
+                </otherwise>
+            </choose>
     </select>
 
     <select id="selectPlan" resultType="com.web.trv.program.plan.model.PlanVo">
