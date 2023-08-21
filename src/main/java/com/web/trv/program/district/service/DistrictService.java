@@ -66,7 +66,7 @@ public class DistrictService {
         double centralLat = (minLat + maxLat) / 2;
         double centralLng = (minLng + maxLng) / 2;
 
-        double radius = Math.round(CalcDistance.getSqrtDistance(centralLat, centralLng, maxLat, maxLng));
+        double radius = Math.ceil(CalcDistance.getSqrtDistance(centralLat, centralLng, maxLat, maxLng));
 
         Map<String, Object> returnMap = new HashMap<>();
         Map<String, Object> geoLoc = new HashMap<>();
