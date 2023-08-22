@@ -55,12 +55,17 @@ public class BoardService {
         return new ResponseEntity<>(resource, headers, HttpStatus.OK);
     }
 
+    @SuppressWarnings("unchecked")
     public List<BoardVo> selectNearby(Map<String, Object> param) {
         log.debug(" param = {}", param);
-        double latitude = Double.parseDouble((String) param.get("latitude"));
-        double longitude = Double.parseDouble((String) param.get("longitude"));
-        int maxDistance = Integer.parseInt((String) param.get("maxDistance"));
+        List<String> addInfoList = (List<String>) param.get("addInfoList");
+        if(addInfoList != null && addInfoList.size() != 0){
+            param.put("addInfoListSize", addInfoList.size());
+        }
 
+        double latitude = Double.parseDouble(String.valueOf(param.get("latitude")));
+        double longitude = Double.parseDouble(String.valueOf(param.get("longitude")));
+        int maxDistance = Integer.parseInt(String.valueOf(param.get("maxDistance")));
 
         List<BoardVo> availList = new ArrayList<>();
         List<BoardVo> boardList = dao.selectBoardList(param);

@@ -38,7 +38,7 @@
 .mainScFilter > div {
     margin-bottom: 1vh;
 }
-.mainScFilter > div:nth-child(3){
+.mainScFilter > div:last-child{
     margin-bottom: 1vh;
     margin-top: 3vh;
 }

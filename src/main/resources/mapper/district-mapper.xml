@@ -21,6 +21,12 @@
         WHERE   UP_SYS_CD = #{upSysCd}
     </select>
 
+    <select id="selectAddInfo" resultType="com.web.trv.comn.model.SysCodeVo">
+        SELECT  *
+        FROM    TRV_SYS_CODE
+        WHERE   TOP_SYS_CD = 'SYS0000009'
+            AND UP_SYS_CD IS NOT NULL
+    </select>
 
     <select id="selectBoardDistrict" resultType="com.web.trv.program.board.model.BoardDistrictVo">
         SELECT  *

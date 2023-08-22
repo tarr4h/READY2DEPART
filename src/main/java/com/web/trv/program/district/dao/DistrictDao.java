@@ -28,4 +28,5 @@ public interface DistrictDao {
 
     List<BoardDistrictVo> selectBoardDistrict(Map<String, Object> param);
 
+    List<SysCodeVo> selectAddInfo(Map<String, Object> param);
 }

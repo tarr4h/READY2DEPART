@@ -49,6 +49,11 @@ public class DistrictController {
         return ResponseEntity.ok().body(service.selectType(param));
     }
 
+    @GetMapping("selectAddInfo")
+    public ResponseEntity<?> selectAddInfo(@RequestParam Map<String, Object> param){
+        return ResponseEntity.ok().body(service.selectAddInfo(param));
+    }
+
     @GetMapping("selectRegionGeoLoc")
     public ResponseEntity<?> selectRegionGeoLoc(@RequestParam Map<String, Object> param){
         return ResponseEntity.ok().body(service.selectRegionGeoLoc(param));

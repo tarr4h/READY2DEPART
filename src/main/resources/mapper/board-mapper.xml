@@ -18,16 +18,38 @@
     </resultMap>
 
     <select id="selectBoardList" resultMap="boardMap">
-        SELECT  *
-        FROM    TRV_BOARD
+        SELECT  A.*
+        FROM    TRV_BOARD A
         <where>
             <if test="districtList != null">
-                <foreach collection="districtList" open="ID IN (" close=")" separator="," item="district">
+                AND
+                <foreach collection="districtList" open="A.ID IN (" close=")" separator="," item="district">
                     #{district.boardId}
                 </foreach>
             </if>
             <if test="category != null and category != ''">
-                AND CATEGORY = #{category}
+                AND A.CATEGORY = #{category}
+            </if>
+            <if test="addInfoList != null and addInfoList.size != 0">
+                AND ID IN ( SELECT  BOARD_ID
+                            FROM    TRV_BOARD_ADD_INFO
+                            WHERE   VAL = 'Y'
+                            <foreach collection="addInfoList" item="item" open="AND SYS_CD IN (" close=")" separator=",">
+                                #{item}
+                            </foreach> )
+                <if test="addInfoListSize > 1">
+                    AND ( SELECT  COUNT(*)
+                          FROM    TRV_BOARD_ADD_INFO
+                          WHERE   BOARD_ID = A.ID
+                              AND VAL = 'Y'
+                              <foreach collection="addInfoList" item="item" open="AND SYS_CD IN (" close=")" separator=",">
+                                  #{item}
+                              </foreach>) = #{addInfoListSize}
+                    AND ( SELECT  COUNT(*)
+                          FROM    TRV_BOARD_ADD_INFO
+                          WHERE   BOARD_ID = A.ID
+                              AND VAL = 'Y') = #{addInfoListSize}
+                </if>
             </if>
         </where>
         ORDER BY 1 DESC

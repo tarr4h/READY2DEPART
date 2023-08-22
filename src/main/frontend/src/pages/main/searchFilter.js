@@ -7,9 +7,11 @@ function SearchFilter({submit, reset}){
 
     const [region1, setRegion1] = useState([]);
     const [region2, setRegion2] = useState([]);
+    const [addInfo, setAddInfo] = useState([]);
 
     const [selectedRegion1, setSelectedRegion1] = useState('');
     const [selectedRegion2, setSelectedRegion2] = useState('');
+    const [selectedAddInfo, setSelectedAddInfo] = useState([]);
 
     const [type1, setType1] = useState([]);
     const [type2, setType2] = useState([]);
@@ -19,6 +21,7 @@ function SearchFilter({submit, reset}){
     useEffect(() => {
         void selectRegion1List();
         void selectType1List();
+        void selectAddInfo();
 
         let filterRegion = JSON.parse(window.localStorage.getItem('filterRegion'));
         if(filterRegion != null){
@@ -38,6 +41,11 @@ function SearchFilter({submit, reset}){
             if(filterCtgr.ctgr2 !== ''){
                 setSelectedType2(filterCtgr.ctgr2);
             }
+        }
+
+        let filterAddInfo = JSON.parse(window.localStorage.getItem('filterAddInfo'));
+        if(filterAddInfo != null){
+            void setSelectedAddInfo(filterAddInfo);
         }
     }, []);
 
@@ -108,6 +116,46 @@ function SearchFilter({submit, reset}){
         await selectType2List(value);
     }
 
+    const selectAddInfo = async () => {
+        const list = await(await axios.get('/district/selectAddInfo', {
+            method : 'GET',
+        })).data;
+        setAddInfo(list);
+    }
+
+    const addInfoOnChange = async (event) => {
+        const checked = event.target.checked;
+        const value = event.target.value;
+
+        let exist = false;
+        let existIndex = 0;
+        selectedAddInfo.forEach((sysCd, index) => {
+           if(sysCd === value){
+               exist = true;
+               existIndex = index;
+               return false;
+           }
+        });
+        if(checked && !exist){
+            selectedAddInfo.push(value);
+        } else if(!checked && exist){
+            selectedAddInfo.splice(existIndex, 1);
+        }
+        await setSelectedAddInfo(selectedAddInfo);
+        console.log('selectedAddInfo : ',selectedAddInfo);
+    }
+
+    const isAddInfoChecked = (sysCd) => {
+        let bool = false;
+        selectedAddInfo.forEach((item) => {
+            if(item === sysCd){
+                bool = true;
+                return false;
+            }
+        });
+        return bool;
+    }
+
     const responseFilter = () => {
         const region = {
             region1 : selectedRegion1,
@@ -117,7 +165,8 @@ function SearchFilter({submit, reset}){
             ctgr1 : selectedType1,
             ctgr2 : selectedType2
         }
-        submit(region, category);
+
+        submit(region, category, selectedAddInfo);
     }
 
     const resetFilter = () => {
@@ -158,9 +207,36 @@ function SearchFilter({submit, reset}){
                     />
                 </div>
             </div>
+            <div className="titWrapper">
+                <div>추가정보</div>
+                <div className="flex"
+                     // style={{overflowX : 'scroll'}}
+                >
+                    {
+                        addInfo.map((item, index) => (
+                            (<div className="chkbox_multi"
+                                  key={index}
+                            >
+                                <input type="checkbox"
+                                       id={item.sysCd}
+                                       defaultChecked={isAddInfoChecked(item.sysCd)}
+                                       onChange={addInfoOnChange}
+                                       value={item.sysCd}
+                                />
+                                <label htmlFor={item.sysCd}
+                                       className="wd_20v"
+                                >
+                                    <span style={{display: 'block', width: '100%'}}
+                                    >{item.nm}</span>
+                                </label>
+                            </div>)
+                        ))
+                    }
+                </div>
+            </div>
             <div className="btnWrapper_30per">
-                <a className="btn" onClick={resetFilter}>초기화</a>
-                <a className="btn" onClick={responseFilter}>적용</a>
+                <a className="btn gray bd_gray" onClick={resetFilter}>초기화</a>
+                <a className="btn orange bd_orange" onClick={responseFilter}>적용</a>
             </div>
         </div>
     )

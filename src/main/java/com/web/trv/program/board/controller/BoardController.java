@@ -40,8 +40,13 @@ public class BoardController {
         return service.imgView(refId, id);
     }
 
-    @GetMapping("selectNearby")
-    public ResponseEntity<?> selectNearby(@RequestParam Map<String, Object> param){
+//    @GetMapping("selectNearby")
+//    public ResponseEntity<?> selectNearby(@RequestParam Map<String, Object> param){
+//        return ResponseEntity.ok().body(service.selectNearby(param));
+//    }
+
+    @PostMapping("selectNearby")
+    public ResponseEntity<?> selectNearby(@RequestBody Map<String, Object> param){
         return ResponseEntity.ok().body(service.selectNearby(param));
     }
 

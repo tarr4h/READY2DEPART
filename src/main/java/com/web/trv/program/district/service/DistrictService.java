@@ -79,4 +79,7 @@ public class DistrictService {
     }
 
 
+    public Object selectAddInfo(Map<String, Object> param) {
+        return dao.selectAddInfo(param);
+    }
 }

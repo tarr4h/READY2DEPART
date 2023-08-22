@@ -7,6 +7,7 @@ import UpdownNum from "../comn/updownNum";
 import axios from "axios";
 import RoundImgIco from "../comn/roundImgIco";
 import SearchFilter from "./searchFilter";
+import qs from "qs";
 const {kakao} = window;
 
 
@@ -110,10 +111,12 @@ function Main(){
             param.category = category.ctgr2 !== '' ? category.ctgr2 : category.ctgr1
         }
 
-        return await(await axios.get('/board/selectNearby', {
-            method : 'GET',
-            params : param
-        })).data;
+        let addInfoStr = window.localStorage.getItem('filterAddInfo');
+        if(addInfoStr != null){
+            param.addInfoList = JSON.parse(addInfoStr);
+        }
+
+        return await(await axios.post('/board/selectNearby', param)).data;
     }
 
     const setCurrentMap = async () => {
@@ -282,11 +285,12 @@ function Main(){
         setOnFilter((current) => !current);
     }
 
-    const applyFilter = async (region, category) => {
+    const applyFilter = async (region, category, addInfo) => {
         comn.blockUI();
         // 필터에 적용된 category set  >> 순서 반드시 우선시
         // setFilterCtgr(category);
         window.localStorage.setItem('filterCtgr', JSON.stringify(category));
+        window.localStorage.setItem('filterAddInfo', JSON.stringify(addInfo));
 
         const result = await (await (axios.get('/district/selectRegionGeoLoc', {
             method: 'GET',
