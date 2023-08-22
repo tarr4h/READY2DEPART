@@ -209,8 +209,8 @@ function SearchFilter({submit, reset}){
             </div>
             <div className="titWrapper">
                 <div>추가정보</div>
-                <div className="flex"
-                     // style={{overflowX : 'scroll'}}
+                <div className="flex pl_1 pr_1"
+                     style={{overflowX: 'auto', whiteSpace : 'nowrap'}}
                 >
                     {
                         addInfo.map((item, index) => (
