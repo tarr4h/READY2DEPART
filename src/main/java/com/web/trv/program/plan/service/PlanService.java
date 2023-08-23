@@ -239,24 +239,28 @@ public class PlanService {
         planDo.setDrivingVo(driving);
 
         // get duration
-        try {
+        try{
             if(driving == null){
                 throw new NullPointerException();
             }
 
-            int duration = driving.getRoute().getTraoptimal().get(0).getSummary().getDuration(); // millisecond
-            int min = Utilities.miliSec2min(duration);
+            if(driving.getCode() != 0){
+                planDo.setExpectedTm(stndTm);
+                stndTm = Utilities.addMinToTimeFmt(stndTm, planDo.getStayTmMin());
+            } else {
+                int duration = driving.getRoute().getTraoptimal().get(0).getSummary().getDuration(); // millisecond
+                int min = Utilities.miliSec2min(duration);
 
-            planDo.setTravelTmMin(min);
-            // set expected tm
-            String expectedTm = Utilities.addMinToTimeFmt(stndTm, min);
-            planDo.setExpectedTm(expectedTm);
+                planDo.setTravelTmMin(min);
+                // set expected tm
+                String expectedTm = Utilities.addMinToTimeFmt(stndTm, min);
+                planDo.setExpectedTm(expectedTm);
 
-            stndTm = Utilities.addMinToTimeFmt(expectedTm, planDo.getStayTmMin());
+                stndTm = Utilities.addMinToTimeFmt(expectedTm, planDo.getStayTmMin());
+            }
         } catch (NullPointerException e){
-            log.error("****** DRIVING NULL = {}", e.getMessage());
+            log.error("*** GET DRIVING NULL : {}", e.getMessage());
         }
-
         return stndTm;
     }
 

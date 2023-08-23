@@ -78,6 +78,8 @@ public class Utilities {
         try{
 //            Map<String, Object> jsonMap = objectMapper.readValue(response.getBody(), Map.class);
             DrivingVo jsonToVo = objectMapper.readValue(response.getBody(), DrivingVo.class);
+            log.debug("response : {}", response);
+            log.debug("responseBody : {}", response.getBody());
             log.debug("jsonToVo = {}", jsonToVo);
             return jsonToVo;
         } catch(JsonProcessingException e){
@@ -87,13 +89,14 @@ public class Utilities {
     }
 
     public static int sec2min(int sec){
-        float range = Math.round((float) sec * 100 / 60);
-        return Math.round(range/100);
+        double doubleRange = (double) sec / 60;
+        return (int) (Math.ceil(doubleRange));
     }
 
     public static int miliSec2min(int milisec){
-        int sec = milisec/1000;
-        return sec2min(sec);
+        double doubleRange = (double) milisec / 1000;
+        int double2int = (int) (Math.ceil(doubleRange));
+        return sec2min(double2int);
     }
 
     public static String addMinToTimeFmt(String timeFormat, int min){
