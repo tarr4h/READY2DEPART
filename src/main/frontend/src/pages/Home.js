@@ -10,17 +10,6 @@ function Home(){
     const {pg, extra} = useParams();
 
     useEffect(() => {
-        // comn.scrollToTop();
-    })
-
-    function defilePage(){
-        let page = pg;
-        if(extra != null) page = extra;
-        if(pg == null) page = 'home';
-        return page;
-    }
-
-    useEffect(() => {
         fetch('/auth/isLogin')
         .then(res => res.json())
         .then(json => {
@@ -33,14 +22,27 @@ function Home(){
 
     }, [navigate]);
 
+    function definePage(){
+        let page = pg;
+        if(extra != null) page = extra;
+        if(pg == null && isLogin){
+            page = 'home';
+        } else if(pg == null && !isLogin){
+            page = 'login';
+        }
+        return page;
+    }
+
     return (
         <div>
             <div id="blockUI">
                 <div>잠시만 기다려주세요.</div>
             </div>
             <Header/>
-            <View page={defilePage()}/>
-            <Footer/>
+            <div className="mainFrame">
+                <View page={definePage()}/>
+                <Footer/>
+            </div>
         </div>
     )
 }

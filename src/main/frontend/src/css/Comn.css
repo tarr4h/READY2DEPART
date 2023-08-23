@@ -22,6 +22,19 @@ body::-webkit-scrollbar{
 body::-webkit-scrollbar-thumb{
     background-color: #F2F2F2;
 }
+
+.hdr{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #24232B;
+    width: 100%;
+    z-index: 999;
+}
+.mainFrame{
+    padding-top: 7vh!important;
+}
+
 div::-webkit-scrollbar{
     /*display: none;*/
     width: 2px;
@@ -627,5 +640,4 @@ input[type=time]::-webkit-clear-button{
 
 .tab.roof{
     height: 5vh;
-    margin-top: 2vh;
 }

@@ -8,7 +8,7 @@ function Header(){
     }
 
     return (
-        <div>
+        <div className="hdr">
             <h1 className={'titColor '}
                 onClick={goHome}
                 style={{

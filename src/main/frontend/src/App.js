@@ -15,7 +15,9 @@ import ErrPage from "./pages/ErrPage";
 function App(){
 
     function setScreenSize() {
-        let vh = window.innerHeight * 0.01;
+        let vh = window.innerHeight * 0.008;
+        console.log('innerHeight : ', window.innerHeight);
+        console.log('vh : ', vh);
         document.documentElement.style.setProperty("--vh", `${vh}px`);
     }
     useEffect(() => {
