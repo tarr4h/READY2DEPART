@@ -69,6 +69,20 @@ public class RegisterService {
         return boardId;
     }
 
+    public String updateBoard(Map<String, Object> param) {
+        String boardId = "";
+        log.debug("updateBoard param = {}", param);
+        // board update
+
+        // 등록파일 삭제처리
+
+        // district 삭제처리
+
+        // addinfo 삭제처리
+
+        return boardId;
+    }
+
     public int insertFile(MultipartFile[] fileList, String boardId) throws IOException {
         // 개발용 파일 경로 설정
 //        String pathDivider = "\\"; // window

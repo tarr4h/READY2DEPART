@@ -47,6 +47,11 @@ public class RegisterController {
         return ResponseEntity.ok().body(service.insertBoard(param));
     }
 
+    @PostMapping("updateBoard")
+    public ResponseEntity<?> updateBoard(@RequestBody Map<String, Object> param) throws Exception {
+        return ResponseEntity.ok().body(service.updateBoard(param));
+    }
+
     @PostMapping(value = "insertFile")
     public ResponseEntity<?> insertFile(@RequestParam(value="file", required = false) MultipartFile[] fileList, String boardId) throws IOException {
         int result = service.insertFile(fileList, boardId);

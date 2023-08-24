@@ -8,6 +8,7 @@ function AddInfo(props){
     }, [])
 
     const addInfoOnchange = (event) => {
+        console.log('addInfo----');
         let sysCd = event.target.dataset.sysCd;
         let param = {
             sysCd : sysCd,
@@ -15,6 +16,7 @@ function AddInfo(props){
         }
 
         let list = props.additionalInfo;
+        console.log('props AddInfo : ', list);
         if(list.length !== 0){
             let chk = 0;
             list.forEach((item, index) => {
@@ -38,6 +40,21 @@ function AddInfo(props){
             .then(json => {
                 setAddInfoList(json);
             });
+    }
+
+    const isSelected = (sysCd, val) => {
+        let bool = false;
+        let correntCnt = 0;
+        props.selectedAddInfo.forEach((item, index) => {
+            if(sysCd === item.sysCd) {
+                if(val === item.val){
+                    bool = true;
+                }
+                correntCnt++;
+            }
+        });
+        if(bool === false && correntCnt === 0) bool = true;
+        return bool;
     }
 
     return (

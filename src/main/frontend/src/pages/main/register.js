@@ -3,7 +3,7 @@ import '../../css/Comn.css';
 import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {useForm} from "react-hook-form";
 import AddInfo from "./addInfo";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 import BoardCategory from "../board/boardCategory";
 import * as comn from "../../comn/comnFunction";
@@ -27,6 +27,7 @@ function Register(){
     const [previewList, setPreviewList] = useState([]);
 
     const [isRating, setIsRating] = useState(false);
+    const [checkedRating, setCheckedRating] = useState(3);
     const [selectedCtgr, setSelectedCtgr] = useState('');
 
     const [districtInfo, setDistrictInfo] = useState({});
@@ -34,11 +35,46 @@ function Register(){
 
     const {register, setValue, handleSubmit} = useForm();
 
+    const location = useLocation();
+    const editMode = location.state != null;
+
     useEffect(() => {
+        if(editMode){
+            console.log('board ? : ', location.state.board);
+            void setCurrentValue(location.state.board);
+        }
+
         void findLocByGeoLoc();
         void selectBoardCategory();
         comn.scrollToTop();
     }, []);
+
+    const setCurrentValue = async (board) => {
+        setValue('title', board.title);
+        setValidateLocNm(true);
+        setValue('summary', board.summary);
+        setValue('content', board.content);
+
+        await setCheckedRating(Number(board.rating));
+        setIsRating(true);
+
+        let addInfoArr = [];
+        board.addInfoList.forEach((item, index) => {
+            const param = {
+                sysCd : item.sysCd,
+                val : item.val
+            };
+            addInfoArr.push(param);
+        });
+        setAdditionalInfo(addInfoArr);
+
+        const currPreviewList = board.fileList;
+        let imgArr = [];
+        currPreviewList.forEach((item, index) => {
+            imgArr.push(`/board/imgView/${item.refId}/${item.id}`);
+        });
+        await setPreviewList(imgArr);
+    }
 
     async function selectBoardCategory(){
         const param = {
@@ -160,7 +196,7 @@ function Register(){
         appendPreview();
     }
 
-    function appendPreview(appendFileList){
+    function appendPreview(){
         let appendPreviewList = [];
         fileList.forEach(file => {
             const reader = new FileReader();
@@ -181,19 +217,22 @@ function Register(){
         data.addInfoList = additionalInfo;
         data.district = districtInfo;
 
+        console.log('data : ', data);
+
         comn.blockUI();
         let boardId = await(await insertBoard(data)).text();
-        if(fileList.length > 0){
-            let fileResult = await(await insertFile(fileList, boardId)).json();
-        }
+        // if(fileList.length > 0){
+        //     let fileResult = await(await insertFile(fileList, boardId)).json();
+        // }
         alert('등록되었습니다.');
         comn.unBlockUI();
-        navigate('/home', {replace : true});
+        // navigate('/home', {replace : true});
     }
 
     function insertBoard(param){
         return new Promise((resolve, reject) => {
-            let res = fetch('/register/insertBoard', {
+            const mapping = !editMode ? 'insertBoard' : 'updateBoard';
+            let res = fetch('/register/' + mapping, {
                 method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json',
@@ -235,6 +274,10 @@ function Register(){
 
     const selectRating = () => {
         setIsRating((current) => !current);
+    }
+
+    const ratingCheck = async (e) => {
+        await setCheckedRating(Number(e.target.value));
     }
 
     const selectCtgr = (event) => {
@@ -366,15 +409,15 @@ function Register(){
                             <div className="tit_btn">
                                 {isRating ? (
                                     <div className="rating">
-                                        <input type="radio" name="rating" value="5" {...register("rating")} id="rating-5"/>
+                                        <input type="radio" name="rating" value="5" {...register("rating")} id="rating-5" checked={checkedRating === 5} onClick={ratingCheck}/>
                                         <label htmlFor="rating-5"></label>
-                                        <input type="radio" name="rating" value="4" {...register("rating")} id="rating-4"/>
+                                        <input type="radio" name="rating" value="4" {...register("rating")} id="rating-4" checked={checkedRating === 4} onClick={ratingCheck}/>
                                         <label htmlFor="rating-4"></label>
-                                        <input type="radio" name="rating" value="3" {...register("rating")} id="rating-3" defaultChecked={true}/>
+                                        <input type="radio" name="rating" value="3" {...register("rating")} id="rating-3" checked={checkedRating === 3} onClick={ratingCheck}/>
                                         <label htmlFor="rating-3"></label>
-                                        <input type="radio" name="rating" value="2" {...register("rating")} id="rating-2"/>
+                                        <input type="radio" name="rating" value="2" {...register("rating")} id="rating-2" checked={checkedRating === 2} onClick={ratingCheck}/>
                                         <label htmlFor="rating-2"></label>
-                                        <input type="radio" name="rating" value="1" {...register("rating")} id="rating-1"/>
+                                        <input type="radio" name="rating" value="1" {...register("rating")} id="rating-1" checked={checkedRating === 1} onClick={ratingCheck}/>
                                         <label htmlFor="rating-1"></label>
                                     </div>
                                 ) : (
@@ -400,11 +443,18 @@ function Register(){
                         </div>
                         <div className="line_body">
                             <div className="addInfoWrapper">
-                                {additionalInfoView ? <AddInfo additionalInfo={additionalInfo} setAdditionalInfo={setAdditionalInfo}/> : null}
+                                {additionalInfoView ?
+                                    <AddInfo additionalInfo={additionalInfo}
+                                             setAdditionalInfo={setAdditionalInfo}
+                                             selectedAddInfo={editMode ? location.state.board.addInfoList : null}
+                                    />
+                                    : null}
                             </div>
                         </div>
                     </div>
-                    <a className="registerBtn" onClick={handleSubmit(onSubmit)}>등록하기</a>
+                    <a className="registerBtn" onClick={handleSubmit(onSubmit)}>
+                        {!editMode ? '등록하기' : '저장하기'}
+                    </a>
                 </div>
             </form>
         </div>

@@ -2,12 +2,15 @@ import * as comn from "../../comn/comnFunction";
 import {useEffect, useRef, useState} from "react";
 import '../../css/BoardDetail.css';
 import AddToPlan from "./addToPlan";
+import {useNavigate} from "react-router-dom";
 const {kakao} = window;
 
 function BoardDetailContent({board, modal}){
 
     const textAreaRef = useRef(null);
     const [extraInfo, setExtraInfo] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         void showMap(board.district.latitude, board.district.longitude);
@@ -41,6 +44,15 @@ function BoardDetailContent({board, modal}){
         customOverlay.setMap(map);
     }
 
+    const editing = () => {
+        navigate('/my/register',
+            {
+                state : {
+                    board: board
+                }
+            })
+    }
+
 
     return (
         <div className={modal ? 'boardDetailWrapper sm' : 'boardDetailWrapper'}>
@@ -49,7 +61,10 @@ function BoardDetailContent({board, modal}){
                     <h1 className="detailTit">{board.title}</h1>
                     {
                         board.isMine && !modal ?
-                            (<a className="btn" style={{height : '2vh'}}>EDIT</a>) : null
+                            (<a className="btn"
+                                style={{height : '2vh'}}
+                                onClick={editing}
+                            >EDIT</a>) : null
                     }
                 </div>
                 {
