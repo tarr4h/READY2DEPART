@@ -7,8 +7,7 @@ function AddInfo(props){
         selectAddInfoList();
     }, [])
 
-    const addInfoOnchange = (event) => {
-        console.log('addInfo----');
+    const addInfoOnchange = async (event) => {
         let sysCd = event.target.dataset.sysCd;
         let param = {
             sysCd : sysCd,
@@ -16,7 +15,6 @@ function AddInfo(props){
         }
 
         let list = props.additionalInfo;
-        console.log('props AddInfo : ', list);
         if(list.length !== 0){
             let chk = 0;
             list.forEach((item, index) => {
@@ -30,8 +28,7 @@ function AddInfo(props){
         } else {
             list.push(param);
         }
-
-        props.setAdditionalInfo(list);
+        await props.setAdditionalInfo(list);
     }
 
     function selectAddInfoList(){
@@ -43,9 +40,14 @@ function AddInfo(props){
     }
 
     const isSelected = (sysCd, val) => {
+        const selectedInfo = props.selectedAddInfo;
+        if(selectedInfo === null){
+            return val === 'N';
+        }
+
         let bool = false;
         let correntCnt = 0;
-        props.selectedAddInfo.forEach((item, index) => {
+        selectedInfo.forEach((item, index) => {
             if(sysCd === item.sysCd) {
                 if(val === item.val){
                     bool = true;
@@ -53,7 +55,7 @@ function AddInfo(props){
                 correntCnt++;
             }
         });
-        if(bool === false && correntCnt === 0) bool = true;
+        if(bool === false && correntCnt === 0 && val === 'N') bool = true;
         return bool;
     }
 
@@ -70,6 +72,7 @@ function AddInfo(props){
                             name={item.val}
                             value="Y"
                             data-sys-cd={item.sysCd}
+                            defaultChecked={isSelected(item.sysCd, 'Y')}
                             onChange={addInfoOnchange}
                         />
                         <label htmlFor={item.val + 'Y'}>가능</label>
@@ -80,8 +83,9 @@ function AddInfo(props){
                             name={item.val}
                             value="N"
                             data-sys-cd={item.sysCd}
-                            defaultChecked={true}
-                            onChange={addInfoOnchange}/>
+                            defaultChecked={isSelected(item.sysCd, 'N')}
+                            onChange={addInfoOnchange}
+                        />
                         <label htmlFor={item.val + 'N'}>불가능</label>
                     </div>
                 </div>

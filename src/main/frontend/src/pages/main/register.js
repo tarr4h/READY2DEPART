@@ -42,14 +42,17 @@ function Register(){
         if(editMode){
             console.log('board ? : ', location.state.board);
             void setCurrentValue(location.state.board);
+        } else {
+            void findLocByGeoLoc();
         }
 
-        void findLocByGeoLoc();
         void selectBoardCategory();
         comn.scrollToTop();
     }, []);
 
     const setCurrentValue = async (board) => {
+        await findLocByExist(board);
+
         setValue('title', board.title);
         setValidateLocNm(true);
         setValue('summary', board.summary);
@@ -116,6 +119,16 @@ function Register(){
             setHttpPlaceholder(true);
         }
         if(geoLoc != null) setSearchLoc(true);
+        void setAddress(geoLoc);
+    }
+
+    async function findLocByExist(board){
+        setHttpPlaceholder(true);
+        setSearchLoc(true);
+        const geoLoc = {
+            latitude : board.district.latitude,
+            longitude : board.district.longitude
+        }
         void setAddress(geoLoc);
     }
 
