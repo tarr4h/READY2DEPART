@@ -26,10 +26,19 @@ public interface RegisterDao {
 
     int insertBoard(Map<String, Object> param);
 
+    int updateBoard(Map<String, Object> param);
+
     int insertAddInfo(java.util.Map<java.lang.String,java.lang.Object> param);
 
     int insertFile(FileVo fileVo);
 
     int insertDistrictInfo(Map<String, Object> param);
 
+    int deleteFile(Map<String, Object> param);
+
+    int deleteDistractInfo(Map<String, Object> param);
+
+    int deleteAddInfo(Map<String, Object> param);
+
+    int deleteBoard(Map<String, Object> param);
 }

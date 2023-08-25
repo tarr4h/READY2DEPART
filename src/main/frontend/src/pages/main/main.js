@@ -328,6 +328,7 @@ function Main(){
         window.localStorage.removeItem('filterGeoLoc');
         window.localStorage.removeItem('filterRegion');
         window.localStorage.removeItem('filterCtgr');
+        window.localStorage.removeItem('filterAddInfo');
         window.localStorage.removeItem('currGeoLoc');
         window.localStorage.removeItem('currMapLvl');
         window.localStorage.removeItem('currMapRad');

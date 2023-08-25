@@ -2,7 +2,6 @@ package com.web.trv.program.register.service;
 
 import com.web.trv.comn.model.FileVo;
 import com.web.trv.comn.model.SysCodeVo;
-import com.web.trv.comn.util.Utilities;
 import com.web.trv.program.register.dao.RegisterDao;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
@@ -50,16 +49,18 @@ public class RegisterService {
     }
 
     public String insertBoard(Map<String, Object> param) throws Exception {
-        param.put("userId", Utilities.getLoginUser().getId());
-
         if(param.get("rating") == null || param.get("rating").equals("")){
             param.put("rating", 0);
         }
         if(param.get("categoryDetail") != null && !param.get("categoryDetail").equals("")){
             param.put("category", param.get("categoryDetail"));
         }
-        dao.insertBoard(param);
-        String boardId = (String) param.get("boardId");
+        String boardId = param.get("boardId") != null ? (String) param.get("boardId") : null;
+        if(boardId == null){
+            dao.insertBoard(param);
+        } else {
+            updateBoard(param);
+        }
 
         dao.insertDistrictInfo(param);
         List<Map<String, Object>> addInfoList = (List<Map<String, Object>>) param.get("addInfoList");
@@ -69,18 +70,26 @@ public class RegisterService {
         return boardId;
     }
 
-    public String updateBoard(Map<String, Object> param) {
-        String boardId = "";
-        log.debug("updateBoard param = {}", param);
+    public void updateBoard(Map<String, Object> param) {
         // board update
+        dao.updateBoard(param);
+        deleteBoardExtra(param);
+    }
 
-        // 등록파일 삭제처리
+    public int deleteBoard(Map<String, Object> param) {
+        deleteBoardExtra(param);
+        return dao.deleteBoard(param);
+    }
+
+    public void deleteBoardExtra(Map<String, Object> param){
+        // 등록파일 삭제처리 >> 추후 물리적 파일 제거 필요
+        dao.deleteFile(param);
 
         // district 삭제처리
+        dao.deleteDistractInfo(param);
 
         // addinfo 삭제처리
-
-        return boardId;
+        dao.deleteAddInfo(param);
     }
 
     public int insertFile(MultipartFile[] fileList, String boardId) throws IOException {
@@ -117,6 +126,5 @@ public class RegisterService {
 
         return cnt;
     }
-
 
 }

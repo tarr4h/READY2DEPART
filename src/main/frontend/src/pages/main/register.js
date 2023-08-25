@@ -58,6 +58,12 @@ function Register(){
         setValue('summary', board.summary);
         setValue('content', board.content);
 
+        if(board.upCategoryVo.upSysCd == null){
+            setSelectedCtgr(board.categoryVo.sysCd);
+        } else {
+            setSelectedCtgr(board.upCategoryVo.sysCd);
+        }
+
         await setCheckedRating(Number(board.rating));
         setIsRating(true);
 
@@ -230,22 +236,23 @@ function Register(){
         data.addInfoList = additionalInfo;
         data.district = districtInfo;
 
-        console.log('data : ', data);
-
         comn.blockUI();
         let boardId = await(await insertBoard(data)).text();
-        // if(fileList.length > 0){
-        //     let fileResult = await(await insertFile(fileList, boardId)).json();
-        // }
-        alert('등록되었습니다.');
+        if(fileList.length > 0){
+            let fileResult = await(await insertFile(fileList, boardId)).json();
+        }
+        const text = editMode ? '저장' : '등록';
+        alert(text + '되었습니다.');
         comn.unBlockUI();
-        // navigate('/home', {replace : true});
+        navigate('/home', {replace : true});
     }
 
     function insertBoard(param){
         return new Promise((resolve, reject) => {
-            const mapping = !editMode ? 'insertBoard' : 'updateBoard';
-            let res = fetch('/register/' + mapping, {
+            if(editMode){
+                param.boardId = location.state.board.id;
+            }
+            let res = fetch('/register/insertBoard', {
                 method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json',
@@ -358,6 +365,10 @@ function Register(){
                                         key={index}
                                         category={ctgr}
                                         register={register}
+                                        selectedCtgr={editMode ?
+                                            location.state.board.upCategoryVo.upSysCd == null ?
+                                                location.state.board.categoryVo : location.state.board.upCategoryVo
+                                            : null}
                                         onClick={selectCtgr}
                                     />
                                 ))}
@@ -367,6 +378,8 @@ function Register(){
                                                      setSysCd={setSelectedCtgr}
                                                      register={register}
                                                      setRegisterVal={setValue}
+                                                     selectedCtgr={editMode ?
+                                                         location.state.board.categoryVo : null}
                                 /> : ''}
                         </div>
                     </div>

@@ -47,9 +47,11 @@ public class RegisterController {
         return ResponseEntity.ok().body(service.insertBoard(param));
     }
 
-    @PostMapping("updateBoard")
-    public ResponseEntity<?> updateBoard(@RequestBody Map<String, Object> param) throws Exception {
-        return ResponseEntity.ok().body(service.updateBoard(param));
+    @PostMapping("deleteBoard")
+    public ResponseEntity<?> deleteBoard(@RequestBody Map<String, Object> param) {
+        int result = service.deleteBoard(param);
+        log.debug("deleteResult = {}", result);
+        return ResponseEntity.ok().body(result);
     }
 
     @PostMapping(value = "insertFile")

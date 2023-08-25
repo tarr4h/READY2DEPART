@@ -2,7 +2,7 @@ import {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import BoardCategoryDetail from "./boardCategoryDetail";
 
-function BoardCategory({category, register, onClick}){
+function BoardCategory({category, register, selectedCtgr, onClick}){
 
     return (
             <div className="categoryRadio">
@@ -12,6 +12,7 @@ function BoardCategory({category, register, onClick}){
                     id={category.sysCd}
                     value={category.sysCd}
                     {...register('category')}
+                    defaultChecked={selectedCtgr != null ? category.sysCd === selectedCtgr.sysCd : false}
                     onClick={onClick}
                 />
                 <label htmlFor={category.sysCd}>{category.nm}</label>

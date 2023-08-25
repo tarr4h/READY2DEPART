@@ -33,6 +33,21 @@
         )
     </insert>
 
+    <update id="updateBoard">
+        UPDATE  TRV_BOARD
+        SET     TITLE = #{title}
+            ,   SUMMARY = #{summary}
+            ,   CONTENT = #{content}
+            ,   CATEGORY = #{category}
+            ,   RATING = #{rating}
+        WHERE   ID = #{boardId}
+    </update>
+
+    <delete id="deleteBoard">
+        DELETE FROM TRV_BOARD
+        WHERE   ID = #{boardId}
+    </delete>
+
     <insert id="insertDistrictInfo">
         INSERT INTO TRV_BOARD_DISTRICT
         (BOARD_ID, LATITUDE, LONGITUDE, REGION_1, REGION_2, ADDR)
@@ -46,6 +61,11 @@
         )
     </insert>
 
+    <delete id="deleteDistractInfo">
+        DELETE FROM TRV_BOARD_DISTRICT
+        WHERE   BOARD_ID = #{boardId}
+    </delete>
+
     <insert id="insertAddInfo">
         INSERT INTO TRV_BOARD_ADD_INFO
         (BOARD_ID, SYS_CD, VAL)
@@ -58,6 +78,11 @@
             )
         </foreach>
     </insert>
+
+    <delete id="deleteAddInfo">
+        DELETE FROM TRV_BOARD_ADD_INFO
+        WHERE   BOARD_ID = #{boardId}
+    </delete>
 
     <insert id="insertFile">
         <selectKey resultType="String" keyProperty="id" order="BEFORE">
@@ -75,4 +100,9 @@
            ,    #{dir}
         )
     </insert>
+
+    <delete id="deleteFile">
+        DELETE FROM TRV_FILE
+        WHERE   REF_ID = #{boardId}
+    </delete>
 </mapper>

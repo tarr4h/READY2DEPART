@@ -3,6 +3,7 @@ import {useEffect, useRef, useState} from "react";
 import '../../css/BoardDetail.css';
 import AddToPlan from "./addToPlan";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 const {kakao} = window;
 
 function BoardDetailContent({board, modal}){
@@ -53,6 +54,18 @@ function BoardDetailContent({board, modal}){
             })
     }
 
+    const deleting = async () => {
+        const param = {
+            boardId : board.id
+        }
+        const result = await(await axios.post('/register/deleteBoard', param)).data;
+        console.log('result = ', result);
+        if(result > 0){
+            alert('삭제되었습니다.');
+            navigate('/home', {replace :  true});
+        }
+    }
+
 
     return (
         <div className={modal ? 'boardDetailWrapper sm' : 'boardDetailWrapper'}>
@@ -61,10 +74,18 @@ function BoardDetailContent({board, modal}){
                     <h1 className="detailTit">{board.title}</h1>
                     {
                         board.isMine && !modal ?
-                            (<a className="btn"
-                                style={{height : '2vh'}}
-                                onClick={editing}
-                            >EDIT</a>) : null
+                            (
+                                <div className="flex">
+                                    <a className="btn orange bd_orange mr_1"
+                                       style={{height : '2vh'}}
+                                       onClick={deleting}
+                                    >REMOVE</a>
+                                    <a className="btn"
+                                       style={{height : '2vh'}}
+                                       onClick={editing}
+                                    >EDIT</a>
+                                </div>
+                            ) : null
                     }
                 </div>
                 {

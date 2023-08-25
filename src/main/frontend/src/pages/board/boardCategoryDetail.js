@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-function BoardCategoryDetail({sysCd, setSysCd, register, setRegisterVal}){
+function BoardCategoryDetail({sysCd, setSysCd, register, setRegisterVal, selectedCtgr}){
 
     const [categoryList, setCategoryList] = useState([]);
 
@@ -32,7 +32,7 @@ function BoardCategoryDetail({sysCd, setSysCd, register, setRegisterVal}){
                            id={ctgr.sysCd}
                            name="categoryDetail"
                            value={ctgr.sysCd}
-                           defaultChecked={false}
+                           defaultChecked={selectedCtgr != null ? ctgr.sysCd === selectedCtgr.sysCd : null}
                            {...register('categoryDetail')}
                     />
                     <label htmlFor={ctgr.sysCd}>{ctgr.nm}</label>
