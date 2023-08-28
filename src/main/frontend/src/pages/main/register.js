@@ -11,7 +11,6 @@ import BoardCategoryDetail from "../board/boardCategoryDetail";
 import Modal from "../comn/Modal";
 import FindLocModal from "../comn/findLocModal";
 const {kakao} = window;
-const {daum} = window;
 
 function Register(){
 
@@ -319,7 +318,7 @@ function Register(){
     }
 
     return (
-        <div>
+        <div className="register_whole">
             <Modal title={'장소 검색'}
                    content={<FindLocModal callback={setLocation}
                                           showModal={showSearchModal}

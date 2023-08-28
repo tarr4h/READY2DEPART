@@ -1,6 +1,9 @@
 #regFrm{
     padding: 8px;
 }
+.register_whole{
+    height: calc(110% + 12vh);
+}
 .register_wrapper{
     background-color: #FFF;
     padding: 5px 5px 5px 8px;
@@ -230,7 +233,12 @@
 
 
 
-
+.register_whole + #footer{
+    /*display: none;*/
+    position: inherit;
+    margin-top: 0;
+    bottom: 0;
+}
 
 
 

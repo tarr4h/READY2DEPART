@@ -12,9 +12,6 @@ html, body, #app, #app>div{
 body{
     margin: 0;
 }
-#root{
-    padding-bottom: 6vh;
-}
 
 body::-webkit-scrollbar{
     width: 2px;
@@ -33,6 +30,7 @@ body::-webkit-scrollbar-thumb{
 }
 .mainFrame{
     padding-top: 7vh!important;
+    padding-bottom: 6vh;
 }
 
 div::-webkit-scrollbar{

@@ -8,6 +8,7 @@ function Home(){
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(false);
     const {pg, extra} = useParams();
+    const [hideFooterList] = useState(['register']);
 
     useEffect(() => {
         fetch('/auth/isLogin')
@@ -33,13 +34,26 @@ function Home(){
         return page;
     }
 
+    function fiexedFooter(){
+        let bool = true;
+        hideFooterList.forEach((page) => {
+            if(definePage() === page){
+                bool = false;
+                return false;
+            }
+        });
+        return bool;
+    }
+
     return (
         <div>
             <div id="blockUI">
                 <div>잠시만 기다려주세요.</div>
             </div>
             <Header/>
-            <div className="mainFrame">
+            <div className="mainFrame"
+                 style={!fiexedFooter() ? {paddingBottom : 0}: null}
+            >
                 <View page={definePage()}/>
                 <Footer/>
             </div>

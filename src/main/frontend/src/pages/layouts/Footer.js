@@ -3,7 +3,8 @@ import '../../css/Footer.css';
 
 function Footer(){
     return (
-        <div className="wrapper">
+        <div id="footer"
+            className="wrapper">
             <NavLink to={'/'}>
                 HOME
             </NavLink>
