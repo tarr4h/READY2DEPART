@@ -113,10 +113,13 @@
 .previewImgClose{
     position: absolute;
     display: inline;
-    right: 1vw;
+    top: 0.5vh;
+    right: 2vw;
     z-index: 1;
     cursor: pointer;
     font-weight: 600;
+    font-size: 1.2rem;
+    color: #FFF;
 }
 
 .registerBtn{
