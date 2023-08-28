@@ -59,7 +59,6 @@ function BoardDetailContent({board, modal}){
             boardId : board.id
         }
         const result = await(await axios.post('/register/deleteBoard', param)).data;
-        console.log('result = ', result);
         if(result > 0){
             alert('삭제되었습니다.');
             navigate('/home', {replace :  true});

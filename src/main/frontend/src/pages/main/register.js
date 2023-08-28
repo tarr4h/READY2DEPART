@@ -79,9 +79,19 @@ function Register(){
 
         const currPreviewList = board.fileList;
         let imgArr = [];
+        let fileArr = [];
         currPreviewList.forEach((item, index) => {
             imgArr.push(`/board/imgView/${item.refId}/${item.id}`);
         });
+        for(let i = 0; i < currPreviewList.length; i++){
+            const refId = board.id;
+            const flId = currPreviewList[i].id;
+            const result = await(await axios.get(`/board/imgView/${refId}/${flId}`, {
+                responseType : 'blob'
+            })).data;
+            fileArr.push(result);
+        }
+        await setFileList(fileArr);
         await setPreviewList(imgArr);
     }
 
@@ -203,7 +213,7 @@ function Register(){
         event.target.value = null;
     }
 
-    function uploadFile(e){
+    async function uploadFile(e){
         let newFileList = fileList;
         let appendFiles = e.target.files;
         Array.from(appendFiles).forEach(item => {
@@ -212,22 +222,35 @@ function Register(){
             }
         });
         setFileList([...newFileList]);
-        appendPreview();
+        await appendPreview();
     }
 
-    function appendPreview(){
+    const removeImg = (evt) => {
+        let index = Number(evt.target.dataset.index);
+        setPreviewList(current => current.filter((val, ind) => {
+            return ind !== index;
+        }));
+        setFileList(current => current.filter((val, ind) => {
+            return ind !== index;
+        }));
+    }
+
+    async function appendPreview(){
         let appendPreviewList = [];
-        fileList.forEach(file => {
+        for(let i = 0; i < fileList.length; i++){
+            const result = await getFileReader(fileList[i]);
+            appendPreviewList.push(result);
+            setPreviewList([...appendPreviewList]);
+        }
+    }
+
+    const getFileReader = (file) => {
+        return new Promise((resolve) => {
             const reader = new FileReader();
             reader.readAsDataURL(file);
-
-            return new Promise((resolve) => {
-                reader.onload = () => {
-                    appendPreviewList.push(reader.result);
-                    setPreviewList([...appendPreviewList]);
-                    resolve();
-                }
-            })
+            reader.onload = async () => {
+                resolve(reader.result);
+            }
         })
     }
 
@@ -236,10 +259,11 @@ function Register(){
         data.addInfoList = additionalInfo;
         data.district = districtInfo;
 
+        comn.scrollToTop();
         comn.blockUI();
         let boardId = await(await insertBoard(data)).text();
         if(fileList.length > 0){
-            let fileResult = await(await insertFile(fileList, boardId)).json();
+            await(await insertFile(fileList, boardId)).json();
         }
         const text = editMode ? '저장' : '등록';
         alert(text + '되었습니다.');
@@ -280,16 +304,6 @@ function Register(){
             });
             resolve(res);
         });
-    }
-
-    const removeImg = (evt) => {
-        let index = Number(evt.target.dataset.index);
-        setPreviewList(current => current.filter((val, ind) => {
-            return ind !== index;
-        }));
-        setFileList(current => current.filter((val, ind) => {
-            return ind !== index;
-        }));
     }
 
     const selectRating = () => {

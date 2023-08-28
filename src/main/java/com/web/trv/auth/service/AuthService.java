@@ -177,6 +177,7 @@ public class AuthService {
         HttpSession session = Utilities.getSession();
         int verifyNumber = (int) session.getAttribute("verifyNumber");
         int resNum = Integer.parseInt(String.valueOf(param.get("reqVerifyNum")));
+        session.removeAttribute("verifyNumber");
         return resNum == verifyNumber;
     }
 }

@@ -142,7 +142,6 @@ function SearchFilter({submit, reset}){
             selectedAddInfo.splice(existIndex, 1);
         }
         await setSelectedAddInfo(selectedAddInfo);
-        console.log('selectedAddInfo : ',selectedAddInfo);
     }
 
     const isAddInfoChecked = (sysCd) => {

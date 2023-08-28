@@ -58,6 +58,7 @@ public class RegisterService {
         String boardId = param.get("boardId") != null ? (String) param.get("boardId") : null;
         if(boardId == null){
             dao.insertBoard(param);
+            boardId = (String) param.get("boardId");
         } else {
             updateBoard(param);
         }
