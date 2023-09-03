@@ -562,15 +562,15 @@ input[type=time]::-webkit-clear-button{
     color: gray;
 }
 
-.pwd{
+.description{
     margin-left: 1vw;
     font-size: 0.8rem;
     display: block;
 }
-.pwd.poss{
+.description.poss{
     color: #089308;
 }
-.pwd.imposs{
+.description.imposs{
     color: #bb0000;
 }
 

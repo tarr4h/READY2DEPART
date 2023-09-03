@@ -98,6 +98,11 @@ public class AuthController {
         return ResponseEntity.ok().body(service.sendVerifyPhRequest(param));
     }
 
+    @PostMapping("joinVerifyRequest")
+    public ResponseEntity<?> joinVerifyRequest(@RequestBody Map<String, Object> param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
+        return ResponseEntity.ok().body(service.joinVerifyRequest(param));
+    }
+
     @PostMapping("verifyPh")
     public ResponseEntity<?> verifyPh(@RequestBody Map<String, Object> param) throws Exception {
         return ResponseEntity.ok().body(service.verifyPh(param));
@@ -106,5 +111,10 @@ public class AuthController {
     @PostMapping("join")
     public ResponseEntity<?> join(@RequestBody Map<String, Object> param){
         return ResponseEntity.ok().body(service.join(param));
+    }
+
+    @PostMapping("findId")
+    public ResponseEntity<?> findId(@RequestBody Map<String, Object> param){
+        return ResponseEntity.ok().body(service.findId(param));
     }
 }

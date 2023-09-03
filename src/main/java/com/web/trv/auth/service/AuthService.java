@@ -117,13 +117,17 @@ public class AuthService {
         return Base64.encodeBase64String(rawHmac);
     }
 
-    @SuppressWarnings("unchecked")
-    public Object sendVerifyPhRequest(Map<String, Object> param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
+    public Object joinVerifyRequest(Map<String, Object> param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
         Map<String, Long> chkUser = dao.checkUserExist(param);
         if(chkUser.get("phDupCnt") != 0){
             return false;
+        } else {
+            return sendVerifyPhRequest(param);
         }
+    }
 
+    @SuppressWarnings("unchecked")
+    public Object sendVerifyPhRequest(Map<String, Object> param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         Long now = System.currentTimeMillis();
@@ -179,5 +183,11 @@ public class AuthService {
         int resNum = Integer.parseInt(String.valueOf(param.get("reqVerifyNum")));
         session.removeAttribute("verifyNumber");
         return resNum == verifyNumber;
+    }
+
+
+    public Object findId(Map<String, Object> param) {
+        UserVo user = dao.selectUser(param);
+        return user.getId();
     }
 }

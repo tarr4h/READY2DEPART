@@ -74,7 +74,7 @@ function JoinModal({callback}){
             ph2,
             ph3
         }
-        const result = await(await axios.post('/auth/sendVerifyPhRequest', param)).data;
+        const result = await(await axios.post('/auth/joinVerifyRequest', param)).data;
         if(!result){
             alert('해당 번호로 가입된 계정이 존재합니다.');
             return false;
@@ -184,7 +184,7 @@ function JoinModal({callback}){
                             />
                         </div>
                         <span>
-                            {possPwd === 0 ? '' : possPwd === 1 ? (<span className="pwd poss pt_1">사용가능합니다</span>) : (<span className="pwd imposs pt_1">최소 1개의 특수문자를 포함한 8자리 이상이어야 합니다.</span>)}
+                            {possPwd === 0 ? '' : possPwd === 1 ? (<span className="description poss pt_1">사용가능합니다</span>) : (<span className="description imposs pt_1">최소 1개의 특수문자를 포함한 8자리 이상이어야 합니다.</span>)}
                         </span>
                     </div>
                     <div className="titWrapper">
@@ -197,7 +197,7 @@ function JoinModal({callback}){
                                    {...register('valitPwd')}
                             />
                         </div>
-                        <span>{corrPwd === 0 || possPwd !== 1 ? '' : corrPwd === 1 && possPwd === 1 ? (<span className="pwd poss pt_1">일치합니다</span>) : (<span className="pwd imposs pt_1">일치하지 않습니다</span>)}</span>
+                        <span>{corrPwd === 0 || possPwd !== 1 ? '' : corrPwd === 1 && possPwd === 1 ? (<span className="description poss pt_1">일치합니다</span>) : (<span className="description imposs pt_1">일치하지 않습니다</span>)}</span>
                     </div>
                     <div className="titWrapper mt_1">
                         <div className="orange">닉네임</div>

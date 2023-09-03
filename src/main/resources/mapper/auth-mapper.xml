@@ -6,9 +6,17 @@
     <select id="selectUser" resultType="com.web.trv.auth.model.UserVo">
         SELECT  *
         FROM    TRV_USER
-        WHERE   ID = #{id}
-                AND
-                PWD = #{encPwd}
+        <where>
+            <if test="id != null and id != ''">
+                ID = #{id}
+            </if>
+            <if test="encPwd != null and encPwd != ''">
+                AND PWD = #{encPwd}
+            </if>
+            <if test="ph != null and ph != ''">
+                AND PH = #{ph}
+            </if>
+        </where>
     </select>
 
     <select id="selectLoginUser" resultType="Tmap">
@@ -52,7 +60,7 @@
                     WHERE   USER_ID = #{userId} ) USER_ID_DUP_CNT
             ,   (   SELECT  COUNT(*)
                     FROM    TRV_USER
-                    WHERE   PH = CONCAT(#{ph1}, '-', #{ph2}, '-', #{ph3})   ) PH_DUP_CNT
+                    WHERE   PH = CONCAT(#{ph1}, #{ph2},#{ph3})   ) PH_DUP_CNT
         FROM    DUAL
     </select>
 
@@ -63,7 +71,7 @@
                 #{id}
            ,    #{userId}
            ,    #{encPwd}
-           ,    CONCAT(#{ph1}, '-', #{ph2}, '-', #{ph3})
+           ,    CONCAT(#{ph1}, #{ph2}, #{ph3})
         )
     </insert>
 </mapper>
