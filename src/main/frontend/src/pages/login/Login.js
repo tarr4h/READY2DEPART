@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import * as comn from "../../comn/comnFunction";
 import Modal from "../comn/Modal";
 import JoinModal from "./JoinModal";
+import FindModal from "./FindModal";
 
 function Login(){
     const userId = useInput("");
@@ -12,6 +13,8 @@ function Login(){
     const navigate = useNavigate();
 
     const [showJoinModal, setShowJoinModal] = useState(false);
+    const [showFindMine, setShowFindMine] = useState(false);
+    const [showFindModal, setShowFindModal] = useState(false);
 
     useEffect(() => {
         const savedId = window.localStorage.getItem('userId');
@@ -47,6 +50,7 @@ function Login(){
             navigate('/', {replace:true});
         } else {
             alert('회원정보가 일치하지 않습니다.');
+            setShowFindMine(true);
             // resetLoginForm();
         }
     }
@@ -60,6 +64,10 @@ function Login(){
 
     const join = () => {
         setShowJoinModal(true);
+    }
+
+    const find = () => {
+        setShowFindModal(true);
     }
 
     function processLogin(){
@@ -87,12 +95,22 @@ function Login(){
         setShowJoinModal(false);
     }
 
+    const closeFindModal = () => {
+        comn.scrollToTop();
+        setShowFindModal(false);
+    }
+
     return(
         <div className={styles.wrapper}>
             <Modal title={"회원가입"}
                    content={<JoinModal callback={closeJoinModal}/>}
                    isOpen={showJoinModal}
                    setIsOpen={setShowJoinModal}
+            />
+            <Modal title={"ID/PW 찾기"}
+                   content={<FindModal callback={closeFindModal}/>}
+                   isOpen={showFindModal}
+                   setIsOpen={setShowFindModal}
             />
             <div className={styles.box}>
                 <h1 className={styles.tit}>READY2DEPART</h1>
@@ -113,6 +131,9 @@ function Login(){
                 />
                 <a className={styles.btn} onClick={doLogin}>LOGIN</a>
                 <a className={styles.join} onClick={join}>JOIN!</a>
+                {
+                    showFindMine ? (<a className={styles.join + ' mt_1'} onClick={find}>FIND ID/PW</a>) : null
+                }
             </div>
         </div>
     );
