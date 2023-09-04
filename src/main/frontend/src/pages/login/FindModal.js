@@ -4,7 +4,7 @@ import Tab from "../comn/Tab";
 import FindId from "./FindId";
 import FindPw from "./FindPw";
 
-function FindModal(){
+function FindModal({callback}){
 
     return (
         <Tabs>
@@ -12,7 +12,7 @@ function FindModal(){
                  page={<FindId/>}
             />
             <Tab title={'비밀번호 찾기'}
-                 page={<FindPw/>}
+                 page={<FindPw callback={callback}/>}
             />
         </Tabs>
     )

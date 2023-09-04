@@ -2,6 +2,7 @@ package com.web.trv.auth.controller;
 
 import com.web.trv.auth.model.UserVo;
 import com.web.trv.auth.service.AuthService;
+import com.web.trv.comn.model.Tmap;
 import com.web.trv.comn.util.Utilities;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,8 @@ public class AuthController {
     AuthService service;
 
     @PostMapping("login")
-    public ResponseEntity<?> login(@RequestBody Map<String, Object> param, HttpServletRequest req){
+    public ResponseEntity<?> login(@RequestBody Tmap param, HttpServletRequest req){
+        log.debug("param = {}", param);
         UserVo user = service.selectUser(param);
         boolean bool = false;
         if(user != null){
@@ -94,27 +96,37 @@ public class AuthController {
     }
 
     @PostMapping("sendVerifyPhRequest")
-    public ResponseEntity<?> sendVerifyPhRequest(@RequestBody Map<String, Object> param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
+    public ResponseEntity<?> sendVerifyPhRequest(@RequestBody Tmap param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
         return ResponseEntity.ok().body(service.sendVerifyPhRequest(param));
     }
 
     @PostMapping("joinVerifyRequest")
-    public ResponseEntity<?> joinVerifyRequest(@RequestBody Map<String, Object> param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
+    public ResponseEntity<?> joinVerifyRequest(@RequestBody Tmap param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
         return ResponseEntity.ok().body(service.joinVerifyRequest(param));
     }
 
+    @PostMapping("pwFindVerifyRequest")
+    public ResponseEntity<?> pwFindVerifyRequest(@RequestBody Tmap param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
+        return ResponseEntity.ok().body(service.pwFindVerifyRequest(param));
+    }
+
     @PostMapping("verifyPh")
-    public ResponseEntity<?> verifyPh(@RequestBody Map<String, Object> param) throws Exception {
+    public ResponseEntity<?> verifyPh(@RequestBody Tmap param) throws Exception {
         return ResponseEntity.ok().body(service.verifyPh(param));
     }
 
     @PostMapping("join")
-    public ResponseEntity<?> join(@RequestBody Map<String, Object> param){
+    public ResponseEntity<?> join(@RequestBody Tmap param){
         return ResponseEntity.ok().body(service.join(param));
     }
 
     @PostMapping("findId")
-    public ResponseEntity<?> findId(@RequestBody Map<String, Object> param){
+    public ResponseEntity<?> findId(@RequestBody Tmap param){
         return ResponseEntity.ok().body(service.findId(param));
+    }
+
+    @PostMapping("chngPwd")
+    public ResponseEntity<?> chngPwd(@RequestBody Tmap param){
+        return ResponseEntity.ok().body(service.chngPwd(param));
     }
 }

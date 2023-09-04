@@ -64,7 +64,7 @@ function FindId() {
                 </span>
                 {
                     sendVerify ? null
-                        : (<a className="btn orange mt_1"
+                        : (<a className="btn orange mt_3"
                               onClick={requestSms}
                             >인증번호 발송</a>)
                 }

@@ -6,6 +6,7 @@ import * as comn from "../../comn/comnFunction";
 import Modal from "../comn/Modal";
 import JoinModal from "./JoinModal";
 import FindModal from "./FindModal";
+import axios from "axios";
 
 function Login(){
     const userId = useInput("");
@@ -97,6 +98,7 @@ function Login(){
 
     const closeFindModal = () => {
         comn.scrollToTop();
+        resetLoginForm();
         setShowFindModal(false);
     }
 

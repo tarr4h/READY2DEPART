@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.web.trv.auth.dao.AuthDao;
 import com.web.trv.auth.model.UserVo;
+import com.web.trv.comn.model.Tmap;
 import com.web.trv.comn.util.EncUtil;
 import com.web.trv.comn.util.Utilities;
 import lombok.extern.slf4j.Slf4j;
@@ -59,8 +60,9 @@ public class AuthService {
     @Value("${naver.send-ph}")
     private String naverSendPh;
 
-    public UserVo selectUser(Map<String, Object> param) {
-        String enc = EncUtil.encryptPwd((String) param.get("pwd"), (String) param.get("id"));
+    public UserVo selectUser(Tmap param) {
+        String enc = EncUtil.encryptPwd(param.getString("pwd"), param.getString("id"));
+//        String enc = EncUtil.encryptPwd((String) param.get("pwd"), (String) param.get("id"));
         param.put("encPwd", enc);
         return dao.selectUser(param);
     }
@@ -120,6 +122,16 @@ public class AuthService {
     public Object joinVerifyRequest(Map<String, Object> param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
         Map<String, Long> chkUser = dao.checkUserExist(param);
         if(chkUser.get("phDupCnt") != 0){
+            return false;
+        } else {
+            return sendVerifyPhRequest(param);
+        }
+    }
+
+
+    public Object pwFindVerifyRequest(Map<String, Object> param) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
+        UserVo user = dao.selectUser(param);
+        if(user == null){
             return false;
         } else {
             return sendVerifyPhRequest(param);
@@ -189,5 +201,11 @@ public class AuthService {
     public Object findId(Map<String, Object> param) {
         UserVo user = dao.selectUser(param);
         return user.getId();
+    }
+
+    public Object chngPwd(Map<String, Object> param) {
+        param.put("encPwd", EncUtil.encryptPwd((String) param.get("password"), (String) param.get("id")));
+        log.debug("param = {}", param);
+        return dao.updateUserPwd(param);
     }
 }

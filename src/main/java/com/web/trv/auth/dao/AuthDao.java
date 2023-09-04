@@ -1,7 +1,6 @@
 package com.web.trv.auth.dao;
 
 import com.web.trv.auth.model.UserVo;
-import com.web.trv.comn.model.Tmap;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.Map;
@@ -30,4 +29,6 @@ public interface AuthDao {
     Map<String, Long> checkUserExist(Map<String, Object> param);
 
     int insertUser(Map<String, Object> param);
+
+    int updateUserPwd(Map<String, Object> param);
 }

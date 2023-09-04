@@ -74,4 +74,10 @@
            ,    CONCAT(#{ph1}, #{ph2}, #{ph3})
         )
     </insert>
+
+    <update id="updateUserPwd">
+        UPDATE TRV_USER
+        SET PWD = #{encPwd}
+        WHERE   ID = #{id}
+    </update>
 </mapper>
