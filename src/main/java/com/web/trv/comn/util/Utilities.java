@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.web.trv.auth.model.UserVo;
 import com.web.trv.comn.model.DrivingVo;
+import com.web.trv.comn.model.Tmap;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
@@ -20,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Map;
 
 /**
  * <pre>
@@ -34,6 +36,8 @@ import java.util.Locale;
  */
 @Slf4j
 public class Utilities {
+
+    private static ObjectMapper objectMapper;
 
     public static UserVo getLoginUser() throws Exception {
         return (UserVo) Utilities.getSession().getAttribute("loginUser");
@@ -153,5 +157,10 @@ public class Utilities {
         } catch (NullPointerException e){
             throw new NullPointerException("PARSE INT >> OBJ == NULL");
         }
+    }
+
+    public static Map<String, Object> beanToMap(Object obj) {
+        if(obj == null) return null;
+        return objectMapper.convertValue(obj, Tmap.class);
     }
 }
