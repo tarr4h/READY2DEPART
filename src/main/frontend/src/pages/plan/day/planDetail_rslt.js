@@ -152,6 +152,12 @@ function ResultPlanDetail({plan, doList, setDoList, reArranged, setReArranged}){
             }
             <div className="box1 bd_gray mb_3">
                 <div className="titWrapper tb">
+                    <div>설명</div>
+                    <div>
+                        <span className="gray">{plan.description}</span>
+                    </div>
+                </div>
+                <div className="titWrapper tb">
                     <div>시작시간</div>
                     <div>
                         <span className="orange">{plan.startTm}</span>

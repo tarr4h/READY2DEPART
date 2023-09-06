@@ -47,6 +47,15 @@ function AddPlanModal({callback}){
                         </div>
                     </div>
                     <div className="titWrapper">
+                        <div className="orange">설명</div>
+                        <div>
+                            <textarea name="description"
+                                      className="textarea wd_100"
+                                      {...register('description')}
+                                      ></textarea>
+                        </div>
+                    </div>
+                    <div className="titWrapper">
                         <div className="orange">시작시간</div>
                         <div>
                             <input className="input wd_100"

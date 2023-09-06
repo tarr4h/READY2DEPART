@@ -70,6 +70,16 @@ function EditPlanDetail({plan, doList, register, setValue, stayTmList, setStayTm
                     </div>
                 </div>
                 <div className="titWrapper">
+                    <div>설명</div>
+                    <div>
+                        <textarea name="description"
+                                  className="textarea wd_100"
+                                  defaultValue={plan.description}
+                                  {...register('description')}
+                        ></textarea>
+                    </div>
+                </div>
+                <div className="titWrapper">
                     <div>시작시간</div>
                     <div>
                         <input type="time"

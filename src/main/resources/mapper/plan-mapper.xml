@@ -11,11 +11,13 @@
 
     <insert id="insertPlanDay">
         INSERT INTO TRV_PLAN_DAY
-        (ID, USER_ID, NM, START_TM, END_TM, MOD_DT)
+        (ID, USER_ID, NM, DESCRIPTION, REGION, START_TM, END_TM, MOD_DT)
         VALUES(
                 CONCAT('PLD', LPAD(GET_SEQ('PLD'), 7, 0))
             ,   #{userId}
             ,   #{nm}
+            ,   #{description}
+            ,   '미지정'
             ,   #{startTm}
             ,   #{endTm}
             ,   NOW()
@@ -25,6 +27,7 @@
     <update id="updatePlanDay">
         UPDATE TRV_PLAN_DAY
         SET     NM = #{nm}
+            ,   DESCRIPTION = #{description}
             ,   START_TM = #{startTm}
             ,   END_TM = #{endTm}
             ,   START_LOC_NM = #{startLocNm}
@@ -38,6 +41,8 @@
         SELECT  ID
              ,  USER_ID
              ,  NM
+             ,  DESCRIPTION
+             ,  REGION
              ,  DATE_FORMAT(START_TM, '%H:%i') AS START_TM
              ,  DATE_FORMAT(END_TM, '%H:%i') AS END_TM
              ,  START_LOC_NM
@@ -67,6 +72,8 @@
         SELECT  ID
              ,  USER_ID
              ,  NM
+             ,  DESCRIPTION
+             ,  REGION
              ,  DATE_FORMAT(START_TM, '%H:%i') AS START_TM
              ,  DATE_FORMAT(END_TM, '%H:%i') AS END_TM
              ,  START_LOC_NM

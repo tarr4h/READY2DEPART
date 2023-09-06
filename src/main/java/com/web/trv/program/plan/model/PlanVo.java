@@ -23,6 +23,8 @@ public class PlanVo {
     String id;
     String userId;
     String nm;
+    String description;
+    String region;
     String startTm;
     String endTm;
     String startLocNm;

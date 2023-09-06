@@ -54,7 +54,8 @@ function PlanDayMain(){
         })).data;
 
         alert(result + '건이 삭제되었습니다.');
-        void getPlanList();
+        await getPlanList();
+        setShowDelBtn(false);
         comn.unBlockUI();
     }
 
