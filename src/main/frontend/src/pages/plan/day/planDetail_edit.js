@@ -28,6 +28,7 @@ function EditPlanDetail({plan, doList, register, setValue, stayTmList, setStayTm
         setValue('startLocNm', data.locNm);
         setValue('startLocLat', data.geoLoc.latitude);
         setValue('startLocLng', data.geoLoc.longitude);
+        setValue('region', data.region);
         setShowSearchModal(false);
     }
 

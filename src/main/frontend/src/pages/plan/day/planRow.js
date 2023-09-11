@@ -25,7 +25,7 @@ function PlanRow({plan, onChange, size}){
                 />
             </div>
             <div onClick={size === 'big' ? showDetail : null}
-            >{plan.nm}</div>
+            >{plan.nm}({plan.region})</div>
             <div>{plan.startTm} ~ {plan.endTm}</div>
         </div>
     )

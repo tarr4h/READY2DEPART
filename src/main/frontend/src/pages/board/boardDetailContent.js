@@ -74,7 +74,7 @@ function BoardDetailContent({board, modal}){
                     {
                         board.isMine && !modal ?
                             (
-                                <div className="flex">
+                                <div className="flex a_center">
                                     <a className="btn orange bd_orange mr_1"
                                        style={{height : '2vh'}}
                                        onClick={deleting}

@@ -250,6 +250,10 @@ input[type=time]::-webkit-clear-button{
 .flex.j_around{
     justify-content: space-around;
 }
+.flex.a_center{
+    flex-wrap: wrap;
+    align-content: center;
+}
 
 .titColor{
     color: #F2F2F2!important;

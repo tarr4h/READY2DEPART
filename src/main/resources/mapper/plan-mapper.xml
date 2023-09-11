@@ -28,6 +28,7 @@
         UPDATE TRV_PLAN_DAY
         SET     NM = #{nm}
             ,   DESCRIPTION = #{description}
+            ,   REGION = LEFT(#{region}, 2)
             ,   START_TM = #{startTm}
             ,   END_TM = #{endTm}
             ,   START_LOC_NM = #{startLocNm}

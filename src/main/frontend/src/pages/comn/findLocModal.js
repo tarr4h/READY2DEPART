@@ -9,6 +9,7 @@ function FindLocModal({callback, showModal}){
 
     const [selectedGeoLoc, setSelectedGeoLoc] = useState(null);
     const [selectedLocNm, setSelectedLocNm] = useState('');
+    const [selectedRegion, setSelectedRegion] = useState('');
     const searchKeyword = useInput('');
 
     const [showSearchListModal, setShowSearchListModal] = useState(false);
@@ -44,8 +45,10 @@ function FindLocModal({callback, showModal}){
 
     const coordResult = (result, status) => {
         if(result[1] != null){
+            setSelectedRegion(result[1].region_1depth_name);
             setSelectedLocNm(result[1].address_name);
         } else {
+            setSelectedRegion(result[0].region_1depth_name);
             setSelectedLocNm(result[0].address_name);
         }
     }
@@ -95,7 +98,8 @@ function FindLocModal({callback, showModal}){
     const sendReponse = () => {
         const param = {
             locNm : selectedLocNm,
-            geoLoc : selectedGeoLoc
+            geoLoc : selectedGeoLoc,
+            region : selectedRegion
         }
         callback(param);
     }
