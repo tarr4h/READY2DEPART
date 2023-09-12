@@ -25,28 +25,62 @@
     height: 3.7vh;
 }
 .planRow{
-    height: 5vh;
+    /*height: 5vh;*/
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
     justify-content: flex-start;
+    border: 1px solid gray;
+    border-radius: 8px;
+    margin-bottom: 1vh;
 }
 .planRow > div {
     color: #F2F2F2;
 }
 .planRow > div:nth-child(1){
     width: 8%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
 }
-.planRow > div:nth-child(2){
-    width: 58%;
-    padding-left: 3%;
-    padding-right: 3%;
+.planRowCont{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 92%;
+    padding-left: 2vw;
+}
+.planRowCont > div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+}
+.planRowCont > div:nth-child(1) > div:nth-child(1){
+    color: #F2F2F2;
+}
+.planRowCont > div:nth-child(1) > div:nth-child(2){
+    font-size: 0.9rem;
+    color: #F2A74B;
+}
+
+.planRowCont > div:nth-child(2){
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    margin-top: 1vh;
+}
+.planRowCont > div:nth-child(2) > div:nth-child(1) {
+    width: 65%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-.planRow > div:nth-child(3){
-    width: 30%;
+    color: #c5c5c5;
 }
 

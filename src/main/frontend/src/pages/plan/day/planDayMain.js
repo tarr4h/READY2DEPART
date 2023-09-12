@@ -56,6 +56,7 @@ function PlanDayMain(){
         alert(result + '건이 삭제되었습니다.');
         await getPlanList();
         setShowDelBtn(false);
+        setSelectedPlanList([]);
         comn.unBlockUI();
     }
 
@@ -76,7 +77,7 @@ function PlanDayMain(){
                    isOpen={showAddModal}
                    setIsOpen={setShowAddModal}
             />
-            <div className="mt_2 mb_1 pr_3 pl_3 flex j_around">
+            <div className="mt_2 mb_2 pr_3 pl_3 flex j_around">
                 {
                     showDelBtn ?
                         <a className="btn gray bd_gray mr_1 wd_100"

@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import * as comn from "../../comn/comnFunction";
-import {getDistanceMark} from "../../comn/comnFunction";
 
 function Board({board, selectedCtgrArr}){
 
@@ -31,22 +30,22 @@ function Board({board, selectedCtgrArr}){
         });
     }
 
-    const regionColor = (region) => {
-        let regionClass;
-        switch(region){
-            case '서울' :
-                regionClass = 'region_col_seoul';
-                break;
-            case '경기' :
-                regionClass = 'region_col_gynggi';
-                break;
-            case '제주' :
-                regionClass = 'region_col_jeju';
-                break;
-        }
-
-        return regionClass;
-    }
+    // const regionColor = (region) => {
+    //     let regionClass;
+    //     switch(region){
+    //         case '서울' :
+    //             regionClass = 'region_col_seoul';
+    //             break;
+    //         case '경기' :
+    //             regionClass = 'region_col_gynggi';
+    //             break;
+    //         case '제주' :
+    //             regionClass = 'region_col_jeju';
+    //             break;
+    //     }
+    //
+    //     return regionClass;
+    // }
 
     return (
         <div className="board"
@@ -91,8 +90,8 @@ function Board({board, selectedCtgrArr}){
             <div className="flex-right">
                 <div className="top">
                     <div className="regionWrapper">
-                        <div className={regionColor(board.district.region1)}>{board.district.region1}</div>
-                        <div className={regionColor(board.district.region1)}>{board.district.region2}</div>
+                        <div className={comn.getRegionFill(board.district.region1)}>{board.district.region1}</div>
+                        <div className={comn.getRegionFill(board.district.region1)}>{board.district.region2}</div>
                     </div>
                 </div>
                 <div className="bottom">

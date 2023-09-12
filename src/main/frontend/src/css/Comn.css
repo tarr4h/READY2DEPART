@@ -238,6 +238,10 @@ input[type=time]::-webkit-clear-button{
     color: #F2F2F2!important;
 }
 
+.cobalt{
+    color: #292b51;
+}
+
 .flex{
     display: flex;
 }
@@ -653,4 +657,31 @@ input[type=time]::-webkit-clear-button{
 
 .tab.roof{
     height: 5vh;
+}
+
+
+.region_fill_default{
+    background-color: #F2F2F2;
+    border-color: #292b51;
+    color: #292b51!important;
+}
+.region_fill_seoul{
+    background-color: #455F54;
+    border-color: #455F54;
+    color: #FFF;
+}
+.region_fill_gynggi{
+    background-color: #164194;
+    border-color: #164194;
+    color: #FFF;
+}
+.region_fill_jeju{
+    background-color: #EBA438;
+    border-color: #EBA438;
+    color: #FFF;
+}
+.region_fill_kangwon{
+    background-color: #D90D43;
+    border-color: #D90D43;
+    color: #FFF;
 }

@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom";
+import * as comn from "../../../comn/comnFunction";
 
-
-function PlanRow({plan, onChange, size}){
+function PlanRow({plan, onChange, size, isChecked}){
 
     const navigate = useNavigate();
 
@@ -15,7 +15,8 @@ function PlanRow({plan, onChange, size}){
 
     return (
         <div className={
-            size === 'big' ? "planRow pl_3 pr_3" : "planRow"
+            (size === 'big' ? "pl_3 pr_3 pt_1 pb_1" : "") + ' planRow'
+            + (isChecked ? ' bd_orange' : '')
         }
              key={plan.id}>
             <div>
@@ -24,9 +25,18 @@ function PlanRow({plan, onChange, size}){
                        value={plan.id}
                 />
             </div>
-            <div onClick={size === 'big' ? showDetail : null}
-            >{plan.nm}({plan.region})</div>
-            <div>{plan.startTm} ~ {plan.endTm}</div>
+            <div className="planRowCont"
+                 onClick={size === 'big' ? showDetail : null}
+            >
+                <div>
+                    <div>{plan.nm}</div>
+                    <div>{plan.region}</div>
+                </div>
+                <div>
+                    <div>{plan.description}</div>
+                    <div>{plan.startTm} ~ {plan.endTm}</div>
+                </div>
+            </div>
         </div>
     )
 }

@@ -113,6 +113,27 @@ export function imgGend(sysCd){
     return require(`../img/${img}`);
 }
 
+export function getRegionFill(region) {
+    let regionClass;
+    switch(region){
+        case '서울' :
+            regionClass = 'region_fill_seoul';
+            break;
+        case '경기' :
+            regionClass = 'region_fill_gynggi';
+            break;
+        case '제주' :
+            regionClass = 'region_fill_jeju';
+            break;
+        case '강원' :
+            regionClass = 'region_fill_kangwon';
+            break;
+        default : regionClass = 'region_fill_default';
+    }
+
+    return regionClass;
+}
+
 export function getDistanceMark(num){
     let distance = Math.round((Number(num) * 1000));
     let mark = 'm';

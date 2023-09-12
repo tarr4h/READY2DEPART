@@ -29,6 +29,15 @@ function PlanList({planList, selectedPlanList, setSelectedPlanList, size}){
         }
     }
 
+    const isChecked = (planId) => {
+        let result = false;
+        selectedPlanList.forEach((item) => {
+            if(item === planId) result = true;
+            return false;
+        });
+        return result;
+    }
+
     return (
         <div className="planWrapper">
             {
@@ -37,6 +46,7 @@ function PlanList({planList, selectedPlanList, setSelectedPlanList, size}){
                              plan={item}
                              onChange={planRowSelect}
                              size={size}
+                             isChecked={isChecked(item.id)}
                     />
                 ))
             }
