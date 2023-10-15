@@ -26,7 +26,7 @@ spring:
     multipart:
       enabled: true
 #      location: C:\WORKSPACE\ATTACH  # WINDOW
-      location : /Users/taewoohan/WorkFolder/WORKSPACE/ATTACH # MAC
+      location : /Users/taewoohan/WorkFolder/WORKSPACE_ATTACH/R2D # MAC
       max-file-size: 100MB
       max-request-size: 500MB
 
