@@ -5,7 +5,6 @@ import {useEffect} from "react";
 function PlanList({planList, selectedPlanList, setSelectedPlanList, size}){
 
     useEffect(() => {
-        console.log('sorted --- ');
     }, [planList]);
 
     const planRowSelect = (event) => {
