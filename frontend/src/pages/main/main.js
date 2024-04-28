@@ -120,6 +120,7 @@ function Main(){
     }
 
     const setCurrentMap = async () => {
+        comn.blockUI();
         let geoLoc;
 
         // 필터 검색 > 상세페이지 또는 기타 navigate 이후 반영
@@ -136,13 +137,16 @@ function Main(){
         }
 
         setCurrentGeoLoc(geoLoc);
+        comn.unBlockUI();
         void setMap(geoLoc);
     }
 
     const setMap = async (geoLoc) => {
+        comn.blockUI();
         let list = await selectNearby(geoLoc, mapRadius.current);
         setBoardList(list);
         await showMap(geoLoc.latitude, geoLoc.longitude, list);
+        comn.unBlockUI();
     }
 
     const showMap = async (latitude, longitude, list) => {
