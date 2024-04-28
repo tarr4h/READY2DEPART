@@ -68,23 +68,32 @@ function BoardList({boardList, isTracking}){
         const categoryCd = event.target.value;
         const arr = [];
 
-        if(checked){
+        if(wholeCtgrChecked){
             let param = {
                 categoryCd,
-                checked
+                checked : true
             }
             arr.push(param);
-
-            selectedCtgrArr.forEach(function(item, index){
-                arr.push(item);
-            });
         } else {
-            selectedCtgrArr.forEach(function(item, index){
-                if(item.categoryCd !== categoryCd){
-                    arr.push(item);
+            if(checked){
+                let param = {
+                    categoryCd,
+                    checked
                 }
-            });
+                arr.push(param);
+
+                selectedCtgrArr.forEach(function(item, index){
+                    arr.push(item);
+                });
+            } else {
+                selectedCtgrArr.forEach(function(item, index){
+                    if(item.categoryCd !== categoryCd){
+                        arr.push(item);
+                    }
+                });
+            }
         }
+
         if(boardSummary.length === arr.length){
             setWholeCtgrChecked(current => !current);
         } else if(boardSummary.length !== arr.length && wholeCtgrChecked){
@@ -123,9 +132,7 @@ function BoardList({boardList, isTracking}){
         <div className="boardWrapper">
             <a className="btn goRegister" onClick={goRegister}>등록하기</a>
             <div className="boardResultSummary">
-                <div>
-                    검색결과
-                </div>
+                <div>검색결과</div>
                 <div>
                     <div className="chkbox_multi orange">
                         <input type="checkbox"
